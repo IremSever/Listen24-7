@@ -56,6 +56,11 @@
 		61112BD42B979AE400FA0008 /* Listen24-7 */ = {
 			isa = PBXGroup;
 			children = (
+				61CA20382B97B7E70027A2FD /* Library */,
+				61CA20372B97B7A30027A2FD /* Radio */,
+				61CA20362B97B79B0027A2FD /* Explore */,
+				61CA20352B97B7560027A2FD /* Music */,
+				61CA20342B97B6CE0027A2FD /* Home */,
 				61112BD52B979AE400FA0008 /* AppDelegate.swift */,
 				61112BD72B979AE400FA0008 /* SceneDelegate.swift */,
 				61112BD92B979AE400FA0008 /* ViewController.swift */,
@@ -65,6 +70,41 @@
 				61112BE32B979AE500FA0008 /* Info.plist */,
 			);
 			path = "Listen24-7";
+			sourceTree = "<group>";
+		};
+		61CA20342B97B6CE0027A2FD /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		61CA20352B97B7560027A2FD /* Music */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
+		61CA20362B97B79B0027A2FD /* Explore */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Explore;
+			sourceTree = "<group>";
+		};
+		61CA20372B97B7A30027A2FD /* Radio */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Radio;
+			sourceTree = "<group>";
+		};
+		61CA20382B97B7E70027A2FD /* Library */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Library;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
