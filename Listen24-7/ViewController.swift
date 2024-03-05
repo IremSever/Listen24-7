@@ -8,12 +8,14 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-
+    
+    @IBAction func buttonStart(_ sender: UIButton) {
+        performSegue(withIdentifier: "toFeedVC", sender: nil)
+    }
 }
 
