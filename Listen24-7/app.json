@@ -3,62 +3,106 @@
         "response": [
             {
                 "title": "",
-                "template" : "home",
-                "playlist" : [
+                "template": "home",
+                "playlist": [
                     {
-                        "title": "Rock müziğin sevilen gruplarından Coldplay..."
+                        "title": "Rock müziğin sevilen gruplarından Coldplay...",
                         "image": "coldplay.jpg"
                     },
                     {
-                        "title": "Popüler şarkılarıyla Anne-Marie çalma listesi..."
+                        "title": "Popüler şarkılarıyla Anne-Marie çalma listesi...",
                         "image": "anne-marie.jpg"
                     },
                     {
-                        "title": "Uyumadan önce kısa bir mola ver ve sesli kitap dinle!"
+                        "title": "Uyumadan önce kısa bir mola ver ve sesli kitap dinle!",
                         "image": "audiobook.png"
                     },
                     {
-                        "title": "Söyleyin de nasır tutmuş o kalbi beri gelsin..."
+                        "title": "Söyleyin de nasır tutmuş o kalbi beri gelsin...",
                         "image": "melikesahin.jpeg"
                     },
                     {
-                        "title": "Anadolu'nun sesi türkürlerimiz..."
+                        "title": "Anadolu'nun sesi türkürlerimiz...",
                         "image": "turku.jpeg"
                     }
-                    
+                ]
+            },
+            {
+                "title": "POP İKONLARI",
+                "template": "home",
+                "select_mode": [
+                    {
+                        "title": "Lady Gaga",
+                        "image": "ladygaga.jpg"
+                    },
+                    {
+                        "title": "Justin Bieber",
+                        "image": "justinbieber.jpg"
+                    },
+                    {
+                        "title": "Inna",
+                        "image": "inna.jpg"
+                    },
+                    {
+                        "title": "Mariah Carey",
+                        "image": "mariahcarey.jpg"
+                    },
+                    {
+                        "title": "Shakira",
+                        "image": "shakira.jpg"
+                    },
+                    {
+                        "title": "Ariana Grande",
+                        "image": "arianagrande.jpg"
+                    },
+                    {
+                        "title": "Ava Max",
+                        "image": "avamax.jpg"
+                    },
+                    {
+                        "title": "Halsey",
+                        "image": "halsey.jpg"
+                    },
+                    {
+                        "title": "Little Mix",
+                        "image": "little mix.jpg"
+                    },
+                    {
+                        "title": "Miley Cyrus",
+                        "image": "mileycyrus.jpg"
+                    }
                 ]
             },
             {
                 "title": "SEÇ Bİ'MOD!",
-                "template" : "home",
-                "select_mode" : [
+                "template": "home",
+                "select_mode": [
                     {
-                        "title": "Eller Havaya | Dans Müzikleri"
+                        "title": "Eller Havaya | Dans Müzikleri",
                         "image": "ellerhavaya.jpg"
                     },
                     {
-                        "title": "Kelebekler Gibi | Dans Müzikleri"
+                        "title": "Kelebekler Gibi | Dans Müzikleri",
                         "image": "kelebeklergibi.jpg"
                     },
                     {
-                        "title": "Yandan Yandan  | Dans Müzikleri"
+                        "title": "Yandan Yandan  | Dans Müzikleri",
                         "image": "yandanyandan.jpg"
                     },
                     {
-                        "title": "Bombastik | Dans Müzikleri"
+                        "title": "Bombastik | Dans Müzikleri",
                         "image": "bombastik.jpg"
                     },
                     {
-                        "title": "Kuğu Gölü | Dans Müzikleri"
+                        "title": "Kuğu Gölü | Dans Müzikleri",
                         "image": "kugugolu.jpg"
                     }
-                    
                 ]
             },
             {
                 "title": "CANLI RADYOLAR",
-                "template" : "home",
-                "live_radio" : [
+                "template": "home",
+                "live_radio": [
                     {
                         "image": "radyoturkuvaz.jpg"
                     },
@@ -102,8 +146,8 @@
             },
             {
                 "title": "LİMİTSİZ MÜZİK",
-                "template" : "home",
-                "endless_music" : [
+                "template": "home",
+                "endless_music": [
                     {
                         "image": "enyeniler.jpg"
                     },
@@ -123,8 +167,8 @@
             },
             {
                 "title": "SPOR GÜNDEMİ",
-                "template" : "home",
-                "sport_agenda" : [
+                "template": "home",
+                "sport_agenda": [
                     {
                         "image": "sporgundemi.jpg"
                     },
@@ -144,8 +188,8 @@
             },
             {
                 "title": "SESLİ KİTAPLAR",
-                "template" : "home",
-                "audiobook" : [
+                "template": "home",
+                "audiobook": [
                     {
                         "image": "ivanilyicolumu.jpg"
                     },
@@ -180,8 +224,8 @@
             },
             {
                 "title": "K-POP HAYRANLARI İÇİN",
-                "template" : "home",
-                "audiobook" : [
+                "template": "home",
+                "kpop_fans": [
                     {
                         "image": "blackpink.jpg"
                     },
@@ -198,8 +242,8 @@
             },
             {
                 "title": "NOSTALJİ SAATİ",
-                "template" : "home",
-                "nostalgia" : [
+                "template": "home",
+                "nostalgia": [
                     {
                         "image": "efsane70ler.jpg"
                     },
@@ -219,8 +263,8 @@
             },
             {
                 "title": "MODUNA GÖRE HABER DİNLE",
-                "template" : "home",
-                "listen_for_mode" : [
+                "template": "home",
+                "listen_for_mode": [
                     {
                         "image": "sabahkahvesi.jpg"
                     },
@@ -243,8 +287,8 @@
             },
             {
                 "title": "YA BİR ŞEY ARIYORUZ DA",
-                "template" : "home",
-                "listen_for_mode" : [
+                "template": "home",
+                "searching": [
                     {
                         "image": "sabahkahvesi.jpg"
                     },
@@ -265,11 +309,376 @@
                     }
                 ]
             },
-            
-            
-            
-            
-            
-            
+            {
+                "title": "MODUNA GÖRE TÜRKÇE ROCK",
+                "template": "home",
+                "turkish_rock_for_mode": [
+                    {
+                        "image": "dunyafani.jpg"
+                    },
+                    {
+                        "image": "yalnızlarrihtimi.jpg"
+                    },
+                    {
+                        "image": "senihergordugumde.jpg"
+                    },
+                    {
+                        "image": "anmaarkadas.jpg"
+                    },
+                    {
+                        "image": "dogarkenagladiinsan.jpg"
+                    },
+                    {
+                        "image": "gerceninnemi.jpg"
+                    },
+                    {
+                        "image": "sevince.jpg"
+                    }
+                ]
+            },
+            {
+                "title": "2023'ÜN ENLERİ",
+                "template": "home",
+                "top_2023": [
+                    {
+                        "image": "enacidolu.jpg"
+                    },
+                    {
+                        "image": "enfresh.jpg"
+                    },
+                    {
+                        "image": "eneglenceli.jpg"
+                    },
+                    {
+                        "image": "enpopuler.jpg"
+                    },
+                    {
+                        "image": "enaskdolu.jpg"
+                    }
+                ]
+            },
+            {
+                "title": "REMIX'LE",
+                "template": "home",
+                "remix": [
+                    {
+                        "image": "efsaneler.jpg"
+                    },
+                    {
+                        "image": "eskiler.jpg"
+                    },
+                    {
+                        "image": "ensevilenler.jpg"
+                    },
+                    {
+                        "image": "sadeceremix.jpg"
+                    },
+                    {
+                        "image": "enyeniler.jpg"
+                    }
+                ]
+            },
+            {
+                "title": "GÜNLERDEN REGGAE",
+                "template": "home",
+                "reggae": [
+                    {
+                        "image": "bobmarley.jpg"
+                    },
+                    {
+                        "image": "shaggy.jpg"
+                    },
+                    {
+                        "image": "protoje.jpg"
+                    },
+                    {
+                        "image": "manuchao.jpg"
+                    },
+                    {
+                        "image": "damianmarley.jpg"
+                    }
+                ]
+            },
+            {
+                "title": "USTA İŞİ EDEBİYAT",
+                "template": "home",
+                "literature": [
+                    {
+                        "image": "omerseyfettin.jpg"
+                    },
+                    {
+                        "image": "resatnuriguntekin.jpg"
+                    },
+                    {
+                        "image": "nazimhikmet.jpg"
+                    },
+                    {
+                        "image": "saitfaik.jpg"
+                    },
+                    {
+                        "image": "ahmedarif.jpg"
+                    },
+                    {
+                        "image": "cahitsithi.jpg"
+                    },
+                    {
+                        "image": "atillailhan.jpg"
+                    },
+                    {
+                        "image": "orhanveli.jpg"
+                    },
+                    {
+                        "image": "necipfazil.jpg"
+                    },
+                    {
+                        "image": "ozdemirasaf.jpg"
+                    }
+                ]
+            },
+            {
+                "title": "TAKIM MARŞLARI",
+                "template": "home",
+                "team_songs": [
+                    {
+                        "image": "millitakimlar.jpg"
+                    },
+                    {
+                        "image": "fenerbahcemars.jpg"
+                    },
+                    {
+                        "image": "galatasaraymars.jpg"
+                    },
+                    {
+                        "image": "besiktasmars.jpg"
+                    },
+                    {
+                        "image": "trabzonmars.jpg"
+                    }
+                ]
+            },
+            {
+                "title": "HAFTALIK ÖNERİLER",
+                "template": "home",
+                "weekly_suggestions": [
+                    {
+                        "title": "Işıkları Söndürsünler",
+                        "image": "manga.jpg",
+                        "releaseDate": "2014"
+                    },
+                    {
+                        "title": "İnsanlık Halleri",
+                        "image": "teoman.jpg",
+                        "releaseDate": "2009"
+                    },
+                    {
+                        "title": "Mavi",
+                        "image": "kutsi.jpg",
+                        "releaseDate": "2017"
+                    },
+                    {
+                        "title": "Kadın",
+                        "image": "sebnemferah.jpg",
+                        "releaseDate": "1996"
+                    },
+                    {
+                        "title": "Mecnun",
+                        "image": "rafetel.jpg",
+                        "releaseDate": "2016"
+                    },
+                    {
+                        "title": "Çocuk",
+                        "image": "sibelalas.jpg",
+                        "releaseDate": "1998"
+                    },
+                    {
+                        "title": "Mucize",
+                        "image": "emel.jpg",
+                        "releaseDate": "2000"
+                    }
+                ]
+            },
+            {
+                "title": "YENİ ÇIKANLAR",
+                "template": "home",
+                "new_releases": [
+                    {
+                        "title": "F.Bahçe maçı öncesi Blessin: Saygı duymam gerekiyor!",
+                        "image": "fenerbahcesesli.jpg",
+                        "duration": "08:37"
+                    },
+                    {
+                        "title": "Cehennemin Dibi",
+                        "image": "mertdemir.jpg",
+                        "duration": "03:13"
+                    },
+                    {
+                        "title": "Pusulam Rüzgar",
+                        "image": "mertdemir.jpg",
+                        "duration": "04:08"
+                    },
+                    {
+                        "title": "Acı Veriyor",
+                        "image": "mertdemir.jpg",
+                        "duration": "03:13"
+                    },
+                    {
+                        "title": "Dön Desem",
+                        "image": "mertdemir.jpg",
+                        "duration": "03:57"
+                    },
+                    {
+                        "title": "İkimize Birden",
+                        "image": "mertdemir.jpg",
+                        "duration": "04:07"
+                    },
+                    {
+                        "title": "Gözlerime Bak",
+                        "image": "mertdemirgoz.jpg",
+                        "duration": "03:19"
+                    },
+                    {
+                        "title": "Karakış - Akustik",
+                        "image": "mertdemir.jpg",
+                        "duration": "03:47"
+                    },
+                    {
+                        "title": "Bırak Beni",
+                        "image": "mertdemir.jpg",
+                        "duration": "03:48"
+                    },
+                    {
+                        "title": "MİT'Ten nokta operasyon! PKK'nın sözde Süleymaniye sorumlusu Hüsnü Kümek etkisiz hale getirildi!",
+                        "image": "gundem.jpg",
+                        "duration": "02:00"
+                    }
+                ]
+            },
+            {
+                "title": "HAFTANIN EN SEVİLEN ALBÜMLERİ",
+                "template": "home",
+                "weekly_fav_albums": [
+                    {
+                        "title": "Yıldız Tilbe'nin Yıldızlı Şarkıları",
+                        "image": "yildiztilbe.jpg",
+                        "releaseDate": "2018"
+                    },
+                    {
+                        "title": "Mahzuni'ye Saygılar",
+                        "image": "mahzuni.jpg",
+                        "releaseDate": "2017"
+                    },
+                    {
+                        "title": "Her Gün Sonbahar",
+                        "image": "zakkum.jpg",
+                        "releaseDate": "2013"
+                    },
+                    {
+                        "title": "Eylül Geldi Sonra",
+                        "image": "emreaydin.jpg",
+                        "releaseDate": "2013"
+                    },
+                    {
+                        "title": "Maya",
+                        "image": "mabelmatiz.jpg",
+                        "releaseDate": "2018"
+                    },
+                    {
+                        "title": "İnsanlık Halleri",
+                        "image": "teomaninsanlik.jpg",
+                        "releaseDate": "2009"
+                    },
+                    {
+                        "title": "Tuna Kiremitçi Arkadaşları",
+                        "image": "tunakiremitci.jpg",
+                        "releaseDate": "2017"
+                    },
+                    {
+                        "title": "Seksenler Dizi Şarkıları",
+                        "image": "seksenler.jpg",
+                        "releaseDate": "2012"
+                    },
+                    {
+                        "title": "Adam Gibi Adam",
+                        "image": "ebrugundesadam.jpg",
+                        "releaseDate": "2005"
+                    },
+                    {
+                        "title": "Sezen Aksu'88",
+                        "image": "sezenaksu88.jpg",
+                        "releaseDate": "1988"
+                    }
+                ]
+            },
+            {
+                "title": "ÇOCUK KÜTÜPHANESİ",
+                "template": "home",
+                "children_library": [
+                    {
+                        "image": "cocukkalbi.jpg"
+                    },
+                    {
+                        "image": "peygamberimiogreniyorum.jpg"
+                    },
+                    {
+                        "image": "gozlukluserce.jpg"
+                    },
+                    {
+                        "image": "kucukkarabalik.jpg"
+                    },
+                    {
+                        "image": "0-6yas.jpg"
+                    },
+                    {
+                        "image": "7-13yas.jpg"
+                    }
+                ]
+            },
+            {
+                "title": "Haftalık En Çok Dinlenenler",
+                "template": "home",
+                "weekly_top10": [
+                    {
+                        "title": "Yan Benimle",
+                        "artist": "Sıla"
+                    },
+                    {
+                        "title": "Galaksi",
+                        "artist": "Ece Mumay"
+                    },
+                    {
+                        "title": "Gimme More",
+                        "artist": "Britney Spears"
+                    },
+                    {
+                        "title": "Poşet",
+                        "artist": "Serdar Ortaç"
+                    },
+                    {
+                        "title": "Seni Kimler Aldı",
+                        "artist": "Sezen Aksu"
+                    },
+                    {
+                        "title": "Delikanlım",
+                        "artist": "Yıldız Tilbe"
+                    },
+                    {
+                        "title": "Cendere",
+                        "artist": "Gökhan Kırdar"
+                    },
+                    {
+                        "title": "Kış Güneşi",
+                        "artist": "Tarkan"
+                    },
+                    {
+                        "title": "Oysa Bir Umuttu",
+                        "artist": "Kıraç"
+                    },
+                    {
+                        "title": "Çok Çok",
+                        "artist": "Edis"
+                    }
+                ]
+            }
         ]
     }
+}
