@@ -21,7 +21,7 @@ class HomeViewController: UIViewController {
         
         do {
             let data = try Data(contentsOf: url)
-            let respone = try JSONDecoder().decode(AppModel.self, from: data)
+            let response = try JSONDecoder().decode(AppModel.self, from: data)
         } catch {
             debugPrint(error)
         }

@@ -1,162 +1,275 @@
 {
-  "app": {
-    "popular": [
-      {
-        "title": "Rock müziğin sevilen gruplarından Coldplay...",
-        "image": "https://artist1.cdn107.com/f7d/f7df8504d3756b4052c381941d684a51_xl.jpg",
-        "category": "Yabancı Rock",
-        "detail": "'Paradise' isimli şarkılarıyla hafızalara kazınan ünlü rock grubu Coldplay'in şarkıları bu çalma listesinde",
-        "artist": "Coldplay",
-        "songs": [
-          {
-            "title": "Adventure Of A Life Time",
-            "duration": "04:12",
-            "file_path": "yabancirock/coldplay/adventureofalifetime.mp3"
-          },
-          {
-            "title": "Clocks",
-            "duration": "05:05",
-            "file_path": "yabancirock/coldplay/clocks.mp3"
-          },
-          {
-            "title": "Flags",
-            "duration": "03:36",
-            "file_path": "yabancirock/coldplay/flags.mp3"
-          },
-          {
-            "title": "Hymn for The Weekend",
-            "duration": "03:43",
-            "file_path": "yabancirock/coldplay/hymnfortheweekend.mp3"
-          },
-          {
-            "title": "Paradise",
-            "duration": "04:38",
-            "file_path": "yabancirock/coldplay/paradise.mp3"
-          }
+    "app": {
+        "response": [
+            {
+                "title": "",
+                "template" : "home",
+                "playlist" : [
+                    {
+                        "title": "Rock müziğin sevilen gruplarından Coldplay..."
+                        "image": "coldplay.jpg"
+                    },
+                    {
+                        "title": "Popüler şarkılarıyla Anne-Marie çalma listesi..."
+                        "image": "anne-marie.jpg"
+                    },
+                    {
+                        "title": "Uyumadan önce kısa bir mola ver ve sesli kitap dinle!"
+                        "image": "audiobook.png"
+                    },
+                    {
+                        "title": "Söyleyin de nasır tutmuş o kalbi beri gelsin..."
+                        "image": "melikesahin.jpeg"
+                    },
+                    {
+                        "title": "Anadolu'nun sesi türkürlerimiz..."
+                        "image": "turku.jpeg"
+                    }
+                    
+                ]
+            },
+            {
+                "title": "SEÇ Bİ'MOD!",
+                "template" : "home",
+                "select_mode" : [
+                    {
+                        "title": "Eller Havaya | Dans Müzikleri"
+                        "image": "ellerhavaya.jpg"
+                    },
+                    {
+                        "title": "Kelebekler Gibi | Dans Müzikleri"
+                        "image": "kelebeklergibi.jpg"
+                    },
+                    {
+                        "title": "Yandan Yandan  | Dans Müzikleri"
+                        "image": "yandanyandan.jpg"
+                    },
+                    {
+                        "title": "Bombastik | Dans Müzikleri"
+                        "image": "bombastik.jpg"
+                    },
+                    {
+                        "title": "Kuğu Gölü | Dans Müzikleri"
+                        "image": "kugugolu.jpg"
+                    }
+                    
+                ]
+            },
+            {
+                "title": "CANLI RADYOLAR",
+                "template" : "home",
+                "live_radio" : [
+                    {
+                        "image": "radyoturkuvaz.jpg"
+                    },
+                    {
+                        "image": "radyoenergy.jpg"
+                    },
+                    {
+                        "image": "turkuvaznostalji.jpg"
+                    },
+                    {
+                        "image": "radyosoft.jpg"
+                    },
+                    {
+                        "image": "turkuvazromantik.jpg"
+                    },
+                    {
+                        "image": "turkuvazanadolu.jpg"
+                    },
+                    {
+                        "image": "turkuvazefsane.jpg"
+                    },
+                    {
+                        "image": "vavradyo.jpg"
+                    },
+                    {
+                        "image": "asporradyo.jpg"
+                    },
+                    {
+                        "image": "anewsradio.jpg"
+                    },
+                    {
+                        "image": "turkuvazmusiki.jpg"
+                    },
+                    {
+                        "image": "ahbrradyo.jpg"
+                    },
+                    {
+                        "image": "apara.jpg"
+                    }
+                ]
+            },
+            {
+                "title": "LİMİTSİZ MÜZİK",
+                "template" : "home",
+                "endless_music" : [
+                    {
+                        "image": "enyeniler.jpg"
+                    },
+                    {
+                        "image": "300-500.jpg"
+                    },
+                    {
+                        "image": "discodisco.jpg"
+                    },
+                    {
+                        "image": "ritmikir.jpg"
+                    },
+                    {
+                        "image": "enerjiyifulle.jpg"
+                    }
+                ]
+            },
+            {
+                "title": "SPOR GÜNDEMİ",
+                "template" : "home",
+                "sport_agenda" : [
+                    {
+                        "image": "sporgundemi.jpg"
+                    },
+                    {
+                        "image": "fenerbahce.jpg"
+                    },
+                    {
+                        "image": "galatasaray.jpg"
+                    },
+                    {
+                        "image": "besiktas.jpg"
+                    },
+                    {
+                        "image": "trabzonspor.jpg"
+                    }
+                ]
+            },
+            {
+                "title": "SESLİ KİTAPLAR",
+                "template" : "home",
+                "audiobook" : [
+                    {
+                        "image": "ivanilyicolumu.jpg"
+                    },
+                    {
+                        "image": "peygamberimiogreniyorum.jpg"
+                    },
+                    {
+                        "image": "hayvanciftligi.jpg"
+                    },
+                    {
+                        "image": "pembeincilikaftan.jpg"
+                    },
+                    {
+                        "image": "denizleraltinda20000fersah.jpg"
+                    },
+                    {
+                        "image": "karlarkralicesi.jpg"
+                    },
+                    {
+                        "image": "kucukprens.jpg"
+                    },
+                    {
+                        "image": "gizlimabet.jpg"
+                    },
+                    {
+                        "image": "kucukdenizkizi.jpg"
+                    },
+                    {
+                        "image": "yabankugulari.jpg"
+                    }
+                ]
+            },
+            {
+                "title": "K-POP HAYRANLARI İÇİN",
+                "template" : "home",
+                "audiobook" : [
+                    {
+                        "image": "blackpink.jpg"
+                    },
+                    {
+                        "image": "superjunior.jpg"
+                    },
+                    {
+                        "image": "exo.jpg"
+                    },
+                    {
+                        "image": "bts.jpg"
+                    }
+                ]
+            },
+            {
+                "title": "NOSTALJİ SAATİ",
+                "template" : "home",
+                "nostalgia" : [
+                    {
+                        "image": "efsane70ler.jpg"
+                    },
+                    {
+                        "image": "eniyi870ler.jpg"
+                    },
+                    {
+                        "image": "eniyi90ler.jpg"
+                    },
+                    {
+                        "image": "hit2000ler.jpg"
+                    },
+                    {
+                        "image": "hit2010lar.jpg"
+                    }
+                ]
+            },
+            {
+                "title": "MODUNA GÖRE HABER DİNLE",
+                "template" : "home",
+                "listen_for_mode" : [
+                    {
+                        "image": "sabahkahvesi.jpg"
+                    },
+                    {
+                        "image": "icimiziacitan.jpg"
+                    },
+                    {
+                        "image": "yolhaberleri.jpg"
+                    },
+                    {
+                        "image": "hareketegeciren.jpg"
+                    },
+                    {
+                        "image": "sasirtan.jpg"
+                    },
+                    {
+                        "image": "gulumseten.jpg"
+                    }
+                ]
+            },
+            {
+                "title": "YA BİR ŞEY ARIYORUZ DA",
+                "template" : "home",
+                "listen_for_mode" : [
+                    {
+                        "image": "sabahkahvesi.jpg"
+                    },
+                    {
+                        "image": "icimiziacitan.jpg"
+                    },
+                    {
+                        "image": "yolhaberleri.jpg"
+                    },
+                    {
+                        "image": "hareketegeciren.jpg"
+                    },
+                    {
+                        "image": "sasirtan.jpg"
+                    },
+                    {
+                        "image": "gulumseten.jpg"
+                    }
+                ]
+            },
+            
+            
+            
+            
+            
+            
         ]
-      },
-      {
-        "title": "Popüler şarkılarıyla Anne-Marie çalma listesi...",
-        "image": "https://static.wikia.nocookie.net/annemarieiam/images/7/73/11.05.2017_mathew_coyte_rolling_stone.jpg/revision/latest?cb=20180519084025",
-        "category": "Yabancı Pop",
-        "detail": "Başarılı iş birlikleriyle adından sıkça söz ettiren Anne-Marie sevilen parçalarıyla sizlerle...",
-        "artist": "Anne-Marie",
-        "songs": [
-          {
-            "title": "Don't Leave Me Alone feat. David Guetta",
-            "duration": "03:44",
-            "file_path": "yabancipop/anne-marie/dontleavemealone.mp3"
-          },
-          {
-            "title": "Bad Girl Friend",
-            "duration": "03:26",
-            "file_path": "yabancipop/anne-marie/badgirlfriend.mp3"
-          },
-          {
-            "title": "Psycho",
-            "duration": "02:41",
-            "file_path": "yabancipop/anne-marie/psycho.mp3"
-          },
-          {
-            "title": "Rockabye feat Sean Paul, Clean Bandit",
-            "duration": "04:09",
-            "file_path": "yabancipop/anne-marie/rockabye.mp3"
-          },
-          {
-            "title": "Ciao Adios",
-            "duration": "03:22",
-            "file_path": "yabancipop/anne-marie/ciaoadios.mp3"
-          }
-        ]
-      }
-    ],
-    "select_mode": [
-      {
-        "title": "Eller Havaya | Dans Müzikleri",
-        "image": "ellerhavaya.jpg",
-        "details": "Sen de mi günün yoğunluğundan sıkıldın? O zaman seni bu çalma listesine alalım...",
-        "songs": [
-          {
-            "title": "Beautiful Liar",
-            "artist": "Beyonce",
-            "duration": "03:16",
-            "file_path": "yabancipop/beyonce/beautifullier.mp3"
-          },
-          {
-            "title": "Rich Girl",
-            "artist": "Gwen Stefani",
-            "duration": "03:14",
-            "file_path": "yabancipop/gwenstefani/richgirl.mp3"
-          },
-          {
-            "title": "Attention",
-            "artist": "Charlie Puth",
-            "duration": "03:29",
-            "file_path": "yabancipop/coldplay/attention.mp3"
-          },
-          {
-            "title": "Snow",
-            "artist": "Red Hot Chili Peppers",
-            "duration": "05:40",
-            "file_path": "yabancirock/redhotchilipeppers/snow.mp3"
-          },
-          {
-            "title": "Moves Like Jagger",
-            "artist": "Maroon 5",
-            "duration": "03:33",
-            "file_path": "yabancirock/maroon5/moveslikejagger.mp3"
-          },
-          {
-            "title": "Valse Sentimentale",
-            "artist": "Pyotr İlyiç Çaykovski",
-            "duration": "02:55",
-            "file_path": "yabancirock/joanjett/iloverocknroll.mp3"
-          }
-        ]
-      },
-      {
-        "title": "Kelebekler Gibi | Dans Müzikleri",
-        "image": "kelebeklergibi.jpg",
-        "details": "Partnerinizle dans etmek için müzik mi arıyorsunuz? Bu çalma listesine baktınız mı?",
-        "songs": [
-          {
-            "title": "Waltz in D-flat Majon, Op.64, No.1",
-            "artist": "Frederic Chopin",
-            "duration": "01:50",
-            "file_path": "dansmuzikleri/fredericchhopin/waltzind-flatmajon.mp3"
-          },
-          {
-            "title": "All Walters For Piano Solo",
-            "artist": "Alexander Scriabin",
-            "duration": "13:30",
-            "file_path": "yabancipop/alexanderscriabin/allwaltersforpianosolo.mp3"
-          },
-          {
-            "title": "Classical Waltz",
-            "artist": "Johannes Brahms",
-            "duration": "11:00",
-            "file_path": "yabancipop/johannesbrahms/classicalwaltz.mp3"
-          },
-          {
-            "title": "La Valse D'amelie",
-            "artist": "Amelie Film Müziği",
-            "duration": "02:15",
-            "file_path": "yabancirock/ameliefilmmuzigi/lavalsed'amelie.mp3"
-          },
-          {
-            "title": "Moves Like Jagger",
-            "artist": "Maroon 5",
-            "duration": "03:33",
-            "file_path": "yabancirock/maroon5/moveslikejagger.mp3"
-          },
-          {
-            "title": "I Love Rock'N'Roll",
-            "artist": "Joan Jett",
-            "duration": "02:55",
-            "file_path": "yabancirock/joanjett/iloverocknroll.mp3"
-          }
-        ]
-      }
-    ]
-  }
-}
+    }
