@@ -9,9 +9,22 @@ import Foundation
 import UIKit
 
 class HomeViewController: UIViewController {
-    @IBOutlet weak var deneme: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
+    
+    func parseJSON(_ name: String){
+        guard let path = Bundle.main.path(forResource: name, ofType: "json") else {return}
+        
+        let url = URL(fileURLWithPath: path)
+        
+        do {
+            let data = try Data(contentsOf: url)
+            let respone = try JSONDecoder().decode(AppModel.self, from: data)
+        } catch {
+            debugPrint(error)
+        }
+    }
+    
 }
