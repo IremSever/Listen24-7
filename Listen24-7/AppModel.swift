@@ -8,7 +8,11 @@
 import Foundation
 
 struct AppModel: Codable {
-    let app: [ResponseDetails]
+    let app: AppData
+}
+
+struct AppData: Codable {
+    let response: [ResponseDetails]
 }
 
 struct ResponseDetails: Codable {

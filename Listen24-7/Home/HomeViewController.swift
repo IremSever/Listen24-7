@@ -10,30 +10,29 @@ import UIKit
 
 class HomeViewController: UIViewController {
     override func viewDidLoad() {
-            super.viewDidLoad()
-            parseJSON("app")
+        super.viewDidLoad()
+        parseJSON("app")
+    }
+    
+    func parseJSON(_ name: String){
+        guard let path = Bundle.main.path(forResource: name, ofType: "json") else {
+            print("Not found json file")
+            return
         }
         
-        func parseJSON(_ name: String){
-            guard let path = Bundle.main.path(forResource: name, ofType: "json") else {
-                print("Not found json file")
-                return
-            }
-            
-            let url = URL(fileURLWithPath: path)
-            
-            do {
-                let data = try Data(contentsOf: url)
-                let response = try JSONDecoder().decode(AppModel.self, from: data)
-                
-                handleResponse(response)
-            } catch {
-                print("JSON conversion error: \(error)")
-            }
-        }
+        let url = URL(fileURLWithPath: path)
         
-        func handleResponse(_ response: AppModel) {
-            print("JSON data has been processed successfully")
+        do {
+            let data = try Data(contentsOf: url)
+            let response = try JSONDecoder().decode(AppModel.self, from: data)
+            
+            handleResponse(response)
+        } catch {
+            print("JSON conversion error: \(error)")
         }
     }
-
+    
+    func handleResponse(_ response: AppModel) {
+        print("JSON data has been processed successfully")
+    }
+}
