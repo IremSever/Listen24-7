@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct App: Codable {
+struct AppModel: Codable {
     let app: AppClass
 }
 
