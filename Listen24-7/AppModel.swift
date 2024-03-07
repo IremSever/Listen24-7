@@ -7,130 +7,72 @@
 
 import Foundation
 
-struct AppModel: Codable {
-    let app: AppData
+struct App: Codable {
+    let app: AppClass
 }
 
-struct AppData: Codable {
-    let response: [ResponseDetails]
+struct AppClass: Codable {
+    let response: [Response]
 }
 
-struct ResponseDetails: Codable {
-    let title: String?
-    let template: String?
-    let playlist: [PlaylistItem]?
-    let select_mode: [SelectModeItem]?
-    let live_radio: [LiveRadioItem]?
-    let endless_music: [EndlessMusicItem]?
-    let sport_agenda: [SportAgendaItem]?
-    let audiobook: [AudiobookItem]?
-    let kpop_fans: [KpopFansItem]?
-    let nostalgia: [NostalgiaItem]?
-    let listen_for_mode: [ListenForModeItem]?
-    let searching: [SearchingItem]?
-    let turkish_rock_for_mode: [TurkishRockForModeItem]?
-    let top_2023: [Top2023Item]?
-    let remix: [RemixItem]?
-    let reggae: [ReggaeItem]?
-    let literature: [LiteratureItem]?
-    let team_songs: [TeamSongsItem]?
-    let weekly_suggestions: [WeeklySuggestionsItem]?
-    let new_releases: [NewReleasesItem]?
-    let weekly_fav_albums: [WeeklyFavAlbumsItem]?
-    let children_library: [ChildrenLibraryItem]?
-    let weekly_top10: [WeeklyTop10Item]?
-}
-
-struct PlaylistItem: Codable {
+struct Response: Codable {
     let title: String
+    let template: Template
+    let cellType: String
+    let playlist, selectMode: [Playlist]?
+    let liveRadio, endlessMusic, sportAgenda, audiobook: [Audiobook]?
+    let kpopFans, nostalgia, listenForMode, searching: [Audiobook]?
+    let turkishRockForMode, top2023, remix, reggae: [Audiobook]?
+    let literature, teamSongs: [Audiobook]?
+    let weeklySuggestions: [Weekly]?
+    let newReleases: [NewRelease]?
+    let weeklyFavAlbums: [Weekly]?
+    let childrenLibrary: [Audiobook]?
+    let weeklyTop10: [WeeklyTop10]?
+
+    enum CodingKeys: String, CodingKey {
+        case title, template, cellType, playlist
+        case selectMode = "select_mode"
+        case liveRadio = "live_radio"
+        case endlessMusic = "endless_music"
+        case sportAgenda = "sport_agenda"
+        case audiobook
+        case kpopFans = "kpop_fans"
+        case nostalgia
+        case listenForMode = "listen_for_mode"
+        case searching
+        case turkishRockForMode = "turkish_rock_for_mode"
+        case top2023 = "top_2023"
+        case remix, reggae, literature
+        case teamSongs = "team_songs"
+        case weeklySuggestions = "weekly_suggestions"
+        case newReleases = "new_releases"
+        case weeklyFavAlbums = "weekly_fav_albums"
+        case childrenLibrary = "children_library"
+        case weeklyTop10 = "weekly_top10"
+    }
+}
+
+struct Audiobook: Codable {
     let image: String
 }
 
-struct SelectModeItem: Codable {
-    let title: String
-    let image: String
+struct NewRelease: Codable {
+    let title, image, duration: String
 }
 
-struct LiveRadioItem: Codable {
-    let image: String
+struct Playlist: Codable {
+    let title, image: String
 }
 
-struct EndlessMusicItem: Codable {
-    let image: String
+enum Template: String, Codable {
+    case home = "home"
 }
 
-struct SportAgendaItem: Codable {
-    let image: String
+struct Weekly: Codable {
+    let title, image, releaseDate: String
 }
 
-struct AudiobookItem: Codable {
-    let image: String
+struct WeeklyTop10: Codable {
+    let title, artist: String
 }
-
-struct KpopFansItem: Codable {
-    let image: String
-}
-
-struct NostalgiaItem: Codable {
-    let image: String
-}
-
-struct ListenForModeItem: Codable {
-    let image: String
-}
-
-struct SearchingItem: Codable {
-    let image: String
-}
-
-struct TurkishRockForModeItem: Codable {
-    let image: String
-}
-
-struct Top2023Item: Codable {
-    let image: String
-}
-
-struct RemixItem: Codable {
-    let image: String
-}
-
-struct ReggaeItem: Codable {
-    let image: String
-}
-
-struct LiteratureItem: Codable {
-    let image: String
-}
-
-struct TeamSongsItem: Codable {
-    let image: String
-}
-
-struct WeeklySuggestionsItem: Codable {
-    let title: String
-    let image: String
-    let releaseDate: String
-}
-
-struct NewReleasesItem: Codable {
-    let title: String
-    let image: String
-    let duration: String?
-}
-
-struct WeeklyFavAlbumsItem: Codable {
-    let title: String
-    let image: String
-    let releaseDate: String
-}
-
-struct ChildrenLibraryItem: Codable {
-    let image: String
-}
-
-struct WeeklyTop10Item: Codable {
-    let title: String
-    let artist: String
-}
-
