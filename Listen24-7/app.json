@@ -4,6 +4,7 @@
             {
                 "title": "",
                 "template": "home",
+                "cellType": "cell_headline",
                 "playlist": [
                     {
                         "title": "Rock müziğin sevilen gruplarından Coldplay...",
@@ -30,6 +31,7 @@
             {
                 "title": "POP İKONLARI",
                 "template": "home",
+                "cellType": "cell_square",
                 "select_mode": [
                     {
                         "title": "Lady Gaga",
@@ -74,34 +76,9 @@
                 ]
             },
             {
-                "title": "SEÇ Bİ'MOD!",
-                "template": "home",
-                "select_mode": [
-                    {
-                        "title": "Eller Havaya | Dans Müzikleri",
-                        "image": "ellerhavaya.jpg"
-                    },
-                    {
-                        "title": "Kelebekler Gibi | Dans Müzikleri",
-                        "image": "kelebeklergibi.jpg"
-                    },
-                    {
-                        "title": "Yandan Yandan  | Dans Müzikleri",
-                        "image": "yandanyandan.jpg"
-                    },
-                    {
-                        "title": "Bombastik | Dans Müzikleri",
-                        "image": "bombastik.jpg"
-                    },
-                    {
-                        "title": "Kuğu Gölü | Dans Müzikleri",
-                        "image": "kugugolu.jpg"
-                    }
-                ]
-            },
-            {
                 "title": "CANLI RADYOLAR",
                 "template": "home",
+                "cellType": "cell_circle",
                 "live_radio": [
                     {
                         "image": "radyoturkuvaz.jpg"
@@ -147,6 +124,7 @@
             {
                 "title": "LİMİTSİZ MÜZİK",
                 "template": "home",
+                "cellType": "cell_square",
                 "endless_music": [
                     {
                         "image": "enyeniler.jpg"
@@ -168,6 +146,7 @@
             {
                 "title": "SPOR GÜNDEMİ",
                 "template": "home",
+                "cellType": "cell_square",
                 "sport_agenda": [
                     {
                         "image": "sporgundemi.jpg"
@@ -189,6 +168,7 @@
             {
                 "title": "SESLİ KİTAPLAR",
                 "template": "home",
+                "cellType": "cell_square",
                 "audiobook": [
                     {
                         "image": "ivanilyicolumu.jpg"
@@ -225,6 +205,7 @@
             {
                 "title": "K-POP HAYRANLARI İÇİN",
                 "template": "home",
+                "cellType": "cell_square",
                 "kpop_fans": [
                     {
                         "image": "blackpink.jpg"
@@ -243,6 +224,7 @@
             {
                 "title": "NOSTALJİ SAATİ",
                 "template": "home",
+                "cellType": "cell_square",
                 "nostalgia": [
                     {
                         "image": "efsane70ler.jpg"
@@ -264,6 +246,7 @@
             {
                 "title": "MODUNA GÖRE HABER DİNLE",
                 "template": "home",
+                "cellType": "cell_square",
                 "listen_for_mode": [
                     {
                         "image": "sabahkahvesi.jpg"
@@ -288,6 +271,7 @@
             {
                 "title": "YA BİR ŞEY ARIYORUZ DA",
                 "template": "home",
+                "cellType": "cell_square",
                 "searching": [
                     {
                         "image": "sabahkahvesi.jpg"
@@ -312,6 +296,7 @@
             {
                 "title": "MODUNA GÖRE TÜRKÇE ROCK",
                 "template": "home",
+                "cellType": "cell_square",
                 "turkish_rock_for_mode": [
                     {
                         "image": "dunyafani.jpg"
@@ -337,8 +322,36 @@
                 ]
             },
             {
+                "title": "SEÇ Bİ'MOD!",
+                "template": "home",
+                "cellType": "cell_square",
+                "select_mode": [
+                    {
+                        "title": "Eller Havaya | Dans Müzikleri",
+                        "image": "ellerhavaya.jpg"
+                    },
+                    {
+                        "title": "Kelebekler Gibi | Dans Müzikleri",
+                        "image": "kelebeklergibi.jpg"
+                    },
+                    {
+                        "title": "Yandan Yandan  | Dans Müzikleri",
+                        "image": "yandanyandan.jpg"
+                    },
+                    {
+                        "title": "Bombastik | Dans Müzikleri",
+                        "image": "bombastik.jpg"
+                    },
+                    {
+                        "title": "Kuğu Gölü | Dans Müzikleri",
+                        "image": "kugugolu.jpg"
+                    }
+                ]
+            },
+            {
                 "title": "2023'ÜN ENLERİ",
                 "template": "home",
+                "cellType": "cell_square",
                 "top_2023": [
                     {
                         "image": "enacidolu.jpg"
@@ -360,6 +373,7 @@
             {
                 "title": "REMIX'LE",
                 "template": "home",
+                "cellType": "cell_square",
                 "remix": [
                     {
                         "image": "efsaneler.jpg"
@@ -381,6 +395,7 @@
             {
                 "title": "GÜNLERDEN REGGAE",
                 "template": "home",
+                "cellType": "cell_square",
                 "reggae": [
                     {
                         "image": "bobmarley.jpg"
@@ -402,6 +417,7 @@
             {
                 "title": "USTA İŞİ EDEBİYAT",
                 "template": "home",
+                "cellType": "cell_square",
                 "literature": [
                     {
                         "image": "omerseyfettin.jpg"
@@ -438,6 +454,7 @@
             {
                 "title": "TAKIM MARŞLARI",
                 "template": "home",
+                "cellType": "cell_square",
                 "team_songs": [
                     {
                         "image": "millitakimlar.jpg"
@@ -459,6 +476,7 @@
             {
                 "title": "HAFTALIK ÖNERİLER",
                 "template": "home",
+                "cellType": "cell_suggestion",
                 "weekly_suggestions": [
                     {
                         "title": "Işıkları Söndürsünler",
@@ -500,6 +518,7 @@
             {
                 "title": "YENİ ÇIKANLAR",
                 "template": "home",
+                "cellType": "cell_latest",
                 "new_releases": [
                     {
                         "title": "F.Bahçe maçı öncesi Blessin: Saygı duymam gerekiyor!",
@@ -556,6 +575,7 @@
             {
                 "title": "HAFTANIN EN SEVİLEN ALBÜMLERİ",
                 "template": "home",
+                "cellType": "cell_suggestion",
                 "weekly_fav_albums": [
                     {
                         "title": "Yıldız Tilbe'nin Yıldızlı Şarkıları",
@@ -612,6 +632,7 @@
             {
                 "title": "ÇOCUK KÜTÜPHANESİ",
                 "template": "home",
+                "cellType": "cell_square",
                 "children_library": [
                     {
                         "image": "cocukkalbi.jpg"
@@ -636,6 +657,7 @@
             {
                 "title": "Haftalık En Çok Dinlenenler",
                 "template": "home",
+                "cellType": "cell_top10",
                 "weekly_top10": [
                     {
                         "title": "Yan Benimle",
