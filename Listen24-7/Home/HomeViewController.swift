@@ -9,6 +9,10 @@ import Foundation
 import UIKit
 
 class HomeViewController: UIViewController {
+    
+    @IBOutlet weak var tableViewHome: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         parseJSON("app")
