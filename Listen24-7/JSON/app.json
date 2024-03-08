@@ -34,43 +34,33 @@
                 "cellType": "cell_square",
                 "select_mode": [
                     {
-                        "title": "Lady Gaga",
                         "image": "ladygaga.jpg"
                     },
                     {
-                        "title": "Justin Bieber",
                         "image": "justinbieber.jpg"
                     },
                     {
-                        "title": "Inna",
                         "image": "inna.jpg"
                     },
                     {
-                        "title": "Mariah Carey",
                         "image": "mariahcarey.jpg"
                     },
                     {
-                        "title": "Shakira",
                         "image": "shakira.jpg"
                     },
                     {
-                        "title": "Ariana Grande",
                         "image": "arianagrande.jpg"
                     },
                     {
-                        "title": "Ava Max",
                         "image": "avamax.jpg"
                     },
                     {
-                        "title": "Halsey",
                         "image": "halsey.jpg"
                     },
                     {
-                        "title": "Little Mix",
                         "image": "little mix.jpg"
                     },
                     {
-                        "title": "Miley Cyrus",
                         "image": "mileycyrus.jpg"
                     }
                 ]

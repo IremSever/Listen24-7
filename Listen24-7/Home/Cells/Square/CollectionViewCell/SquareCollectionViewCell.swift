@@ -10,6 +10,7 @@ import UIKit
 class SquareCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var imgSquare: UIImageView!
+    static let identifier = "SquareCollectionViewCell"
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
