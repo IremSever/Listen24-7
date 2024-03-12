@@ -21,7 +21,7 @@ class SquareCollectionViewCell: UICollectionViewCell {
         if let imageName = data.image {
             imgSquare.image = UIImage(named: imageName)
         } else {
-            imgSquare.image = UIImage(named: "defaultImage")
+            print("didnt find configure")
         }
     }
 }

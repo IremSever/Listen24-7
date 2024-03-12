@@ -54,10 +54,12 @@ extension HeadlineTableViewCell: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HeadlineCollectionViewCell.identifier, for: indexPath) as! HeadlineCollectionViewCell
         let data = dataArray[indexPath.item]
-        
-        if let weeklySug = data.weeklySuggestions?.first {
-            cell.imgHeadline.image = UIImage(named: weeklySug.image!)
-            cell.lblHeadlineTitle.text = weeklySug.title
+        switch data.template {
+        case .cell_headline:
+            cell.configure(with: data.info)
+            return cell
+        default:
+            break
         }
         return cell
     }
