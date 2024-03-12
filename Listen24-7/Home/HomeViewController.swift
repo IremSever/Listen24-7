@@ -17,8 +17,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         tableViewHome.dataSource = self
         tableViewHome.delegate = self
-        registerCells()
+        
         parseJSON()
+        registerCells()
     }
     
     func parseJSON() {
@@ -56,15 +57,12 @@ extension HomeViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let data = viewModel.cellData(forSection: indexPath.section)[indexPath.row]
         let templateType = data.template
-        
         switch templateType {
         case .cell_headline:
             let cell = tableView.dequeueReusableCell(withIdentifier: HeadlineTableViewCell.identifier, for: indexPath) as! HeadlineTableViewCell
-            print("headline****************")
             return cell
         case .cell_square:
             let cell = tableView.dequeueReusableCell(withIdentifier: SquareTableViewCell.identifier, for: indexPath) as! SquareTableViewCell
-            print("square******************")
             return cell
         case .cell_circle:
             let cell = tableView.dequeueReusableCell(withIdentifier: CircleTableViewCell.identifier, for: indexPath) as! CircleTableViewCell

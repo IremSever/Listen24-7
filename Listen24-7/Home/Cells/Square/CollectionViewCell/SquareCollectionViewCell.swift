@@ -23,7 +23,7 @@ class SquareCollectionViewCell: UICollectionViewCell {
             imgSquare.layer.cornerRadius = 10
             imgSquare.clipsToBounds = true
         } else {
-            print("didnt find configure")
+            print("didn't find configure")
         }
     }
 }

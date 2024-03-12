@@ -66,9 +66,8 @@ extension SquareTableViewCell: UICollectionViewDelegate, UICollectionViewDataSou
                     cell.configure(with: info)
                 }
             }
-            return cell
         default:
-            break
+            print("problem")
         }
         return cell
     }
