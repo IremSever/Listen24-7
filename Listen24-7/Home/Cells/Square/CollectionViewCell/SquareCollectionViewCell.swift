@@ -20,6 +20,8 @@ class SquareCollectionViewCell: UICollectionViewCell {
     func configure(with data: Info) {
         if let imageName = data.image {
             imgSquare.image = UIImage(named: imageName)
+            imgSquare.layer.cornerRadius = 10
+            imgSquare.clipsToBounds = true
         } else {
             print("didnt find configure")
         }

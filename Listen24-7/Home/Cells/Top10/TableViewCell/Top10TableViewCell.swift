@@ -54,8 +54,13 @@ extension Top10TableViewCell: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Top10CollectionViewCell.identifier, for: indexPath) as! Top10CollectionViewCell
         let data = dataArray[indexPath.item]
-    
-
+        switch data.template {
+        case .cell_top10:
+            cell.configure(with: data.info)
+            return cell
+        default:
+            break
+        }
         return cell
     }
 }

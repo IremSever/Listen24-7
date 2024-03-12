@@ -39,14 +39,14 @@ class CircleTableViewCell: UITableViewCell {
         collectionViewCircle.register(UINib(nibName: "CircleCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: CircleCollectionViewCell.identifier)
         collectionViewCircle.backgroundColor = UIColor.clear
 
-        addSubview(collectionViewCircle)
+        /*addSubview(collectionViewCircle)
 
         NSLayoutConstraint.activate([
             collectionViewCircle.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionViewCircle.trailingAnchor.constraint(equalTo: trailingAnchor),
             collectionViewCircle.topAnchor.constraint(equalTo: topAnchor),
             collectionViewCircle.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ])
+        ])*/
     }
 }
 
@@ -58,11 +58,12 @@ extension CircleTableViewCell: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CircleCollectionViewCell.identifier, for: indexPath) as! CircleCollectionViewCell
         let data = dataArray[indexPath.item]
-        
-        if let radio = data.liveRadio?.first {
-            //cell.imgCircle.image = UIImage(named: Info.image ?? <#default value#>)
-            cell.imgCircle.layer.cornerRadius = cell.imgCircle.bounds.width / 2
-            cell.imgCircle.layer.masksToBounds = true
+        switch data.template {
+        case .cell_circle:
+            cell.configure(with: data.info)
+            return cell
+        default:
+            break
         }
         return cell
     }

@@ -54,10 +54,12 @@ extension LatestTableViewCell: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LatestCollectionViewCell.identifier, for: indexPath) as! LatestCollectionViewCell
         let data = dataArray[indexPath.item]
-        if let latest = data.newReleases?.first {
-            //cell.imgCover.image = UIImage(named: latest.image)
-            cell.lblTitle.text = latest.title
-            cell.lblMinutes.text = latest.duration
+        switch data.template {
+        case .cell_latest:
+            cell.configure(with: data.info)
+            return cell
+        default:
+            break
         }
         return cell
     }

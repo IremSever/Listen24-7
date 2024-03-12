@@ -12,7 +12,16 @@ class CircleCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imgCircle: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+    }
+    
+    func configure(with data: Info) {
+        if let imageName = data.image {
+            imgCircle.image = UIImage(named: imageName)
+            imgCircle.layer.cornerRadius = imgCircle.frame.size.width / 2
+            imgCircle.clipsToBounds = true
+        } else {
+            print("didnt find configure")
+        }
     }
 
 }

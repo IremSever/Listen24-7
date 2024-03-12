@@ -35,14 +35,14 @@ class HeadlineTableViewCell: UITableViewCell {
         collectionViewHeadline.register(UINib(nibName: "HeadlineCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: HeadlineCollectionViewCell.identifier)
         collectionViewHeadline.backgroundColor = UIColor.clear
         
-        addSubview(collectionViewHeadline)
+        //addSubview(collectionViewHeadline)
         
-        NSLayoutConstraint.activate([
-            collectionViewHeadline.leadingAnchor.constraint(equalTo: leadingAnchor),
-            collectionViewHeadline.trailingAnchor.constraint(equalTo: trailingAnchor),
-            collectionViewHeadline.topAnchor.constraint(equalTo: topAnchor),
-            collectionViewHeadline.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ])
+        /*NSLayoutConstraint.activate([
+         collectionViewHeadline.leadingAnchor.constraint(equalTo: leadingAnchor),
+         collectionViewHeadline.trailingAnchor.constraint(equalTo: trailingAnchor),
+         collectionViewHeadline.topAnchor.constraint(equalTo: topAnchor),
+         collectionViewHeadline.bottomAnchor.constraint(equalTo: bottomAnchor)
+         ])*/
     }
 }
 
@@ -64,4 +64,4 @@ extension HeadlineTableViewCell: UICollectionViewDelegate, UICollectionViewDataS
         return cell
     }
 }
-    
+

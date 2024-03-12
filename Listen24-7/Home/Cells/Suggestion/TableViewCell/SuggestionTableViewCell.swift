@@ -54,11 +54,12 @@ extension SuggestionTableViewCell: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SuggestionCollectionViewCell.identifier, for: indexPath) as! SuggestionCollectionViewCell
         let data = dataArray[indexPath.item]
-        
-        if let suggestion = data.weeklyFavAlbums?.first {
-            cell.imgCover.image = UIImage(named:Info.image)
-            cell.lblReleaseDate.text = suggestion.releaseDate
-            cell.lbRecordName.text = suggestion.title
+        switch data.template {
+        case .cell_suggestion:
+            cell.configure(with: data.info)
+            return cell
+        default:
+            break
         }
         return cell
     }
