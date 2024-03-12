@@ -4,7 +4,7 @@
             {
                 "title": "",
                 "template": "cell_headline",
-                "playlist": [
+                "list": [
                     {
                         "title": "Rock müziğin sevilen gruplarından Coldplay...",
                         "image": "coldplay.jpg"
@@ -30,7 +30,7 @@
             {
                 "title": "POP İKONLARI",
                 "template": "cell_square",
-                "select_mode": [
+                "list": [
                     {
                         "image": "ladygaga.jpg"
                     },
@@ -66,7 +66,7 @@
             {
                 "title": "CANLI RADYOLAR",
                 "template": "cell_circle",
-                "live_radio": [
+                "list": [
                     {
                         "image": "radyoturkuvaz.jpg"
                     },
@@ -111,7 +111,7 @@
             {
                 "title": "HAFTALIK ÖNERİLER",
                 "template": "cell_suggestion",
-                "weekly_suggestions": [
+                "list": [
                     {
                         "title": "Işıkları Söndürsünler",
                         "image": "manga.jpg",
@@ -152,7 +152,7 @@
             {
                 "title": "YENİ ÇIKANLAR",
                 "template": "cell_latest",
-                "new_releases": [
+                "list": [
                     {
                         "title": "F.Bahçe maçı öncesi Blessin: Saygı duymam gerekiyor!",
                         "image": "fenerbahcesesli.jpg",
@@ -208,7 +208,7 @@
             {
                 "title": "HAFTANIN EN SEVİLEN ALBÜMLERİ",
                 "template": "cell_suggestion",
-                "weekly_fav_albums": [
+                "list": [
                     {
                         "title": "Yıldız Tilbe'nin Yıldızlı Şarkıları",
                         "image": "yildiztilbe.jpg",
@@ -265,7 +265,7 @@
             {
                 "title": "Haftalık En Çok Dinlenenler",
                 "template": "cell_top10",
-                "weekly_top10": [
+                "list": [
                     {
                         "title": "Yan Benimle",
                         "artist": "Sıla"

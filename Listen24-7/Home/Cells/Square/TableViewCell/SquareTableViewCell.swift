@@ -60,7 +60,12 @@ extension SquareTableViewCell: UICollectionViewDelegate, UICollectionViewDataSou
         let data = dataArray[indexPath.item]
         switch data.template {
         case .cell_square:
-            cell.configure(with: data.info)
+            if let list = data.list {
+                let info: Info? = list.indices.contains(indexPath.item) ? list[indexPath.item] : nil
+                if let info = info {
+                    cell.configure(with: info)
+                }
+            }
             return cell
         default:
             break

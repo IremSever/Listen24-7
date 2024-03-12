@@ -56,8 +56,12 @@ extension HeadlineTableViewCell: UICollectionViewDelegate, UICollectionViewDataS
         let data = dataArray[indexPath.item]
         switch data.template {
         case .cell_headline:
-            cell.configure(with: data.info)
-            return cell
+            if let list = data.list {
+                let info: Info? = list.indices.contains(indexPath.item) ? list[indexPath.item] : nil
+                if let info = info {
+                    cell.configure(with: info)
+                }
+            }
         default:
             break
         }

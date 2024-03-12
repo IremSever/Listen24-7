@@ -18,13 +18,10 @@ struct App: Codable {
 struct Response: Codable {
     let title: String
     let template: Template
-    let info: Info
-    let playlist, selectMode, liveRadio, weeklySuggestions,
-        newReleases, weeklyFavAlbums, weeklyTop10: [Info]?
+    let list: [Info]?
 
     enum CodingKeys: String, CodingKey {
-        case title, template, info, playlist, selectMode, liveRadio, weeklySuggestions,
-             newReleases, weeklyFavAlbums, weeklyTop10
+        case title, template, list
     }
 }
 
@@ -44,4 +41,3 @@ struct Info: Codable {
     let releaseDate: String?
     let artist: String?
 }
-// headline playlist, select mode square, newreaaleses lastest, favalbums suggestion
