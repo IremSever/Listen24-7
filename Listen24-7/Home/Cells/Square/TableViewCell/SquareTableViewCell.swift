@@ -60,68 +60,38 @@ extension SquareTableViewCell: UICollectionViewDelegate, UICollectionViewDataSou
         let data = dataArray[indexPath.item]
         
         switch data.template {
-        case .cell_square:
+        case .cell_headline:
             if let playlist = data.playlist?.first {
                 cell.configure(with: playlist)
             }
-        case .cell_headline:
-            // Configure headline cell
             break
+        case .cell_square:
+            if let selectMode = data.selectMode?.first {
+                cell.configure(with: SquareCollectionViewCell)
+            }
         case .cell_circle:
-            // Configure circle cell
+            if let liveRadio = data.liveRadio?.first {
+                cell.configure(with: liveRadio)
+            }
             break
         case .cell_suggestion:
-            // Configure suggestion cell
+            if let weeklySuggestions = data.weeklySuggestions?.first {
+                cell.configure(with: weeklySuggestions)
+            } else if let weeklyFavAlbums = data.weeklyFavAlbums?.first {
+                cell.configure(with: weeklyFavAlbums)
+            }
             break
         case .cell_latest:
-            // Configure latest cell
+            if let newReleases = data.newReleases?.first {
+                cell.configure(with: newReleases)
+            }
             break
         case .cell_top10:
-            // Configure top 10 cell
+            if let weeklyTop10 = data.weeklyTop10?.first {
+                cell.configure(with: weeklyTop10)
+            }
             break
         }
-        
-        return cell
-    }
-}
-
-class SquareCollectionViewCell: UICollectionViewCell {
-    
-    @IBOutlet weak var imgSquare: UIImageView!
-    static let identifier = "SquareCollectionViewCell"
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
-    func configure(with info: Info) {
-        if let imageName = info.image, let image = UIImage(named: imageName) {
-            imgSquare.image = image
-        } else {
-            print("image is empty")
-        }
-    }
-}
-  collectionViewSquare.trailingAnchor.constraint(equalTo: trailingAnchor),
-            collectionViewSquare.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ])
-        
-        collectionViewSquare.backgroundColor = UIColor.white // Customize background color as needed
-    }
-}
-
-extension SquareTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataArray.count // Assuming dataArray holds the data you want to display
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SquareCollectionViewCell.identifier, for: indexPath) as? SquareCollectionViewCell else {
-            fatalError("Failed to dequeue SquareCollectionViewCell")
-        }
-        
-        let data = dataArray[indexPath.item]
-        let imageURLString = data.image
         
         return cell
     }

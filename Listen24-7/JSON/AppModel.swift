@@ -43,3 +43,4 @@ struct Info: Codable {
     let releaseDate: String?
     let artist: String?
 }
+// headline playlist, select mode square, newreaaleses lastest, favalbums suggestion
