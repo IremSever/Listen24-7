@@ -35,7 +35,7 @@ class HeadlineTableViewCell: UITableViewCell {
         collectionViewHeadline.register(UINib(nibName: "HeadlineCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: HeadlineCollectionViewCell.identifier)
         collectionViewHeadline.backgroundColor = UIColor.clear
         
-        //addSubview(collectionViewHeadline)
+        addSubview(collectionViewHeadline)
         
         /*NSLayoutConstraint.activate([
          collectionViewHeadline.leadingAnchor.constraint(equalTo: leadingAnchor),
