@@ -16,5 +16,13 @@ class HeadlineCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    func configure(with data: Info) {
+        if let imageName = data.image {
+            imgHeadline.image = UIImage(named: imageName)
+        } else {
+            print("didnt find configure")
+        }
+    }
 
 }
