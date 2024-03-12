@@ -8,11 +8,11 @@
 import UIKit
 
 class SquareTableViewCell: UITableViewCell {
-    static let identifier = "SquareTableViewCell"
+    static let identifier = "SquareTableView"
     private var collectionViewSquare: UICollectionView!
     var dataArray: [Response] = []
-   
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         createSquareCollectionView()
     }
@@ -21,24 +21,88 @@ class SquareTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func createSquareCollectionView(){
+    func createSquareCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: 100, height: 100)
+        layout.minimumLineSpacing = 10
+        layout.minimumInteritemSpacing = 10
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         
-        collectionViewSquare = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionViewSquare = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         collectionViewSquare.translatesAutoresizingMaskIntoConstraints = false
-        collectionViewSquare.register(SquareCollectionViewCell.self, forCellWithReuseIdentifier: SquareCollectionViewCell.identifier)
-        collectionViewSquare.dataSource = self
         collectionViewSquare.delegate = self
-        collectionViewSquare.showsHorizontalScrollIndicator = false
+        collectionViewSquare.dataSource = self
+        collectionViewSquare.register(UINib(nibName: "SquareCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: SquareCollectionViewCell.identifier)
+        collectionViewSquare.backgroundColor = UIColor.clear
         
         addSubview(collectionViewSquare)
         
         NSLayoutConstraint.activate([
-            collectionViewSquare.topAnchor.constraint(equalTo: topAnchor),
             collectionViewSquare.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionViewSquare.trailingAnchor.constraint(equalTo: trailingAnchor),
+            collectionViewSquare.topAnchor.constraint(equalTo: topAnchor),
+            collectionViewSquare.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
+    }
+    func setDataArray(_ dataArray: [Response]) {
+        self.dataArray = dataArray
+        collectionViewSquare.reloadData()
+    }
+}
+
+extension SquareTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return dataArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SquareCollectionViewCell.identifier, for: indexPath) as! SquareCollectionViewCell
+        let data = dataArray[indexPath.item]
+        
+        switch data.template {
+        case .cell_square:
+            if let playlist = data.playlist?.first {
+                cell.configure(with: playlist)
+            }
+        case .cell_headline:
+            // Configure headline cell
+            break
+        case .cell_circle:
+            // Configure circle cell
+            break
+        case .cell_suggestion:
+            // Configure suggestion cell
+            break
+        case .cell_latest:
+            // Configure latest cell
+            break
+        case .cell_top10:
+            // Configure top 10 cell
+            break
+        }
+        
+        return cell
+    }
+}
+
+class SquareCollectionViewCell: UICollectionViewCell {
+    
+    @IBOutlet weak var imgSquare: UIImageView!
+    static let identifier = "SquareCollectionViewCell"
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+    
+    func configure(with info: Info) {
+        if let imageName = info.image, let image = UIImage(named: imageName) {
+            imgSquare.image = image
+        } else {
+            print("image is empty")
+        }
+    }
+}
+  collectionViewSquare.trailingAnchor.constraint(equalTo: trailingAnchor),
             collectionViewSquare.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
         
@@ -57,7 +121,7 @@ extension SquareTableViewCell: UICollectionViewDataSource, UICollectionViewDeleg
         }
         
         let data = dataArray[indexPath.item]
-        cell.imgSquare.image = UIImage(named: Info.image)
+        let imageURLString = data.image
         
         return cell
     }
