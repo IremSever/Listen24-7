@@ -8,7 +8,7 @@
 import UIKit
 
 class HeadlineCollectionViewCell: UICollectionViewCell {
-
+    static let identifier = "HeadlineCollectionViewCell"
     @IBOutlet weak var pageControlHeadline: UIPageControl!
     @IBOutlet weak var lblHeadlineTitle: UILabel!
     @IBOutlet weak var imgHeadline: UIImageView!

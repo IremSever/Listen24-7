@@ -8,16 +8,57 @@
 import UIKit
 
 class LatestTableViewCell: UITableViewCell {
+    static let identifier = "LatestTableView"
+    private var collectionViewLatest: UICollectionView!
+    var dataArray: [Response] = []
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        createLatestCollectionView()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
-    
+
+    func createLatestCollectionView() {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 10
+        layout.minimumInteritemSpacing = 10
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+
+        collectionViewLatest = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        collectionViewLatest.translatesAutoresizingMaskIntoConstraints = false
+        collectionViewLatest.delegate = self
+        collectionViewLatest.dataSource = self
+        collectionViewLatest.register(UINib(nibName: "LatestCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: LatestCollectionViewCell.identifier)
+        collectionViewLatest.backgroundColor = UIColor.clear
+
+        addSubview(collectionViewLatest)
+
+        NSLayoutConstraint.activate([
+            collectionViewLatest.leadingAnchor.constraint(equalTo: leadingAnchor),
+            collectionViewLatest.trailingAnchor.constraint(equalTo: trailingAnchor),
+            collectionViewLatest.topAnchor.constraint(equalTo: topAnchor),
+            collectionViewLatest.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
+    }
+}
+
+extension LatestTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return dataArray.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LatestCollectionViewCell.identifier, for: indexPath) as! LatestCollectionViewCell
+        let data = dataArray[indexPath.item]
+        if let latest = data.newReleases?.first {
+            //cell.imgCover.image = UIImage(named: latest.image)
+            cell.lblTitle.text = latest.title
+            cell.lblMinutes.text = latest.duration
+        }
+        return cell
+    }
 }

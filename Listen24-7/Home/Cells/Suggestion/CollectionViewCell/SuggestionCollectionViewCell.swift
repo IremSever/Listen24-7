@@ -9,7 +9,7 @@ import UIKit
 
 class SuggestionCollectionViewCell: UICollectionViewCell {
 
-    
+    static let identifier = "SuggestionCollectionViewCell"
     @IBOutlet weak var lbRecordName: UILabel!
     @IBOutlet weak var lblReleaseDate: UILabel!
     @IBOutlet weak var imgCover: UIImageView!
@@ -17,5 +17,4 @@ class SuggestionCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
 }

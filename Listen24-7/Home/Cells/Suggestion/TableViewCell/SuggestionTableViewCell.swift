@@ -8,16 +8,58 @@
 import UIKit
 
 class SuggestionTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+    static let identifier = "SusggestionTableView"
+    private var collectionViewSuggestion: UICollectionView!
+    var dataArray: [Response] = []
     
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        createSuggestionCollectionView()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    func createSuggestionCollectionView() {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 10
+        layout.minimumInteritemSpacing = 10
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+
+        collectionViewSuggestion = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        collectionViewSuggestion.translatesAutoresizingMaskIntoConstraints = false
+        collectionViewSuggestion.delegate = self
+        collectionViewSuggestion.dataSource = self
+        collectionViewSuggestion.register(UINib(nibName: "SuggestionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: SuggestionCollectionViewCell.identifier)
+        collectionViewSuggestion.backgroundColor = UIColor.clear
+
+        addSubview(collectionViewSuggestion)
+
+        NSLayoutConstraint.activate([
+            collectionViewSuggestion.leadingAnchor.constraint(equalTo: leadingAnchor),
+            collectionViewSuggestion.trailingAnchor.constraint(equalTo: trailingAnchor),
+            collectionViewSuggestion.topAnchor.constraint(equalTo: topAnchor),
+            collectionViewSuggestion.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
+    }
+}
+
+extension SuggestionTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return dataArray.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SuggestionCollectionViewCell.identifier, for: indexPath) as! SuggestionCollectionViewCell
+        let data = dataArray[indexPath.item]
+        
+        if let suggestion = data.weeklyFavAlbums?.first {
+            cell.imgCover.image = UIImage(named:Info.image)
+            cell.lblReleaseDate.text = suggestion.releaseDate
+            cell.lbRecordName.text = suggestion.title
+        }
+        return cell
+    }
 }

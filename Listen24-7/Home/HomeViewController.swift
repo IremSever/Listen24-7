@@ -8,35 +8,87 @@
 import Foundation
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableViewHome: UITableView!
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        parseJSON("app")
-    }
-    
-    func parseJSON(_ name: String){
-        guard let path = Bundle.main.path(forResource: name, ofType: "json") else {
-            print("Not found json file")
-            return
+    var viewModel = HomeViewModel()
+        
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            tableViewHome.dataSource = self
+            tableViewHome.delegate = self
+            registerCells()
+            parseJSON()
         }
         
-        let url = URL(fileURLWithPath: path)
-        
-        do {
-            let data = try Data(contentsOf: url)
-            let response = try JSONDecoder().decode(AppModel.self, from: data)
-            
-            handleResponse(response)
-        } catch {
-            print("JSON conversion error: \(error)")
+        func parseJSON() {
+            viewModel.parseJSON("app") { [weak self] success in
+                if success {
+                    DispatchQueue.main.async {
+                        self?.tableViewHome.reloadData()
+                    }
+                } else {
+                    print("JSON parsing error.")
+                }
+            }
         }
-    }
-    
-    func handleResponse(_ response: AppModel) {
-        print("JSON data has been processed successfully")
+        
+        func registerCells() {
+            tableViewHome.register(SquareTableViewCell.self, forCellReuseIdentifier: SquareTableViewCell.identifier)
+            // Register other cell types here
+        }
+        
+        // MARK: - UITableViewDataSource
+        
+        func numberOfSections(in tableView: UITableView) -> Int {
+            return viewModel.responseData.count
+        }
+        
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            return viewModel.cellData(forSection: section).count
+        }
+        
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let data = viewModel.cellData(forSection: indexPath.section)[indexPath.row]
+        let templateType = data.template
+        
+        switch templateType {
+        case .cell_square:
+            let cell = tableView.dequeueReusableCell(withIdentifier: SquareTableViewCell.identifier, for: indexPath) as! SquareTableViewCell
+            if let playlist = data.playlist {
+                cell.setDataArray(playlist)
+            }
+            return cell
+        case .cell_headline:
+            let cell = tableView.dequeueReusableCell(withIdentifier: SquareTableViewCell.identifier, for: indexPath) as! SquareTableViewCell
+            if let playlist = data.playlist {
+                cell.setDataArray(playlist)
+            }
+            return cell
+        case .cell_circle:
+            let cell = tableView.dequeueReusableCell(withIdentifier: SquareTableViewCell.identifier, for: indexPath) as! SquareTableViewCell
+            if let playlist = data.playlist {
+                cell.setDataArray(playlist)
+            }
+            return cell
+        case .cell_suggestion:
+            let cell = tableView.dequeueReusableCell(withIdentifier: SquareTableViewCell.identifier, for: indexPath) as! SquareTableViewCell
+            if let playlist = data.playlist {
+                cell.setDataArray(playlist)
+            }
+            return cell
+        case .cell_latest:
+            let cell = tableView.dequeueReusableCell(withIdentifier: SquareTableViewCell.identifier, for: indexPath) as! SquareTableViewCell
+            if let playlist = data.playlist {
+                cell.setDataArray(playlist)
+            }
+            return cell
+        case .cell_top10:
+            let cell = tableView.dequeueReusableCell(withIdentifier: SquareTableViewCell.identifier, for: indexPath) as! SquareTableViewCell
+            if let playlist = data.playlist {
+                cell.setDataArray(playlist)
+            }
+            return cell
+        }
     }
 }

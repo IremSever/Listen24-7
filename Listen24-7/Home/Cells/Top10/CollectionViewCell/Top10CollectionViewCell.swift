@@ -8,7 +8,7 @@
 import UIKit
 
 class Top10CollectionViewCell: UICollectionViewCell {
-
+    static let identifier = "Top10CollectionViewCell"
     
     @IBOutlet weak var lblSingerName2: UILabel!
     @IBOutlet weak var lblSonName2: UILabel!

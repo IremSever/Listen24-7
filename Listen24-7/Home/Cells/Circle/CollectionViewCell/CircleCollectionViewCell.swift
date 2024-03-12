@@ -8,7 +8,7 @@
 import UIKit
 
 class CircleCollectionViewCell: UICollectionViewCell {
-
+    static let identifier = "CircleCollectionViewCell"
     @IBOutlet weak var imgCircle: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()

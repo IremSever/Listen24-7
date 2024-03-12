@@ -8,12 +8,20 @@
 import UIKit
 
 class SquareCollectionViewCell: UICollectionViewCell {
-
+    
     @IBOutlet weak var imgSquare: UIImageView!
     static let identifier = "SquareCollectionViewCell"
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
-
+    
+    func configure(with data: Info) {
+        if let imageName = data.image {
+            imgSquare.image = UIImage(named: imageName)
+        } else {
+            imgSquare.image = UIImage(named: "defaultImage")
+        }
+    }
 }
