@@ -35,14 +35,14 @@ class Top10TableViewCell: UITableViewCell {
         collectionViewTop10.dataSource = self
         collectionViewTop10.register(UINib(nibName: "Top10CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: Top10CollectionViewCell.identifier)
         collectionViewTop10.backgroundColor = UIColor.clear
-        /*addSubview(collectionViewTop10)
+        addSubview(collectionViewTop10)
         
         NSLayoutConstraint.activate([
             collectionViewTop10.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionViewTop10.trailingAnchor.constraint(equalTo: trailingAnchor),
             collectionViewTop10.topAnchor.constraint(equalTo: topAnchor),
             collectionViewTop10.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ])*/
+        ])
     }
     func setDataArray(_ dataArray: [Response]) {
         self.dataArray = dataArray

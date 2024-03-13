@@ -36,14 +36,14 @@ class SuggestionTableViewCell: UITableViewCell {
         collectionViewSuggestion.register(UINib(nibName: "SuggestionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: SuggestionCollectionViewCell.identifier)
         collectionViewSuggestion.backgroundColor = UIColor.clear
         
-        /*addSubview(collectionViewSuggestion)
+        addSubview(collectionViewSuggestion)
         
         NSLayoutConstraint.activate([
             collectionViewSuggestion.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionViewSuggestion.trailingAnchor.constraint(equalTo: trailingAnchor),
             collectionViewSuggestion.topAnchor.constraint(equalTo: topAnchor),
             collectionViewSuggestion.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ])*/
+        ])
     }
     func setDataArray(_ dataArray: [Response]) {
         self.dataArray = dataArray

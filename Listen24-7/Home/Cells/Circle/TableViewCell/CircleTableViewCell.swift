@@ -40,14 +40,14 @@ class CircleTableViewCell: UITableViewCell {
         collectionViewCircle.register(UINib(nibName: "CircleCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: CircleCollectionViewCell.identifier)
         collectionViewCircle.backgroundColor = UIColor.clear
         
-        /*addSubview(collectionViewCircle)
+        addSubview(collectionViewCircle)
          
          NSLayoutConstraint.activate([
          collectionViewCircle.leadingAnchor.constraint(equalTo: leadingAnchor),
          collectionViewCircle.trailingAnchor.constraint(equalTo: trailingAnchor),
          collectionViewCircle.topAnchor.constraint(equalTo: topAnchor),
          collectionViewCircle.bottomAnchor.constraint(equalTo: bottomAnchor)
-         ])*/
+         ])
     }
     func setDataArray(_ dataArray: [Response]) {
         self.dataArray = dataArray

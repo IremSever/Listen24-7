@@ -38,12 +38,12 @@ class HeadlineTableViewCell: UITableViewCell {
         
         addSubview(collectionViewHeadline)
         
-        /*NSLayoutConstraint.activate([
+        NSLayoutConstraint.activate([
          collectionViewHeadline.leadingAnchor.constraint(equalTo: leadingAnchor),
          collectionViewHeadline.trailingAnchor.constraint(equalTo: trailingAnchor),
          collectionViewHeadline.topAnchor.constraint(equalTo: topAnchor),
          collectionViewHeadline.bottomAnchor.constraint(equalTo: bottomAnchor)
-         ])*/
+         ])
     }
     func setDataArray(_ dataArray: [Response]) {
         self.dataArray = dataArray
