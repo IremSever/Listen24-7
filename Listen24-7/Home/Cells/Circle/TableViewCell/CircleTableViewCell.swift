@@ -8,7 +8,7 @@
 import UIKit
 
 class CircleTableViewCell: UITableViewCell {
-    static let identifier = "CircleTableView"
+    static let identifier = "CircleTableViewCell"
     private var collectionViewCircle: UICollectionView!
     var dataArray: [Response] = []
     

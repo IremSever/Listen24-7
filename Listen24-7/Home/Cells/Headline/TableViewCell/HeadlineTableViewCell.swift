@@ -8,7 +8,7 @@
 import UIKit
 
 class HeadlineTableViewCell: UITableViewCell {
-    static let identifier = "HeadlineTableView"
+    static let identifier = "HeadlineTableViewCell"
     private var collectionViewHeadline: UICollectionView!
     var dataArray: [Response] = []
     

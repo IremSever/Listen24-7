@@ -8,7 +8,7 @@
 import UIKit
 
 class Top10TableViewCell: UITableViewCell {
-    static let identifier = "Top10TableView"
+    static let identifier = "Top10TableViewCell"
     private var collectionViewTop10: UICollectionView!
     var dataArray: [Response] = []
     

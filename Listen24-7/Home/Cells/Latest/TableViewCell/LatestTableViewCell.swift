@@ -8,7 +8,7 @@
 import UIKit
 
 class LatestTableViewCell: UITableViewCell {
-    static let identifier = "LatestTableView"
+    static let identifier = "LatestTableViewCell"
     private var collectionViewLatest: UICollectionView!
     var dataArray: [Response] = []
     

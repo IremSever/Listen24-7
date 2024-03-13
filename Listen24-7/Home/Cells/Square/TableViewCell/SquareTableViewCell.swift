@@ -8,7 +8,7 @@
 import UIKit
 
 class SquareTableViewCell: UITableViewCell {
-    static let identifier = "SquareTableView"
+    static let identifier = "SquareTableViewCell"
     private var collectionViewSquare: UICollectionView!
     var dataArray: [Response] = []
     

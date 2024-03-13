@@ -8,7 +8,7 @@
 import UIKit
 
 class SuggestionTableViewCell: UITableViewCell {
-    static let identifier = "SusggestionTableView"
+    static let identifier = "SuggestionTableViewCell"
     private var collectionViewSuggestion: UICollectionView!
     var dataArray: [Response] = []
     
