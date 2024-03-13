@@ -22,7 +22,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func parseJSON(){
-        viewModel.parseJSON("data") { success in
+        viewModel.parseJSON("app") { success in
             if success {
                 DispatchQueue.main.async {
                     self.tableViewHome.reloadData()
@@ -47,7 +47,7 @@ extension HomeViewController {
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.responseData.count
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.cellData(forSection: section).count
     }
@@ -75,9 +75,6 @@ extension HomeViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: Top10TableViewCell.identifier, for: indexPath) as! Top10TableViewCell
             return cell
         }
-    }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 300
     }
 }
 

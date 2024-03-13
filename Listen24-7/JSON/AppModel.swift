@@ -26,12 +26,12 @@ struct Response: Codable {
 }
 
 enum Template: String, Codable {
-    case cell_square
-    case cell_headline
-    case cell_circle
-    case cell_suggestion
-    case cell_latest
-    case cell_top10
+    case cell_square = "cell_square"
+    case cell_headline = "cell_headline"
+    case cell_circle = "cell_circle"
+    case cell_suggestion = "cell_suggestion"
+    case cell_latest = "cell_latest"
+    case cell_top10 = "cell_top10"
 }
 
 struct Info: Codable {
