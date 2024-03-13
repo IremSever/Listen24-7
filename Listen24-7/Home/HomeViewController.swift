@@ -91,7 +91,7 @@ extension HomeViewController {
         
         let lblTitleCell = UILabel(frame: CGRect(x: 15, y: 0, width: tableView.bounds.width - 30, height: 40))
         lblTitleCell.text = viewModel.responseData[section].title
-        lblTitleCell.font = UIFont(name: "Futura-Bold", size: 17)
+        lblTitleCell.font = UIFont(name: "Futura-Bold", size: 13)
         viewHeader.addSubview(lblTitleCell)
         
         return viewHeader
