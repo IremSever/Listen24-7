@@ -15,6 +15,7 @@ class LatestTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         createLatestCollectionView()
+        setDataArray([])
     }
     
     required init?(coder: NSCoder) {
@@ -35,14 +36,18 @@ class LatestTableViewCell: UITableViewCell {
         collectionViewLatest.register(UINib(nibName: "LatestCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: LatestCollectionViewCell.identifier)
         collectionViewLatest.backgroundColor = UIColor.clear
         
-        addSubview(collectionViewLatest)
+        /*addSubview(collectionViewLatest)
         
         NSLayoutConstraint.activate([
             collectionViewLatest.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionViewLatest.trailingAnchor.constraint(equalTo: trailingAnchor),
             collectionViewLatest.topAnchor.constraint(equalTo: topAnchor),
             collectionViewLatest.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ])
+        ])*/
+    }
+    func setDataArray(_ dataArray: [Response]) {
+        self.dataArray = dataArray
+        collectionViewLatest.reloadData()
     }
 }
 

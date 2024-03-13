@@ -15,6 +15,7 @@ class HeadlineTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         createHeadlineCollectionView()
+        setDataArray([])
     }
     
     required init?(coder: NSCoder) {
@@ -43,6 +44,10 @@ class HeadlineTableViewCell: UITableViewCell {
          collectionViewHeadline.topAnchor.constraint(equalTo: topAnchor),
          collectionViewHeadline.bottomAnchor.constraint(equalTo: bottomAnchor)
          ])*/
+    }
+    func setDataArray(_ dataArray: [Response]) {
+        self.dataArray = dataArray
+        collectionViewHeadline.reloadData()
     }
 }
 

@@ -15,6 +15,7 @@ class Top10TableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         createTop10CollectionView()
+        setDataArray([])
     }
     
     required init?(coder: NSCoder) {
@@ -34,15 +35,18 @@ class Top10TableViewCell: UITableViewCell {
         collectionViewTop10.dataSource = self
         collectionViewTop10.register(UINib(nibName: "Top10CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: Top10CollectionViewCell.identifier)
         collectionViewTop10.backgroundColor = UIColor.clear
-        
-        addSubview(collectionViewTop10)
+        /*addSubview(collectionViewTop10)
         
         NSLayoutConstraint.activate([
             collectionViewTop10.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionViewTop10.trailingAnchor.constraint(equalTo: trailingAnchor),
             collectionViewTop10.topAnchor.constraint(equalTo: topAnchor),
             collectionViewTop10.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ])
+        ])*/
+    }
+    func setDataArray(_ dataArray: [Response]) {
+        self.dataArray = dataArray
+        collectionViewTop10.reloadData()
     }
 }
 

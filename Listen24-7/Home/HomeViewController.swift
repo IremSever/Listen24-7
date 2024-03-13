@@ -17,19 +17,18 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         tableViewHome.dataSource = self
         tableViewHome.delegate = self
-        
         parseJSON()
         registerCells()
     }
     
-    func parseJSON() {
-        viewModel.parseJSON("app") { [weak self] success in
+    func parseJSON(){
+        viewModel.parseJSON("data") { success in
             if success {
                 DispatchQueue.main.async {
-                    self?.tableViewHome.reloadData()
+                    self.tableViewHome.reloadData()
                 }
             } else {
-                print("JSON parsing error.")
+                print("parseJSON error")
             }
         }
     }
@@ -42,7 +41,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableViewHome.register(LatestTableViewCell.self, forCellReuseIdentifier: LatestTableViewCell.identifier)
         tableViewHome.register(Top10TableViewCell.self, forCellReuseIdentifier: Top10TableViewCell.identifier)
     }
-    
 }
 
 extension HomeViewController {
@@ -78,5 +76,9 @@ extension HomeViewController {
             return cell
         }
     }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 300
+    }
 }
+
 
