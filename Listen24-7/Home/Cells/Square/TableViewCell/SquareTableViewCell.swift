@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SquareTableViewCell: UITableViewCell {
+class SquareTableViewCell: UITableViewCell, UICollectionViewDataSource {
     static let identifier = "SquareTableViewCell"
     private var collectionViewSquare: UICollectionView!
     var dataArray: [Response] = []
@@ -30,10 +30,9 @@ class SquareTableViewCell: UITableViewCell {
         
         collectionViewSquare = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         collectionViewSquare.translatesAutoresizingMaskIntoConstraints = false
-        collectionViewSquare.delegate = self
-        collectionViewSquare.dataSource = self
-        collectionViewSquare.register(UINib(nibName: "SquareCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: SquareCollectionViewCell.identifier)
+        collectionViewSquare.register(SquareCollectionViewCell.self, forCellWithReuseIdentifier: SquareCollectionViewCell.identifier)
         collectionViewSquare.backgroundColor = UIColor.clear
+        collectionViewSquare.dataSource = self // Setting data source
         
         addSubview(collectionViewSquare)
         
@@ -44,13 +43,12 @@ class SquareTableViewCell: UITableViewCell {
             collectionViewSquare.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
-    func setDataArray(_ dataArray: [Response]) {
+    
+    func updateDataArray(with dataArray: [Response]) {
         self.dataArray = dataArray
         collectionViewSquare.reloadData()
     }
-}
-
-extension SquareTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataArray.count
     }
@@ -72,4 +70,3 @@ extension SquareTableViewCell: UICollectionViewDelegate, UICollectionViewDataSou
         return cell
     }
 }
-
