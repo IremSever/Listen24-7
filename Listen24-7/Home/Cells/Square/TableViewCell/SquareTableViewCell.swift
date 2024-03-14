@@ -10,7 +10,7 @@ import UIKit
 class SquareTableViewCell: UITableViewCell, UICollectionViewDataSource {
     static let identifier = "SquareTableViewCell"
     private var collectionViewSquare: UICollectionView!
-    var dataArray: [Response] = []
+    var dataArray: [Info] = []
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -34,20 +34,19 @@ class SquareTableViewCell: UITableViewCell, UICollectionViewDataSource {
         addSubview(collectionViewSquare)
     }
     
-    func updateDataArray(with dataArray: [Response]) {
+    func updateDataArray(with dataArray: [Info]) {
         self.dataArray = dataArray
         collectionViewSquare.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataArray.first?.list?.count ?? 0
+        return dataArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SquareCollectionViewCell.identifier, for: indexPath) as! SquareCollectionViewCell
-        if let data = dataArray.first?.list?[indexPath.item] {
-            cell.configure(with: data)
-        }
+        cell.configure(with: dataArray[indexPath.row])
+    
         return cell
     }
 }
