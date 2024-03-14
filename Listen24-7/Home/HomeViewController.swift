@@ -73,8 +73,8 @@ extension HomeViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let data = viewModel.cellData(forSection: indexPath.section)
         let templateType = data.first?.template
-        //print("dataaaaa: \(data)")
-        //print("templateeeee: \(String(describing: templateType))")
+        //print("*******************data: \(data)")
+        //print("*******************template: \(String(describing: templateType))")
         switch templateType {
         case .cell_headline:
             let cell = tableView.dequeueReusableCell(withIdentifier: HeadlineTableViewCell.identifier, for: indexPath) as! HeadlineTableViewCell
@@ -119,7 +119,7 @@ extension HomeViewController {
         case .cell_top10:
             return 220
         default:
-            return UITableView.automaticDimension
+            return 100
         }
     }
     

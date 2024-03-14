@@ -30,6 +30,7 @@ class SquareTableViewCell: UITableViewCell, UICollectionViewDataSource {
         collectionViewSquare.register(SquareCollectionViewCell.self, forCellWithReuseIdentifier: SquareCollectionViewCell.identifier)
         collectionViewSquare.backgroundColor = UIColor.clear
         collectionViewSquare.dataSource = self
+        
         addSubview(collectionViewSquare)
     }
     
@@ -39,16 +40,14 @@ class SquareTableViewCell: UITableViewCell, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataArray.count > 0 ? dataArray[0].list?.count ?? 0 : 0
+        return dataArray.first?.list?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SquareCollectionViewCell.identifier, for: indexPath) as! SquareCollectionViewCell
-        let data = dataArray[0].list?[indexPath.item]
-        if let info = data {
-            cell.configure(with: info)
+        if let data = dataArray.first?.list?[indexPath.item] {
+            cell.configure(with: data)
         }
-      
         return cell
     }
 }

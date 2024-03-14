@@ -15,23 +15,22 @@ class SuggestionCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imgCover: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
+    
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        imgCover?.frame = contentView.bounds
+        imgCover?.layer.cornerRadius = 20
+        imgCover?.clipsToBounds = true
+    }
+    
     func configure(with data: Info) {
-        if let imageName = data.image {
-            imgCover.image = UIImage(named: imageName)
-            imgCover.layer.cornerRadius = 10
-            imgCover.clipsToBounds = true
-        } else {
-            print("Image name not found")
+        guard let imageName = data.image, let image = UIImage(named: imageName) else {
+            print("Image couldn't be loaded.")
+            return
         }
         
-        lbRecordName.text = data.title
-        lbRecordName.font = UIFont(name: "Futura-Bold", size: 13)
-        lbRecordName.textColor = UIColor.white
-        
-        lblReleaseDate.text = data.title
-        lblReleaseDate.font = UIFont(name: "Futura", size: 10)
-        lblReleaseDate.textColor = UIColor.white
+        imgCover?.image = image
     }
 }

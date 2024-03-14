@@ -24,10 +24,7 @@ class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
     func createHeadlineCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: UIScreen.main.bounds.width * 0.5, height: UIScreen.main.bounds.width * 0.7)
-        layout.minimumInteritemSpacing = 20
-        layout.minimumLineSpacing = 15
-
+        
         collectionViewHeadline = UICollectionView(frame: bounds, collectionViewLayout: layout)
         collectionViewHeadline.register(HeadlineCollectionViewCell.self, forCellWithReuseIdentifier: HeadlineCollectionViewCell.identifier)
         collectionViewHeadline.delegate = self

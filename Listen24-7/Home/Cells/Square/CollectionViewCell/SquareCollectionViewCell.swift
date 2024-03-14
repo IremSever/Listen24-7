@@ -17,13 +17,12 @@ class SquareCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
     }
     
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         imgSquare?.frame = contentView.bounds
-        
-        self.imgSquare?.layer.cornerRadius = 20
-        self.imgSquare?.clipsToBounds = true
-        
+        imgSquare?.layer.cornerRadius = 20
+        imgSquare?.clipsToBounds = true
     }
     
     func configure(with data: Info) {
@@ -31,12 +30,7 @@ class SquareCollectionViewCell: UICollectionViewCell {
             print("Image couldn't be loaded.")
             return
         }
-        self.imgSquare?.image = image
-    
-        //imgSquare?.image = image
-        //imgSquare?.layer.cornerRadius = 10
-        //imgSquare?.clipsToBounds = true
+        
+        imgSquare?.image = image
     }
 }
-
-

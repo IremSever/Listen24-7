@@ -25,9 +25,6 @@ class Top10TableViewCell: UITableViewCell {
     func createTop10CollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 10
-        layout.minimumInteritemSpacing = 10
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         
         collectionViewTop10 = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         collectionViewTop10.translatesAutoresizingMaskIntoConstraints = false
@@ -37,12 +34,6 @@ class Top10TableViewCell: UITableViewCell {
         collectionViewTop10.backgroundColor = UIColor.clear
         addSubview(collectionViewTop10)
         
-        NSLayoutConstraint.activate([
-            collectionViewTop10.leadingAnchor.constraint(equalTo: leadingAnchor),
-            collectionViewTop10.trailingAnchor.constraint(equalTo: trailingAnchor),
-            collectionViewTop10.topAnchor.constraint(equalTo: topAnchor),
-            collectionViewTop10.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ])
     }
     func setDataArray(_ dataArray: [Response]) {
         self.dataArray = dataArray

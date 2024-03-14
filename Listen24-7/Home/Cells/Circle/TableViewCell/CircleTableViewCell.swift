@@ -29,9 +29,6 @@ class CircleTableViewCell: UITableViewCell {
     func createCircleCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 10
-        layout.minimumInteritemSpacing = 10
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         
         collectionViewCircle = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         collectionViewCircle.translatesAutoresizingMaskIntoConstraints = false
@@ -41,13 +38,7 @@ class CircleTableViewCell: UITableViewCell {
         collectionViewCircle.backgroundColor = UIColor.clear
         
         addSubview(collectionViewCircle)
-         
-         NSLayoutConstraint.activate([
-         collectionViewCircle.leadingAnchor.constraint(equalTo: leadingAnchor),
-         collectionViewCircle.trailingAnchor.constraint(equalTo: trailingAnchor),
-         collectionViewCircle.topAnchor.constraint(equalTo: topAnchor),
-         collectionViewCircle.bottomAnchor.constraint(equalTo: bottomAnchor)
-         ])
+        
     }
     func setDataArray(_ dataArray: [Response]) {
         self.dataArray = dataArray

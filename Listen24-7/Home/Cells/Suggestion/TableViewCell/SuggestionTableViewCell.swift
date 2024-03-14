@@ -25,9 +25,6 @@ class SuggestionTableViewCell: UITableViewCell {
     func createSuggestionCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 10
-        layout.minimumInteritemSpacing = 10
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         
         collectionViewSuggestion = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         collectionViewSuggestion.translatesAutoresizingMaskIntoConstraints = false
@@ -37,18 +34,11 @@ class SuggestionTableViewCell: UITableViewCell {
         collectionViewSuggestion.backgroundColor = UIColor.clear
         
         addSubview(collectionViewSuggestion)
-        
-        NSLayoutConstraint.activate([
-            collectionViewSuggestion.leadingAnchor.constraint(equalTo: leadingAnchor),
-            collectionViewSuggestion.trailingAnchor.constraint(equalTo: trailingAnchor),
-            collectionViewSuggestion.topAnchor.constraint(equalTo: topAnchor),
-            collectionViewSuggestion.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ])
     }
     func setDataArray(_ dataArray: [Response]) {
         self.dataArray = dataArray
         collectionViewSuggestion.reloadData()
-    
+        
     }
 }
 

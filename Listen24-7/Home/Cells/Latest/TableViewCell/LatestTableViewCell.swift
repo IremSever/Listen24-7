@@ -25,9 +25,6 @@ class LatestTableViewCell: UITableViewCell {
     func createLatestCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 10
-        layout.minimumInteritemSpacing = 10
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         
         collectionViewLatest = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         collectionViewLatest.translatesAutoresizingMaskIntoConstraints = false
@@ -37,13 +34,6 @@ class LatestTableViewCell: UITableViewCell {
         collectionViewLatest.backgroundColor = UIColor.clear
         
         addSubview(collectionViewLatest)
-        
-        NSLayoutConstraint.activate([
-            collectionViewLatest.leadingAnchor.constraint(equalTo: leadingAnchor),
-            collectionViewLatest.trailingAnchor.constraint(equalTo: trailingAnchor),
-            collectionViewLatest.topAnchor.constraint(equalTo: topAnchor),
-            collectionViewLatest.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ])
     }
     func setDataArray(_ dataArray: [Response]) {
         self.dataArray = dataArray

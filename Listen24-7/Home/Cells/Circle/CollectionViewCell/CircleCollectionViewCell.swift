@@ -14,14 +14,21 @@ class CircleCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
     }
     
-    func configure(with data: Info) {
-        if let imageName = data.image {
-            imgCircle.image = UIImage(named: imageName)
-            imgCircle.layer.cornerRadius = imgCircle.frame.size.width / 2
-            imgCircle.clipsToBounds = true
-        } else {
-            print("didnt find configure")
-        }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        imgCircle?.frame = contentView.bounds
+        imgCircle?.layer.cornerRadius = 40
+        imgCircle?.clipsToBounds = true
     }
-
+    
+    func configure(with data: Info) {
+        guard let imageName = data.image, let image = UIImage(named: imageName) else {
+            print("Image couldn't be loaded.")
+            return
+        }
+        
+        imgCircle?.image = image
+    }
 }
+
