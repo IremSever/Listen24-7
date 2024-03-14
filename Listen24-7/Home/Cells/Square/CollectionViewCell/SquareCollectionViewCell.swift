@@ -18,18 +18,14 @@ class SquareCollectionViewCell: UICollectionViewCell {
     }
     
     func configure(with data: Info) {
-        if let imageName = data.image, let image = UIImage(named: imageName) {
-            imgSquare?.image = image
-        } else {
-            if let defaultImage = UIImage(named: "default_image") {
-                imgSquare.image = defaultImage
-            } else {
-                print("Default image couldn't be loaded.")
-                imgSquare.image = nil
+        guard let imageName = data.image, let image = UIImage(named: imageName) else {
+                print("Image couldn't be loaded.")
+                return
             }
-        }
-        imgSquare?.layer.cornerRadius = 10
-        imgSquare?.clipsToBounds = true
+            imgSquare?.image = image
+            imgSquare?.layer.cornerRadius = 10
+            imgSquare?.clipsToBounds = true
+        print("Data image name: \(String(describing: data.image))")
     }
 }
 

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HeadlineTableViewCell: UITableViewCell {
+class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate  {
     static let identifier = "HeadlineTableViewCell"
     private var collectionViewHeadline: UICollectionView!
     var dataArray: [Response] = []
@@ -15,7 +15,6 @@ class HeadlineTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         createHeadlineCollectionView()
-        setDataArray([])
     }
     
     required init?(coder: NSCoder) {
@@ -25,33 +24,24 @@ class HeadlineTableViewCell: UITableViewCell {
     func createHeadlineCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 10
-        layout.minimumInteritemSpacing = 10
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        
-        collectionViewHeadline = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-        collectionViewHeadline.translatesAutoresizingMaskIntoConstraints = false
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.width * 0.5, height: UIScreen.main.bounds.width * 0.7)
+        layout.minimumInteritemSpacing = 20
+        layout.minimumLineSpacing = 15
+
+        collectionViewHeadline = UICollectionView(frame: bounds, collectionViewLayout: layout)
+        collectionViewHeadline.register(HeadlineCollectionViewCell.self, forCellWithReuseIdentifier: HeadlineCollectionViewCell.identifier)
         collectionViewHeadline.delegate = self
         collectionViewHeadline.dataSource = self
-        collectionViewHeadline.register(UINib(nibName: "HeadlineCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: HeadlineCollectionViewCell.identifier)
+        collectionViewHeadline.showsHorizontalScrollIndicator = false
         collectionViewHeadline.backgroundColor = UIColor.clear
         
         addSubview(collectionViewHeadline)
-        
-        NSLayoutConstraint.activate([
-         collectionViewHeadline.leadingAnchor.constraint(equalTo: leadingAnchor),
-         collectionViewHeadline.trailingAnchor.constraint(equalTo: trailingAnchor),
-         collectionViewHeadline.topAnchor.constraint(equalTo: topAnchor),
-         collectionViewHeadline.bottomAnchor.constraint(equalTo: bottomAnchor)
-         ])
     }
-    func setDataArray(_ dataArray: [Response]) {
+    func updateDataArray(with dataArray: [Response]) {
         self.dataArray = dataArray
         collectionViewHeadline.reloadData()
     }
-}
-
-extension HeadlineTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataArray.count
     }
@@ -60,7 +50,7 @@ extension HeadlineTableViewCell: UICollectionViewDelegate, UICollectionViewDataS
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HeadlineCollectionViewCell.identifier, for: indexPath) as! HeadlineCollectionViewCell
         let data = dataArray[indexPath.item]
         switch data.template {
-        case .cell_headline:
+        case .cell_square:
             if let list = data.list {
                 let info: Info? = list.indices.contains(indexPath.item) ? list[indexPath.item] : nil
                 if let info = info {
@@ -68,7 +58,7 @@ extension HeadlineTableViewCell: UICollectionViewDelegate, UICollectionViewDataS
                 }
             }
         default:
-            break
+            print("problem")
         }
         return cell
     }

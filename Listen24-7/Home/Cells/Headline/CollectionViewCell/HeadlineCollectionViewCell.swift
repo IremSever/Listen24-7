@@ -17,13 +17,15 @@ class HeadlineCollectionViewCell: UICollectionViewCell {
     }
     
     func configure(with data: Info) {
-        if let imageName = data.image {
-            imgHeadline.image = UIImage(named: imageName)
-            imgHeadline.layer.cornerRadius = 5
-            imgHeadline.clipsToBounds = true
-        } else {
-            print("Image name not found")
+        guard let imageName = data.image, let image = UIImage(named: imageName) else {
+            print("Image couldn't be loaded.")
+            return
         }
+        imgHeadline?.image = image
+        imgHeadline?.contentMode = .scaleAspectFill // Resmin içeriğin tamamını kaplayacak şekilde boyutlandırılmasını sağlar
+        imgHeadline?.layer.cornerRadius = 20
+        imgHeadline?.clipsToBounds = true
+        print("Data image name: \(String(describing: data.image))")
         
         lblHeadlineTitle.text = data.title
         lblHeadlineTitle.font = UIFont(name: "Futura-Bold", size: 15)
@@ -35,5 +37,7 @@ class HeadlineCollectionViewCell: UICollectionViewCell {
         lblHeadlineTitle.layer.shadowRadius = 2
     }
     
+    
 }
+
 

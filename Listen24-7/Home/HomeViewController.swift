@@ -53,6 +53,43 @@ extension HomeViewController {
         return viewModel.cellData(forSection: section).count
     }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return viewModel.responseData[section].title
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 20
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let viewHeader = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 40))
+        
+        let lblTitleCell = UILabel(frame: CGRect(x: 15, y: 0, width: tableView.bounds.width - 30, height: 20))
+        lblTitleCell.text = viewModel.responseData[section].title
+        lblTitleCell.font = UIFont(name: "Futura-Bold", size: 13)
+        viewHeader.addSubview(lblTitleCell)
+        
+        let data = viewModel.cellData(forSection: section)
+        print("Data for section \(section): \(data)")
+        let templateType = data.first?.template
+        print("Template type for section \(section): \(String(describing: templateType))")
+        
+        switch templateType {
+        case .cell_headline:
+            let headlineCell = HeadlineTableViewCell(frame: CGRect(x: 0, y: lblTitleCell.frame.maxY, width: tableView.bounds.width, height: 200))
+            headlineCell.updateDataArray(with: data)
+            viewHeader.addSubview(headlineCell)
+        case .cell_square:
+            let squareCell = SquareTableViewCell(frame: CGRect(x: 0, y: lblTitleCell.frame.maxY, width: tableView.bounds.width, height: 200))
+            squareCell.updateDataArray(with: data)
+            viewHeader.addSubview(squareCell)
+        default:
+            break
+        }
+        
+        return viewHeader
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let data = viewModel.cellData(forSection: indexPath.section)[indexPath.row]
         let templateType = data.template
@@ -76,41 +113,6 @@ extension HomeViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: Top10TableViewCell.identifier, for: indexPath) as! Top10TableViewCell
             return cell
         }
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return viewModel.responseData[section].title
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 20
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let viewHeader = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 40))
-        
-        let lblTitleCell = UILabel(frame: CGRect(x: 15, y: 0, width: tableView.bounds.width - 30, height: 20))
-        lblTitleCell.text = viewModel.responseData[section].title
-        lblTitleCell.font = UIFont(name: "Futura-Bold", size: 13)
-        viewHeader.addSubview(lblTitleCell)
-        
-        let data = viewModel.cellData(forSection: section)
-        print("Data for section \(section): \(data)")
-        let templateType = data.first?.template
-        print("Template type for section \(section): \(String(describing: templateType))")
-        
-        switch templateType {
-        case .cell_square:
-            let squareCell = SquareTableViewCell(frame: CGRect(x: 0, y: lblTitleCell.frame.maxY, width: tableView.bounds.width, height: 200))
-            squareCell.updateDataArray(with: data)
-            viewHeader.addSubview(squareCell)
-        case .cell_headline:
-            break
-        default:
-            break
-        }
-        
-        return viewHeader
     }
     
 }
