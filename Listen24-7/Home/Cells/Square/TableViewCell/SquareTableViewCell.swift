@@ -24,24 +24,13 @@ class SquareTableViewCell: UITableViewCell, UICollectionViewDataSource {
     func createSquareCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 10
-        layout.minimumInteritemSpacing = 10
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         
         collectionViewSquare = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         collectionViewSquare.translatesAutoresizingMaskIntoConstraints = false
         collectionViewSquare.register(SquareCollectionViewCell.self, forCellWithReuseIdentifier: SquareCollectionViewCell.identifier)
         collectionViewSquare.backgroundColor = UIColor.clear
-        collectionViewSquare.dataSource = self // Setting data source
-        
+        collectionViewSquare.dataSource = self
         addSubview(collectionViewSquare)
-        
-        NSLayoutConstraint.activate([
-            collectionViewSquare.leadingAnchor.constraint(equalTo: leadingAnchor),
-            collectionViewSquare.trailingAnchor.constraint(equalTo: trailingAnchor),
-            collectionViewSquare.topAnchor.constraint(equalTo: topAnchor),
-            collectionViewSquare.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ])
     }
     
     func updateDataArray(with dataArray: [Response]) {
@@ -50,23 +39,16 @@ class SquareTableViewCell: UITableViewCell, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataArray.count
+        return dataArray.count > 0 ? dataArray[0].list?.count ?? 0 : 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SquareCollectionViewCell.identifier, for: indexPath) as! SquareCollectionViewCell
-        let data = dataArray[indexPath.item]
-        switch data.template {
-        case .cell_square:
-            if let list = data.list {
-                let info: Info? = list.indices.contains(indexPath.item) ? list[indexPath.item] : nil
-                if let info = info {
-                    cell.configure(with: info)
-                }
-            }
-        default:
-            print("problem")
+        let data = dataArray[0].list?[indexPath.item]
+        if let info = data {
+            cell.configure(with: info)
         }
+      
         return cell
     }
 }

@@ -17,15 +17,25 @@ class SquareCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        imgSquare?.frame = contentView.bounds
+        
+        self.imgSquare?.layer.cornerRadius = 20
+        self.imgSquare?.clipsToBounds = true
+        
+    }
+    
     func configure(with data: Info) {
         guard let imageName = data.image, let image = UIImage(named: imageName) else {
-                print("Image couldn't be loaded.")
-                return
-            }
-            imgSquare?.image = image
-            imgSquare?.layer.cornerRadius = 10
-            imgSquare?.clipsToBounds = true
-        print("Data image name: \(String(describing: data.image))")
+            print("Image couldn't be loaded.")
+            return
+        }
+        self.imgSquare?.image = image
+    
+        //imgSquare?.image = image
+        //imgSquare?.layer.cornerRadius = 10
+        //imgSquare?.clipsToBounds = true
     }
 }
 

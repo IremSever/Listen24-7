@@ -49,16 +49,13 @@ class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HeadlineCollectionViewCell.identifier, for: indexPath) as! HeadlineCollectionViewCell
         let data = dataArray[indexPath.item]
-        switch data.template {
-        case .cell_square:
-            if let list = data.list {
-                let info: Info? = list.indices.contains(indexPath.item) ? list[indexPath.item] : nil
-                if let info = info {
-                    cell.configure(with: info)
-                }
+        if let list = data.list {
+            let info: Info? = list.indices.contains(indexPath.item) ? list[indexPath.item] : nil
+            if let info = info {
+                cell.configure(with: info)
             }
-        default:
-            print("problem")
+        } else {
+            print("**************************")
         }
         return cell
     }

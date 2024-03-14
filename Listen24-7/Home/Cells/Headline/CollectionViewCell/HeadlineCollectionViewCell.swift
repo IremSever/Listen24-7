@@ -22,22 +22,19 @@ class HeadlineCollectionViewCell: UICollectionViewCell {
             return
         }
         imgHeadline?.image = image
-        imgHeadline?.contentMode = .scaleAspectFill // Resmin içeriğin tamamını kaplayacak şekilde boyutlandırılmasını sağlar
+        imgHeadline?.contentMode = .scaleAspectFill 
         imgHeadline?.layer.cornerRadius = 20
         imgHeadline?.clipsToBounds = true
-        print("Data image name: \(String(describing: data.image))")
         
-        lblHeadlineTitle.text = data.title
-        lblHeadlineTitle.font = UIFont(name: "Futura-Bold", size: 15)
-        lblHeadlineTitle.textColor = UIColor.white
+        lblHeadlineTitle?.text = data.title
+        lblHeadlineTitle?.font = UIFont(name: "Futura-Bold", size: 15)
+        lblHeadlineTitle?.textColor = UIColor.white
         
-        lblHeadlineTitle.layer.shadowColor = UIColor.black.cgColor
-        lblHeadlineTitle.layer.shadowOpacity = 0.5
-        lblHeadlineTitle.layer.shadowOffset = CGSize(width: 2, height: 2)
-        lblHeadlineTitle.layer.shadowRadius = 2
+        lblHeadlineTitle?.layer.shadowColor = UIColor.black.cgColor
+        lblHeadlineTitle?.layer.shadowOpacity = 0.5
+        lblHeadlineTitle?.layer.shadowOffset = CGSize(width: 2, height: 2)
+        lblHeadlineTitle?.layer.shadowRadius = 2
     }
-    
-    
 }
 
 

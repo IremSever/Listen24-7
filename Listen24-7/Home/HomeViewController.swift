@@ -50,16 +50,14 @@ extension HomeViewController {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.cellData(forSection: section).count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return viewModel.responseData[section].title
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 20
-    }
+    
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let viewHeader = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 40))
@@ -69,36 +67,22 @@ extension HomeViewController {
         lblTitleCell.font = UIFont(name: "Futura-Bold", size: 13)
         viewHeader.addSubview(lblTitleCell)
         
-        let data = viewModel.cellData(forSection: section)
-        print("Data for section \(section): \(data)")
-        let templateType = data.first?.template
-        print("Template type for section \(section): \(String(describing: templateType))")
-        
-        switch templateType {
-        case .cell_headline:
-            let headlineCell = HeadlineTableViewCell(frame: CGRect(x: 0, y: lblTitleCell.frame.maxY, width: tableView.bounds.width, height: 200))
-            headlineCell.updateDataArray(with: data)
-            viewHeader.addSubview(headlineCell)
-        case .cell_square:
-            let squareCell = SquareTableViewCell(frame: CGRect(x: 0, y: lblTitleCell.frame.maxY, width: tableView.bounds.width, height: 200))
-            squareCell.updateDataArray(with: data)
-            viewHeader.addSubview(squareCell)
-        default:
-            break
-        }
-        
         return viewHeader
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let data = viewModel.cellData(forSection: indexPath.section)[indexPath.row]
-        let templateType = data.template
+        let data = viewModel.cellData(forSection: indexPath.section)
+        let templateType = data.first?.template
+        //print("dataaaaa: \(data)")
+        //print("templateeeee: \(String(describing: templateType))")
         switch templateType {
         case .cell_headline:
             let cell = tableView.dequeueReusableCell(withIdentifier: HeadlineTableViewCell.identifier, for: indexPath) as! HeadlineTableViewCell
+            cell.updateDataArray(with: data)
             return cell
         case .cell_square:
             let cell = tableView.dequeueReusableCell(withIdentifier: SquareTableViewCell.identifier, for: indexPath) as! SquareTableViewCell
+            cell.updateDataArray(with: data)
             return cell
         case .cell_circle:
             let cell = tableView.dequeueReusableCell(withIdentifier: CircleTableViewCell.identifier, for: indexPath) as! CircleTableViewCell
@@ -112,6 +96,30 @@ extension HomeViewController {
         case .cell_top10:
             let cell = tableView.dequeueReusableCell(withIdentifier: Top10TableViewCell.identifier, for: indexPath) as! Top10TableViewCell
             return cell
+        default:
+            return UITableViewCell()
+            
+        }
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let data = viewModel.cellData(forSection: indexPath.section)
+        let templateType = data.first?.template
+        
+        switch templateType {
+        case .cell_headline:
+            return 350
+        case .cell_square:
+            return 200
+        case .cell_circle:
+            return 150
+        case .cell_suggestion:
+            return 250
+        case .cell_latest:
+            return 150
+        case .cell_top10:
+            return 220
+        default:
+            return UITableView.automaticDimension
         }
     }
     
