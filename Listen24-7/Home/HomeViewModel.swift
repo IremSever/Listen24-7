@@ -44,16 +44,10 @@ class HomeViewModel {
     }
     
     func cellData(forSection section: Int) -> [Response] {
-        guard let template = templateForSection(section) else {
+        guard section < responseData.count else {
             return []
         }
-        return responseData.filter { $0.template == template }
-    }
-    
-    private func templateForSection(_ section: Int) -> Template? {
-        guard let template = Template(rawValue: "cell_\(section + 1)") else {
-            return nil
-        }
-        return template
+        return [responseData[section]]
     }
 }
+
