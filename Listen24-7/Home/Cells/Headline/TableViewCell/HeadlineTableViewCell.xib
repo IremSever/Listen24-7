@@ -13,12 +13,12 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="152" id="KGk-i7-Jjw" customClass="HeadlineTableViewCell" customModule="Listen24_7" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="193" height="123"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="193" height="123"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="HeadlineTableViewCell" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="deR-0P-Icz">
-                        <rect key="frame" x="0.0" y="5" width="193" height="118"/>
+                        <rect key="frame" x="0.0" y="0.0" width="193" height="118"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -39,8 +39,8 @@
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="deR-0P-Icz" secondAttribute="bottom" id="5K7-T8-UWR"/>
                     <constraint firstAttribute="trailing" secondItem="deR-0P-Icz" secondAttribute="trailing" id="NCZ-Yd-PYW"/>
-                    <constraint firstItem="deR-0P-Icz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="bcb-bD-5h6"/>
                     <constraint firstItem="deR-0P-Icz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="lMJ-WM-ZRU"/>
+                    <constraint firstItem="deR-0P-Icz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="zIb-BQ-NuY"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -48,7 +48,7 @@
             <connections>
                 <outlet property="collectionViewHeadline" destination="deR-0P-Icz" id="V8y-yQ-6MY"/>
             </connections>
-            <point key="canvasLocation" x="-92" y="40"/>
+            <point key="canvasLocation" x="-92.36641221374046" y="39.7887323943662"/>
         </tableViewCell>
     </objects>
     <resources>

@@ -35,7 +35,13 @@
                         "image": "coldplay.jpg"
                     },
                     {
-                        "image": "coldplay.jpg"
+                        "image": "anne-marie.jpg"
+                    },
+                    {
+                        "image": "audiobook.png"
+                    },
+                    {
+                        "image": "melikesahin.jpeg"
                     },
                     {
                         "image": "coldplay.jpg"
@@ -44,19 +50,13 @@
                         "image": "coldplay.jpg"
                     },
                     {
-                        "image": "coldplay.jpg"
+                        "image": "melikesahin.jpeg"
                     },
                     {
-                        "image": "coldplay.jpg"
+                        "image": "audiobook.png"
                     },
                     {
-                        "image": "coldplay.jpg"
-                    },
-                    {
-                        "image": "coldplay.jpg"
-                    },
-                    {
-                        "image": "coldplay.jpg"
+                        "image": "anne-marie.jpg"
                     },
                     {
                         "image": "coldplay.jpg"
@@ -68,43 +68,43 @@
                 "template": "cell_circle",
                 "list": [
                     {
-                        "image": "radyoturkuvaz.jpg"
+                        "image": "coldplay.jpg"
                     },
                     {
-                        "image": "radyoenergy.jpg"
+                        "image": "anne-marie.jpg"
                     },
                     {
-                        "image": "turkuvaznostalji.jpg"
+                        "image": "audiobook.png"
                     },
                     {
-                        "image": "radyosoft.jpg"
+                        "image": "melikesahin.jpeg"
                     },
                     {
                         "image": "turkuvazromantik.jpg"
                     },
                     {
-                        "image": "turkuvazanadolu.jpg"
+                        "image": "melikesahin.jpeg"
                     },
                     {
-                        "image": "turkuvazefsane.jpg"
+                        "image": "coldplay.jpg"
                     },
                     {
-                        "image": "vavradyo.jpg"
+                        "image": "anne-marie.jpg"
                     },
                     {
-                        "image": "asporradyo.jpg"
+                        "image": "audiobook.png"
                     },
                     {
-                        "image": "anewsradio.jpg"
+                        "image": "melikesahin.jpeg"
                     },
                     {
                         "image": "turkuvazmusiki.jpg"
                     },
                     {
-                        "image": "ahbrradyo.jpg"
+                        "image": "anne-marie.jpg"
                     },
                     {
-                        "image": "apara.jpg"
+                        "image": "coldplay.jpg"
                     }
                 ]
             },
@@ -114,17 +114,17 @@
                 "list": [
                     {
                         "title": "Işıkları Söndürsünler",
-                        "image": "manga.jpg",
+                        "image": "anne-marie.jpg",
                         "releaseDate": "2014"
                     },
                     {
                         "title": "İnsanlık Halleri",
-                        "image": "teoman.jpg",
+                        "image": "audiobook.png",
                         "releaseDate": "2009"
                     },
                     {
                         "title": "Mavi",
-                        "image": "kutsi.jpg",
+                        "image": "melikesahin.jpeg",
                         "releaseDate": "2017"
                     },
                     {
@@ -134,7 +134,7 @@
                     },
                     {
                         "title": "Mecnun",
-                        "image": "rafetel.jpg",
+                        "image": "anne-marie.jpg",
                         "releaseDate": "2016"
                     },
                     {
@@ -144,7 +144,7 @@
                     },
                     {
                         "title": "Mucize",
-                        "image": "emel.jpg",
+                        "image": "audiobook.png",
                         "releaseDate": "2000"
                     }
                 ]
@@ -155,7 +155,7 @@
                 "list": [
                     {
                         "title": "F.Bahçe maçı öncesi Blessin: Saygı duymam gerekiyor!",
-                        "image": "fenerbahcesesli.jpg",
+                        "image": "audiobook.png",
                         "duration": "08:37"
                     },
                     {
@@ -170,37 +170,37 @@
                     },
                     {
                         "title": "Acı Veriyor",
-                        "image": "mertdemir.jpg",
+                        "image": "anne-marie.jpg",
                         "duration": "03:13"
                     },
                     {
                         "title": "Dön Desem",
-                        "image": "mertdemir.jpg",
+                        "image": "audiobook.png",
                         "duration": "03:57"
                     },
                     {
                         "title": "İkimize Birden",
-                        "image": "mertdemir.jpg",
+                        "image": "melikesahin.jpeg",
                         "duration": "04:07"
                     },
                     {
                         "title": "Gözlerime Bak",
-                        "image": "mertdemirgoz.jpg",
+                        "image": "anne-marie.jpg",
                         "duration": "03:19"
                     },
                     {
                         "title": "Karakış - Akustik",
-                        "image": "mertdemir.jpg",
+                        "image": "melikesahin.jpeg",
                         "duration": "03:47"
                     },
                     {
                         "title": "Bırak Beni",
-                        "image": "mertdemir.jpg",
+                        "image": "audiobook.png",
                         "duration": "03:48"
                     },
                     {
                         "title": "MİT'Ten nokta operasyon! PKK'nın sözde Süleymaniye sorumlusu Hüsnü Kümek etkisiz hale getirildi!",
-                        "image": "gundem.jpg",
+                        "image": "melikesahin.jpeg",
                         "duration": "02:00"
                     }
                 ]
@@ -211,7 +211,7 @@
                 "list": [
                     {
                         "title": "Yıldız Tilbe'nin Yıldızlı Şarkıları",
-                        "image": "yildiztilbe.jpg",
+                        "image": "melikesahin.jpeg",
                         "releaseDate": "2018"
                     },
                     {
@@ -221,17 +221,17 @@
                     },
                     {
                         "title": "Her Gün Sonbahar",
-                        "image": "zakkum.jpg",
+                        "image": "audiobook.png",
                         "releaseDate": "2013"
                     },
                     {
                         "title": "Eylül Geldi Sonra",
-                        "image": "emreaydin.jpg",
+                        "image": "anne-marie.jpg",
                         "releaseDate": "2013"
                     },
                     {
                         "title": "Maya",
-                        "image": "mabelmatiz.jpg",
+                        "image": "melikesahin.jpeg",
                         "releaseDate": "2018"
                     },
                     {
@@ -246,17 +246,17 @@
                     },
                     {
                         "title": "Seksenler Dizi Şarkıları",
-                        "image": "seksenler.jpg",
+                        "image": "anne-marie.jpg",
                         "releaseDate": "2012"
                     },
                     {
                         "title": "Adam Gibi Adam",
-                        "image": "ebrugundesadam.jpg",
+                        "image": "audiobook.png",
                         "releaseDate": "2005"
                     },
                     {
                         "title": "Sezen Aksu'88",
-                        "image": "sezenaksu88.jpg",
+                        "image": "melikesahin.jpeg",
                         "releaseDate": "1988"
                     }
                 ]

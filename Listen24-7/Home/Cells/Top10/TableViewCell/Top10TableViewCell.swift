@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Top10TableViewCell: UITableViewCell, UICollectionViewDataSource {
+class Top10TableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
     static let identifier = "Top10TableViewCell"
     
     @IBOutlet weak var collectionViewTop10: UICollectionView!

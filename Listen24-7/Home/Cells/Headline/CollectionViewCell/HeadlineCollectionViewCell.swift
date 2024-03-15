@@ -34,11 +34,7 @@ class HeadlineCollectionViewCell: UICollectionViewCell {
             return
         }
         imgHeadline?.image = image
-        
         lblHeadlineTitle?.text = data.title
-        
-        
-        
     }
 }
 

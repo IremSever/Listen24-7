@@ -10,7 +10,7 @@ import UIKit
 class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate  {
     @IBOutlet weak var collectionViewHeadline: UICollectionView!
     static let identifier = "HeadlineTableViewCell"
-     var dataArray: [Response] = []
+    var dataArray: [Response] = []
      
      override func awakeFromNib() {
          super.awakeFromNib()

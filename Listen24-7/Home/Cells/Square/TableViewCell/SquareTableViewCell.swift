@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SquareTableViewCell: UITableViewCell, UICollectionViewDataSource {
+class SquareTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
     static let identifier = "SquareTableViewCell"
     @IBOutlet weak var collectionViewSquare: UICollectionView!
     var dataArray: [Response] = []
@@ -22,9 +22,8 @@ class SquareTableViewCell: UITableViewCell, UICollectionViewDataSource {
         layout.scrollDirection = .horizontal
         collectionViewSquare.register(UINib(nibName: "SquareCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: SquareCollectionViewCell.identifier)
         collectionViewSquare.backgroundColor = UIColor.clear
+        collectionViewSquare.delegate = self
         collectionViewSquare.dataSource = self
-        
-        addSubview(collectionViewSquare)
     }
     
     func updateDataArray(with dataArray: [Response]) {
@@ -38,8 +37,9 @@ class SquareTableViewCell: UITableViewCell, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SquareCollectionViewCell.identifier, for: indexPath) as! SquareCollectionViewCell
-        if let data = dataArray.first?.list?[indexPath.item] {
-            cell.configure(with: data)
+        if let item = dataArray.first?.list?[indexPath.row] {
+            cell.configure(with: item)
+            return cell
         }
         return cell
     }

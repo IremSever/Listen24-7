@@ -7,10 +7,11 @@
 
 import UIKit
 
-class CircleTableViewCell: UITableViewCell, UICollectionViewDataSource {
+class CircleTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
     @IBOutlet weak var collectionViewCircle: UICollectionView!
     static let identifier = "CircleTableViewCell"
     var dataArray: [Response] = []
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         createCircleCollectionView()
@@ -21,9 +22,8 @@ class CircleTableViewCell: UITableViewCell, UICollectionViewDataSource {
         layout.scrollDirection = .horizontal
         collectionViewCircle.register(UINib(nibName: "CircleCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: CircleCollectionViewCell.identifier)
         collectionViewCircle.backgroundColor = UIColor.clear
+        collectionViewCircle.delegate = self
         collectionViewCircle.dataSource = self
-        
-        addSubview(collectionViewCircle)
     }
     
     func updateDataArray(with dataArray: [Response]) {
@@ -37,8 +37,9 @@ class CircleTableViewCell: UITableViewCell, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CircleCollectionViewCell.identifier, for: indexPath) as! CircleCollectionViewCell
-        if let data = dataArray.first?.list?[indexPath.item] {
-            cell.configure(with: data)
+        if let item = dataArray.first?.list?[indexPath.row] {
+            cell.configure(with: item)
+            return cell
         }
         return cell
     }

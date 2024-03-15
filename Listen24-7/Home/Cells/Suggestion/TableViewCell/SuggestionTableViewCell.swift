@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SuggestionTableViewCell: UITableViewCell, UICollectionViewDataSource {
+class SuggestionTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
     static let identifier = "SuggestionTableViewCell"
     
     @IBOutlet weak var collectionViewSuggestion: UICollectionView!

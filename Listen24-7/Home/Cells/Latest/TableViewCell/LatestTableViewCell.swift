@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LatestTableViewCell: UITableViewCell, UICollectionViewDataSource {
+class LatestTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
     static let identifier = "LatestTableViewCell"
     
     @IBOutlet weak var collectionViewLatest: UICollectionView!
