@@ -23,9 +23,8 @@ class Top10TableViewCell: UITableViewCell, UICollectionViewDataSource, UICollect
         layout.scrollDirection = .horizontal
         collectionViewTop10.register(UINib(nibName: "Top10CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: Top10CollectionViewCell.identifier)
         collectionViewTop10.backgroundColor = UIColor.clear
+        collectionViewTop10.delegate = self
         collectionViewTop10.dataSource = self
-        
-        addSubview(collectionViewTop10)
     }
     
     func updateDataArray(with dataArray: [Response]) {
@@ -39,8 +38,9 @@ class Top10TableViewCell: UITableViewCell, UICollectionViewDataSource, UICollect
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Top10CollectionViewCell.identifier, for: indexPath) as! Top10CollectionViewCell
-        if let data = dataArray.first?.list?[indexPath.item] {
-            cell.configure(with: data)
+        if let item = dataArray.first?.list?[indexPath.row] {
+            cell.configure(with: item)
+            return cell
         }
         return cell
     }

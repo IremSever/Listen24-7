@@ -23,9 +23,8 @@ class LatestTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollec
         layout.scrollDirection = .horizontal
         collectionViewLatest.register(UINib(nibName: "LatestCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: LatestCollectionViewCell.identifier)
         collectionViewLatest.backgroundColor = UIColor.clear
+        collectionViewLatest.delegate = self
         collectionViewLatest.dataSource = self
-        
-        addSubview(collectionViewLatest)
     }
     
     func updateDataArray(with dataArray: [Response]) {
@@ -39,8 +38,9 @@ class LatestTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollec
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LatestCollectionViewCell.identifier, for: indexPath) as! LatestCollectionViewCell
-        if let data = dataArray.first?.list?[indexPath.item] {
-            cell.configure(with: data)
+        if let item = dataArray.first?.list?[indexPath.row] {
+            cell.configure(with: item)
+            return cell
         }
         return cell
     }

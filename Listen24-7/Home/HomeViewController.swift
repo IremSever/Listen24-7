@@ -84,15 +84,19 @@ extension HomeViewController {
             return cell
         case .cell_circle:
             let cell = tableView.dequeueReusableCell(withIdentifier: CircleTableViewCell.identifier, for: indexPath) as! CircleTableViewCell
+            cell.updateDataArray(with: data)
             return cell
         case .cell_suggestion:
             let cell = tableView.dequeueReusableCell(withIdentifier: SuggestionTableViewCell.identifier, for: indexPath) as! SuggestionTableViewCell
+            cell.updateDataArray(with: data)
             return cell
         case .cell_latest:
             let cell = tableView.dequeueReusableCell(withIdentifier: LatestTableViewCell.identifier, for: indexPath) as! LatestTableViewCell
+            cell.updateDataArray(with: data)
             return cell
         case .cell_top10:
             let cell = tableView.dequeueReusableCell(withIdentifier: Top10TableViewCell.identifier, for: indexPath) as! Top10TableViewCell
+            cell.updateDataArray(with: data)
             return cell
         default:
             return UITableViewCell()

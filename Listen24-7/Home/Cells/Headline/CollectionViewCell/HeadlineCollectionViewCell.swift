@@ -11,6 +11,7 @@ class HeadlineCollectionViewCell: UICollectionViewCell {
     static let identifier = "HeadlineCollectionViewCell"
     @IBOutlet weak var lblHeadlineTitle: UILabel!
     @IBOutlet weak var imgHeadline: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

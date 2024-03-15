@@ -24,9 +24,8 @@ class SuggestionTableViewCell: UITableViewCell, UICollectionViewDataSource, UICo
         layout.scrollDirection = .horizontal
         collectionViewSuggestion.register(UINib(nibName: "SuggestionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: SuggestionCollectionViewCell.identifier)
         collectionViewSuggestion.backgroundColor = UIColor.clear
+        collectionViewSuggestion.delegate = self
         collectionViewSuggestion.dataSource = self
-        
-        addSubview(collectionViewSuggestion)
     }
     
     func updateDataArray(with dataArray: [Response]) {
@@ -40,8 +39,9 @@ class SuggestionTableViewCell: UITableViewCell, UICollectionViewDataSource, UICo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SuggestionCollectionViewCell.identifier, for: indexPath) as! SuggestionCollectionViewCell
-        if let data = dataArray.first?.list?[indexPath.item] {
-            cell.configure(with: data)
+        if let item = dataArray.first?.list?[indexPath.row] {
+            cell.configure(with: item)
+            return cell
         }
         return cell
     }

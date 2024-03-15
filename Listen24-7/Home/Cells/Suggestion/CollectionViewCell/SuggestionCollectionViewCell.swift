@@ -13,16 +13,21 @@ class SuggestionCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var lbRecordName: UILabel!
     @IBOutlet weak var lblReleaseDate: UILabel!
     @IBOutlet weak var imgCover: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        // Initialization code
     }
-    
-    
     override func layoutSubviews() {
         super.layoutSubviews()
-        imgCover?.frame = contentView.bounds
-        imgCover?.layer.cornerRadius = 20
+        imgCover?.contentMode = .scaleAspectFill
+        imgCover?.layer.cornerRadius = 5
         imgCover?.clipsToBounds = true
+        lbRecordName?.font = UIFont(name: "Futura-Bold", size: 12)
+        lbRecordName?.textColor = UIColor.white
+        
+        lblReleaseDate?.font = UIFont(name: "Futura", size: 9)
+        lblReleaseDate?.textColor = UIColor.systemGray2
     }
     
     func configure(with data: Info) {
@@ -32,5 +37,7 @@ class SuggestionCollectionViewCell: UICollectionViewCell {
         }
         
         imgCover?.image = image
+        lbRecordName?.text = data.title
+        lblReleaseDate?.text = data.title
     }
 }

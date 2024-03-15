@@ -10,15 +10,16 @@ import UIKit
 class CircleCollectionViewCell: UICollectionViewCell {
     static let identifier = "CircleCollectionViewCell"
     @IBOutlet weak var imgCircle: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        // Initialization code
     }
-    
     
     override func layoutSubviews() {
         super.layoutSubviews()
         imgCircle?.frame = contentView.bounds
-        imgCircle?.layer.cornerRadius = 40
+        imgCircle?.layer.cornerRadius = 65
         imgCircle?.clipsToBounds = true
     }
     
@@ -27,7 +28,6 @@ class CircleCollectionViewCell: UICollectionViewCell {
             print("Image couldn't be loaded.")
             return
         }
-        
         imgCircle?.image = image
     }
 }
