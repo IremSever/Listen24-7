@@ -8,53 +8,48 @@
 import UIKit
 
 class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate  {
+    @IBOutlet weak var collectionViewHeadline: UICollectionView!
     static let identifier = "HeadlineTableViewCell"
-    private var collectionViewHeadline: UICollectionView!
-    var dataArray: [Response] = []
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        createHeadlineCollectionView()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func createHeadlineCollectionView() {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        
-        collectionViewHeadline = UICollectionView(frame: bounds, collectionViewLayout: layout)
-        collectionViewHeadline.register(HeadlineCollectionViewCell.self, forCellWithReuseIdentifier: HeadlineCollectionViewCell.identifier)
-        collectionViewHeadline.delegate = self
-        collectionViewHeadline.dataSource = self
-        collectionViewHeadline.showsHorizontalScrollIndicator = false
-        collectionViewHeadline.backgroundColor = UIColor.clear
-        
-        addSubview(collectionViewHeadline)
-    }
-    func updateDataArray(with dataArray: [Response]) {
-        self.dataArray = dataArray
-        collectionViewHeadline.reloadData()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataArray.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HeadlineCollectionViewCell.identifier, for: indexPath) as! HeadlineCollectionViewCell
-        let data = dataArray[indexPath.item]
-        if let list = data.list {
-            let info: Info? = list.indices.contains(indexPath.item) ? list[indexPath.item] : nil
-            if let info = info {
-                cell.configure(with: info)
-            }
-        } else {
-            print("**************************")
-        }
-        return cell
-    }
-}
-
+     var dataArray: [Response] = []
+     
+     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+         super.init(style: style, reuseIdentifier: reuseIdentifier)
+         createHeadlineCollectionView()
+     }
+     
+     required init?(coder: NSCoder) {
+         super.init(coder: coder)
+     }
+     
+     override func awakeFromNib() {
+         super.awakeFromNib()
+         createHeadlineCollectionView()
+     }
+     
+     func createHeadlineCollectionView() {
+         let layout = UICollectionViewFlowLayout()
+         layout.scrollDirection = .horizontal
+         collectionViewHeadline.register(UINib(nibName: "HeadlineCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: HeadlineCollectionViewCell.identifier)
+         collectionViewHeadline.backgroundColor = UIColor.clear
+         collectionViewHeadline.dataSource = self
+         
+         addSubview(collectionViewHeadline)
+     }
+     
+     func updateDataArray(with dataArray: [Response]) {
+         self.dataArray = dataArray
+         collectionViewHeadline.reloadData()
+     }
+     
+     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+         return dataArray.first?.list?.count ?? 0
+     }
+     
+     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HeadlineCollectionViewCell.identifier, for: indexPath) as! HeadlineCollectionViewCell
+         if let data = dataArray.first?.list?[indexPath.item] {
+             cell.configure(with: data)
+         }
+         return cell
+     }
+ }

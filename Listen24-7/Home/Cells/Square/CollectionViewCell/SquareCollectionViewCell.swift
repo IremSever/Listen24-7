@@ -24,13 +24,15 @@ class SquareCollectionViewCell: UICollectionViewCell {
         imgSquare?.layer.cornerRadius = 20
         imgSquare?.clipsToBounds = true
     }
-    
-    func configure(with data: Info) {
-        guard let imageName = data.image, let image = UIImage(named: imageName) else {
-            print("Image couldn't be loaded.")
-            return
-        }
         
-        imgSquare?.image = image
+        func configure(with data: Info) {
+            guard let imageName = data.image, let image = UIImage(named: imageName) else {
+                print("Image couldn't be loaded.")
+                return
+            }
+            
+            imgSquare.image = image
+            print(imgSquare)
+        }
     }
-}
+

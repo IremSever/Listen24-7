@@ -7,59 +7,41 @@
 
 import UIKit
 
-class SuggestionTableViewCell: UITableViewCell {
+class SuggestionTableViewCell: UITableViewCell, UICollectionViewDataSource {
     static let identifier = "SuggestionTableViewCell"
-    private var collectionViewSuggestion: UICollectionView!
+    
+    @IBOutlet weak var collectionViewSuggestion: UICollectionView!
+ 
     var dataArray: [Response] = []
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+  
+    override func awakeFromNib() {
+        super.awakeFromNib()
         createSuggestionCollectionView()
-        setDataArray([])
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     func createSuggestionCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        
-        collectionViewSuggestion = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-        collectionViewSuggestion.translatesAutoresizingMaskIntoConstraints = false
-        collectionViewSuggestion.delegate = self
-        collectionViewSuggestion.dataSource = self
         collectionViewSuggestion.register(UINib(nibName: "SuggestionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: SuggestionCollectionViewCell.identifier)
         collectionViewSuggestion.backgroundColor = UIColor.clear
+        collectionViewSuggestion.dataSource = self
         
         addSubview(collectionViewSuggestion)
     }
-    func setDataArray(_ dataArray: [Response]) {
+    
+    func updateDataArray(with dataArray: [Response]) {
         self.dataArray = dataArray
         collectionViewSuggestion.reloadData()
-        
     }
-}
-
-extension SuggestionTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataArray.count
+        return dataArray.first?.list?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SuggestionCollectionViewCell.identifier, for: indexPath) as! SuggestionCollectionViewCell
-        let data = dataArray[indexPath.item]
-        switch data.template {
-        case .cell_suggestion:
-            if let list = data.list {
-                let info: Info? = list.indices.contains(indexPath.item) ? list[indexPath.item] : nil
-                if let info = info {
-                    cell.configure(with: info)
-                }
-            }
-        default:
-            break
+        if let data = dataArray.first?.list?[indexPath.item] {
+            cell.configure(with: data)
         }
         return cell
     }

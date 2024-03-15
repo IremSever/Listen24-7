@@ -35,12 +35,12 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func registerCells() {
-        tableViewHome.register(SquareTableViewCell.self, forCellReuseIdentifier: SquareTableViewCell.identifier)
-        tableViewHome.register(HeadlineTableViewCell.self, forCellReuseIdentifier: HeadlineTableViewCell.identifier)
-        tableViewHome.register(CircleTableViewCell.self, forCellReuseIdentifier: CircleTableViewCell.identifier)
-        tableViewHome.register(SuggestionTableViewCell.self, forCellReuseIdentifier: SuggestionTableViewCell.identifier)
-        tableViewHome.register(LatestTableViewCell.self, forCellReuseIdentifier: LatestTableViewCell.identifier)
-        tableViewHome.register(Top10TableViewCell.self, forCellReuseIdentifier: Top10TableViewCell.identifier)
+        tableViewHome.register(UINib(nibName: "SquareTableViewCell", bundle: nil), forCellReuseIdentifier: SquareTableViewCell.identifier)
+        tableViewHome.register(UINib(nibName: "HeadlineTableViewCell", bundle: nil), forCellReuseIdentifier: HeadlineTableViewCell.identifier)
+        tableViewHome.register(UINib(nibName: "CircleTableViewCell", bundle: nil), forCellReuseIdentifier: CircleTableViewCell.identifier)
+        tableViewHome.register(UINib(nibName: "SuggestionTableViewCell", bundle: nil), forCellReuseIdentifier: SuggestionTableViewCell.identifier)
+        tableViewHome.register(UINib(nibName: "LatestTableViewCell", bundle: nil), forCellReuseIdentifier: LatestTableViewCell.identifier)
+        tableViewHome.register(UINib(nibName: "Top10TableViewCell", bundle: nil), forCellReuseIdentifier: Top10TableViewCell.identifier)
     }
 }
 
@@ -101,26 +101,6 @@ extension HomeViewController {
             
         }
     }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let data = viewModel.cellData(forSection: indexPath.section)
-        let templateType = data.first?.template
-        
-        switch templateType {
-        case .cell_headline:
-            return 350
-        case .cell_square:
-            return 200
-        case .cell_circle:
-            return 150
-        case .cell_suggestion:
-            return 250
-        case .cell_latest:
-            return 150
-        case .cell_top10:
-            return 220
-        default:
-            return 100
-        }
-    }
+    
     
 }
