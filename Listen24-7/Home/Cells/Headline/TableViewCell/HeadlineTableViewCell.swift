@@ -12,15 +12,6 @@ class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
     static let identifier = "HeadlineTableViewCell"
      var dataArray: [Response] = []
      
-     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-         super.init(style: style, reuseIdentifier: reuseIdentifier)
-         createHeadlineCollectionView()
-     }
-     
-     required init?(coder: NSCoder) {
-         super.init(coder: coder)
-     }
-     
      override func awakeFromNib() {
          super.awakeFromNib()
          createHeadlineCollectionView()
@@ -31,9 +22,8 @@ class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
          layout.scrollDirection = .horizontal
          collectionViewHeadline.register(UINib(nibName: "HeadlineCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: HeadlineCollectionViewCell.identifier)
          collectionViewHeadline.backgroundColor = UIColor.clear
+         collectionViewHeadline.delegate = self
          collectionViewHeadline.dataSource = self
-         
-         addSubview(collectionViewHeadline)
      }
      
      func updateDataArray(with dataArray: [Response]) {
@@ -47,9 +37,20 @@ class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
      
      func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
          let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HeadlineCollectionViewCell.identifier, for: indexPath) as! HeadlineCollectionViewCell
-         if let data = dataArray.first?.list?[indexPath.item] {
-             cell.configure(with: data)
+         if let item = dataArray.first?.list?[indexPath.row] {
+             cell.configure(with: item)
+             return cell
          }
          return cell
+
      }
+    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        let size = CGSize(width: 200, height: 200)
+//        return size
+//      }
+//      func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+//        return UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 20)
+//      }
  }
+
