@@ -11,6 +11,7 @@ class SquareTableViewCell: UITableViewCell, UICollectionViewDataSource {
     static let identifier = "SquareTableViewCell"
     @IBOutlet weak var collectionViewSquare: UICollectionView!
     var dataArray: [Response] = []
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         createSquareCollectionView()

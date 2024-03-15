@@ -7,58 +7,40 @@
 
 import UIKit
 
-class LatestTableViewCell: UITableViewCell {
+class LatestTableViewCell: UITableViewCell, UICollectionViewDataSource {
     static let identifier = "LatestTableViewCell"
-    private var collectionViewLatest: UICollectionView!
+    
+    @IBOutlet weak var collectionViewLatest: UICollectionView!
     var dataArray: [Response] = []
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override func awakeFromNib() {
+        super.awakeFromNib()
         createLatestCollectionView()
-        setDataArray([])
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     func createLatestCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        
-        collectionViewLatest = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-        collectionViewLatest.translatesAutoresizingMaskIntoConstraints = false
-        collectionViewLatest.delegate = self
-        collectionViewLatest.dataSource = self
         collectionViewLatest.register(UINib(nibName: "LatestCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: LatestCollectionViewCell.identifier)
         collectionViewLatest.backgroundColor = UIColor.clear
+        collectionViewLatest.dataSource = self
         
         addSubview(collectionViewLatest)
     }
-    func setDataArray(_ dataArray: [Response]) {
+    
+    func updateDataArray(with dataArray: [Response]) {
         self.dataArray = dataArray
         collectionViewLatest.reloadData()
     }
-}
-
-extension LatestTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataArray.count
+        return dataArray.first?.list?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LatestCollectionViewCell.identifier, for: indexPath) as! LatestCollectionViewCell
-        let data = dataArray[indexPath.item]
-        switch data.template {
-        case .cell_latest:
-            if let list = data.list {
-                let info: Info? = list.indices.contains(indexPath.item) ? list[indexPath.item] : nil
-                if let info = info {
-                    cell.configure(with: info)
-                }
-            }
-        default:
-            break
+        if let data = dataArray.first?.list?[indexPath.item] {
+            cell.configure(with: data)
         }
         return cell
     }
