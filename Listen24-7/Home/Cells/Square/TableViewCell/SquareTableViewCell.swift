@@ -24,6 +24,7 @@ class SquareTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollec
         collectionViewSquare.backgroundColor = UIColor.clear
         collectionViewSquare.delegate = self
         collectionViewSquare.dataSource = self
+        collectionViewSquare.showsHorizontalScrollIndicator = false
     }
     
     func updateDataArray(with dataArray: [Response]) {
