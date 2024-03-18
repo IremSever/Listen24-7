@@ -26,11 +26,11 @@ class LatestCollectionViewCell: UICollectionViewCell {
         }
         
         lblTitle.text = data.title
-        lblTitle.font = UIFont(name: "Futura-Bold", size: 13)
+        lblTitle.font = UIFont(name: "Futura-Bold", size: 10)
         lblTitle.textColor = UIColor.black
         
-        lblMinutes.text = data.title
-        lblMinutes.font = UIFont(name: "Futura", size: 10)
+        lblMinutes.text = data.duration
+        lblMinutes.font = UIFont(name: "Futura", size: 8)
         lblMinutes.textColor = UIColor.black
     }
 }
