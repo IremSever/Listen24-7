@@ -25,6 +25,7 @@ class LatestTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollec
         collectionViewLatest.backgroundColor = UIColor.clear
         collectionViewLatest.delegate = self
         collectionViewLatest.dataSource = self
+        collectionViewLatest.showsHorizontalScrollIndicator = false
     }
     
     func updateDataArray(with dataArray: [Response]) {

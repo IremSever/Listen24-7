@@ -24,6 +24,7 @@ class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
          collectionViewHeadline.backgroundColor = UIColor.clear
          collectionViewHeadline.delegate = self
          collectionViewHeadline.dataSource = self
+         collectionViewHeadline.showsHorizontalScrollIndicator = false
      }
      
      func updateDataArray(with dataArray: [Response]) {

@@ -26,6 +26,7 @@ class SuggestionTableViewCell: UITableViewCell, UICollectionViewDataSource, UICo
         collectionViewSuggestion.backgroundColor = UIColor.clear
         collectionViewSuggestion.delegate = self
         collectionViewSuggestion.dataSource = self
+        collectionViewSuggestion.showsHorizontalScrollIndicator = false
     }
     
     func updateDataArray(with dataArray: [Response]) {

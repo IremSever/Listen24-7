@@ -24,6 +24,7 @@ class CircleTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollec
         collectionViewCircle.backgroundColor = UIColor.clear
         collectionViewCircle.delegate = self
         collectionViewCircle.dataSource = self
+        collectionViewCircle.showsHorizontalScrollIndicator = false
     }
     
     func updateDataArray(with dataArray: [Response]) {

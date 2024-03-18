@@ -25,6 +25,7 @@ class Top10TableViewCell: UITableViewCell, UICollectionViewDataSource, UICollect
         collectionViewTop10.backgroundColor = UIColor.clear
         collectionViewTop10.delegate = self
         collectionViewTop10.dataSource = self
+        collectionViewTop10.showsHorizontalScrollIndicator = false
     }
     
     func updateDataArray(with dataArray: [Response]) {
