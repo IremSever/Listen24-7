@@ -20,6 +20,10 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O2w-nq-jCo">
                         <rect key="frame" x="10" y="9" width="260" height="351"/>
                         <color key="backgroundColor" systemColor="labelColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="260" id="a3l-fp-2gc"/>
+                            <constraint firstAttribute="height" constant="351" id="r7B-oa-3V2"/>
+                        </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgC-qO-K2o">
                         <rect key="frame" x="10" y="296" width="260" height="61"/>
