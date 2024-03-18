@@ -267,42 +267,52 @@
                 "template": "cell_top10",
                 "list": [
                     {
+                        "listNo": "01",
                         "title": "Yan Benimle",
                         "artist": "Sıla"
                     },
                     {
+                        "listNo": "02",
                         "title": "Galaksi",
                         "artist": "Ece Mumay"
                     },
                     {
+                        "listNo": "03",
                         "title": "Gimme More",
                         "artist": "Britney Spears"
                     },
                     {
+                        "listNo": "04",
                         "title": "Poşet",
                         "artist": "Serdar Ortaç"
                     },
                     {
+                        "listNo": "05",
                         "title": "Seni Kimler Aldı",
                         "artist": "Sezen Aksu"
                     },
                     {
+                        "listNo": "06",
                         "title": "Delikanlım",
                         "artist": "Yıldız Tilbe"
                     },
                     {
+                        "listNo": "07",
                         "title": "Cendere",
                         "artist": "Gökhan Kırdar"
                     },
                     {
+                        "listNo": "08",
                         "title": "Kış Güneşi",
                         "artist": "Tarkan"
                     },
                     {
+                        "listNo": "09",
                         "title": "Oysa Bir Umuttu",
                         "artist": "Kıraç"
                     },
                     {
+                        "listNo": "10",
                         "title": "Çok Çok",
                         "artist": "Edis"
                     }
