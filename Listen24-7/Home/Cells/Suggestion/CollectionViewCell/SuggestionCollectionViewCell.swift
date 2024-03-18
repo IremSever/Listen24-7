@@ -38,6 +38,6 @@ class SuggestionCollectionViewCell: UICollectionViewCell {
         
         imgCover?.image = image
         lbRecordName?.text = data.title
-        lblReleaseDate?.text = data.title
+        lblReleaseDate?.text = data.releaseDate
     }
 }
