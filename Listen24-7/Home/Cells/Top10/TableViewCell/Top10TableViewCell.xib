@@ -16,12 +16,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="350" height="160"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Iwk-GB-JKe">
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Iwk-GB-JKe">
                         <rect key="frame" x="0.0" y="0.0" width="350" height="160"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="J3G-BN-YxL"/>
-                        </constraints>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8gM-gL-Px5">
                             <size key="itemSize" width="128" height="128"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -31,13 +29,6 @@
                     </collectionView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                <constraints>
-                    <constraint firstAttribute="bottom" secondItem="Iwk-GB-JKe" secondAttribute="bottom" id="Kkn-3H-SDk"/>
-                    <constraint firstItem="Iwk-GB-JKe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="e7d-Z8-mzN"/>
-                    <constraint firstAttribute="trailing" secondItem="Iwk-GB-JKe" secondAttribute="trailing" id="pJs-Ni-AV4"/>
-                    <constraint firstAttribute="bottom" secondItem="Iwk-GB-JKe" secondAttribute="bottom" id="uqL-eA-xOE"/>
-                    <constraint firstItem="Iwk-GB-JKe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="xHL-mI-Pto"/>
-                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>

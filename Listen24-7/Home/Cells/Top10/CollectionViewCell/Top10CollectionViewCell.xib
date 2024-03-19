@@ -17,12 +17,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="197" height="158"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="e7I-eD-hb8">
+                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="e7I-eD-hb8">
                         <rect key="frame" x="8" y="8" width="180" height="43"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" systemColor="systemGray4Color"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="180" id="x4f-Iy-6KK"/>
-                        </constraints>
                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                         <textInputTraits key="textInputTraits"/>
@@ -59,11 +57,6 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-            <constraints>
-                <constraint firstItem="e7I-eD-hb8" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="1NO-Fj-OMV"/>
-                <constraint firstAttribute="trailing" secondItem="e7I-eD-hb8" secondAttribute="trailing" constant="9" id="Q9Z-dU-LLs"/>
-                <constraint firstItem="e7I-eD-hb8" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="ZyF-M6-5NL"/>
-            </constraints>
             <size key="customSize" width="197" height="158"/>
             <connections>
                 <outlet property="lblListNo" destination="IQo-pF-e68" id="6wI-Z7-GuR"/>

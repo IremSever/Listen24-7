@@ -17,29 +17,20 @@
                 <rect key="frame" x="0.0" y="0.0" width="230" height="70"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k4R-KS-CDn">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k4R-KS-CDn">
                         <rect key="frame" x="10" y="10" width="50" height="50"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="50" id="IsJ-T2-0Ig"/>
-                            <constraint firstAttribute="width" constant="50" id="Jw4-Mi-G1U"/>
-                        </constraints>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gjO-cw-lzC">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gjO-cw-lzC">
                         <rect key="frame" x="67" y="15" width="158" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="21" id="W8E-9z-XFn"/>
-                            <constraint firstAttribute="width" constant="158" id="mmQ-ZL-cLj"/>
-                        </constraints>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59N-b7-yRV">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59N-b7-yRV">
                         <rect key="frame" x="68" y="37" width="135" height="13"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="135" id="FqU-ij-eLC"/>
-                            <constraint firstAttribute="height" constant="13" id="ZI5-Cu-t4z"/>
-                        </constraints>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="9"/>
                         <color key="textColor" systemColor="viewFlipsideBackgroundColor"/>
                         <nil key="highlightedColor"/>
@@ -48,20 +39,6 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" systemColor="systemYellowColor"/>
-            <constraints>
-                <constraint firstItem="59N-b7-yRV" firstAttribute="top" secondItem="gjO-cw-lzC" secondAttribute="bottom" constant="1" id="7oN-ke-Xtf"/>
-                <constraint firstItem="gjO-cw-lzC" firstAttribute="leading" secondItem="k4R-KS-CDn" secondAttribute="trailing" constant="7" id="H2O-Tx-VuF"/>
-                <constraint firstItem="gjO-cw-lzC" firstAttribute="leading" secondItem="k4R-KS-CDn" secondAttribute="trailing" constant="7" id="HaL-sf-Wns"/>
-                <constraint firstItem="k4R-KS-CDn" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="P5e-FG-p7W"/>
-                <constraint firstAttribute="trailing" secondItem="gjO-cw-lzC" secondAttribute="trailing" constant="5" id="P7w-wa-EXF"/>
-                <constraint firstAttribute="bottom" secondItem="k4R-KS-CDn" secondAttribute="bottom" constant="10" id="Pue-Bq-M2b"/>
-                <constraint firstAttribute="trailing" secondItem="59N-b7-yRV" secondAttribute="trailing" constant="27" id="RDc-z6-6ii"/>
-                <constraint firstItem="59N-b7-yRV" firstAttribute="top" secondItem="gjO-cw-lzC" secondAttribute="bottom" constant="1" id="dsf-mJ-MBJ"/>
-                <constraint firstItem="gjO-cw-lzC" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="15" id="f27-iD-iCK"/>
-                <constraint firstItem="k4R-KS-CDn" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="g4H-c6-69E"/>
-                <constraint firstItem="59N-b7-yRV" firstAttribute="leading" secondItem="k4R-KS-CDn" secondAttribute="trailing" constant="8" id="gDL-ZL-084"/>
-                <constraint firstAttribute="bottom" secondItem="59N-b7-yRV" secondAttribute="bottom" constant="20" id="ikX-8v-Yhi"/>
-            </constraints>
             <size key="customSize" width="236" height="70"/>
             <connections>
                 <outlet property="imgCover" destination="k4R-KS-CDn" id="zI6-ET-XhQ"/>

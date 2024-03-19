@@ -17,11 +17,8 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="cvc-aH-aER">
-                        <rect key="frame" x="8" y="2" width="284" height="125"/>
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="129"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="125" id="Hhc-3j-0Lu"/>
-                        </constraints>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yy6-6u-36a">
                             <size key="itemSize" width="128" height="128"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -31,10 +28,10 @@
                     </collectionView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="cvc-aH-aER" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="3oy-tS-OOx"/>
-                    <constraint firstAttribute="bottom" secondItem="cvc-aH-aER" secondAttribute="bottom" constant="2" id="7tB-zS-Fn5"/>
-                    <constraint firstAttribute="trailing" secondItem="cvc-aH-aER" secondAttribute="trailing" constant="8" id="8ev-sa-oWf"/>
-                    <constraint firstItem="cvc-aH-aER" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="l6K-N0-pfH"/>
+                    <constraint firstItem="cvc-aH-aER" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="6jM-2v-nYc"/>
+                    <constraint firstAttribute="bottom" secondItem="cvc-aH-aER" secondAttribute="bottom" id="I9o-xg-5u6"/>
+                    <constraint firstItem="cvc-aH-aER" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="IqR-61-Z79"/>
+                    <constraint firstAttribute="trailing" secondItem="cvc-aH-aER" secondAttribute="trailing" id="qZa-aO-4Q1"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

@@ -20,7 +20,7 @@ class SquareCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         imgSquare?.frame = contentView.bounds
-        imgSquare?.layer.cornerRadius = 17
+        imgSquare?.layer.cornerRadius = 20
         imgSquare?.clipsToBounds = true
     }
     
@@ -31,5 +31,4 @@ class SquareCollectionViewCell: UICollectionViewCell {
         }
         imgSquare?.image = image
     }
-    
 }

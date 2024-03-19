@@ -13,16 +13,14 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="51" id="KGk-i7-Jjw" customClass="LatestTableViewCell" customModule="Listen24_7" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="191" height="61"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="191" height="61"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="vNw-q8-Twr">
-                        <rect key="frame" x="0.0" y="0.0" width="191" height="60"/>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="vNw-q8-Twr">
+                        <rect key="frame" x="0.0" y="0.0" width="191" height="61"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="60" id="n3w-yH-ERF"/>
-                        </constraints>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mHK-7m-h7Z">
                             <size key="itemSize" width="128" height="128"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -31,12 +29,6 @@
                         </collectionViewFlowLayout>
                     </collectionView>
                 </subviews>
-                <constraints>
-                    <constraint firstItem="vNw-q8-Twr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="0CM-zV-Kg1"/>
-                    <constraint firstAttribute="trailing" secondItem="vNw-q8-Twr" secondAttribute="trailing" id="Idc-Wd-eO3"/>
-                    <constraint firstItem="vNw-q8-Twr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="hQ0-7v-N4I"/>
-                    <constraint firstAttribute="bottom" secondItem="vNw-q8-Twr" secondAttribute="bottom" id="k5Y-Eb-raH"/>
-                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

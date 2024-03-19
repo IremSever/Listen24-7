@@ -17,12 +17,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="372" height="120"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="9gv-nU-QNz">
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="9gv-nU-QNz">
                         <rect key="frame" x="0.0" y="0.0" width="372" height="120"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="120" id="9NI-qC-NvF"/>
-                        </constraints>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="meO-q3-hNW">
                             <size key="itemSize" width="128" height="128"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -31,12 +29,6 @@
                         </collectionViewFlowLayout>
                     </collectionView>
                 </subviews>
-                <constraints>
-                    <constraint firstAttribute="bottom" secondItem="9gv-nU-QNz" secondAttribute="bottom" id="E0g-db-iS1"/>
-                    <constraint firstItem="9gv-nU-QNz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Tf2-Yg-orj"/>
-                    <constraint firstAttribute="trailing" secondItem="9gv-nU-QNz" secondAttribute="trailing" id="X6O-7n-sTs"/>
-                    <constraint firstItem="9gv-nU-QNz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ue7-11-ywx"/>
-                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>

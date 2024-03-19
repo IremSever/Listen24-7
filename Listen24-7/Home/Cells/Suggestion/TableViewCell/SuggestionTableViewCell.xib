@@ -16,12 +16,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="354" height="160"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="XeZ-x6-tQM">
-                        <rect key="frame" x="8" y="0.0" width="338" height="160"/>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="XeZ-x6-tQM">
+                        <rect key="frame" x="0.0" y="0.0" width="354" height="160"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="160" id="aZE-3S-hMN"/>
-                        </constraints>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Q32-Tl-BKe">
                             <size key="itemSize" width="128" height="150"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -31,18 +29,12 @@
                     </collectionView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                <constraints>
-                    <constraint firstAttribute="trailing" secondItem="XeZ-x6-tQM" secondAttribute="trailing" constant="8" id="9MZ-Rq-M5h"/>
-                    <constraint firstItem="XeZ-x6-tQM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="CuL-XE-TPp"/>
-                    <constraint firstItem="XeZ-x6-tQM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="FwC-Ua-Fgb"/>
-                    <constraint firstAttribute="bottom" secondItem="XeZ-x6-tQM" secondAttribute="bottom" id="URx-MJ-bTc"/>
-                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="collectionViewSuggestion" destination="XeZ-x6-tQM" id="1Xh-sO-tf4"/>
             </connections>
-            <point key="canvasLocation" x="369.46564885496184" y="145.07042253521126"/>
+            <point key="canvasLocation" x="369.46564885496184" y="144.36619718309859"/>
         </tableViewCell>
     </objects>
 </document>
