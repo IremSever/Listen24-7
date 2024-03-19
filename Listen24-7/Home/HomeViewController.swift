@@ -83,7 +83,7 @@ extension HomeViewController {
         case .cell_latest:
             return 90
         case .cell_top10:
-            return 160
+            return 110
         default:
             return 200
         }

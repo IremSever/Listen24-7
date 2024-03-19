@@ -22,6 +22,8 @@ class LatestTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollec
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         collectionViewLatest.register(UINib(nibName: "LatestCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: LatestCollectionViewCell.identifier)
+        layout.itemSize = CGSize(width: 250, height: 350)
+        layout.minimumLineSpacing = 8
         collectionViewLatest.backgroundColor = UIColor.clear
         collectionViewLatest.delegate = self
         collectionViewLatest.dataSource = self

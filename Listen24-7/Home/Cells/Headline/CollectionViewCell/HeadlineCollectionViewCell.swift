@@ -21,7 +21,7 @@ class HeadlineCollectionViewCell: UICollectionViewCell {
         imgHeadline?.contentMode = .scaleAspectFill
         imgHeadline?.layer.cornerRadius = 20
         imgHeadline?.clipsToBounds = true
-        lblHeadlineTitle?.font = UIFont(name: "Futura-Bold", size: 15)
+        lblHeadlineTitle?.font = UIFont(name: "Futura-Bold", size: 20)
         lblHeadlineTitle?.textColor = UIColor.white
         lblHeadlineTitle?.layer.shadowColor = UIColor.black.cgColor
         lblHeadlineTitle?.layer.shadowOpacity = 0.5
