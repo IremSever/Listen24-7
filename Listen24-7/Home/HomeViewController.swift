@@ -73,7 +73,7 @@ extension HomeViewController {
         let templateType = data.first?.template
         switch templateType {
         case .cell_headline:
-            return 300
+            return 400
         case .cell_square:
             return 120
         case .cell_circle:

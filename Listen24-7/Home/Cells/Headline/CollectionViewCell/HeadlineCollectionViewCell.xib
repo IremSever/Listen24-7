@@ -17,14 +17,18 @@
                 <rect key="frame" x="0.0" y="0.0" width="280" height="370"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O2w-nq-jCo">
-                        <rect key="frame" x="10" y="9" width="260" height="351"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O2w-nq-jCo">
+                        <rect key="frame" x="8" y="8" width="264" height="354"/>
                         <color key="backgroundColor" systemColor="labelColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="264" id="DJp-if-aQJ"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgC-qO-K2o">
-                        <rect key="frame" x="10" y="296" width="260" height="61"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgC-qO-K2o">
+                        <rect key="frame" x="20" y="272" width="240" height="78"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="78" id="QeH-lB-ErV"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" systemColor="tintColor"/>
                         <nil key="highlightedColor"/>
@@ -33,6 +37,15 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="O2w-nq-jCo" secondAttribute="bottom" constant="8" id="9pS-Vw-lrk"/>
+                <constraint firstItem="jgC-qO-K2o" firstAttribute="centerX" secondItem="O2w-nq-jCo" secondAttribute="centerX" id="A1u-kV-AEg"/>
+                <constraint firstAttribute="bottom" secondItem="jgC-qO-K2o" secondAttribute="bottom" constant="20" id="Hgy-Cw-3eF"/>
+                <constraint firstAttribute="trailing" secondItem="O2w-nq-jCo" secondAttribute="trailing" constant="8" id="OwO-nG-MNv"/>
+                <constraint firstItem="jgC-qO-K2o" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="RZi-LS-BKO"/>
+                <constraint firstItem="O2w-nq-jCo" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="s5r-SM-Fne"/>
+                <constraint firstItem="O2w-nq-jCo" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="vWG-KB-nXK"/>
+            </constraints>
             <size key="customSize" width="280" height="371"/>
             <connections>
                 <outlet property="imgHeadline" destination="O2w-nq-jCo" id="ped-KK-FXD"/>
