@@ -68,6 +68,27 @@ extension HomeViewController {
         return viewHeader
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let data = viewModel.cellData(forSection: indexPath.section)
+        let templateType = data.first?.template
+        switch templateType {
+        case .cell_headline:
+            return 300
+        case .cell_square:
+            return 120
+        case .cell_circle:
+            return 100
+        case .cell_suggestion:
+            return 200
+        case .cell_latest:
+            return 90
+        case .cell_top10:
+            return 160
+        default:
+            return 200
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let data = viewModel.cellData(forSection: indexPath.section)
         let templateType = data.first?.template
@@ -100,9 +121,6 @@ extension HomeViewController {
             return cell
         default:
             return UITableViewCell()
-            
         }
     }
-    
-    
 }
