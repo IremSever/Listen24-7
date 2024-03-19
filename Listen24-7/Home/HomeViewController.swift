@@ -121,6 +121,7 @@ extension HomeViewController {
             return cell
         default:
             return UITableViewCell()
+
         }
     }
 }

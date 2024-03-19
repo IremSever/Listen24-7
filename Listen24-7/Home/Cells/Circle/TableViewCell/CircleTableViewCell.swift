@@ -21,6 +21,8 @@ class CircleTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollec
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         collectionViewCircle.register(UINib(nibName: "CircleCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: CircleCollectionViewCell.identifier)
+        layout.itemSize = CGSize(width: 50, height: 5)
+        layout.minimumLineSpacing = 8
         collectionViewCircle.backgroundColor = UIColor.clear
         collectionViewCircle.delegate = self
         collectionViewCircle.dataSource = self

@@ -17,9 +17,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="372" height="120"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="9gv-nU-QNz">
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="9gv-nU-QNz">
                         <rect key="frame" x="0.0" y="0.0" width="372" height="120"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="meO-q3-hNW">
                             <size key="itemSize" width="128" height="128"/>
@@ -29,6 +28,12 @@
                         </collectionViewFlowLayout>
                     </collectionView>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="9gv-nU-QNz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="8b2-fX-MNH"/>
+                    <constraint firstAttribute="trailing" secondItem="9gv-nU-QNz" secondAttribute="trailing" id="M36-dw-GCS"/>
+                    <constraint firstAttribute="bottom" secondItem="9gv-nU-QNz" secondAttribute="bottom" id="n8j-c0-jAm"/>
+                    <constraint firstItem="9gv-nU-QNz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="o7m-oS-RoG"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>

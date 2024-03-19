@@ -21,7 +21,7 @@ class SquareTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollec
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         collectionViewSquare.register(UINib(nibName: "SquareCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: SquareCollectionViewCell.identifier)
-        layout.itemSize = CGSize(width: 100, height: 100)
+        layout.itemSize = CGSize(width: 120, height: 120)
         layout.minimumLineSpacing = 8
         collectionViewSquare.backgroundColor = UIColor.clear
         collectionViewSquare.delegate = self
