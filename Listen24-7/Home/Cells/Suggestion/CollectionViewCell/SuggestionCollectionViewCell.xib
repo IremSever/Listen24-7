@@ -11,26 +11,30 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="SuggestionCollectionViewCell" customModule="Listen24_7" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="158" height="194"/>
+            <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="158" height="194"/>
+                <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0xM-Kd-wjh">
-                        <rect key="frame" x="20" y="9" width="133" height="101"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0xM-Kd-wjh">
+                        <rect key="frame" x="12" y="12" width="126" height="130"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="130" id="gMx-Pf-Oy6"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y2z-4s-tIj">
-                        <rect key="frame" x="20" y="113" width="130" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y2z-4s-tIj">
+                        <rect key="frame" x="16" y="149" width="118" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="q9q-rY-Wft"/>
+                            <constraint firstAttribute="width" constant="126" id="vq5-ww-6im"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BLH-qK-k3e">
-                        <rect key="frame" x="20" y="133" width="130" height="11"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BLH-qK-k3e">
+                        <rect key="frame" x="12" y="171" width="126" height="11"/>
                         <fontDescription key="fontDescription" type="system" pointSize="9"/>
                         <color key="textColor" systemColor="systemGray6Color"/>
                         <nil key="highlightedColor"/>
@@ -39,13 +43,22 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" systemColor="systemPurpleColor"/>
-            <size key="customSize" width="158" height="204"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="0xM-Kd-wjh" secondAttribute="trailing" constant="12" id="4PW-8P-g1j"/>
+                <constraint firstAttribute="trailingMargin" secondItem="Y2z-4s-tIj" secondAttribute="trailing" id="NzO-n6-SMS"/>
+                <constraint firstItem="0xM-Kd-wjh" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="12" id="ReP-ze-B7G"/>
+                <constraint firstItem="BLH-qK-k3e" firstAttribute="top" secondItem="Y2z-4s-tIj" secondAttribute="bottom" constant="4" id="a92-D0-2dZ"/>
+                <constraint firstItem="Y2z-4s-tIj" firstAttribute="top" secondItem="0xM-Kd-wjh" secondAttribute="bottom" constant="7" id="kUK-33-bvO"/>
+                <constraint firstItem="0xM-Kd-wjh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="12" id="lBr-mU-BGc"/>
+                <constraint firstItem="Y2z-4s-tIj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leadingMargin" id="rCI-iQ-uIN"/>
+            </constraints>
+            <size key="customSize" width="147" height="204"/>
             <connections>
                 <outlet property="imgCover" destination="0xM-Kd-wjh" id="fr0-Mc-0pw"/>
                 <outlet property="lbRecordName" destination="Y2z-4s-tIj" id="0cQ-b7-QVJ"/>
                 <outlet property="lblReleaseDate" destination="BLH-qK-k3e" id="uol-TF-fbx"/>
             </connections>
-            <point key="canvasLocation" x="56.488549618320612" y="-29.577464788732396"/>
+            <point key="canvasLocation" x="47.328244274809158" y="-29.577464788732396"/>
         </collectionViewCell>
     </objects>
     <resources>

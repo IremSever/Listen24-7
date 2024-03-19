@@ -17,12 +17,15 @@ class SuggestionTableViewCell: UITableViewCell, UICollectionViewDataSource, UICo
     override func awakeFromNib() {
         super.awakeFromNib()
         createSuggestionCollectionView()
+        
     }
     
     func createSuggestionCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         collectionViewSuggestion.register(UINib(nibName: "SuggestionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: SuggestionCollectionViewCell.identifier)
+        layout.itemSize = CGSize(width: 250, height: 350)
+        layout.minimumLineSpacing = 8
         collectionViewSuggestion.backgroundColor = UIColor.clear
         collectionViewSuggestion.delegate = self
         collectionViewSuggestion.dataSource = self

@@ -20,9 +20,14 @@ class SuggestionCollectionViewCell: UICollectionViewCell {
     }
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+        contentView.layer.cornerRadius = 50
+        contentView.clipsToBounds = true
+        
         imgCover?.contentMode = .scaleAspectFill
         imgCover?.layer.cornerRadius = 5
         imgCover?.clipsToBounds = true
+        
         lbRecordName?.font = UIFont(name: "Futura-Bold", size: 12)
         lbRecordName?.textColor = UIColor.white
         
@@ -35,7 +40,6 @@ class SuggestionCollectionViewCell: UICollectionViewCell {
             print("Image couldn't be loaded.")
             return
         }
-        
         imgCover?.image = image
         lbRecordName?.text = data.title
         lblReleaseDate?.text = data.releaseDate
