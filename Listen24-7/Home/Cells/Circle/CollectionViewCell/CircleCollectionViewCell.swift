@@ -19,7 +19,7 @@ class CircleCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         imgCircle?.frame = contentView.bounds
-        imgCircle?.layer.cornerRadius = 49.5
+        imgCircle?.layer.cornerRadius = 47
         imgCircle?.clipsToBounds = true
     }
     
