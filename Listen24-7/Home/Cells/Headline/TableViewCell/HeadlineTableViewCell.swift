@@ -15,6 +15,9 @@ class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
     override func awakeFromNib() {
         super.awakeFromNib()
         createHeadlineCollectionView()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(collectionViewTapped))
+        collectionViewHeadline.addGestureRecognizer(tapGesture)
+        collectionViewHeadline.isUserInteractionEnabled = true
     }
     
     func createHeadlineCollectionView() {
@@ -45,12 +48,20 @@ class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
         return cell
     }
     
-    //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    //        let size = CGSize(width: 200, height: 200)
-    //        return size
-    //      }
-    //      func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-    //        return UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 20)
-    //      }
+    @objc func collectionViewTapped() {
+        let storyboard = UIStoryboard(name: "Playlist", bundle: nil)
+        if let playlistVC = storyboard.instantiateViewController(withIdentifier: "PlaylistViewController") as? PlaylistViewController {
+            if let currentVC = UIApplication.shared.windows.first?.rootViewController {
+                currentVC.present(playlistVC, animated: true, completion: nil)
+            }
+            //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+            //        let size = CGSize(width: 200, height: 200)
+            //        return size
+            //      }
+            //      func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+            //        return UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 20)
+            //      }
+        }
+    }
 }
-
+    

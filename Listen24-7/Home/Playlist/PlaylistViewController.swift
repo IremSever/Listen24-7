@@ -12,7 +12,7 @@ class PlaylistViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var tableViewPlaylist: UITableView!
     var viewModel = HomeViewModel()
-    var dataArray: [Info] = []
+    var dataArray: [Playlist] = []
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,34 +20,26 @@ class PlaylistViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func createPlaylistTableView() {
-        let layout = UITableViewCell()
-       tableViewPlaylist.register(UINib(nibName: "PlaylistTableViewCell", bundle: nil), forCellWithReuseIdentifier: PlaylistTableViewCell.identifier)
-        layout.itemSize = CGSize(width: 250, height: 350)
-        layout.minimumLineSpacing = 8
+        tableViewPlaylist.register(UINib(nibName: "PlaylistTableViewCell", bundle: nil), forCellReuseIdentifier: PlaylistTableViewCell.identifier)
         tableViewPlaylist.backgroundColor = UIColor.clear
         tableViewPlaylist.delegate = self
         tableViewPlaylist.dataSource = self
         tableViewPlaylist.showsHorizontalScrollIndicator = false
     }
     
-    func updateDataArray(with dataArray: [Info]) {
+    func updateDataArray(with dataArray: [Playlist]) {
         self.dataArray = dataArray
         tableViewPlaylist.reloadData()
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataArray.count 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PlaylistTableViewCell.identifier, for: indexPath) as! PlaylistTableViewCell
-        let data = viewModel.cellData(forSection: indexPath.section)
-        cell.updateDataArray(with: data)
-        return cell
-        if let item = dataArray.playlist[indexPath.row] {
-            cell.configure(with: item)
-            return cell
-        }
+        let data = dataArray[indexPath.row]
+        cell.configure(with: data)
         return cell
     }
 }

@@ -9,7 +9,7 @@ import UIKit
 
 class PlaylistTableViewCell: UITableViewCell {
 
-    let identifier = "PlaylistTableViewCell"
+    static let identifier = "PlaylistTableViewCell"
     
     @IBOutlet weak var lblDuration: UILabel!
     @IBOutlet weak var lblArtist: UILabel!
