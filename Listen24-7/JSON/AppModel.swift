@@ -41,4 +41,13 @@ struct Info: Codable {
     let releaseDate: String?
     let artist: String?
     let listNo: String?
+    let playlist: [Playlist]?
+    let detail: String?
+    let titlePlaylist : String?
+}
+
+struct Playlist: Codable {
+    let title: String?
+    let artist: String?
+    let duration: String?
 }

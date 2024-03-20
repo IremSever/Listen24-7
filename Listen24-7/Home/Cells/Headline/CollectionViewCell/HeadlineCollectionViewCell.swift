@@ -15,7 +15,21 @@ class HeadlineCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        /*let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        imgHeadline.addGestureRecognizer(tapGesture)
+        imgHeadline.isUserInteractionEnabled = true*/
     }
+    
+    /*@objc func imageTapped() {
+        let storyboard = UIStoryboard(name: "Playlist", bundle: nil)
+        if let playlistVC = storyboard.instantiateViewController(withIdentifier: "PlaylistViewController") as? PlaylistViewController {
+            if let currentVC = UIApplication.shared.windows.first?.rootViewController {
+                currentVC.present(playlistVC, animated: true, completion: nil)
+            }
+        }
+    }*/
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         imgHeadline?.contentMode = .scaleAspectFill
@@ -38,5 +52,3 @@ class HeadlineCollectionViewCell: UICollectionViewCell {
         lblHeadlineTitle?.text = data.title
     }
 }
-
-

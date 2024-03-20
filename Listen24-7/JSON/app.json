@@ -7,23 +7,303 @@
                 "list": [
                     {
                         "title": "Rock müziğin sevilen gruplarından Coldplay...",
-                        "image": "coldplay.jpg"
+                        "image": "coldplay.jpg",
+                        "detail": "En sevilen Coldplay şarkılarını bu listede bulabilirsin.",
+                        "titlePlaylist": "Coldplay",
+                        "playlist": [
+                            {
+                                "listNo": "1",
+                                "title": "Adventure Time",
+                                "artist": "Coldplay",
+                                "duration": "04:12"
+                            },
+                            {
+                                "listNo": "2",
+                                "title": "Clocks",
+                                "artist": "Coldplay",
+                                "duration": "02:48"
+                            },
+                            {
+                                "listNo": "3",
+                                "title": "Fix You",
+                                "artist": "Coldplay",
+                                "duration": "04:54"
+                            },
+                            {
+                                "listNo": "4",
+                                "title": "Flags",
+                                "artist": "Coldplay",
+                                "duration": "03:36"
+                            },
+                            {
+                                "listNo": "5",
+                                "title": "Hymn for he Weekend",
+                                "artist": "Coldplay",
+                                "duration": "03:43"
+                            },
+                            {
+                                "listNo": "6",
+                                "title": "Adventure Time",
+                                "artist": "Coldplay",
+                                "duration": "04:12"
+                            },
+                            {
+                                "listNo": "7",
+                                "title": "Clocks",
+                                "artist": "Coldplay",
+                                "duration": "02:48"
+                            },
+                            {
+                                "listNo": "8",
+                                "title": "Fix You",
+                                "artist": "Coldplay",
+                                "duration": "04:54"
+                            },
+                            {
+                                "listNo": "9",
+                                "title": "Flags",
+                                "artist": "Coldplay",
+                                "duration": "03:36"
+                            },
+                            {
+                                "listNo": "10",
+                                "title": "Hymn for he Weekend",
+                                "artist": "Coldplay",
+                                "duration": "03:43"
+                            }
+                        ]
                     },
                     {
                         "title": "Popüler şarkılarıyla Anne-Marie çalma listesi...",
-                        "image": "anne-marie.jpg"
+                        "image": "anne-marie.jpg",
+                        "detail": "En sevilen Anne-Marie şarkılarını bu listede bulabilirsin.",
+                        "titlePlaylist": "Anne-Marie",
+                        "playlist": [
+                            {
+                                "title": "Friends",
+                                "artist": "Coldplay",
+                                "duration": "05:12"
+                            },
+                            {
+                                "title": "2002",
+                                "artist": "Coldplay",
+                                "duration": "03:48"
+                            },
+                            {
+                                "title": "Our Song",
+                                "artist": "Coldplay",
+                                "duration": "02:54"
+                            },
+                            {
+                                "title": "Who I Am",
+                                "artist": "Coldplay",
+                                "duration": "02:36"
+                            },
+                            {
+                                "title": "Therapy",
+                                "artist": "Coldplay",
+                                "duration": "02:43"
+                            },
+                            {
+                                "title": "Adventure Time",
+                                "artist": "Coldplay",
+                                "duration": "04:12"
+                            },
+                            {
+                                "title": "Clocks",
+                                "artist": "Coldplay",
+                                "duration": "02:48"
+                            },
+                            {
+                                "title": "Fix You",
+                                "artist": "Coldplay",
+                                "duration": "04:54"
+                            },
+                            {
+                                "title": "Flags",
+                                "artist": "Coldplay",
+                                "duration": "03:36"
+                            },
+                            {
+                                "title": "Hymn for he Weekend",
+                                "artist": "Coldplay",
+                                "duration": "03:43"
+                            }
+                        ]
                     },
                     {
                         "title": "Uyumadan önce kısa bir mola ver ve sesli kitap dinle!",
-                        "image": "audiobook.png"
+                        "image": "audiobook.png",
+                        "detail": "En sevilen Anne-Marie şarkılarını bu listede bulabilirsin.",
+                        "titlePlaylist": "Anne-Marie",
+                        "playlist": [
+                            {
+                                "title": "Friends",
+                                "artist": "Anne-Marie",
+                                "duration": "05:12"
+                            },
+                            {
+                                "title": "2002",
+                                "artist": "Anne-Marie",
+                                "duration": "03:48"
+                            },
+                            {
+                                "title": "Our Song",
+                                "artist": "Anne-Marie",
+                                "duration": "02:54"
+                            },
+                            {
+                                "title": "Who I Am",
+                                "artist": "Anne-Marie",
+                                "duration": "02:36"
+                            },
+                            {
+                                "title": "Therapy",
+                                "artist": "Anne-Marie",
+                                "duration": "02:43"
+                            },
+                            {
+                                "title": "Adventure Time",
+                                "artist": "Anne-Marie",
+                                "duration": "04:12"
+                            },
+                            {
+                                "title": "Clocks",
+                                "artist": "Anne-Marie",
+                                "duration": "02:48"
+                            },
+                            {
+                                "title": "Fix You",
+                                "artist": "Anne-Marie",
+                                "duration": "04:54"
+                            },
+                            {
+                                "title": "Flags",
+                                "artist": "Anne-Marie",
+                                "duration": "03:36"
+                            },
+                            {
+                                "title": "Hymn for he Weekend",
+                                "artist": "Anne-Marie",
+                                "duration": "03:43"
+                            }
+                        ]
                     },
                     {
                         "title": "Söyleyin de nasır tutmuş o kalbi beri gelsin...",
-                        "image": "melikesahin.jpeg"
+                        "image": "melikesahin.jpeg",
+                        "detail": "En sevilen Melike Şahin şarkılarını bu listede bulabilirsin.",
+                        "titlePlaylist": "Melike Şahin",
+                        "playlist": [
+                            {
+                                "title": "abc",
+                                "artist": "Melike Şahin",
+                                "duration": "05:12"
+                            },
+                            {
+                                "title": "abcc",
+                                "artist": "Melike Şahin",
+                                "duration": "03:48"
+                            },
+                            {
+                                "title": "abcd",
+                                "artist": "Melike Şahin",
+                                "duration": "02:54"
+                            },
+                            {
+                                "title": "xyz",
+                                "artist": "Melike Şahin",
+                                "duration": "02:36"
+                            },
+                            {
+                                "title": "wxf",
+                                "artist": "Melike Şahin",
+                                "duration": "02:43"
+                            },
+                            {
+                                "title": "Adventure Time",
+                                "artist": "Melike Şahin",
+                                "duration": "04:12"
+                            },
+                            {
+                                "title": "Clocks",
+                                "artist": "Melike Şahin",
+                                "duration": "02:48"
+                            },
+                            {
+                                "title": "Fix You",
+                                "artist": "Melike Şahin",
+                                "duration": "04:54"
+                            },
+                            {
+                                "title": "Flags",
+                                "artist": "Melike Şahin",
+                                "duration": "03:36"
+                            },
+                            {
+                                "title": "Hymn for he Weekend",
+                                "artist": "Melike Şahin",
+                                "duration": "03:43"
+                            }
+                        ]
                     },
                     {
                         "title": "Anadolu'nun sesi türkürlerimiz...",
-                        "image": "turku.jpeg"
+                        "image": "turku.jpeg",
+                        "detail": "En sevilen Anne-Marie şarkılarını bu listede bulabilirsin.",
+                        "titlePlaylist": "Anne-Marie",
+                        "playlist": [
+                            {
+                                "title": "sd",
+                                "artist": "lorem",
+                                "duration": "05:12"
+                            },
+                            {
+                                "title": "sfd",
+                                "artist": "lorem",
+                                "duration": "03:48"
+                            },
+                            {
+                                "title": "fgfd Song",
+                                "artist": "lorem",
+                                "duration": "02:54"
+                            },
+                            {
+                                "title": "fdhgfh",
+                                "artist": "lorem",
+                                "duration": "02:36"
+                            },
+                            {
+                                "title": "rdgt",
+                                "artist": "Coldplay",
+                                "duration": "02:43"
+                            },
+                            {
+                                "title": "werw3",
+                                "artist": "lorem",
+                                "duration": "04:12"
+                            },
+                            {
+                                "title": "werg",
+                                "artist": "lorem",
+                                "duration": "02:48"
+                            },
+                            {
+                                "title": "FixhjhyYou",
+                                "artist": "Coldplay",
+                                "duration": "04:54"
+                            },
+                            {
+                                "title": "Flatertregs",
+                                "artist": "lorem",
+                                "duration": "03:36"
+                            },
+                            {
+                                "title": "fdrttreekend",
+                                "artist": "lorem",
+                                "duration": "03:43"
+                            }
+                        ]
                     }
                 ]
             },
