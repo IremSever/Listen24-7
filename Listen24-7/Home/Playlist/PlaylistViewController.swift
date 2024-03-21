@@ -12,34 +12,38 @@ class PlaylistViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var tableViewPlaylist: UITableView!
     var viewModel = HomeViewModel()
-    var dataArray: [Playlist] = []
-    
+    var selectedPlaylist: [Info] = []
+     
     override func awakeFromNib() {
         super.awakeFromNib()
         createPlaylistTableView()
     }
     
     func createPlaylistTableView() {
-        tableViewPlaylist.register(UINib(nibName: "PlaylistTableViewCell", bundle: nil), forCellReuseIdentifier: PlaylistTableViewCell.identifier)
-        tableViewPlaylist.backgroundColor = UIColor.clear
-        tableViewPlaylist.delegate = self
-        tableViewPlaylist.dataSource = self
-        tableViewPlaylist.showsHorizontalScrollIndicator = false
+        tableViewPlaylist?.register(UINib(nibName: "PlaylistTableViewCell", bundle: nil), forCellReuseIdentifier: PlaylistTableViewCell.identifier)
+        tableViewPlaylist?.backgroundColor = UIColor.clear
+        tableViewPlaylist?.delegate = self
+        tableViewPlaylist?.dataSource = self
+        tableViewPlaylist?.showsHorizontalScrollIndicator = false
     }
     
-    func updateDataArray(with dataArray: [Playlist]) {
-        self.dataArray = dataArray
+    func updateDataArray(with selectedPlaylist: [Info]) {
+        self.selectedPlaylist = selectedPlaylist
         tableViewPlaylist.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataArray.count
+        return selectedPlaylist.first?.playlist?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: PlaylistTableViewCell.identifier, for: indexPath) as! PlaylistTableViewCell
-        let data = dataArray[indexPath.row]
-        cell.configure(with: data)
+        let cell = tableViewPlaylist.dequeueReusableCell(withIdentifier: PlaylistTableViewCell.identifier, for: indexPath) as! PlaylistTableViewCell
+        if let item = selectedPlaylist.first?.playlist?[indexPath.row] {
+            cell.configure(with: item)
+
+            return cell
+        }
+
         return cell
     }
 }

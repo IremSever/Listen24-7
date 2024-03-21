@@ -48,12 +48,19 @@ class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
         return cell
     }
     
-    @objc func collectionViewTapped() {
+    @objc func collectionViewTapped(_ gesture: UITapGestureRecognizer) {
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let sceneDelegate = windowScene.delegate as? SceneDelegate else {
+            return
+        }
+        
         let storyboard = UIStoryboard(name: "Playlist", bundle: nil)
         if let playlistVC = storyboard.instantiateViewController(withIdentifier: "PlaylistViewController") as? PlaylistViewController {
-            if let currentVC = UIApplication.shared.windows.first?.rootViewController {
+            if let currentVC = sceneDelegate.window?.rootViewController {
                 currentVC.present(playlistVC, animated: true, completion: nil)
             }
+        
+
             //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             //        let size = CGSize(width: 200, height: 200)
             //        return size

@@ -14,9 +14,6 @@ class PlaylistTableViewCell: UITableViewCell {
     @IBOutlet weak var lblDuration: UILabel!
     @IBOutlet weak var lblArtist: UILabel!
     @IBOutlet weak var lblSong: UILabel!
-    
-    var dataArray: [Playlist] = []
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
