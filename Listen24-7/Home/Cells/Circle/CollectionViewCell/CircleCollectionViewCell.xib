@@ -18,9 +18,6 @@
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DCZ-k9-ZZF">
                         <rect key="frame" x="8" y="8" width="74" height="74"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="74" id="gnu-jZ-mt9"/>
-                        </constraints>
                     </imageView>
                 </subviews>
             </view>
