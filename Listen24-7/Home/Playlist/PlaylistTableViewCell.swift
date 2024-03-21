@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PlaylistTableViewCell: UITableViewCell {
+/*class PlaylistTableViewCell: UITableViewCell {
 
     static let identifier = "PlaylistTableViewCell"
     
@@ -33,3 +33,4 @@ class PlaylistTableViewCell: UITableViewCell {
         
     }
 }
+*/

@@ -11,29 +11,24 @@ import UIKit
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableViewHome: UITableView!
-    var viewModel = HomeViewModel()
+    var viewModelHome = HomeViewModel()
+    var viewModelHeader = HeaderViewModel()
     var sectionTitles = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableViewHome.dataSource = self
         tableViewHome.delegate = self
-        parseJSON()
         registerCells()
     }
     
-    func parseJSON(){
-        viewModel.parseJSON("app") { success in
-            if success {
-                DispatchQueue.main.async {
-                    self.tableViewHome.reloadData()
-                }
-            } else {
-                print("parseJSON error")
+    private func loadHomeData() {
+        viewModelHome.fetchHomeData { [weak self] in
+            DispatchQueue.main.async {
+                self?.tableViewHome.reloadData()
             }
         }
     }
-    
     func registerCells() {
         tableViewHome.register(UINib(nibName: "SquareTableViewCell", bundle: nil), forCellReuseIdentifier: SquareTableViewCell.identifier)
         tableViewHome.register(UINib(nibName: "HeadlineTableViewCell", bundle: nil), forCellReuseIdentifier: HeadlineTableViewCell.identifier)
@@ -46,7 +41,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
 extension HomeViewController {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.responseData.count
+        return viewModelHome.responseData.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -54,14 +49,14 @@ extension HomeViewController {
     }
      
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return viewModel.responseData[section].title
+        return viewModelHome.responseData[section].title
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let viewHeader = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 40))
         
         let lblTitleCell = UILabel(frame: CGRect(x: 15, y: 0, width: tableView.bounds.width - 30, height: 20))
-        lblTitleCell.text = viewModel.responseData[section].title
+        lblTitleCell.text = viewModelHome.responseData[section].title
         lblTitleCell.font = UIFont(name: "Futura-Bold", size: 13)
         viewHeader.addSubview(lblTitleCell)
         
@@ -69,7 +64,7 @@ extension HomeViewController {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let data = viewModel.cellData(forSection: indexPath.section)
+        let data = viewModelHome.cellData(forSection: indexPath.section)
         let templateType = data.first?.template
         switch templateType {
         case .cell_headline:

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class PlaylistViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+/*class PlaylistViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableViewPlaylist: UITableView!
     var viewModel = HomeViewModel()
@@ -47,3 +47,4 @@ class PlaylistViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
 }
+*/
