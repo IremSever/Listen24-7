@@ -42,10 +42,10 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQM-gY-9hv">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQM-gY-9hv">
                         <rect key="frame" x="64" y="27" width="110" height="12"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="110" id="b8A-I2-VB9"/>
+                            <constraint firstAttribute="width" constant="110" id="Aos-sU-dn6"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <nil key="textColor"/>
@@ -57,17 +57,17 @@
             <color key="backgroundColor" systemColor="systemGray2Color"/>
             <constraints>
                 <constraint firstItem="IQo-pF-e68" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="91c-P0-1Yu"/>
-                <constraint firstAttribute="bottomMargin" secondItem="aQM-gY-9hv" secondAttribute="bottom" constant="-1.5" id="Eq8-8l-LfG"/>
                 <constraint firstAttribute="bottom" secondItem="ruD-w5-PRV" secondAttribute="bottom" constant="8" id="EwF-2y-hOv"/>
                 <constraint firstItem="AX6-E2-Nrd" firstAttribute="top" secondItem="IQo-pF-e68" secondAttribute="top" id="M8s-em-fo1"/>
                 <constraint firstItem="ruD-w5-PRV" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="Mui-JI-hip"/>
                 <constraint firstItem="AX6-E2-Nrd" firstAttribute="leading" secondItem="ruD-w5-PRV" secondAttribute="trailing" constant="6" id="SFL-5i-cBn"/>
                 <constraint firstItem="ruD-w5-PRV" firstAttribute="leading" secondItem="IQo-pF-e68" secondAttribute="trailing" constant="3" id="axU-LB-Xkr"/>
                 <constraint firstItem="AX6-E2-Nrd" firstAttribute="top" secondItem="ruD-w5-PRV" secondAttribute="top" id="fX7-Ye-Ttr"/>
+                <constraint firstItem="aQM-gY-9hv" firstAttribute="leading" secondItem="ruD-w5-PRV" secondAttribute="trailing" constant="7" id="fbb-mz-roc"/>
                 <constraint firstAttribute="bottom" secondItem="IQo-pF-e68" secondAttribute="bottom" constant="8" id="nG7-Wr-6TI"/>
                 <constraint firstItem="AX6-E2-Nrd" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="o7K-KK-fbQ"/>
+                <constraint firstItem="aQM-gY-9hv" firstAttribute="top" secondItem="AX6-E2-Nrd" secondAttribute="bottom" constant="1" id="otx-m7-6eq"/>
                 <constraint firstItem="IQo-pF-e68" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="sOZ-fz-S1t"/>
-                <constraint firstItem="aQM-gY-9hv" firstAttribute="leading" secondItem="ruD-w5-PRV" secondAttribute="trailing" constant="7" id="tkC-nX-UOd"/>
                 <constraint firstItem="ruD-w5-PRV" firstAttribute="leading" secondItem="IQo-pF-e68" secondAttribute="trailing" constant="3" id="xqY-aw-jEJ"/>
             </constraints>
             <size key="customSize" width="196" height="51"/>

@@ -27,7 +27,6 @@
                         <rect key="frame" x="16" y="149" width="118" height="18"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="C9u-fg-gDz"/>
-                            <constraint firstAttribute="width" constant="118" id="xzY-Py-bR3"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -37,7 +36,6 @@
                         <rect key="frame" x="16" y="171" width="118" height="11"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="11" id="BWy-aY-FmD"/>
-                            <constraint firstAttribute="width" constant="118" id="FOP-IL-28W"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="9"/>
                         <color key="textColor" systemColor="systemGray6Color"/>
