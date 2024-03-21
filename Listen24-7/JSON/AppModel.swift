@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AppModel: Codable {
+/*struct AppModel: Codable {
     let app: App
 }
 
@@ -50,4 +50,4 @@ struct Playlist: Codable {
     let title: String?
     let artist: String?
     let duration: String?
-}
+}*/
