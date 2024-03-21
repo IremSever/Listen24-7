@@ -68,7 +68,7 @@ struct CategoryGroup: Codable {
     let imageAlternateText, name: String
     let url: String?
     let description: String?
-    let followed: Bool?
+    //let followed: Bool?
     let gaType: GAType?
 
     enum CodingKeys: String, CodingKey {
@@ -78,7 +78,7 @@ struct CategoryGroup: Codable {
         case name = "Name"
         case url = "Url"
         case description = "Description"
-        case followed = "Followed"
+        //case followed = "Followed"
         case gaType = "GAType"
     }
 }

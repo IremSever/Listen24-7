@@ -7,7 +7,7 @@
 
 import Foundation
 
-class HomeViewModel {
+/*class HomeViewModel {
     var responseData = [Response]()
     
     func parseJSON(_ name: String, completion: @escaping (Bool) -> Void) {
@@ -49,5 +49,5 @@ class HomeViewModel {
         }
         return [responseData[section]]
     }
-}
+}*/
 
