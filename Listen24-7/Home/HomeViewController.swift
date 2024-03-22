@@ -102,11 +102,11 @@ extension HomeViewController {
         //print("*******************data: \(data)")
         //print("*******************template: \(String(describing: templateType))")
         switch templateType {
-        case .cell_headline:
+        case .SLIDER:
             let cell = tableView.dequeueReusableCell(withIdentifier: HeadlineTableViewCell.identifier, for: indexPath) as! HeadlineTableViewCell
             cell.updateDataArray(with: data)
             return cell
-        case .SLIDER:
+        case .STANDART:
             let cell = tableView.dequeueReusableCell(withIdentifier: SquareTableViewCell.identifier, for: indexPath) as! SquareTableViewCell
             cell.updateDataArray(with: data)
             return cell
@@ -114,11 +114,11 @@ extension HomeViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: CircleTableViewCell.identifier, for: indexPath) as! CircleTableViewCell
             cell.updateDataArray(with: data)
             return cell
-        case .cell_suggestion:
+        case .TOPFRAMESONG:
             let cell = tableView.dequeueReusableCell(withIdentifier: SuggestionTableViewCell.identifier, for: indexPath) as! SuggestionTableViewCell
             cell.updateDataArray(with: data)
             return cell
-        case .cell_latest:
+        case .TOPFRAMEPLAYLIST:
             let cell = tableView.dequeueReusableCell(withIdentifier: LatestTableViewCell.identifier, for: indexPath) as! LatestTableViewCell
             cell.updateDataArray(with: data)
             return cell
