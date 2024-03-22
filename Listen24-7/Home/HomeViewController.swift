@@ -19,16 +19,24 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         tableViewHome.dataSource = self
         tableViewHome.delegate = self
+        loadData()
         registerCells()
+        
     }
     
-    private func loadHomeData() {
+    private func loadData() {
+        viewModelHeader.fetchHeaderData { [weak self] in
+            DispatchQueue.main.async {
+                self?.tableViewHome.reloadData()
+            }
+        }
         viewModelHome.fetchHomeData { [weak self] in
             DispatchQueue.main.async {
                 self?.tableViewHome.reloadData()
             }
         }
     }
+    
     func registerCells() {
         tableViewHome.register(UINib(nibName: "SquareTableViewCell", bundle: nil), forCellReuseIdentifier: SquareTableViewCell.identifier)
         tableViewHome.register(UINib(nibName: "HeadlineTableViewCell", bundle: nil), forCellReuseIdentifier: HeadlineTableViewCell.identifier)
@@ -47,7 +55,7 @@ extension HomeViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
-     
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return viewModelHome.responseData[section].title
     }
@@ -116,8 +124,7 @@ extension HomeViewController {
             return cell
         default:
             return UITableViewCell()
-
+            
         }
     }
-    
 }
