@@ -9,7 +9,7 @@ import Foundation
 
 class HeaderViewModel {
     private var headerWebservice = HeaderWebservice()
-    private var header: [HeaderModel] = []
+    private var header: [HeaderResponse] = []
     
     func fetchHeaderData(completion: @escaping() -> ()) {
         headerWebservice.getHeaderData { [weak self] result in

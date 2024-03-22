@@ -18,7 +18,7 @@ struct HeaderData: Codable {
 
 struct News: Codable {
     //let pageInfo: JSONNull?
-    let response: [Response]
+    let response: [HeaderResponse]
     let status: Bool
 
     enum CodingKeys: String, CodingKey {
