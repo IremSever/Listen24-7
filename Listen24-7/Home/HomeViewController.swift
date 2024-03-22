@@ -106,11 +106,11 @@ extension HomeViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: HeadlineTableViewCell.identifier, for: indexPath) as! HeadlineTableViewCell
             cell.updateDataArray(with: data)
             return cell
-        case .cell_square:
+        case .SLIDER:
             let cell = tableView.dequeueReusableCell(withIdentifier: SquareTableViewCell.identifier, for: indexPath) as! SquareTableViewCell
             cell.updateDataArray(with: data)
             return cell
-        case .cell_circle:
+        case .RADIO:
             let cell = tableView.dequeueReusableCell(withIdentifier: CircleTableViewCell.identifier, for: indexPath) as! CircleTableViewCell
             cell.updateDataArray(with: data)
             return cell
@@ -122,7 +122,7 @@ extension HomeViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: LatestTableViewCell.identifier, for: indexPath) as! LatestTableViewCell
             cell.updateDataArray(with: data)
             return cell
-        case .cell_top10:
+        case .TOPFRAMESONG:
             let cell = tableView.dequeueReusableCell(withIdentifier: Top10TableViewCell.identifier, for: indexPath) as! Top10TableViewCell
             cell.updateDataArray(with: data)
             return cell

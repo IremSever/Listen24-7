@@ -43,7 +43,7 @@ struct Response: Codable {
     let playlists: [CategoryGroup]?
     let showMore: Bool?
     let showMoreExternal: String?
-    let template: String
+    let template: Template
     let radioChannels: [RadioChannel]?
     let categoryGroups: [CategoryGroup]?
     let songs: [Song]?
@@ -238,6 +238,14 @@ struct HomeMeta: Codable {
     }
 }
 
+enum Template: String, Codable {
+    case SLIDER = "SLIDER"
+    case RADIO = "RADIO"
+    case STANDART = "STANDART"
+    case LASTSONGS = "LASTSONGS"
+    case TOPFRAMEPLAYLIST = "TOPFRAMEPLAYLIST"
+    case TOPFRAMESONG = "TOPFRAMESONG"
+}
 /*class JSONNull: Codable, Hashable {
 
     public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
