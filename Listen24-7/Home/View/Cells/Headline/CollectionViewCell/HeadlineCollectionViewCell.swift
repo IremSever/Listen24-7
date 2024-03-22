@@ -43,11 +43,8 @@ class HeadlineCollectionViewCell: UICollectionViewCell {
         lblHeadlineTitle?.layer.shadowRadius = 2
     }
     
-    func configure(with data: Info) {
-        guard let imageName = data.image, let image = UIImage(named: imageName) else {
-            print("Image couldn't be loaded.")
-            return
-        }
+    func configure(with data: HeaderResponse) {
+        
         imgHeadline?.image = image
         lblHeadlineTitle?.text = data.title
     }

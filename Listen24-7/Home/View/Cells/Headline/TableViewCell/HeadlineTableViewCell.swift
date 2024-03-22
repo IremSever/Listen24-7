@@ -10,14 +10,14 @@ import UIKit
 class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate  {
     @IBOutlet weak var collectionViewHeadline: UICollectionView!
     static let identifier = "HeadlineTableViewCell"
-    var dataArray: [Response] = []
+    var dataArray: [News] = []
     
     override func awakeFromNib() {
         super.awakeFromNib()
         createHeadlineCollectionView()
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(collectionViewTapped))
+        /*let tapGesture = UITapGestureRecognizer(target: self, action: #selector(collectionViewTapped))
         collectionViewHeadline.addGestureRecognizer(tapGesture)
-        collectionViewHeadline.isUserInteractionEnabled = true
+        collectionViewHeadline.isUserInteractionEnabled = true*/
     }
     
     func createHeadlineCollectionView() {
@@ -30,25 +30,25 @@ class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
         collectionViewHeadline.showsHorizontalScrollIndicator = false
     }
     
-    func updateDataArray(with dataArray: [Response]) {
+    func updateDataArray(with dataArray: [News]) {
         self.dataArray = dataArray
         collectionViewHeadline.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataArray.first?.list?.count ?? 0
+        return dataArray.first?.response.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HeadlineCollectionViewCell.identifier, for: indexPath) as! HeadlineCollectionViewCell
-        if let item = dataArray.first?.list?[indexPath.row] {
+        if let item = dataArray.first?.response[indexPath.row] {
             cell.configure(with: item)
             return cell
         }
         return cell
     }
     
-    @objc func collectionViewTapped(_ gesture: UITapGestureRecognizer) {
+    /*@objc func collectionViewTapped(_ gesture: UITapGestureRecognizer) {
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
               let sceneDelegate = windowScene.delegate as? SceneDelegate else {
             return
@@ -69,6 +69,6 @@ class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
             //        return UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 20)
             //      }
         }
-    }
+    }*/
 }
     

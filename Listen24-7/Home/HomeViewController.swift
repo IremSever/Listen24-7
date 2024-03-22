@@ -49,15 +49,19 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
 extension HomeViewController {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return sectionTitles.count
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if section == 0 {
+            return 1
+        } else {
+            return viewModelHome.numberOfRowsInSection(section: section - 1)
+        }
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return viewModelHome.responseData[section].title
+        return viewModelHome.response[section].title
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
