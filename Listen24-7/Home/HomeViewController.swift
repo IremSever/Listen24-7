@@ -12,7 +12,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBOutlet weak var tableViewHome: UITableView!
     var viewModelHome = HomeViewModel()
-    var viewModelHeader = HeaderViewModel()
     var sectionTitles = [String]()
     
     override func viewDidLoad() {
@@ -25,11 +24,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     private func loadData() {
-        viewModelHeader.fetchHeaderData { [weak self] in
-            DispatchQueue.main.async {
-                self?.tableViewHome.reloadData()
-            }
-        }
         viewModelHome.fetchHomeData { [weak self] in
             DispatchQueue.main.async {
                 self?.tableViewHome.reloadData()
@@ -99,8 +93,6 @@ extension HomeViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let data = viewModel.cellData(forSection: indexPath.section)
         let templateType = data.first?.template
-        //print("*******************data: \(data)")
-        //print("*******************template: \(String(describing: templateType))")
         switch templateType {
         case .SLIDER:
             let cell = tableView.dequeueReusableCell(withIdentifier: HeadlineTableViewCell.identifier, for: indexPath) as! HeadlineTableViewCell

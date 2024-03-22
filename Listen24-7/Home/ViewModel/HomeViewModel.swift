@@ -41,7 +41,11 @@ class HomeViewModel {
         return home.count
     }
     
-    func cellForRowAt(indexPath: IndexPath) -> Response {
-        return home[indexPath.row]
+    func cellForRowAt(indexPath: IndexPath) -> Any {
+        if indexPath.section == 0 {
+            return header[indexPath.row]
+        } else {
+            return home[indexPath.row]
+        }
     }
 }

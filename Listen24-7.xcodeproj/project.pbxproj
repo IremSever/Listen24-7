@@ -144,10 +144,10 @@
 		61CA20342B97B6CE0027A2FD /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				6623EADF2BAC684300644624 /* Webservice */,
-				6623EAD92BAC442F00644624 /* View */,
 				6623EAD82BAC43CC00644624 /* Model */,
+				6623EADF2BAC684300644624 /* Webservice */,
 				6623EAD72BAC434700644624 /* ViewModel */,
+				6623EAD92BAC442F00644624 /* View */,
 				6623EACD2BAACA7700644624 /* Playlist */,
 				611D05072B9889B000C81150 /* HomeViewController.swift */,
 			);
