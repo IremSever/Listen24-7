@@ -10,8 +10,8 @@ import Foundation
 class HomeViewModel {
     private var homeWebservice = HomeWebservice()
     private var headerWebservice = HeaderWebservice()
-    private var home: [Response] = []
-    private var header: [HeaderResponse] = []
+    var home: [Response] = []
+    var header: [HeaderResponse] = []
     
     func fetchHomeData(completion: @escaping () -> ()) {
         homeWebservice.getHomeData { [weak self] result in

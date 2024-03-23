@@ -12,7 +12,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBOutlet weak var tableViewHome: UITableView!
     var viewModel = HomeViewModel()
-    var sectionTitles = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,14 +61,23 @@ extension HomeViewController {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return viewModel.response[section].title
+        if section == 0 {
+            return viewModel.header.first?.title
+        } else {
+            return viewModel.home.first?.name
+        }
     }
-    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let viewHeader = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 40))
         
         let lblTitleCell = UILabel(frame: CGRect(x: 15, y: 0, width: tableView.bounds.width - 30, height: 20))
-        lblTitleCell.text = viewModel.responseData[section].title
+        
+        if section == 0 {
+            lblTitleCell.text = viewModel.header[section].title
+        } else {
+            lblTitleCell.text = viewModel.home[section].name
+        }
+        
         lblTitleCell.font = UIFont(name: "Futura-Bold", size: 13)
         viewHeader.addSubview(lblTitleCell)
         
@@ -77,57 +85,51 @@ extension HomeViewController {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let data = viewModel.cellData(forSection: indexPath.section)
-        let templateType = data.first?.template
-        switch templateType {
-        case .cell_headline:
+        if indexPath.section == 0 {
+            let dataHeader = viewModel.header[indexPath.row]
             return 400
-        case .cell_square:
-            return 120
-        case .cell_circle:
-            return 100
-        case .cell_suggestion:
-            return 200
-        case .cell_latest:
-            return 90
-        case .cell_top10:
-            return 110
-        default:
-            return 200
+        } else {
+            let dataHome = viewModel.home[indexPath.row]
+            switch dataHome.template {
+            case .slider:
+                return 300
+            case .standart:
+                return 120
+            case .radio:
+                return 100
+            case .lastSongs:
+                return 200
+            case .topFramePlaylist:
+                return 90
+            case .topFrameSong:
+                return 110
+            }
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let data = viewModel.cellData(forSection: indexPath.section)
-        let templateType = data.first?.template
-        switch templateType {
-        case .slider:
+        if indexPath.section == 0 {
+            let dataHeader = viewModel.header[indexPath.row]
             let cell = tableView.dequeueReusableCell(withIdentifier: HeadlineTableViewCell.identifier, for: indexPath) as! HeadlineTableViewCell
-            cell.updateDataArray(with: data)
             return cell
-        case .standart:
-            let cell = tableView.dequeueReusableCell(withIdentifier: SquareTableViewCell.identifier, for: indexPath) as! SquareTableViewCell
-            cell.updateDataArray(with: data)
+        } else {
+            let dataHome = viewModel.home[indexPath.row]
+            let cell: UITableViewCell
+            switch dataHome.template {
+            case .slider:
+                cell = tableView.dequeueReusableCell(withIdentifier: HeadlineTableViewCell.identifier, for: indexPath) as! HeadlineTableViewCell
+            case .standart:
+                cell = tableView.dequeueReusableCell(withIdentifier: SquareTableViewCell.identifier, for: indexPath) as! SquareTableViewCell
+            case .radio:
+                cell = tableView.dequeueReusableCell(withIdentifier: CircleTableViewCell.identifier, for: indexPath) as! CircleTableViewCell
+            case .lastSongs:
+                cell = tableView.dequeueReusableCell(withIdentifier: SuggestionTableViewCell.identifier, for: indexPath) as! SuggestionTableViewCell
+            case .topFramePlaylist:
+                cell = tableView.dequeueReusableCell(withIdentifier: LatestTableViewCell.identifier, for: indexPath) as! LatestTableViewCell
+            case .topFrameSong:
+                cell = tableView.dequeueReusableCell(withIdentifier: Top10TableViewCell.identifier, for: indexPath) as! Top10TableViewCell
+            }
             return cell
-        case .radio:
-            let cell = tableView.dequeueReusableCell(withIdentifier: CircleTableViewCell.identifier, for: indexPath) as! CircleTableViewCell
-            cell.updateDataArray(with: data)
-            return cell
-        case .topFrameSong:
-            let cell = tableView.dequeueReusableCell(withIdentifier: SuggestionTableViewCell.identifier, for: indexPath) as! SuggestionTableViewCell
-            cell.updateDataArray(with: data)
-            return cell
-        case .topFramePlaylist:
-            let cell = tableView.dequeueReusableCell(withIdentifier: LatestTableViewCell.identifier, for: indexPath) as! LatestTableViewCell
-            cell.updateDataArray(with: data)
-            return cell
-        case .topFrameSong:
-            let cell = tableView.dequeueReusableCell(withIdentifier: Top10TableViewCell.identifier, for: indexPath) as! Top10TableViewCell
-            cell.updateDataArray(with: data)
-            return cell
-        default:
-            return UITableViewCell()
-            
         }
     }
 }

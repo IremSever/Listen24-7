@@ -18,7 +18,7 @@ class Top10CollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
     
-    func configure(with data: Info) {
+    func configure(with data: Song) {
         lblListNo.text = data.listNo
         lblListNo.font = UIFont(name: "Futura-Bold", size: 20)
         lblListNo.textColor = UIColor.black
