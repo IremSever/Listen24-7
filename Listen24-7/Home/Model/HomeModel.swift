@@ -201,6 +201,9 @@ struct Android: Codable {
 
 enum ListType: String, Codable {
     case playlists = "Playlists"
+    case radioChannels = "RadioChannels"
+    case categoryGroups = "CategoryGroups"
+    case songs = "Songs"
 }
 
 struct Lyrics: Codable {
@@ -228,6 +231,15 @@ enum Text: String, Codable {
     case şarkıcıyaGit = "Şarkıcıya Git"
 }
 
+enum Template: String, Codable {
+    case slider = "SLIDER"
+    case radio = "RADIO"
+    case standart = "STANDART"
+    case lastSongs = "LASTSONGS"
+    case topFramePlaylist = "TOPFRAMEPLAYLIST"
+    case topFrameSong = "TOPFRAMESONG"
+}
+
 struct HomeMeta: Codable {
     let statusCode: Int
     let message, description, brand: String
@@ -238,14 +250,7 @@ struct HomeMeta: Codable {
     }
 }
 
-enum Template: String, Codable {
-    case SLIDER = "SLIDER"
-    case RADIO = "RADIO"
-    case STANDART = "STANDART"
-    case LASTSONGS = "LASTSONGS"
-    case TOPFRAMEPLAYLIST = "TOPFRAMEPLAYLIST"
-    case TOPFRAMESONG = "TOPFRAMESONG"
-}
+
 /*class JSONNull: Codable, Hashable {
 
     public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {

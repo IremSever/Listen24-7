@@ -11,7 +11,7 @@ import UIKit
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableViewHome: UITableView!
-    var viewModelHome = HomeViewModel()
+    var viewModel = HomeViewModel()
     var sectionTitles = [String]()
     
     override func viewDidLoad() {
@@ -20,13 +20,20 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableViewHome.delegate = self
         loadData()
         registerCells()
-        
     }
     
     private func loadData() {
-        viewModelHome.fetchHomeData { [weak self] in
-            DispatchQueue.main.async {
-                self?.tableViewHome.reloadData()
+        if numberOfSections(in: tableViewHome) == 0 {
+            viewModel.fetchHeaderData { [weak self] in
+                DispatchQueue.main.async {
+                    self?.tableViewHome.reloadData()
+                }
+            }
+        } else {
+            viewModel.fetchHomeData { [weak self] in
+                DispatchQueue.main.async {
+                    self?.tableViewHome.reloadData()
+                }
             }
         }
     }
@@ -50,19 +57,19 @@ extension HomeViewController {
         if section == 0 {
             return 1
         } else {
-            return viewModelHome.numberOfRowsInSection(section: section - 1)
+            return viewModel.numberOfRowsInSection(section: section - 1)
         }
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return viewModelHome.response[section].title
+        return viewModel.response[section].title
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let viewHeader = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 40))
         
         let lblTitleCell = UILabel(frame: CGRect(x: 15, y: 0, width: tableView.bounds.width - 30, height: 20))
-        lblTitleCell.text = viewModelHome.responseData[section].title
+        lblTitleCell.text = viewModel.responseData[section].title
         lblTitleCell.font = UIFont(name: "Futura-Bold", size: 13)
         viewHeader.addSubview(lblTitleCell)
         
@@ -70,7 +77,7 @@ extension HomeViewController {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let data = viewModelHome.cellData(forSection: indexPath.section)
+        let data = viewModel.cellData(forSection: indexPath.section)
         let templateType = data.first?.template
         switch templateType {
         case .cell_headline:
@@ -94,27 +101,27 @@ extension HomeViewController {
         let data = viewModel.cellData(forSection: indexPath.section)
         let templateType = data.first?.template
         switch templateType {
-        case .SLIDER:
+        case .slider:
             let cell = tableView.dequeueReusableCell(withIdentifier: HeadlineTableViewCell.identifier, for: indexPath) as! HeadlineTableViewCell
             cell.updateDataArray(with: data)
             return cell
-        case .STANDART:
+        case .standart:
             let cell = tableView.dequeueReusableCell(withIdentifier: SquareTableViewCell.identifier, for: indexPath) as! SquareTableViewCell
             cell.updateDataArray(with: data)
             return cell
-        case .RADIO:
+        case .radio:
             let cell = tableView.dequeueReusableCell(withIdentifier: CircleTableViewCell.identifier, for: indexPath) as! CircleTableViewCell
             cell.updateDataArray(with: data)
             return cell
-        case .TOPFRAMESONG:
+        case .topFrameSong:
             let cell = tableView.dequeueReusableCell(withIdentifier: SuggestionTableViewCell.identifier, for: indexPath) as! SuggestionTableViewCell
             cell.updateDataArray(with: data)
             return cell
-        case .TOPFRAMEPLAYLIST:
+        case .topFramePlaylist:
             let cell = tableView.dequeueReusableCell(withIdentifier: LatestTableViewCell.identifier, for: indexPath) as! LatestTableViewCell
             cell.updateDataArray(with: data)
             return cell
-        case .TOPFRAMESONG:
+        case .topFrameSong:
             let cell = tableView.dequeueReusableCell(withIdentifier: Top10TableViewCell.identifier, for: indexPath) as! Top10TableViewCell
             cell.updateDataArray(with: data)
             return cell
