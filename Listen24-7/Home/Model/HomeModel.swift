@@ -17,18 +17,18 @@ struct HomeData: Codable {
 }
 
 struct List: Codable {
-    let pageInfo: PageInfo
+    //let pageInfo: PageInfo
     let response: [Response]
     let status: Bool
 
     enum CodingKeys: String, CodingKey {
-        case pageInfo = "PageInfo"
+        //case pageInfo = "PageInfo"
         case response = "Response"
         case status = "Status"
     }
 }
 
-struct PageInfo: Codable {
+/*struct PageInfo: Codable {
     let siteTitle: String
     let siteURL: String
 
@@ -36,14 +36,14 @@ struct PageInfo: Codable {
         case siteTitle = "SiteTitle"
         case siteURL = "SiteUrl"
     }
-}
+}*/
 
 struct Response: Codable {
-    let listType, name: String
+    let listType, name: String?
     let playlists: [CategoryGroup]?
     let showMore: Bool?
     let showMoreExternal: String?
-    let template: Template
+    let template: Template?
     let radioChannels: [RadioChannel]?
     let categoryGroups: [CategoryGroup]?
     let songs: [Song]?
@@ -62,10 +62,10 @@ struct Response: Codable {
 }
 
 struct CategoryGroup: Codable {
-    let external: String
-    let id: Int
-    let image: String
-    let imageAlternateText, name: String
+    let external: String?
+    let id: Int?
+    let image: String?
+    let imageAlternateText, name: String?
     let url: String?
     let description: String?
     //let followed: Bool?
@@ -90,22 +90,22 @@ enum GAType: String, Codable {
 }
 
 struct RadioChannel: Codable {
-    let id: Int
-    let image: String
-    let imageAlternateText: String
-    let mp3URL: String
-    let name: String
-    let pageInfo: PageInfo
-    let playerType: Int
-    let trackPort: String
-    let url: String
+    let id: Int?
+    let image: String?
+    let imageAlternateText: String?
+    let mp3URL: String?
+    let name: String?
+    //let pageInfo: PageInfo?
+    let playerType: Int?
+    let trackPort: String?
+    let url: String?
 
     enum CodingKeys: String, CodingKey {
         case id = "Id"
         case image, imageAlternateText
         case mp3URL = "MP3Url"
         case name = "Name"
-        case pageInfo = "PageInfo"
+        //case pageInfo = "PageInfo"
         case playerType = "PlayerType"
         case trackPort = "TrackPort"
         case url = "Url"
@@ -113,36 +113,36 @@ struct RadioChannel: Codable {
 }
 
 struct Song: Codable {
-    let advertorial: Advertorial
+    //let advertorial: Advertorial
     let album: String?
     let albumID: Int?
-    let durationTime: String
+    let durationTime: String?
     //let durationTimeInt: Int
-    let favorited: Bool
-    let id: Int
-    let image: String
+    //let favorited: Bool?
+    let id: Int?
+    let image: String?
     //let imageAlternateText: String
-    let listType: ListType
-    let lyrics: Lyrics
-    let mp3URL: String
-    let name: String
-    let pageInfo: PageInfo
-    let playerType: Int
-    let playlists: [CategoryGroup]
+    let listType: ListType?
+    let lyrics: Lyrics?
+    let mp3URL: String?
+    let name: String?
+    //let pageInfo: PageInfo
+    //let playerType: Int?
+    let playlists: [CategoryGroup]?
     //let publishDate: String?
-    let singers: [CategoryGroup]
-    let source: Source
+    let singers: [Singer]?
+    let source: Source?
     let spot: String?
     //let spotShort: String?
-    let url: String
+    let url: String?
 
     enum CodingKeys: String, CodingKey {
-        case advertorial = "Advertorial"
+        //case advertorial = "Advertorial"
         case album = "Album"
         case albumID = "AlbumId"
         case durationTime = "DurationTime"
         //case durationTimeInt = "DurationTimeInt"
-        case favorited = "Favorited"
+        //case favorited = "Favorited"
         case id = "Id"
         case image
         //case imageAlternateText
@@ -150,8 +150,8 @@ struct Song: Codable {
         case lyrics = "Lyrics"
         case mp3URL = "Mp3Url"
         case name = "Name"
-        case pageInfo = "PageInfo"
-        case playerType = "PlayerType"
+        //case pageInfo = "PageInfo"
+        //case playerType = "PlayerType"
         case playlists = "Playlists"
         //case publishDate = "PublishDate"
         case singers = "Singers"
@@ -161,8 +161,22 @@ struct Song: Codable {
         case url = "Url"
     }
 }
+struct Singer: Codable {
+    let external: String?
+    let id: String?
+    let image: String?
+    let name: String?
+    let gaType: GAType?
 
-struct Advertorial: Codable {
+    enum CodingKeys: String, CodingKey {
+        case external = "External"
+        case id = "Id"
+        case image
+        case name = "Name"
+        case gaType = "GAType"
+    }
+}
+/*struct Advertorial: Codable {
     //let postroll: JSONNull?
     let postrollFrequency: Int
     //let postrollV2: JSONNull?
@@ -197,7 +211,7 @@ struct Android: Codable {
         case code = "Code"
         case isActive = "IsActive"
     }
-}
+}*/
 
 enum ListType: String, Codable {
     case playlists = "Playlists"
@@ -249,7 +263,6 @@ struct HomeMeta: Codable {
         case message, description, brand
     }
 }
-
 
 /*class JSONNull: Codable, Hashable {
 

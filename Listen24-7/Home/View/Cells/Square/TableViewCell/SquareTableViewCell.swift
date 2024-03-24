@@ -35,12 +35,12 @@ class SquareTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataArray.first?.list?.count ?? 0
+        return dataArray.first?.playlists?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SquareCollectionViewCell.identifier, for: indexPath) as! SquareCollectionViewCell
-        if let item = dataArray.first?.list?[indexPath.row] {
+        if let item = dataArray.first?.playlists?[indexPath.row] {
             cell.configure(with: item)
             return cell
         }

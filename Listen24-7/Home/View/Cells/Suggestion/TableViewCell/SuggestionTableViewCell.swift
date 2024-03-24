@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SuggestionTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
+class SuggestionTableViewCell: UITableViewCell /*, UICollectionViewDataSource, UICollectionViewDelegate*/ {
     static let identifier = "SuggestionTableViewCell"
     
     @IBOutlet weak var collectionViewSuggestion: UICollectionView!
@@ -27,8 +27,8 @@ class SuggestionTableViewCell: UITableViewCell, UICollectionViewDataSource, UICo
         layout.itemSize = CGSize(width: 250, height: 350)
         layout.minimumLineSpacing = 8
         collectionViewSuggestion.backgroundColor = UIColor.clear
-        collectionViewSuggestion.delegate = self
-        collectionViewSuggestion.dataSource = self
+        //collectionViewSuggestion.delegate = self
+        //collectionViewSuggestion.dataSource = self
         collectionViewSuggestion.showsHorizontalScrollIndicator = false
     }
     
@@ -37,7 +37,7 @@ class SuggestionTableViewCell: UITableViewCell, UICollectionViewDataSource, UICo
         collectionViewSuggestion.reloadData()
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    /*func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataArray.first?.list?.count ?? 0
     }
     
@@ -48,5 +48,5 @@ class SuggestionTableViewCell: UITableViewCell, UICollectionViewDataSource, UICo
             return cell
         }
         return cell
-    }
+    }*/
 }

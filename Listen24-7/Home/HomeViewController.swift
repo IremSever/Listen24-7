@@ -103,6 +103,8 @@ extension HomeViewController {
                 return 90
             case .topFrameSong:
                 return 110
+            default: 
+                return 200
             }
         }
     }
@@ -128,6 +130,8 @@ extension HomeViewController {
                 cell = tableView.dequeueReusableCell(withIdentifier: LatestTableViewCell.identifier, for: indexPath) as! LatestTableViewCell
             case .topFrameSong:
                 cell = tableView.dequeueReusableCell(withIdentifier: Top10TableViewCell.identifier, for: indexPath) as! Top10TableViewCell
+            default:
+                return UITableViewCell()
             }
             return cell
         }

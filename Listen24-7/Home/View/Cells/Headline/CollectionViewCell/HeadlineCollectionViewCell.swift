@@ -17,21 +17,22 @@ class HeadlineCollectionViewCell: UICollectionViewCell {
         // Initialization code
         
         /*let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
-        imgHeadline.addGestureRecognizer(tapGesture)
-        imgHeadline.isUserInteractionEnabled = true*/
+         imgHeadline.addGestureRecognizer(tapGesture)
+         imgHeadline.isUserInteractionEnabled = true*/
     }
     
     /*@objc func imageTapped() {
-        let storyboard = UIStoryboard(name: "Playlist", bundle: nil)
-        if let playlistVC = storyboard.instantiateViewController(withIdentifier: "PlaylistViewController") as? PlaylistViewController {
-            if let currentVC = UIApplication.shared.windows.first?.rootViewController {
-                currentVC.present(playlistVC, animated: true, completion: nil)
-            }
-        }
-    }*/
+     let storyboard = UIStoryboard(name: "Playlist", bundle: nil)
+     if let playlistVC = storyboard.instantiateViewController(withIdentifier: "PlaylistViewController") as? PlaylistViewController {
+     if let currentVC = UIApplication.shared.windows.first?.rootViewController {
+     currentVC.present(playlistVC, animated: true, completion: nil)
+     }
+     }
+     }*/
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
         imgHeadline?.contentMode = .scaleAspectFill
         imgHeadline?.layer.cornerRadius = 20
         imgHeadline?.clipsToBounds = true
@@ -44,8 +45,39 @@ class HeadlineCollectionViewCell: UICollectionViewCell {
     }
     
     func configure(with data: HeaderResponse) {
+        guard let urlString = data.image, let imageURL = URL(string: urlString) else {
+            self.imgHeadline.image = UIImage(named: "noImageAvailable")
+            return
+        }
         
-        imgHeadline?.image = image
+        self.imgHeadline.image = nil
+        getImageDataFrom(url: imageURL, forCell: 1)
+        
         lblHeadlineTitle?.text = data.title
     }
+    
+    private func getImageDataFrom(url: URL, forCell cellNumber: Int) {
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            // Handle Error
+            if let error = error {
+                print("DataTask error: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let data = data else {
+                // Handle Headline Data
+                print("Headline Data")
+                return
+            }
+            
+            DispatchQueue.main.async {
+                if let image = UIImage(data: data) {
+                    if cellNumber == 1 {
+                        self.imgHeadline.image = image
+                    }
+                }
+            }
+        }.resume()
+    }
 }
+

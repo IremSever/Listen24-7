@@ -16,7 +16,7 @@ class LatestCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    func configure(with data: Info) {
+    func configure(with data: Song) {
         if let imageName = data.image {
             imgCover.image = UIImage(named: imageName)
             imgCover.layer.cornerRadius = 10
@@ -25,11 +25,11 @@ class LatestCollectionViewCell: UICollectionViewCell {
             print("Image name not found")
         }
         
-        lblTitle.text = data.title
+        lblTitle.text = data.name
         lblTitle.font = UIFont(name: "Futura-Bold", size: 12)
         lblTitle.textColor = UIColor.black
         
-        lblMinutes.text = data.duration
+        lblMinutes.text = data.durationTime
         lblMinutes.font = UIFont(name: "Futura", size: 9)
         lblMinutes.textColor = UIColor.black
     }

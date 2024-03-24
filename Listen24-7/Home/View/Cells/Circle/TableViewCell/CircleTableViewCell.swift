@@ -35,12 +35,12 @@ class CircleTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataArray.first?.list?.count ?? 0
+        return dataArray.first?.radioChannels?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CircleCollectionViewCell.identifier, for: indexPath) as! CircleCollectionViewCell
-        if let item = dataArray.first?.list?[indexPath.row] {
+        if let item = dataArray.first?.radioChannels?[indexPath.row] {
             cell.configure(with: item)
             return cell
         }
