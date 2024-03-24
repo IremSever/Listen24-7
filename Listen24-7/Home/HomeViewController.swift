@@ -13,6 +13,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var tableViewHome: UITableView!
     var viewModel = HomeViewModel()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableViewHome.dataSource = self
@@ -41,10 +42,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableViewHome.register(UINib(nibName: "SquareTableViewCell", bundle: nil), forCellReuseIdentifier: SquareTableViewCell.identifier)
         tableViewHome.register(UINib(nibName: "HeadlineTableViewCell", bundle: nil), forCellReuseIdentifier: HeadlineTableViewCell.identifier)
         tableViewHome.register(UINib(nibName: "CircleTableViewCell", bundle: nil), forCellReuseIdentifier: CircleTableViewCell.identifier)
-        tableViewHome.register(UINib(nibName: "SuggestionTableViewCell", bundle: nil), forCellReuseIdentifier: SuggestionTableViewCell.identifier)
+        //tableViewHome.register(UINib(nibName: "SuggestionTableViewCell", bundle: nil), forCellReuseIdentifier: SuggestionTableViewCell.identifier)
         tableViewHome.register(UINib(nibName: "LatestTableViewCell", bundle: nil), forCellReuseIdentifier: LatestTableViewCell.identifier)
         tableViewHome.register(UINib(nibName: "Top10TableViewCell", bundle: nil), forCellReuseIdentifier: Top10TableViewCell.identifier)
     }
+    
 }
 
 extension HomeViewController {
@@ -69,24 +71,31 @@ extension HomeViewController {
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let viewHeader = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 40))
+           let lblTitleCell = UILabel(frame: CGRect(x: 15, y: 0, width: tableView.bounds.width - 30, height: 20))
+           
+           if section == 0 {
+               if let header = viewModel.header.first {
+                   lblTitleCell.text = header.title
+               } else {
+                   lblTitleCell.text = "No Title"
+               }
+           } else {
+               if let home = viewModel.home.first {
+                   lblTitleCell.text = home.name
+               } else {
+                   lblTitleCell.text = "No Name"
+               }
+           }
+           
+           lblTitleCell.font = UIFont(name: "Futura-Bold", size: 13)
+           viewHeader.addSubview(lblTitleCell)
+           
+           return viewHeader
         
-        let lblTitleCell = UILabel(frame: CGRect(x: 15, y: 0, width: tableView.bounds.width - 30, height: 20))
-        
-        if section == 0 {
-            lblTitleCell.text = viewModel.header[section].title
-        } else {
-            lblTitleCell.text = viewModel.home[section].name
-        }
-        
-        lblTitleCell.font = UIFont(name: "Futura-Bold", size: 13)
-        viewHeader.addSubview(lblTitleCell)
-        
-        return viewHeader
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            let dataHeader = viewModel.header[indexPath.row]
             return 400
         } else {
             let dataHome = viewModel.home[indexPath.row]
@@ -111,7 +120,6 @@ extension HomeViewController {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let dataHeader = viewModel.header[indexPath.row]
             let cell = tableView.dequeueReusableCell(withIdentifier: HeadlineTableViewCell.identifier, for: indexPath) as! HeadlineTableViewCell
             return cell
         } else {

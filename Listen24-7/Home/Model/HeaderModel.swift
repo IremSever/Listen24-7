@@ -8,6 +8,71 @@
 import Foundation
 
 struct HeaderModel: Codable {
+    let meta: Meta
+    let data: DataModel
+}
+
+struct Meta: Codable {
+    let statusCode: Int
+    let message: String
+    let description: String
+    let brand: String
+}
+
+struct DataModel: Codable {
+    let news: News
+}
+
+struct News: Codable {
+    let pageInfo: String?
+    let response: [Article]?
+    let status: Bool?
+}
+
+struct Article: Codable {
+    let articleId: String
+    let description: String
+    let external: String
+    let id: String
+    let image: String
+    let imageAlternateText: String
+    let modifiedDate: String
+    let richTextActive: Bool
+    let showWebView: Bool
+    let spot: String
+    let spotShort: String
+    let surmansetBaslik: Bool
+    let surmansetBaslikKategori: Bool
+    let title: String
+    let titleShort: String
+    let url: String
+    let usedMethod: Bool
+
+    enum CodingKeys: String, CodingKey {
+        case articleId = "ArticleId"
+        case description = "Description"
+        case external = "External"
+        case id = "Id"
+        case image = "image"
+        case imageAlternateText = "imageAlternateText"
+        case modifiedDate = "ModifiedDate"
+        case richTextActive = "RichTextActive"
+        case showWebView = "ShowWebView"
+        case spot = "Spot"
+        case spotShort = "SpotShort"
+        case surmansetBaslik = "SurmansetBaslik"
+        case surmansetBaslikKategori = "SurmansetBaslikKategori"
+        case title = "Title"
+        case titleShort = "TitleShort"
+        case url = "Url"
+        case usedMethod = "UsedMethod"
+    }
+}
+
+
+
+
+/*struct HeaderModel: Codable {
     let meta: HeaderMeta
     let data: HeaderData
 }
@@ -76,6 +141,6 @@ struct HeaderMeta: Codable {
         case statusCode = "status_code"
         case message, description, brand
     }
-}
+}*/
 
 
