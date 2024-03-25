@@ -9,7 +9,7 @@ import Foundation
 // MARK: - HomeModel
 struct HomeModel: Codable {
     let meta: HomeMeta
-    let data: List
+    let data: HomeData
 }
 
 // MARK: - DataClass
@@ -260,7 +260,7 @@ class JSONHomeNull: Codable, Hashable {
         hasher.combine(0)
     }
     
-    init() {}
+    //init() {}
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()

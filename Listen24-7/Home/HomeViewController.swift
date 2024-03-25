@@ -18,6 +18,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             tableViewHome.dataSource = self
             tableViewHome.delegate = self
             loadData()
+            registerCells()
         }
         
         private func loadData() {
