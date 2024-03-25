@@ -13,26 +13,21 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var tableViewHome: UITableView!
     var viewModel = HomeViewModel()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableViewHome.dataSource = self
         tableViewHome.delegate = self
         loadData()
-        registerCells()
     }
     
     private func loadData() {
-        if numberOfSections(in: tableViewHome) == 0 {
-            viewModel.fetchHeaderData { [weak self] in
-                DispatchQueue.main.async {
-                    self?.tableViewHome.reloadData()
-                }
-            }
-        } else {
-            viewModel.fetchHomeData { [weak self] in
-                DispatchQueue.main.async {
-                    self?.tableViewHome.reloadData()
+        viewModel.fetchHeaderData { [weak self] in
+            DispatchQueue.main.async {
+                self?.viewModel.fetchHomeData { [weak self] in
+                    DispatchQueue.main.async {
+                        self?.registerCells()
+                        self?.tableViewHome.reloadData()
+                    }
                 }
             }
         }
@@ -51,47 +46,30 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
 extension HomeViewController {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return viewModel.numberOfSections()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return 1
-        } else {
-            return viewModel.numberOfRowsInSection(section: section - 1)
-        }
+        return viewModel.numberOfRowsInSection(section: section)
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
-            return viewModel.header.first?.title
-        } else {
-            return viewModel.home.first?.name
-        }
+        return viewModel.titleForHeaderInSection(section: section)
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let viewHeader = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 40))
-           let lblTitleCell = UILabel(frame: CGRect(x: 15, y: 0, width: tableView.bounds.width - 30, height: 20))
-           
-           if section == 0 {
-               if let header = viewModel.header.first {
-                   lblTitleCell.text = header.title
-               } else {
-                   lblTitleCell.text = "No Title"
-               }
-           } else {
-               if let home = viewModel.home.first {
-                   lblTitleCell.text = home.name
-               } else {
-                   lblTitleCell.text = "No Name"
-               }
-           }
-           
-           lblTitleCell.font = UIFont(name: "Futura-Bold", size: 13)
-           viewHeader.addSubview(lblTitleCell)
-           
-           return viewHeader
+        let lblTitleCell = UILabel(frame: CGRect(x: 15, y: 0, width: tableView.bounds.width - 30, height: 20))
         
+        lblTitleCell.font = UIFont(name: "Futura-Bold", size: 13)
+        viewHeader.addSubview(lblTitleCell)
+        
+        if section == 0 {
+            lblTitleCell.text = viewModel.headerTitle()
+        } else {
+            lblTitleCell.text = viewModel.homeName()
+        }
+        
+        return viewHeader
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -112,7 +90,7 @@ extension HomeViewController {
                 return 90
             case "TOPFRAMESONG":
                 return 110
-            default: 
+            default:
                 return 200
             }
         }

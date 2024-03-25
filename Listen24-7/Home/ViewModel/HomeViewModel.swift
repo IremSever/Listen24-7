@@ -45,11 +45,31 @@ class HomeViewModel {
         }
     }
     
-    func cellForRowAt(indexPath: IndexPath) -> Any {
-        if indexPath.section == 0 {
-            return header[indexPath.row]
+    func headerTitle() -> String {
+        if let title = header.first?.title {
+            return title
         } else {
-            return home[indexPath.row]
+            return "No Title"
         }
+    }
+    
+    func homeName() -> String {
+        if let name = home.first?.name {
+            return name
+        } else {
+            return "No Name"
+        }
+    }
+    
+    func titleForHeaderInSection(section: Int) -> String? {
+        if section == 0 {
+            return headerTitle()
+        } else {
+            return homeName()
+        }
+    }
+    
+    func numberOfSections() -> Int {
+        return 2
     }
 }
