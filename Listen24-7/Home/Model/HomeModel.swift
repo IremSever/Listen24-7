@@ -8,12 +8,12 @@
 import Foundation
 // MARK: - HomeModel
 struct HomeModel: Codable {
-    let meta: Meta
-    let data: DataClass
+    let meta: HomeMeta
+    let data: HomeData
 }
 
 // MARK: - DataClass
-struct DataClass: Codable {
+struct HomeData: Codable {
     let list: List
 }
 
@@ -169,9 +169,9 @@ struct Song: Codable {
 
 // MARK: - Advertorial
 struct Advertorial: Codable {
-    let postroll: JSONNull?
+    let postroll: JSONHomeNull?
     let postrollFrequency: Int
-    let postrollV2: JSONNull?
+    let postrollV2: JSONHomeNull?
     let preroll: String
     let prerollFrequency: Int
     let prerollV2: PrerollV2
@@ -239,7 +239,7 @@ enum Text: String, Codable {
 }
 
 // MARK: - Meta
-struct Meta: Codable {
+struct HomeMeta: Codable {
     let statusCode: Int
     let message, description, brand: String
 
@@ -251,9 +251,9 @@ struct Meta: Codable {
 
 // MARK: - Encode/decode helpers
 
-class JSONNull: Codable, Hashable {
+class JSONHomeNull: Codable, Hashable {
 
-    public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
+    public static func == (lhs: JSONHomeNull, rhs: JSONHomeNull) -> Bool {
         return true
     }
 
@@ -266,7 +266,7 @@ class JSONNull: Codable, Hashable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         if !container.decodeNil() {
-            throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
+            throw DecodingError.typeMismatch(JSONHomeNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
         }
     }
 

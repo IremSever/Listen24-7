@@ -6,49 +6,43 @@
 //
 
 import Foundation
-
+// MARK: - HeaderModel
 struct HeaderModel: Codable {
     let meta: HeaderMeta
-    let data: DataModel
+    let data: HeaderData
 }
-
-struct DataModel: Codable {
+// MARK: - DataClass
+struct HeaderData: Codable {
     let news: News
 }
-
+// MARK: - News
 struct News: Codable {
-    let pageInfo: String?
-    let response: [HeaderResponse]?
-    let status: Bool?
-    
-}
-
-struct HeaderResponse: Codable {
-    let articleId: String?
-    let description: String?
-    let external: String?
-    let id: String?
-    let image: String?
-    let imageAlternateText: String?
-    let modifiedDate: String?
-    let richTextActive: Bool?
-    let showWebView: Bool?
-    let spot: String?
-    let spotShort: String?
-    let surmansetBaslik: Bool?
-    let surmansetBaslikKategori: Bool?
-    let title: String?
-    let titleShort: String?
-    let url: String?
-    let usedMethod: Bool?
-
+    let pageInfo: JSONHeaderNull?
+    let response: [Response]
+    let status: Bool
     enum CodingKeys: String, CodingKey {
-        case articleId = "ArticleId"
+        case pageInfo = "PageInfo"
+        case response = "Response"
+        case status = "Status"
+    }
+}
+// MARK: - Response
+struct Response: Codable {
+    let articleID, description, external, id: String
+    let image: String
+    let imageAlternateText, modifiedDate: String
+    let richTextActive, showWebView: Bool
+    let spot, spotShort: String
+    let surmansetBaslik, surmansetBaslikKategori: Bool
+    let title, titleShort: String
+    let url: String
+    let usedMethod: Bool
+    enum CodingKeys: String, CodingKey {
+        case articleID = "ArticleId"
         case description = "Description"
         case external = "External"
         case id = "Id"
-        case image = "image"
-        case imageAlternateText = "imageAlternateText"
+        case image, imageAlternateText
         case modifiedDate = "ModifiedDate"
         case richTextActive = "RichTextActive"
         case showWebView = "ShowWebView"
@@ -62,84 +56,32 @@ struct HeaderResponse: Codable {
         case usedMethod = "UsedMethod"
     }
 }
-
-struct HeaderMeta: Codable {
-    let statusCode: Int
-    let message: String
-    let description: String
-    let brand: String
-}
-
-
-/*struct HeaderModel: Codable {
-    let meta: HeaderMeta
-    let data: HeaderData
-}
-
-struct HeaderData: Codable {
-    let news: News
-}
-
-struct News: Codable {
-    //let pageInfo: JSONNull?
-    let response: [HeaderResponse]
-    let status: Bool
-
-    enum CodingKeys: String, CodingKey {
-        //case pageInfo = "PageInfo"
-        case response = "Response"
-        case status = "Status"
-    }
-}
-
-struct HeaderResponse: Codable {
-    let articleID: String?
-    let description: String?
-    let external: String?
-    let id: String?
-    let image: String?
-    //let imageAlternateText: String?
-    //let modifiedDate: String?
-    //let richTextActive: Bool?
-    //let showWebView: Bool?
-    let spot: String?
-    //let spotShort: String?
-    //let surmansetBaslik: Bool?
-    //let surmansetBaslikKategori: Bool?
-    let title: String?
-    //let titleShort: String?
-    let url: String?
-    //let usedMethod: Bool?
-
-    enum CodingKeys: String, CodingKey {
-        case articleID = "ArticleId"
-        case description = "Description"
-        case external = "External"
-        case id = "Id"
-        case image
-        //case imageAlternateText
-        //case modifiedDate = "ModifiedDate"
-        //case richTextActive = "RichTextActive"
-        //case showWebView = "ShowWebView"
-        case spot = "Spot"
-        //case spotShort = "SpotShort"
-        //case surmansetBaslik = "SurmansetBaslik"
-        //case surmansetBaslikKategori = "SurmansetBaslikKategori"
-        case title = "Title"
-        //case titleShort = "TitleShort"
-        case url = "Url"
-        //case usedMethod = "UsedMethod"
-    }
-}
-
+// MARK: - Meta
 struct HeaderMeta: Codable {
     let statusCode: Int
     let message, description, brand: String
-
     enum CodingKeys: String, CodingKey {
         case statusCode = "status_code"
         case message, description, brand
     }
-}*/
-
-
+}
+// MARK: - Encode/decode helpers
+class JSONHeaderNull: Codable, Hashable {
+    public static func == (lhs: JSONHeaderNull, rhs: JSONHeaderNull) -> Bool {
+        return true
+    }
+    public var hashValue: Int {
+        return 0
+    }
+    public init() {}
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        if !container.decodeNil() {
+            throw DecodingError.typeMismatch(JSONHeaderNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
+        }
+    }
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        try container.encodeNil()
+    }
+}
