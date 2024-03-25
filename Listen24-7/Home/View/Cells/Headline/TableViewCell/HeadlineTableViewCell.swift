@@ -33,12 +33,12 @@ class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataArray.first?.response.count ?? 0
+        return dataArray.first?.response?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HeadlineCollectionViewCell.identifier, for: indexPath) as! HeadlineCollectionViewCell
-        if let item = dataArray.first?.response[indexPath.row] {
+        if let item = dataArray.first?.response?[indexPath.row] {
             cell.configure(with: item)
             return cell
         }

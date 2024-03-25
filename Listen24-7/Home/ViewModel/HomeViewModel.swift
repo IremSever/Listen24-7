@@ -29,7 +29,7 @@ class HomeViewModel {
         headerWebservice.getHeaderData { [weak self] result in
             switch result {
             case .success(let headerData):
-                self?.header = headerData.data.news.response
+                self?.header = headerData.data.news.response ?? []
                 completion()
             case .failure(let error):
                 print("Error processing header JSON data: \(error)")

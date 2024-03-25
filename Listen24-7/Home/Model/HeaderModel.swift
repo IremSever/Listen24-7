@@ -8,15 +8,8 @@
 import Foundation
 
 struct HeaderModel: Codable {
-    let meta: Meta
+    let meta: HeaderMeta
     let data: DataModel
-}
-
-struct Meta: Codable {
-    let statusCode: Int
-    let message: String
-    let description: String
-    let brand: String
 }
 
 struct DataModel: Codable {
@@ -25,28 +18,29 @@ struct DataModel: Codable {
 
 struct News: Codable {
     let pageInfo: String?
-    let response: [Article]?
+    let response: [HeaderResponse]?
     let status: Bool?
+    
 }
 
-struct Article: Codable {
-    let articleId: String
-    let description: String
-    let external: String
-    let id: String
-    let image: String
-    let imageAlternateText: String
-    let modifiedDate: String
-    let richTextActive: Bool
-    let showWebView: Bool
-    let spot: String
-    let spotShort: String
-    let surmansetBaslik: Bool
-    let surmansetBaslikKategori: Bool
-    let title: String
-    let titleShort: String
-    let url: String
-    let usedMethod: Bool
+struct HeaderResponse: Codable {
+    let articleId: String?
+    let description: String?
+    let external: String?
+    let id: String?
+    let image: String?
+    let imageAlternateText: String?
+    let modifiedDate: String?
+    let richTextActive: Bool?
+    let showWebView: Bool?
+    let spot: String?
+    let spotShort: String?
+    let surmansetBaslik: Bool?
+    let surmansetBaslikKategori: Bool?
+    let title: String?
+    let titleShort: String?
+    let url: String?
+    let usedMethod: Bool?
 
     enum CodingKeys: String, CodingKey {
         case articleId = "ArticleId"
@@ -69,7 +63,12 @@ struct Article: Codable {
     }
 }
 
-
+struct HeaderMeta: Codable {
+    let statusCode: Int
+    let message: String
+    let description: String
+    let brand: String
+}
 
 
 /*struct HeaderModel: Codable {

@@ -42,7 +42,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableViewHome.register(UINib(nibName: "SquareTableViewCell", bundle: nil), forCellReuseIdentifier: SquareTableViewCell.identifier)
         tableViewHome.register(UINib(nibName: "HeadlineTableViewCell", bundle: nil), forCellReuseIdentifier: HeadlineTableViewCell.identifier)
         tableViewHome.register(UINib(nibName: "CircleTableViewCell", bundle: nil), forCellReuseIdentifier: CircleTableViewCell.identifier)
-        //tableViewHome.register(UINib(nibName: "SuggestionTableViewCell", bundle: nil), forCellReuseIdentifier: SuggestionTableViewCell.identifier)
+        tableViewHome.register(UINib(nibName: "SuggestionTableViewCell", bundle: nil), forCellReuseIdentifier: SuggestionTableViewCell.identifier)
         tableViewHome.register(UINib(nibName: "LatestTableViewCell", bundle: nil), forCellReuseIdentifier: LatestTableViewCell.identifier)
         tableViewHome.register(UINib(nibName: "Top10TableViewCell", bundle: nil), forCellReuseIdentifier: Top10TableViewCell.identifier)
     }
@@ -100,17 +100,17 @@ extension HomeViewController {
         } else {
             let dataHome = viewModel.home[indexPath.row]
             switch dataHome.template {
-            case .slider:
+            case "SLIDER":
                 return 300
-            case .standart:
+            case "STANDART":
                 return 120
-            case .radio:
+            case "RADIO":
                 return 100
-            case .lastSongs:
+            case "LASTSONGS":
                 return 200
-            case .topFramePlaylist:
+            case "TOPFRAMEPLAYLISTS":
                 return 90
-            case .topFrameSong:
+            case "TOPFRAMESONG":
                 return 110
             default: 
                 return 200
@@ -126,17 +126,17 @@ extension HomeViewController {
             let dataHome = viewModel.home[indexPath.row]
             let cell: UITableViewCell
             switch dataHome.template {
-            case .slider:
+            case "SLIDER":
                 cell = tableView.dequeueReusableCell(withIdentifier: HeadlineTableViewCell.identifier, for: indexPath) as! HeadlineTableViewCell
-            case .standart:
+            case "STANDART":
                 cell = tableView.dequeueReusableCell(withIdentifier: SquareTableViewCell.identifier, for: indexPath) as! SquareTableViewCell
-            case .radio:
+            case "RADIO":
                 cell = tableView.dequeueReusableCell(withIdentifier: CircleTableViewCell.identifier, for: indexPath) as! CircleTableViewCell
-            case .lastSongs:
-                cell = tableView.dequeueReusableCell(withIdentifier: SuggestionTableViewCell.identifier, for: indexPath) as! SuggestionTableViewCell
-            case .topFramePlaylist:
+            case "LASTSONGS":
                 cell = tableView.dequeueReusableCell(withIdentifier: LatestTableViewCell.identifier, for: indexPath) as! LatestTableViewCell
-            case .topFrameSong:
+            case "TOPFRAMEPLAYLISTS":
+                cell = tableView.dequeueReusableCell(withIdentifier: SuggestionTableViewCell.identifier, for: indexPath) as! SuggestionTableViewCell
+            case "TOPFRAMESONG":
                 cell = tableView.dequeueReusableCell(withIdentifier: Top10TableViewCell.identifier, for: indexPath) as! Top10TableViewCell
             default:
                 return UITableViewCell()

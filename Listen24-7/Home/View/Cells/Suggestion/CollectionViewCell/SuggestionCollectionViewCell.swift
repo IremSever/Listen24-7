@@ -35,13 +35,13 @@ class SuggestionCollectionViewCell: UICollectionViewCell {
         lblReleaseDate?.textColor = UIColor.systemGray2
     }
     
-    /*func configure(with data: Info) {
+    func configure(with data: Song) {
         guard let imageName = data.image, let image = UIImage(named: imageName) else {
             print("Image couldn't be loaded.")
             return
         }
         imgCover?.image = image
-        lbRecordName?.text = data.title
-        lblReleaseDate?.text = data.releaseDate
-    }*/
+        lbRecordName?.text = data.name
+        lblReleaseDate?.text = data.publishDate
+    }
 }
