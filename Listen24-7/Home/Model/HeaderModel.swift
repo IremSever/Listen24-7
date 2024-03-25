@@ -85,7 +85,7 @@ class JSONHeaderNull: Codable, Hashable {
         hasher.combine(0)
     }
     
-    init() {}
+    //init() {}
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
