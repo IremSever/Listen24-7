@@ -33,15 +33,15 @@ struct News: Codable {
 
 // MARK: - Response
 struct HeaderResponse: Codable {
-    let articleID, description, external, id: String
-    let image: String
-    let imageAlternateText, modifiedDate: String
-    let richTextActive, showWebView: Bool
-    let spot, spotShort: String
-    let surmansetBaslik, surmansetBaslikKategori: Bool
-    let title, titleShort: String
-    let url: String
-    let usedMethod: Bool
+    let articleID, description, external, id: String?
+    let image: String?
+    let imageAlternateText, modifiedDate: String?
+    let richTextActive, showWebView: Bool?
+    let spot, spotShort: String?
+    let surmansetBaslik, surmansetBaslikKategori: Bool?
+    let title, titleShort: String?
+    let url: String?
+    let usedMethod: Bool?
 
     enum CodingKeys: String, CodingKey {
         case articleID = "ArticleId"
@@ -75,7 +75,6 @@ struct HeaderMeta: Codable {
     }
 }
 
-// MARK: - Encode/decode helpers
 // MARK: - Encode/decode helpers
 class JSONHeaderNull: Codable, Hashable {
     static func == (lhs: JSONHeaderNull, rhs: JSONHeaderNull) -> Bool {

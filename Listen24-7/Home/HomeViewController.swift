@@ -14,35 +14,31 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var viewModel = HomeViewModel()
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        tableViewHome.dataSource = self
-        tableViewHome.delegate = self
-        loadData()
-    }
-    
-    private func loadData() {
-        viewModel.fetchHeaderData { [weak self] in
-            DispatchQueue.main.async {
-                self?.viewModel.fetchHomeData { [weak self] in
-                    DispatchQueue.main.async {
-                        self?.registerCells()
-                        self?.tableViewHome.reloadData()
-                    }
+            super.viewDidLoad()
+            tableViewHome.dataSource = self
+            tableViewHome.delegate = self
+            loadData()
+        }
+        
+        private func loadData() {
+            viewModel.fetchData { [weak self] in
+                DispatchQueue.main.async {
+                    self?.registerCells()
+                    self?.tableViewHome.reloadData()
                 }
             }
         }
+        
+        func registerCells() {
+            tableViewHome.register(UINib(nibName: "SquareTableViewCell", bundle: nil), forCellReuseIdentifier: SquareTableViewCell.identifier)
+            tableViewHome.register(UINib(nibName: "HeadlineTableViewCell", bundle: nil), forCellReuseIdentifier: HeadlineTableViewCell.identifier)
+            tableViewHome.register(UINib(nibName: "CircleTableViewCell", bundle: nil), forCellReuseIdentifier: CircleTableViewCell.identifier)
+            tableViewHome.register(UINib(nibName: "SuggestionTableViewCell", bundle: nil), forCellReuseIdentifier: SuggestionTableViewCell.identifier)
+            tableViewHome.register(UINib(nibName: "LatestTableViewCell", bundle: nil), forCellReuseIdentifier: LatestTableViewCell.identifier)
+            tableViewHome.register(UINib(nibName: "Top10TableViewCell", bundle: nil), forCellReuseIdentifier: Top10TableViewCell.identifier)
+        }
+        
     }
-    
-    func registerCells() {
-        tableViewHome.register(UINib(nibName: "SquareTableViewCell", bundle: nil), forCellReuseIdentifier: SquareTableViewCell.identifier)
-        tableViewHome.register(UINib(nibName: "HeadlineTableViewCell", bundle: nil), forCellReuseIdentifier: HeadlineTableViewCell.identifier)
-        tableViewHome.register(UINib(nibName: "CircleTableViewCell", bundle: nil), forCellReuseIdentifier: CircleTableViewCell.identifier)
-        tableViewHome.register(UINib(nibName: "SuggestionTableViewCell", bundle: nil), forCellReuseIdentifier: SuggestionTableViewCell.identifier)
-        tableViewHome.register(UINib(nibName: "LatestTableViewCell", bundle: nil), forCellReuseIdentifier: LatestTableViewCell.identifier)
-        tableViewHome.register(UINib(nibName: "Top10TableViewCell", bundle: nil), forCellReuseIdentifier: Top10TableViewCell.identifier)
-    }
-    
-}
 
 extension HomeViewController {
     func numberOfSections(in tableView: UITableView) -> Int {

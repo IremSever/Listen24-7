@@ -24,7 +24,7 @@ class HeaderWebservice {
                 return
             }
             
-            print("Response status code: \(response.statusCode)")
+            print("Header Response status code: \(response.statusCode)")
             
             guard let data = data else {
                 print("Header Data")
