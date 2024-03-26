@@ -26,11 +26,12 @@ class HeaderViewModel {
                 print("Error processing header JSON data: \(error)")
             }
         }
+        print(header.count)
        
     }
     
     func numberOfRowsInSection(section: Int) -> Int {
-        return header.count
+        return 1
     }
     
     func cellForRowAt(indexPath: IndexPath) -> HeaderResponse {

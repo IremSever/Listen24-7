@@ -26,9 +26,12 @@ class HomeViewModel {
                 print("Error processing home JSON data: \(error)")
             }
         }
+        print(home.count)
+
     }
     
     func numberOfRowsInSection(section: Int) -> Int {
+        print(home.count)
         return home.count
     }
     
