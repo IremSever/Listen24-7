@@ -10,10 +10,13 @@ import Foundation
 class HomeWebservice {
     func getHomeData(completion: @escaping (Result<HomeModel, Error>) -> Void) {
         let homeURL = "https://api.tmgrup.com.tr/v1/link/1068"
-        guard let url = URL(string: homeURL) else {return}
+        guard let url = URL(string: homeURL) else { return }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
         
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let error = error{
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
                 completion(.failure(error))
                 print("DataTask error: \(error.localizedDescription)")
                 return
