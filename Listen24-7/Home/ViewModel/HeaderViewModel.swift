@@ -19,6 +19,7 @@ class HeaderViewModel {
             case .success(let headerData):
                 self?.header = headerData.data.news.response ?? []
                 self?.isHeaderDataFetched = true
+                print(self?.header.count ?? 0)
                 if self?.isHeaderDataFetched == true {
                     completion()
                 }
@@ -26,15 +27,14 @@ class HeaderViewModel {
                 print("Error processing header JSON data: \(error)")
             }
         }
-        print(header.count)
-       
     }
     
     func numberOfRowsInSection(section: Int) -> Int {
-        return 1
+        return header.count
     }
     
     func cellForRowAt(indexPath: IndexPath) -> HeaderResponse {
         return header[indexPath.row]
     }
 }
+
