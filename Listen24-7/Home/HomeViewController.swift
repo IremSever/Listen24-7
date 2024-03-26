@@ -63,7 +63,7 @@ extension HomeViewController {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell = tableViewHome.dequeueReusableCell(withIdentifier: "HealineTableViewCell", for: indexPath) as! HeadlineTableViewCell
+            let cell = tableViewHome.dequeueReusableCell(withIdentifier: "HeadlineTableViewCell", for: indexPath) as! HeadlineTableViewCell
             return cell
         } else {
             let dataHome = viewModel.home[indexPath.row]
