@@ -17,7 +17,7 @@ class HomeViewModel {
         homeWebservice.getHomeData { [weak self] result in
             switch result {
             case .success(let homeData):
-                self?.home = homeData.data.list.response
+                self?.home = homeData.data?.list?.response ?? []
                 self?.isHomeDataFetched = true
                 if self?.isHomeDataFetched == true {
                     completion()

@@ -9,19 +9,19 @@ import Foundation
 // MARK: - HomeModel
 struct HomeModel: Codable {
     let meta: HomeMeta
-    let data: HomeData
+    let data: HomeData?
 }
 
 // MARK: - DataClass
 struct HomeData: Codable {
-    let list: List
+    let list: List?
 }
 
 // MARK: - List
 struct List: Codable {
-    let pageInfo: PageInfo
-    let response: [Response]
-    let status: Bool
+    let pageInfo: PageInfo?
+    let response: [Response]?
+    let status: Bool?
 
     enum CodingKeys: String, CodingKey {
         case pageInfo = "PageInfo"
