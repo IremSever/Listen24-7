@@ -9,10 +9,10 @@ import Foundation
 import UIKit
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-   
+    
     @IBOutlet weak var tableViewHome: UITableView!
     var viewModel = HomeViewModel()
-    
+    var viewModelHeader = HeaderViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         tableViewHome.dataSource = self
@@ -22,7 +22,15 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     private func loadData() {
-        viewModel.fetchData { [weak self] in
+        viewModelHeader.fetchHeaderData {
+            [weak self] in
+            DispatchQueue.main.async {
+                self?.registerCells()
+                self?.tableViewHome.reloadData()
+            }
+        }
+        viewModel.fetchHomeData {
+            [weak self] in
             DispatchQueue.main.async {
                 self?.registerCells()
                 self?.tableViewHome.reloadData()
@@ -47,7 +55,7 @@ extension HomeViewController {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return viewModel.header.count > 0 ? 1 : 0
+            return viewModelHeader.header.count > 0 ? 1 : 0
         } else {
             return viewModel.home.count
         }

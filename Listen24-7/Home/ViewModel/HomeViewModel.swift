@@ -9,38 +9,30 @@ import Foundation
 
 class HomeViewModel {
     private var homeWebservice = HomeWebservice()
-    private var headerWebservice = HeaderWebservice()
-    private var isHeaderDataFetched = false
     private var isHomeDataFetched = false
     
     var home: [Response] = []
-    var header: [HeaderResponse] = []
     
-    func fetchData(completion: @escaping () -> ()) {
-        headerWebservice.getHeaderData { [weak self] result in
-            switch result {
-            case .success(let headerData):
-                self?.header = headerData.data.news.response ?? []
-                self?.isHeaderDataFetched = true
-                if self?.isHomeDataFetched == true {
-                    completion()
-                }
-            case .failure(let error):
-                print("Error processing header JSON data: \(error)")
-            }
-        }
-        
+    func fetchHomeData(completion: @escaping () -> ()) {
         homeWebservice.getHomeData { [weak self] result in
             switch result {
             case .success(let homeData):
                 self?.home = homeData.data.list.response
                 self?.isHomeDataFetched = true
-                if self?.isHeaderDataFetched == true {
+                if self?.isHomeDataFetched == true {
                     completion()
                 }
             case .failure(let error):
                 print("Error processing home JSON data: \(error)")
             }
         }
+    }
+    
+    func numberOfRowsInSection(section: Int) -> Int {
+        return home.count
+    }
+    
+    func cellForRowAt(indexPath: IndexPath) -> Response {
+        return home[indexPath.row]
     }
 }
