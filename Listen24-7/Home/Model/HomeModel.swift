@@ -169,17 +169,13 @@ struct Song: Codable {
 
 // MARK: - Advertorial
 struct Advertorial: Codable {
-    let postroll: JSONHomeNull?
     let postrollFrequency: Int
-    let postrollV2: JSONHomeNull?
     let preroll: String
     let prerollFrequency: Int
     let prerollV2: PrerollV2
 
     enum CodingKeys: String, CodingKey {
-        case postroll = "Postroll"
         case postrollFrequency = "PostrollFrequency"
-        case postrollV2 = "PostrollV2"
         case preroll = "Preroll"
         case prerollFrequency = "PrerollFrequency"
         case prerollV2 = "PrerollV2"
@@ -246,31 +242,5 @@ struct HomeMeta: Codable {
     enum CodingKeys: String, CodingKey {
         case statusCode = "status_code"
         case message, description, brand
-    }
-}
-
-// MARK: - Encode/decode helpers
-
-class JSONHomeNull: Codable, Hashable {
-    static func == (lhs: JSONHomeNull, rhs: JSONHomeNull) -> Bool {
-        return true
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(0)
-    }
-    
-    //init() {}
-    
-    required init(from decoder: Decoder) throws {
-        let container = try decoder.singleValueContainer()
-        if !container.decodeNil() {
-            throw DecodingError.typeMismatch(JSONHomeNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
-        }
-    }
-    
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.singleValueContainer()
-        try container.encodeNil()
     }
 }

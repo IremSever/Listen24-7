@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
    
     @IBOutlet weak var tableViewHome: UITableView!
     var viewModel = HomeViewModel()
@@ -39,12 +38,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableViewHome.register(UINib(nibName: "LatestTableViewCell", bundle: nil), forCellReuseIdentifier: LatestTableViewCell.identifier)
         tableViewHome.register(UINib(nibName: "Top10TableViewCell", bundle: nil), forCellReuseIdentifier: Top10TableViewCell.identifier)
     }
-    
 }
 
 extension HomeViewController {
     func numberOfSections(in tableView: UITableView) -> Int {
-        tableViewHome.backgroundColor = .black
         return 2
     }
     
@@ -58,14 +55,14 @@ extension HomeViewController {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "HealineTableViewCell", for: indexPath) as! HeadlineTableViewCell
+            let cell = tableViewHome.dequeueReusableCell(withIdentifier: "HealineTableViewCell", for: indexPath) as! HeadlineTableViewCell
             return cell
         } else {
             let dataHome = viewModel.home[indexPath.row]
             let cell: UITableViewCell
             switch dataHome.template {
             case "SLIDER":
-                cell = tableView.dequeueReusableCell(withIdentifier: HeadlineTableViewCell.identifier, for: indexPath) as! HeadlineTableViewCell
+                cell = tableView.dequeueReusableCell(withIdentifier: SquareTableViewCell.identifier, for: indexPath) as! SquareTableViewCell
             case "STANDART":
                 cell = tableView.dequeueReusableCell(withIdentifier: SquareTableViewCell.identifier, for: indexPath) as! SquareTableViewCell
             case "RADIO":

@@ -20,12 +20,10 @@ struct HeaderData: Codable {
 
 // MARK: - News
 struct News: Codable {
-    let pageInfo: JSONHeaderNull?
     let response: [HeaderResponse]?
     let status: Bool
 
     enum CodingKeys: String, CodingKey {
-        case pageInfo = "PageInfo"
         case response = "Response"
         case status = "Status"
     }
@@ -72,30 +70,5 @@ struct HeaderMeta: Codable {
     enum CodingKeys: String, CodingKey {
         case statusCode = "status_code"
         case message, description, brand
-    }
-}
-
-// MARK: - Encode/decode helpers
-class JSONHeaderNull: Codable, Hashable {
-    static func == (lhs: JSONHeaderNull, rhs: JSONHeaderNull) -> Bool {
-        return true
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(0)
-    }
-    
-    //init() {}
-    
-    required init(from decoder: Decoder) throws {
-        let container = try decoder.singleValueContainer()
-        if !container.decodeNil() {
-            throw DecodingError.typeMismatch(JSONHeaderNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
-        }
-    }
-    
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.singleValueContainer()
-        try container.encodeNil()
     }
 }
