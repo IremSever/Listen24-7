@@ -43,40 +43,4 @@ class HomeViewModel {
             }
         }
     }
-    
-    func numberOfRowsInSection(section: Int) -> Int {
-        if section == 0 {
-            return header.count
-        } else {
-            return home.count
-        }
-    }
-    
-    func headerTitle() -> String {
-        if let title = header.first?.title {
-            return title
-        } else {
-            return "No Title"
-        }
-    }
-    
-    func homeName() -> String {
-        if let name = home.first?.name {
-            return name
-        } else {
-            return "No Name"
-        }
-    }
-    
-    func titleForHeaderInSection(section: Int) -> String? {
-        if section == 0 {
-            return headerTitle()
-        } else {
-            return homeName()
-        }
-    }
-    
-    func numberOfSections() -> Int {
-        return 2
-    }
 }
