@@ -74,7 +74,7 @@ struct CategoryGroup: Codable {
     let url: String?
     let description: String?
     let followed: Bool?
-    let gaType: GAType?
+    let gaType: String?
 
     enum CodingKeys: String, CodingKey {
         case external = "External"
@@ -86,12 +86,6 @@ struct CategoryGroup: Codable {
         case followed = "Followed"
         case gaType = "GAType"
     }
-}
-
-enum GAType: String, Codable {
-    case news = "News"
-    case podcast = "Podcast"
-    case singer = "Singer"
 }
 
 // MARK: - RadioChannel

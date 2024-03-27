@@ -9,6 +9,7 @@ import UIKit
 
 class SquareTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
     static let identifier = "SquareTableViewCell"
+    
     @IBOutlet weak var collectionViewSquare: UICollectionView!
     var dataArray: [Response] = []
     
@@ -29,8 +30,8 @@ class SquareTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollec
         collectionViewSquare.showsHorizontalScrollIndicator = false
     }
     
-    func updateDataArray(with dataArray: [Response]) {
-        self.dataArray = dataArray
+    func updateDataArray(with dataArray: Response) {
+        self.dataArray = [dataArray]
         collectionViewSquare.reloadData()
     }
     

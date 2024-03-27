@@ -30,8 +30,8 @@ class Top10TableViewCell: UITableViewCell, UICollectionViewDataSource, UICollect
         collectionViewTop10.showsHorizontalScrollIndicator = false
     }
     
-    func updateDataArray(with dataArray: [Response]) {
-        self.dataArray = dataArray
+    func updateDataArray(with dataArray: Response) {
+        self.dataArray = [dataArray]
         collectionViewTop10.reloadData()
     }
     

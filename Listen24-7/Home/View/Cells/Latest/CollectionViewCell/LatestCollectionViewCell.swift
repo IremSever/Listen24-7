@@ -37,6 +37,7 @@ class LatestCollectionViewCell: UICollectionViewCell {
         lblMinutes.text = data.durationTime
         lblMinutes.font = UIFont(name: "Futura", size: 9)
         lblMinutes.textColor = UIColor.black
+        
     }
     
     private func getImageDataFrom(url: URL) {

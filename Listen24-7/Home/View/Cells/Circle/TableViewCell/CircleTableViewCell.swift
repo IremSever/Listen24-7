@@ -29,8 +29,8 @@ class CircleTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollec
         collectionViewCircle.showsHorizontalScrollIndicator = false
     }
     
-    func updateDataArray(with dataArray: [Response]) {
-        self.dataArray = dataArray
+    func updateDataArray(with dataArray: Response) {
+        self.dataArray = [dataArray]
         collectionViewCircle.reloadData()
     }
     

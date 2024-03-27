@@ -27,8 +27,8 @@ class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
         collectionViewHeadline.showsHorizontalScrollIndicator = false
     }
     
-    func updateDataArray(with dataArray: [News]) {
-        self.dataArray = dataArray
+    func updateDataArray(with dataArray: News) {
+        self.dataArray = [dataArray]
         collectionViewHeadline.reloadData()
     }
     

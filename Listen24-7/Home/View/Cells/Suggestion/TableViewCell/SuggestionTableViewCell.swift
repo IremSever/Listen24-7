@@ -32,8 +32,8 @@ class SuggestionTableViewCell: UITableViewCell /*, UICollectionViewDataSource, U
         collectionViewSuggestion.showsHorizontalScrollIndicator = false
     }
     
-    func updateDataArray(with dataArray: [Response]) {
-        self.dataArray = dataArray
+    func updateDataArray(with dataArray: Response) {
+        self.dataArray = [dataArray]
         collectionViewSuggestion.reloadData()
     }
     

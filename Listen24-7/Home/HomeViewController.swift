@@ -65,30 +65,40 @@ extension HomeViewController {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
+            let dataHeader = viewModelHeader.header.data.news
             let cell = tableViewHome.dequeueReusableCell(withIdentifier: "HeadlineTableViewCell", for: indexPath) as! HeadlineTableViewCell
+            cell.updateDataArray(with: dataHeader)
             return cell
         } else {
             let dataHome = viewModel.home[indexPath.row]
-            let cell: UITableViewCell
             switch dataHome.template {
             case "SLIDER":
-                cell = tableView.dequeueReusableCell(withIdentifier: SquareTableViewCell.identifier, for: indexPath) as! SquareTableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: SquareTableViewCell.identifier, for: indexPath) as! SquareTableViewCell
+                cell.updateDataArray(with: dataHome)
+                return cell
             case "STANDART":
-                cell = tableView.dequeueReusableCell(withIdentifier: SquareTableViewCell.identifier, for: indexPath) as! SquareTableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: SquareTableViewCell.identifier, for: indexPath) as! SquareTableViewCell
+                cell.updateDataArray(with: dataHome)
+                return cell
             case "RADIO":
-                cell = tableView.dequeueReusableCell(withIdentifier: CircleTableViewCell.identifier, for: indexPath) as! CircleTableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: CircleTableViewCell.identifier, for: indexPath) as! CircleTableViewCell
+                return cell
             case "LASTSONGS":
                 let cell = tableView.dequeueReusableCell(withIdentifier: LatestTableViewCell.identifier, for: indexPath) as! LatestTableViewCell
                 cell.updateDataArray(with: dataHome)
                 return cell
             case "TOPFRAMEPLAYLISTS":
-                cell = tableView.dequeueReusableCell(withIdentifier: SuggestionTableViewCell.identifier, for: indexPath) as! SuggestionTableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: SuggestionTableViewCell.identifier, for: indexPath) as! SuggestionTableViewCell
+                cell.updateDataArray(with: dataHome)
+                return cell
             case "TOPFRAMESONG":
-                cell = tableView.dequeueReusableCell(withIdentifier: Top10TableViewCell.identifier, for: indexPath) as! Top10TableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: Top10TableViewCell.identifier, for: indexPath) as! Top10TableViewCell
+                cell.updateDataArray(with: dataHome)
+                return cell
             default:
-                cell = UITableViewCell()
+                return UITableViewCell()
             }
-            return cell
+            
         }
     }
     
