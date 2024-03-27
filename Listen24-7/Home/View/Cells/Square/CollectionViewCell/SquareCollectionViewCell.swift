@@ -42,7 +42,7 @@ class SquareCollectionViewCell: UICollectionViewCell {
             }
             
             guard let data = data else {
-                print("Headline Data")
+                print("Square Data")
                 return
             }
             

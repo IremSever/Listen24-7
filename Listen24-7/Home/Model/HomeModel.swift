@@ -9,7 +9,7 @@ import Foundation
 // MARK: - HomeModel
 struct HomeModel: Codable {
     let meta: HomeMeta
-    let data: HomeData?
+    let data: HomeData
 }
 
 // MARK: - DataClass

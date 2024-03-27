@@ -40,7 +40,7 @@ class CircleCollectionViewCell: UICollectionViewCell {
             }
             
             guard let data = data else {
-                print("Headline Data")
+                print("Circle Data")
                 return
             }
             

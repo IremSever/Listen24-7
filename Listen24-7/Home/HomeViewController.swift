@@ -13,6 +13,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var tableViewHome: UITableView!
     var viewModel = HomeViewModel()
     var viewModelHeader = HeaderViewModel()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableViewHome.dataSource = self
@@ -76,7 +78,9 @@ extension HomeViewController {
             case "RADIO":
                 cell = tableView.dequeueReusableCell(withIdentifier: CircleTableViewCell.identifier, for: indexPath) as! CircleTableViewCell
             case "LASTSONGS":
-                cell = tableView.dequeueReusableCell(withIdentifier: LatestTableViewCell.identifier, for: indexPath) as! LatestTableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: LatestTableViewCell.identifier, for: indexPath) as! LatestTableViewCell
+                cell.updateDataArray(with: dataHome)
+                return cell
             case "TOPFRAMEPLAYLISTS":
                 cell = tableView.dequeueReusableCell(withIdentifier: SuggestionTableViewCell.identifier, for: indexPath) as! SuggestionTableViewCell
             case "TOPFRAMESONG":

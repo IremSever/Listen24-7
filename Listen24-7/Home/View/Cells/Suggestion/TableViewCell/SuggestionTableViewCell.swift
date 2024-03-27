@@ -11,9 +11,9 @@ class SuggestionTableViewCell: UITableViewCell /*, UICollectionViewDataSource, U
     static let identifier = "SuggestionTableViewCell"
     
     @IBOutlet weak var collectionViewSuggestion: UICollectionView!
- 
+    
     var dataArray: [Response] = []
-  
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         createSuggestionCollectionView()
@@ -38,15 +38,16 @@ class SuggestionTableViewCell: UITableViewCell /*, UICollectionViewDataSource, U
     }
     
     /*func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataArray.first?.list?.count ?? 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SuggestionCollectionViewCell.identifier, for: indexPath) as! SuggestionCollectionViewCell
-        if let item = dataArray.first?.list?[indexPath.row] {
-            cell.configure(with: item)
-            return cell
-        }
-        return cell
-    }*/
+     return dataArray.first?.list?.count ?? 0
+     }
+     
+     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SuggestionCollectionViewCell.identifier, for: indexPath) as! SuggestionCollectionViewCell
+     if let item = dataArray.first?.list?[indexPath.row] {
+     cell.configure(with: item)
+     return cell
+     }
+     return cell
+     }
+     }*/
 }
