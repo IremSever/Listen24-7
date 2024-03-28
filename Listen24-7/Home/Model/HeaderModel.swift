@@ -47,7 +47,7 @@ struct HeaderResponse: Codable {
         case external = "External"
         case id = "Id"
         case image = "image"
-        case imageAlternateText = "ImageAlternateText"
+        case imageAlternateText = "imageAlternateText"
         case modifiedDate = "ModifiedDate"
         case richTextActive = "RichTextActive"
         case showWebView = "ShowWebView"

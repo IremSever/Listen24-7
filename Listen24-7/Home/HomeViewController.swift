@@ -57,7 +57,7 @@ extension HomeViewController {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return viewModelHeader.header.count > 0 ? 1 : 0
+            return viewModelHeader.header.count 
         } else {
             return viewModel.home.count
         }

@@ -121,7 +121,7 @@ struct Song: Codable {
     let id: Int?
     let image: String?
     let imageAlternateText: String?
-    let listType: ListType?
+    let listType: String?
     let lyrics: Lyrics?
     let mp3URL: String?
     let name: String?
@@ -197,10 +197,6 @@ struct Android: Codable {
     }
 }
 
-enum ListType: String, Codable {
-    case playlists = "Playlists"
-}
-
 // MARK: - Lyrics
 struct Lyrics: Codable {
     let composerName, lyricistName, text: String?
@@ -215,17 +211,12 @@ struct Lyrics: Codable {
 // MARK: - Source
 struct Source: Codable {
     let external: String
-    let text: Text
+    let text: String
 
     enum CodingKeys: String, CodingKey {
         case external = "External"
         case text = "Text"
     }
-}
-
-enum Text: String, Codable {
-    case kaynağaGit = "Kaynağa Git"
-    case şarkıcıyaGit = "Şarkıcıya Git"
 }
 
 // MARK: - Meta
