@@ -8,7 +8,7 @@
 import Foundation
 
 class HomeWebservice {
-    func getHomeData(completion: @escaping (Result<HomeModel, Error>) -> Void) {
+    func postHomeData(completion: @escaping (Result<HomeModel, Error>) -> Void) {
         let homeURL = "https://api.tmgrup.com.tr/v1/link/1068"
         guard let url = URL(string: homeURL) else { return }
 

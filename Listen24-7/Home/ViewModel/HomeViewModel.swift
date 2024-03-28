@@ -14,7 +14,7 @@ class HomeViewModel {
     var home: [Response] = []
     
     func fetchHomeData(completion: @escaping () -> ()) {
-        homeWebservice.getHomeData { [weak self] result in
+        homeWebservice.postHomeData { [weak self] result in
             switch result {
             case .success(let homeData):
                 self?.home = homeData.data.list?.response ?? []

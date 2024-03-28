@@ -9,7 +9,7 @@ import UIKit
 
 class SquareTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
     static let identifier = "SquareTableViewCell"
-    
+   
     @IBOutlet weak var collectionViewSquare: UICollectionView!
     var dataArray: [Response] = []
     
