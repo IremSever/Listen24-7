@@ -43,14 +43,12 @@ class HeadlineCollectionViewCell: UICollectionViewCell {
     
     private func getImageDataFrom(url: URL, forCell cellNumber: Int) {
         URLSession.shared.dataTask(with: url) { (data, response, error) in
-            // Handle Error
             if let error = error {
                 print("DataTask error: \(error.localizedDescription)")
                 return
             }
             
             guard let data = data else {
-                // Handle Headline Data
                 print("Headline Data")
                 return
             }
