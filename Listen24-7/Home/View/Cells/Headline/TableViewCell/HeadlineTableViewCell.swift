@@ -27,10 +27,11 @@ class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
         collectionViewHeadline.showsHorizontalScrollIndicator = false
     }
     
-    func updateDataArray(with dataArray: News) {
-        self.dataArray = [dataArray]
+    func updateDataArray(with dataArray: [News]) {
+        self.dataArray = dataArray
         collectionViewHeadline.reloadData()
     }
+
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataArray.first?.response?.count ?? 0
