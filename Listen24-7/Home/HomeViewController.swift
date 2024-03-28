@@ -110,13 +110,13 @@ extension HomeViewController {
             let dataHome = viewModel.home[indexPath.row]
             switch dataHome.template {
             case "SLIDER":
-                return 300
+                return 120
             case "STANDART":
                 return 120
             case "RADIO":
                 return 100
             case "LASTSONGS":
-                return 200
+                return 100
             case "TOPFRAMEPLAYLISTS":
                 return 90
             case "TOPFRAMESONG":
