@@ -20,7 +20,6 @@ class HomeViewModel {
                 self?.home = homeData.data.list?.response ?? []
                 self?.isHomeDataFetched = true
                 if self?.isHomeDataFetched == true {
-                    print(self?.home.count ?? 0)
                     completion()
                 }
             case .failure(let error):

@@ -19,7 +19,6 @@ class HeaderViewModel {
             case .success(let headerData):
                 self?.header = headerData.data.news.response ?? []
                 self?.isHeaderDataFetched = true
-                print(self?.header.count ?? 0)
                 if self?.isHeaderDataFetched == true {
                     completion()
                 }
