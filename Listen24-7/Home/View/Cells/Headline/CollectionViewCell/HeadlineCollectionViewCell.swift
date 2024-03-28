@@ -35,10 +35,10 @@ class HeadlineCollectionViewCell: UICollectionViewCell {
         }
         lblHeadlineTitle?.text = data.title
         self.imgHeadline.image = nil
-        getImageDataFrom(url: imageURL, forCell: 1)
+        getImageDataFrom(url: imageURL)
     }
     
-    private func getImageDataFrom(url: URL, forCell cellNumber: Int) {
+    private func getImageDataFrom(url: URL) {
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = error {
                 print("DataTask error: \(error.localizedDescription)")
@@ -52,13 +52,9 @@ class HeadlineCollectionViewCell: UICollectionViewCell {
             
             DispatchQueue.main.async {
                 if let image = UIImage(data: data) {
-                    if cellNumber == 1 {
-                        self.imgHeadline.image = image
-                    }
+                    self.imgHeadline.image = image
                 }
             }
         }.resume()
     }
 }
-
-

@@ -57,7 +57,7 @@ extension HomeViewController {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return viewModelHeader.header.count > 0 ? 1 : 0
+            return viewModelHeader.header.count 
         } else {
             return viewModel.home.count
         }
@@ -68,7 +68,7 @@ extension HomeViewController {
             let dataHeader = viewModelHeader.header[indexPath.row]
             let cell = tableViewHome.dequeueReusableCell(withIdentifier: "HeadlineTableViewCell", for: indexPath) as! HeadlineTableViewCell
             let newsData = News(response: [dataHeader], status: true)
-            cell.updateDataArray(with: newsData)
+            cell.updateDataArray(with: [newsData])
             return cell
         } else {
             let dataHome = viewModel.home[indexPath.row]
