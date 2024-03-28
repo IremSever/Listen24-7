@@ -36,17 +36,18 @@ class SuggestionCollectionViewCell: UICollectionViewCell {
     }
     
     func configure(with data: Song) {
-        guard let imageName = data.image, let image = UIImage(named: imageName) else {
-            print("Image couldn't be loaded.")
+        guard let urlString = data.image, let imageURL = URL(string: urlString) else {
+            self.imgCover.image = UIImage(named: "noImageAvailable")
             return
         }
-        imgCover?.image = image
+        self.imgCover.image = nil
+        getImageDataFrom(url: imageURL, forCell: 1)
         lbRecordName?.text = data.name
         lblReleaseDate?.text = data.publishDate
     }
-    
     private func getImageDataFrom(url: URL, forCell cellNumber: Int) {
         URLSession.shared.dataTask(with: url) { (data, response, error) in
+            // Handle Error
             if let error = error {
                 print("DataTask error: \(error.localizedDescription)")
                 return
