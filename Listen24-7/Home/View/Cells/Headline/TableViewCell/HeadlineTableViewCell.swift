@@ -10,7 +10,7 @@ import UIKit
 class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate  {
     @IBOutlet weak var collectionViewHeadline: UICollectionView!
     static let identifier = "HeadlineTableViewCell"
-    var dataArray: [News] = []
+    var dataArray: [HeaderResponse] = []
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,19 +27,19 @@ class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
         collectionViewHeadline.showsHorizontalScrollIndicator = false
     }
     
-    func updateDataArray(with dataArray: [News]) {
+    func updateDataArray(with dataArray: [HeaderResponse]) {
         self.dataArray = dataArray
         collectionViewHeadline.reloadData()
     }
 
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataArray.first?.response?.count ?? 0
+        return dataArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HeadlineCollectionViewCell.identifier, for: indexPath) as! HeadlineCollectionViewCell
-        if let item = dataArray.first?.response?[indexPath.row] {
+        if let item = dataArray[indexPath.row] {
             cell.configure(with: item)
             return cell
         }

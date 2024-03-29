@@ -67,8 +67,7 @@ extension HomeViewController {
         if indexPath.section == 0 {
             let dataHeader = viewModelHeader.header[indexPath.row]
             let cell = tableViewHome.dequeueReusableCell(withIdentifier: "HeadlineTableViewCell", for: indexPath) as! HeadlineTableViewCell
-            let newsData = News(response: [dataHeader], status: true)
-            cell.updateDataArray(with: [newsData])
+            cell.updateDataArray(with: [dataHeader])
             return cell
         } else {
             let dataHome = viewModel.home[indexPath.row]
