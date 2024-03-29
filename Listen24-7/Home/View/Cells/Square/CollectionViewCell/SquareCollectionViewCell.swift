@@ -24,35 +24,23 @@ class SquareCollectionViewCell: UICollectionViewCell {
         imgSquare?.clipsToBounds = true
     }
     
-    func configure(with data: CategoryGroup) {
-        guard let urlString = data.image, let imageURL = URL(string: urlString) else {
-            self.imgSquare.image = UIImage(named: "noImageAvailable")
+    func configure(with data: CategoryGroup?) {
+        guard let imageURLString = data?.image,
+              let imageURL = URL(string: imageURLString) else {
+            imgSquare.image = nil
             return
         }
-        self.imgSquare.image = nil
-        getImageDataFrom(url: imageURL, forCell: 1)
-    }
-    
-    private func getImageDataFrom(url: URL, forCell cellNumber: Int) {
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            // Handle Error
-            if let error = error {
-                print("DataTask error: \(error.localizedDescription)")
-                return
-            }
-            
-            guard let data = data else {
-                print("Square Data")
+        
+        URLSession.shared.dataTask(with: imageURL) { [weak self] (data, response, error) in
+            guard let self = self, let data = data, error == nil else {
                 return
             }
             
             DispatchQueue.main.async {
-                if let image = UIImage(data: data) {
-                    if cellNumber == 1 {
-                        self.imgSquare.image = image
-                    }
-                }
+                let image = UIImage(data: data)
+                self.imgSquare.image = image
             }
         }.resume()
+        
     }
 }

@@ -35,36 +35,27 @@ class SuggestionCollectionViewCell: UICollectionViewCell {
         lblReleaseDate?.textColor = UIColor.systemGray2
     }
     
-    func configure(with data: Song) {
-        guard let urlString = data.image, let imageURL = URL(string: urlString) else {
-            self.imgCover.image = UIImage(named: "noImageAvailable")
+    func configure(with data: Song?) {
+        guard let imageURLString = data?.image,
+              let imageURL = URL(string: imageURLString) else {
+            imgCover.image = nil
+            lblReleaseDate.text = nil
+            lbRecordName.text = nil
             return
         }
-        self.imgCover.image = nil
-        getImageDataFrom(url: imageURL, forCell: 1)
-        lbRecordName?.text = data.name
-        lblReleaseDate?.text = data.publishDate
-    }
-    private func getImageDataFrom(url: URL, forCell cellNumber: Int) {
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            // Handle Error
-            if let error = error {
-                print("DataTask error: \(error.localizedDescription)")
-                return
-            }
-            
-            guard let data = data else {
-                print("Suggestion Data")
+        
+        URLSession.shared.dataTask(with: imageURL) { [weak self] (data, response, error) in
+            guard let self = self, let data = data, error == nil else {
                 return
             }
             
             DispatchQueue.main.async {
-                if let image = UIImage(data: data) {
-                    if cellNumber == 1 {
-                        self.imgCover.image = image
-                    }
-                }
+                let image = UIImage(data: data)
+                self.imgCover.image = image
             }
         }.resume()
+        
+        lbRecordName?.text = data?.name
+        lblReleaseDate?.text = data?.publishDate
     }
 }

@@ -23,33 +23,21 @@ class CircleCollectionViewCell: UICollectionViewCell {
         imgCircle?.clipsToBounds = true
     }
     
-    func configure(with data: RadioChannel) {
-        guard let urlString = data.image, let imageURL = URL(string: urlString) else {
-            self.imgCircle.image = UIImage(named: "noImageAvailable")
+    func configure(with data: RadioChannel?) {
+        guard let imageURLString = data?.image,
+              let imageURL = URL(string: imageURLString) else {
+            imgCircle.image = nil
             return
         }
-        self.imgCircle.image = nil
-        getImageDataFrom(url: imageURL, forCell: 1)
-    }
-    
-    private func getImageDataFrom(url: URL, forCell cellNumber: Int) {
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let error = error {
-                print("DataTask error: \(error.localizedDescription)")
-                return
-            }
-            
-            guard let data = data else {
-                print("Circle Data")
+        
+        URLSession.shared.dataTask(with: imageURL) { [weak self] (data, response, error) in
+            guard let self = self, let data = data, error == nil else {
                 return
             }
             
             DispatchQueue.main.async {
-                if let image = UIImage(data: data) {
-                    if cellNumber == 1 {
-                        self.imgCircle.image = image
-                    }
-                }
+                let image = UIImage(data: data)
+                self.imgCircle.image = image
             }
         }.resume()
     }

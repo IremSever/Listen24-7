@@ -22,7 +22,7 @@ class Top10TableViewCell: UITableViewCell, UICollectionViewDataSource, UICollect
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         collectionViewTop10.register(UINib(nibName: "Top10CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: Top10CollectionViewCell.identifier)
-        layout.itemSize = CGSize(width: 250, height: 350)
+        layout.itemSize = CGSize(width: 250, height: 90)
         layout.minimumLineSpacing = 8
         collectionViewTop10.backgroundColor = UIColor.clear
         collectionViewTop10.delegate = self

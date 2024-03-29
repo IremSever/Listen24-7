@@ -28,33 +28,26 @@ class HeadlineCollectionViewCell: UICollectionViewCell {
         imgHeadline?.layer.cornerRadius = 20
         imgHeadline?.clipsToBounds = true
     }
-    func configure(with data: HeaderResponse) {
-        guard let urlString = data.image, let imageURL = URL(string: urlString) else {
-            self.imgHeadline.image = UIImage(named: "noImageAvailable")
+    
+    func configure(with data: HeaderResponse?) {
+        guard let imageURLString = data?.image,
+              let imageURL = URL(string: imageURLString) else {
+            imgHeadline.image = nil
+            lblHeadlineTitle.text = nil
             return
         }
-        lblHeadlineTitle?.text = data.title
-        self.imgHeadline.image = nil
-        getImageDataFrom(url: imageURL)
-    }
-    
-    private func getImageDataFrom(url: URL) {
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let error = error {
-                print("DataTask error: \(error.localizedDescription)")
-                return
-            }
-            
-            guard let data = data else {
-                print("Headline Data")
+        
+        URLSession.shared.dataTask(with: imageURL) { [weak self] (data, response, error) in
+            guard let self = self, let data = data, error == nil else {
                 return
             }
             
             DispatchQueue.main.async {
-                if let image = UIImage(data: data) {
-                    self.imgHeadline.image = image
-                }
+                let image = UIImage(data: data)
+                self.imgHeadline.image = image
             }
         }.resume()
+        
+        lblHeadlineTitle?.text = data?.title
     }
 }
