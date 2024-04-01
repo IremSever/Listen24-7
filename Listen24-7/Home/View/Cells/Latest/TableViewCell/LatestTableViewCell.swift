@@ -43,7 +43,6 @@ class LatestTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollec
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LatestCollectionViewCell.identifier, for: indexPath) as! LatestCollectionViewCell
         
         if let item = dataArray.first?.songs?[indexPath.row] {
-            print(item)
             cell.configure(with: item)
             return cell
         }

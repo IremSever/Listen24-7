@@ -76,7 +76,7 @@ extension HomeViewController {
                 let cell = tableView.dequeueReusableCell(withIdentifier: SquareTableViewCell.identifier, for: indexPath) as! SquareTableViewCell
                 cell.updateDataArray(with: dataHome)
                 return cell
-            case "STANDART":
+            case "STANDARD":
                 let cell = tableView.dequeueReusableCell(withIdentifier: SquareTableViewCell.identifier, for: indexPath) as! SquareTableViewCell
                 cell.updateDataArray(with: dataHome)
                 return cell
@@ -110,7 +110,7 @@ extension HomeViewController {
             switch dataHome.template {
             case "SLIDER":
                 return 120
-            case "STANDART":
+            case "STANDARD":
                 return 0
             case "RADIO":
                 return 100
