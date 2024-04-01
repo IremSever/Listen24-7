@@ -17,7 +17,6 @@ class SuggestionTableViewCell: UITableViewCell, UICollectionViewDataSource, UICo
     override func awakeFromNib() {
         super.awakeFromNib()
         createSuggestionCollectionView()
-        
     }
     
     func createSuggestionCollectionView() {

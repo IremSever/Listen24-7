@@ -82,6 +82,7 @@ extension HomeViewController {
                 return cell
             case "RADIO":
                 let cell = tableView.dequeueReusableCell(withIdentifier: CircleTableViewCell.identifier, for: indexPath) as! CircleTableViewCell
+                cell.updateDataArray(with: dataHome)
                 return cell
             case "LASTSONGS":
                 let cell = tableView.dequeueReusableCell(withIdentifier: LatestTableViewCell.identifier, for: indexPath) as! LatestTableViewCell
