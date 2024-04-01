@@ -64,37 +64,43 @@ extension HomeViewController {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            if indexPath.section == 0 {
-                let dataHeader = viewModelHeader.header
-                let cell = tableViewHome.dequeueReusableCell(withIdentifier: "HeadlineTableViewCell", for: indexPath) as! HeadlineTableViewCell
-                cell.updateDataArray(with: [News(response: dataHeader, status: true)])
-                return cell
+        if indexPath.section == 0 {
+            let dataHeader = viewModelHeader.header
+            let cell = tableViewHome.dequeueReusableCell(withIdentifier: "HeadlineTableViewCell", for: indexPath) as! HeadlineTableViewCell
+            cell.updateDataArray(with: [News(response: dataHeader, status: true)])
+            return cell
         } else {
             let dataHome = viewModel.home[indexPath.row]
             switch dataHome.template {
             case "SLIDER":
                 let cell = tableView.dequeueReusableCell(withIdentifier: SquareTableViewCell.identifier, for: indexPath) as! SquareTableViewCell
                 cell.updateDataArray(with: dataHome)
+                addTitle(to: cell, title: viewModel.home[indexPath.row].name ?? "Default Title")
                 return cell
             case "STANDARD":
                 let cell = tableView.dequeueReusableCell(withIdentifier: SquareTableViewCell.identifier, for: indexPath) as! SquareTableViewCell
                 cell.updateDataArray(with: dataHome)
+                addTitle(to: cell, title: viewModel.home[indexPath.row].name ?? "Default Title")
                 return cell
             case "RADIO":
                 let cell = tableView.dequeueReusableCell(withIdentifier: CircleTableViewCell.identifier, for: indexPath) as! CircleTableViewCell
                 cell.updateDataArray(with: dataHome)
+                addTitle(to: cell, title: viewModel.home[indexPath.row].name ?? "Default Title")
                 return cell
             case "LASTSONGS":
                 let cell = tableView.dequeueReusableCell(withIdentifier: LatestTableViewCell.identifier, for: indexPath) as! LatestTableViewCell
                 cell.updateDataArray(with: dataHome)
+                addTitle(to: cell, title: viewModel.home[indexPath.row].name ?? "Default Title")
                 return cell
             case "TOPFRAMEPLAYLISTS":
                 let cell = tableView.dequeueReusableCell(withIdentifier: SuggestionTableViewCell.identifier, for: indexPath) as! SuggestionTableViewCell
                 cell.updateDataArray(with: dataHome)
+                addTitle(to: cell, title: viewModel.home[indexPath.row].name ?? "Default Title")
                 return cell
             case "TOPFRAMESONGS":
                 let cell = tableView.dequeueReusableCell(withIdentifier: Top10TableViewCell.identifier, for: indexPath) as! Top10TableViewCell
                 cell.updateDataArray(with: dataHome)
+                addTitle(to: cell, title: viewModel.home[indexPath.row].name ?? "Default Title")
                 return cell
             default:
                 return UITableViewCell()
@@ -102,6 +108,7 @@ extension HomeViewController {
             
         }
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
             return 400
@@ -109,9 +116,9 @@ extension HomeViewController {
             let dataHome = viewModel.home[indexPath.row]
             switch dataHome.template {
             case "SLIDER":
-                return 120
+                return 160
             case "STANDARD":
-                return 0
+                return 160
             case "RADIO":
                 return 100
             case "LASTSONGS":
@@ -125,4 +132,30 @@ extension HomeViewController {
             }
         }
     }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return nil
+        } else {
+            let index = section - 1
+            guard index < viewModel.home.count else {
+                return "Default Section Title"
+            }
+            return viewModel.home[index].name ?? "Default Section Title"
+        }
+    }
+    
+    func addTitle(to contentView: UIView, title: String) {
+            let titleLabel = UILabel()
+            titleLabel.text = title
+            titleLabel.font = UIFont.systemFont(ofSize: 17, weight: .bold)
+            titleLabel.translatesAutoresizingMaskIntoConstraints = false
+            contentView.addSubview(titleLabel)
+            NSLayoutConstraint.activate([
+                titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
+                titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+                titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+                titleLabel.heightAnchor.constraint(equalToConstant: 40) // Height set to 40
+            ])
+        }
 }
