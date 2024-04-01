@@ -57,18 +57,18 @@ extension HomeViewController {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return viewModelHeader.header.count 
+            return 1
         } else {
             return viewModel.home.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-            let dataHeader = viewModelHeader.header[indexPath.row]
-            let cell = tableViewHome.dequeueReusableCell(withIdentifier: "HeadlineTableViewCell", for: indexPath) as! HeadlineTableViewCell
-            cell.updateDataArray(with: [dataHeader])
-            return cell
+            if indexPath.section == 0 {
+                let dataHeader = viewModelHeader.header
+                let cell = tableViewHome.dequeueReusableCell(withIdentifier: "HeadlineTableViewCell", for: indexPath) as! HeadlineTableViewCell
+                cell.updateDataArray(with: [News(response: dataHeader, status: true)])
+                return cell
         } else {
             let dataHome = viewModel.home[indexPath.row]
             switch dataHome.template {
@@ -101,7 +101,6 @@ extension HomeViewController {
             
         }
     }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
             return 400
@@ -125,5 +124,4 @@ extension HomeViewController {
             }
         }
     }
-    
 }
