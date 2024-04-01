@@ -72,12 +72,7 @@ extension HomeViewController {
         } else {
             let dataHome = viewModel.home[indexPath.row]
             switch dataHome.template {
-            case "SLIDER":
-                let cell = tableView.dequeueReusableCell(withIdentifier: SquareTableViewCell.identifier, for: indexPath) as! SquareTableViewCell
-                cell.updateDataArray(with: dataHome)
-                addTitle(to: cell, title: viewModel.home[indexPath.row].name ?? "Default Title")
-                return cell
-            case "STANDARD":
+            case "SLIDER", "STANDARD":
                 let cell = tableView.dequeueReusableCell(withIdentifier: SquareTableViewCell.identifier, for: indexPath) as! SquareTableViewCell
                 cell.updateDataArray(with: dataHome)
                 addTitle(to: cell, title: viewModel.home[indexPath.row].name ?? "Default Title")
@@ -95,7 +90,6 @@ extension HomeViewController {
             case "TOPFRAMEPLAYLISTS":
                 let cell = tableView.dequeueReusableCell(withIdentifier: SuggestionTableViewCell.identifier, for: indexPath) as! SuggestionTableViewCell
                 cell.updateDataArray(with: dataHome)
-                addTitle(to: cell, title: viewModel.home[indexPath.row].name ?? "Default Title")
                 return cell
             case "TOPFRAMESONGS":
                 let cell = tableView.dequeueReusableCell(withIdentifier: Top10TableViewCell.identifier, for: indexPath) as! Top10TableViewCell
@@ -105,7 +99,6 @@ extension HomeViewController {
             default:
                 return UITableViewCell()
             }
-            
         }
     }
     
@@ -133,16 +126,16 @@ extension HomeViewController {
         }
     }
     func addTitle(to contentView: UIView, title: String) {
-            let titleLabel = UILabel()
-            titleLabel.text = title
-            titleLabel.font = UIFont.systemFont(ofSize: 16, weight: .bold)
-            titleLabel.translatesAutoresizingMaskIntoConstraints = false
-            contentView.addSubview(titleLabel)
-            NSLayoutConstraint.activate([
-                titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
-                titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-                titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-                titleLabel.heightAnchor.constraint(equalToConstant: 40)
-            ])
-        }
+        let titleLabel = UILabel()
+        titleLabel.text = title
+        titleLabel.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(titleLabel)
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            titleLabel.heightAnchor.constraint(equalToConstant: 40)
+        ])
+    }
 }

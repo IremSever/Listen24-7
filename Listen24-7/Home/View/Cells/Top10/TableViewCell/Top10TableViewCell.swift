@@ -42,7 +42,7 @@ class Top10TableViewCell: UITableViewCell, UICollectionViewDataSource, UICollect
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Top10CollectionViewCell.identifier, for: indexPath) as! Top10CollectionViewCell
         if let item = dataArray.first?.songs?[indexPath.row] {
-            cell.configure(with: item, index: indexPath.row + 1)
+            cell.configure(with: item, index: indexPath.row)
             return cell
         }
         return cell
