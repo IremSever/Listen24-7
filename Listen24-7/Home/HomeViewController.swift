@@ -118,44 +118,31 @@ extension HomeViewController {
             case "SLIDER":
                 return 160
             case "STANDARD":
-                return 160
+                return 90
             case "RADIO":
-                return 100
+                return 140
             case "LASTSONGS":
-                return 100
+                return 130
             case "TOPFRAMEPLAYLISTS":
                 return 0
             case "TOPFRAMESONGS":
-                return 110
+                return 140
             default:
                 return 200
             }
         }
     }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
-            return nil
-        } else {
-            let index = section - 1
-            guard index < viewModel.home.count else {
-                return "Default Section Title"
-            }
-            return viewModel.home[index].name ?? "Default Section Title"
-        }
-    }
-    
     func addTitle(to contentView: UIView, title: String) {
             let titleLabel = UILabel()
             titleLabel.text = title
-            titleLabel.font = UIFont.systemFont(ofSize: 17, weight: .bold)
+            titleLabel.font = UIFont.systemFont(ofSize: 16, weight: .bold)
             titleLabel.translatesAutoresizingMaskIntoConstraints = false
             contentView.addSubview(titleLabel)
             NSLayoutConstraint.activate([
                 titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
                 titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
                 titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-                titleLabel.heightAnchor.constraint(equalToConstant: 40) // Height set to 40
+                titleLabel.heightAnchor.constraint(equalToConstant: 40)
             ])
         }
 }
