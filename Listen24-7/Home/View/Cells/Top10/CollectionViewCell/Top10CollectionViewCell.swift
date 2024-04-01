@@ -24,11 +24,9 @@ class Top10CollectionViewCell: UICollectionViewCell {
         
         lblListNo.font = UIFont(name: "Futura-Bold", size: 20)
         lblListNo.textColor = UIColor.black
-        
       
         lblSingerName.font = UIFont(name: "Futura", size: 10)
         lblSingerName.textColor = UIColor.black
-        
         
         lblSongName.font = UIFont(name: "Futura-Bold", size: 13)
         lblSongName.textColor = UIColor.black

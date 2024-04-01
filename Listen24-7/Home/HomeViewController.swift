@@ -92,7 +92,7 @@ extension HomeViewController {
                 let cell = tableView.dequeueReusableCell(withIdentifier: SuggestionTableViewCell.identifier, for: indexPath) as! SuggestionTableViewCell
                 cell.updateDataArray(with: dataHome)
                 return cell
-            case "TOPFRAMESONG":
+            case "TOPFRAMESONGS":
                 let cell = tableView.dequeueReusableCell(withIdentifier: Top10TableViewCell.identifier, for: indexPath) as! Top10TableViewCell
                 cell.updateDataArray(with: dataHome)
                 return cell
@@ -111,14 +111,14 @@ extension HomeViewController {
             case "SLIDER":
                 return 120
             case "STANDART":
-                return 120
+                return 0
             case "RADIO":
                 return 100
             case "LASTSONGS":
                 return 100
             case "TOPFRAMEPLAYLISTS":
-                return 90
-            case "TOPFRAMESONG":
+                return 0
+            case "TOPFRAMESONGS":
                 return 110
             default:
                 return 200

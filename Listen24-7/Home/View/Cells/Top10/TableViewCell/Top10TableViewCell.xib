@@ -32,6 +32,7 @@
                     <constraint firstItem="Iwk-GB-JKe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="6bN-BF-AzX"/>
                     <constraint firstAttribute="bottom" secondItem="Iwk-GB-JKe" secondAttribute="bottom" id="QgN-Kn-f8z"/>
                     <constraint firstAttribute="trailing" secondItem="Iwk-GB-JKe" secondAttribute="trailing" constant="8" id="SFP-OF-zQN"/>
+                    <constraint firstItem="Iwk-GB-JKe" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Tbm-5Y-zSg"/>
                     <constraint firstItem="Iwk-GB-JKe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="d6s-4u-09L"/>
                 </constraints>
             </tableViewCellContentView>
