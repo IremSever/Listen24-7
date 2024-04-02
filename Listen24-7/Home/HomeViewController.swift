@@ -115,7 +115,7 @@ extension HomeViewController {
             case "RADIO":
                 return 140
             case "LASTSONGS":
-                return 120
+                return 130
             case "TOPFRAMEPLAYLISTS":
                 return 0
             case "TOPFRAMESONGS":
