@@ -163,10 +163,10 @@ struct Song: Codable {
 
 // MARK: - Advertorial
 struct Advertorial: Codable {
-    let postrollFrequency: Int
-    let preroll: String
-    let prerollFrequency: Int
-    let prerollV2: PrerollV2
+    let postrollFrequency: Int?
+    let preroll: String?
+    let prerollFrequency: Int?
+    let prerollV2: PrerollV2?
 
     enum CodingKeys: String, CodingKey {
         case postrollFrequency = "PostrollFrequency"
