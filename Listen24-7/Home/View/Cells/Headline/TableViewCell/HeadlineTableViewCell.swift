@@ -11,19 +11,18 @@ class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
     @IBOutlet weak var collectionViewHeadline: UICollectionView!
     static let identifier = "HeadlineTableViewCell"
     var dataArray: [News] = []
-    var timer: Timer?
     var currentIndex = 0
 
     override func awakeFromNib() {
         super.awakeFromNib()
         createHeadlineCollectionView()
-        startAutoScroll()
+ 
     }
 
     func createHeadlineCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: collectionViewHeadline.frame.width, height: collectionViewHeadline.frame.height)
+        layout.itemSize = CGSize(width: collectionViewHeadline.frame.width + 100, height: collectionViewHeadline.frame.height + 100)
         collectionViewHeadline.collectionViewLayout = layout
         collectionViewHeadline.register(UINib(nibName: "HeadlineCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: HeadlineCollectionViewCell.identifier)
 
@@ -39,9 +38,6 @@ class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
         collectionViewHeadline.reloadData()
     }
 
-    func startAutoScroll() {
-        timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(scrollToNextItem), userInfo: nil, repeats: true)
-    }
 
     @objc func scrollToNextItem() {
         currentIndex = (currentIndex + 1) % (dataArray.first?.response?.count ?? 0)

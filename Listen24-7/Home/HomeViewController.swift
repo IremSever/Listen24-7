@@ -104,7 +104,7 @@ extension HomeViewController {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return 400
+            return 500
         } else {
             let dataHome = viewModel.home[indexPath.row]
             switch dataHome.template {
