@@ -21,6 +21,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableViewHome.delegate = self
         loadData()
         registerCells()
+        tableViewHome.separatorStyle = .none
     }
     
     private func loadData() {
@@ -138,4 +139,9 @@ extension HomeViewController {
             titleLabel.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
+    
+    // cell selected false
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+           return false
+       }
 }

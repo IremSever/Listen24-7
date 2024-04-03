@@ -31,6 +31,11 @@ class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
         collectionViewHeadline.dataSource = self
         collectionViewHeadline.showsHorizontalScrollIndicator = false
         collectionViewHeadline.isPagingEnabled = true
+        
+        let screenWidth = UIScreen.main.bounds.width
+            let cellWidth = screenWidth - 100 // Adjust as needed
+            let horizontalInset = (screenWidth - cellWidth) / 2
+            collectionViewHeadline.contentInset = UIEdgeInsets(top: 0, left: horizontalInset, bottom: 0, right: horizontalInset)
     }
 
     func updateDataArray(with dataArray: [News]) {
