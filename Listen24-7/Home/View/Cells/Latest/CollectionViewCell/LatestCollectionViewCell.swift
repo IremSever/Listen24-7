@@ -21,8 +21,6 @@ class LatestCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        contentView.layer.cornerRadius = 50
-        contentView.clipsToBounds = true
         
         imgCover?.contentMode = .scaleAspectFill
         imgCover?.layer.cornerRadius = 5
@@ -33,6 +31,7 @@ class LatestCollectionViewCell: UICollectionViewCell {
         
         lblMinutes?.font = UIFont(name: "Futura", size: 9)
         lblMinutes?.textColor = UIColor.darkGray
+        
     }
     
     func configure(with data: Song?) {
