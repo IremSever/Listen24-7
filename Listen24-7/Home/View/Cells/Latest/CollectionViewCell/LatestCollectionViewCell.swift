@@ -21,6 +21,8 @@ class LatestCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
+        self.layer.cornerRadius = 10
+        self.layer.masksToBounds = true
         
         imgCover?.contentMode = .scaleAspectFill
         imgCover?.layer.cornerRadius = 5

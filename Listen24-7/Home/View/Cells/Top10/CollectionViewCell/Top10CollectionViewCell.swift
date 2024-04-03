@@ -22,6 +22,9 @@ class Top10CollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
+        self.layer.cornerRadius = 10
+        self.layer.masksToBounds = true
+        
         lblListNo.font = UIFont(name: "Futura-Bold", size: 20)
         lblListNo.textColor = UIColor.black
       
