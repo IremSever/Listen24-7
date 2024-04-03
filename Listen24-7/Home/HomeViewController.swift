@@ -120,7 +120,7 @@ extension HomeViewController {
             case "TOPFRAMEPLAYLISTS":
                 return 0
             case "TOPFRAMESONGS":
-                return 140
+                return 150
             default:
                 return 200
             }
