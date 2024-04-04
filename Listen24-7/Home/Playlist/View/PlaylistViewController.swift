@@ -8,11 +8,11 @@
 import Foundation
 import UIKit
 
-/*class PlaylistViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class PlaylistViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableViewPlaylist: UITableView!
-    var viewModel = HomeViewModel()
-    var selectedPlaylist: [Info] = []
+    var viewModel = PlaylistViewModel()
+    var selectedPlaylist: [PlaylistResponse] = []
      
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -47,4 +47,4 @@ import UIKit
         return cell
     }
 }
-*/
+

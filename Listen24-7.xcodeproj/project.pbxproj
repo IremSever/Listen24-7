@@ -156,8 +156,8 @@
 				6623EADF2BAC684300644624 /* Webservice */,
 				6623EAD72BAC434700644624 /* ViewModel */,
 				6623EAD92BAC442F00644624 /* View */,
-				6623EACD2BAACA7700644624 /* Playlist */,
 				611D05072B9889B000C81150 /* HomeViewController.swift */,
+				6623EACD2BAACA7700644624 /* Playlist */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -190,13 +190,24 @@
 			path = Library;
 			sourceTree = "<group>";
 		};
-		6623EACD2BAACA7700644624 /* Playlist */ = {
+		61E676C92BBE87980023010D /* View */ = {
 			isa = PBXGroup;
 			children = (
 				6623EACE2BAACA9E00644624 /* Playlist.storyboard */,
 				6623EAD02BAACAAC00644624 /* PlaylistViewController.swift */,
-				6623EAD32BAACAD700644624 /* PlaylistTableViewCell.swift */,
 				6623EAD42BAACAD700644624 /* PlaylistTableViewCell.xib */,
+				6623EAD32BAACAD700644624 /* PlaylistTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6623EACD2BAACA7700644624 /* Playlist */ = {
+			isa = PBXGroup;
+			children = (
+				61E676C92BBE87980023010D /* View */,
+				61FF8A352BBD84E2003A0531 /* PlaylistModel.swift */,
+				61FF8A392BBD8A36003A0531 /* PlaylistWebservice.swift */,
+				61FF8A372BBD8A21003A0531 /* PlaylistViewModel.swift */,
 			);
 			path = Playlist;
 			sourceTree = "<group>";
@@ -206,7 +217,6 @@
 			children = (
 				6177A8C72BB2EE66000E6366 /* HeaderViewModel.swift */,
 				6623EAE62BAC6D2300644624 /* HomeViewModel.swift */,
-				61FF8A372BBD8A21003A0531 /* PlaylistViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -216,7 +226,6 @@
 			children = (
 				6623EADD2BAC46B500644624 /* HeaderModel.swift */,
 				6623EADA2BAC468F00644624 /* HomeModel.swift */,
-				61FF8A352BBD84E2003A0531 /* PlaylistModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -234,7 +243,6 @@
 			children = (
 				6623EAE22BAC699000644624 /* HeaderWebservice.swift */,
 				6623EAE02BAC696100644624 /* HomeWebservice.swift */,
-				61FF8A392BBD8A36003A0531 /* PlaylistWebservice.swift */,
 			);
 			path = Webservice;
 			sourceTree = "<group>";
