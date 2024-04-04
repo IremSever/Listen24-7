@@ -17,7 +17,7 @@ struct PlaylistData: Codable {
     let list: PlaylistDetail
     
     enum CodingKeys: String, CodingKey {
-        case list = "List"
+        case list = "list"
     }
 }
 // MARK: - PlaylistDetail

@@ -8,8 +8,8 @@
 import Foundation
 
 class PlaylistWebservice {
-    func postHomeData(completion: @escaping (Result<PlaylistModel, Error>) -> Void) {
-        let playlistURL = "https://api.tmgrup.com.tr/v1/link/929?id="
+    func postPlaylistData(playlistId: String, completion: @escaping (Result<PlaylistModel, Error>) -> Void) {
+        let playlistURL = "https://api.tmgrup.com.tr/v1/link/929?id=\(playlistId)"
         guard let url = URL(string: playlistURL) else { return }
 
         var request = URLRequest(url: url)
