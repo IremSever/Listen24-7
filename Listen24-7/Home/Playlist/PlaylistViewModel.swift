@@ -12,24 +12,24 @@ class PlaylistViewModel {
     
     var playlist: [PlaylistResponse] = []
     
-    func fetchPlaylistData(completion: @escaping () -> ()) {
+    func fetchPlaylistData(completion: @escaping ([PlaylistResponse]?) -> ()) {
         playlistWebservice.postHomeData { [weak self] result in
             switch result {
-            case .success(let playlisData):
-                self?.playlist = playlisData.data.list.response
+            case .success(let playlistData):
+                self?.playlist = playlistData.data.list.response ?? []
                 self?.isPlaylistDataFetched = true
                 if self?.isPlaylistDataFetched == true {
-                    completion()
+                    completion(self?.playlist)
                 }
             case .failure(let error):
                 print("Error processing home JSON data: \(error)")
+                completion(nil)
             }
         }
     }
-
+    
     
     func numberOfRowsInSection(section: Int) -> Int {
-        print(playlist.count)
         return playlist.count
     }
     

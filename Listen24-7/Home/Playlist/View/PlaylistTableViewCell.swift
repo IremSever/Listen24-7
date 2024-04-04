@@ -8,7 +8,7 @@
 import UIKit
 
 class PlaylistTableViewCell: UITableViewCell {
-
+    
     static let identifier = "PlaylistTableViewCell"
     
     @IBOutlet weak var lblDuration: UILabel!
@@ -18,19 +18,20 @@ class PlaylistTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    func configure(with data: PlaylistSongs) {
-        lblSong.text = data.name
-        lblSong.font = UIFont(name: "Futura-Bold", size: 10)
-        lblSong.textColor = UIColor.systemPurple
-        
-        lblArtist.text = data.description
-        lblArtist.font = UIFont(name: "Futura", size: 8)
-        lblArtist.textColor = UIColor.gray
-        
-        lblDuration.text = data.description
-        lblDuration.font = UIFont(name: "Futura", size: 8)
-        lblDuration.textColor = UIColor.gray
-        
+    func configure(with playlistResponse: [PlaylistResponse]?) {
+        if let playlistResponse = playlistResponse?.first {
+            lblSong.text = playlistResponse.name
+            lblSong.font = UIFont(name: "Futura-Bold", size: 10)
+            lblSong.textColor = UIColor.systemPurple
+            
+            lblArtist.text = playlistResponse.name
+            lblArtist.font = UIFont(name: "Futura", size: 8)
+            lblArtist.textColor = UIColor.gray
+            
+            lblDuration.text = playlistResponse.durationTime
+            lblDuration.font = UIFont(name: "Futura", size: 8)
+            lblDuration.textColor = UIColor.gray
+        }
     }
 }
 

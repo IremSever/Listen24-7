@@ -8,7 +8,7 @@
 import Foundation
 // MARK: - PlaylistModel
 struct PlaylistModel: Codable {
-    let meta: Meta
+    let meta: PlaylistMeta
     let data: PlaylistData
 }
 
@@ -22,9 +22,9 @@ struct PlaylistData: Codable {
 }
 // MARK: - PlaylistDetail
 struct PlaylistDetail: Codable {
-    let pageInfo: PlaylistPageInfo
-    let response: [PlaylistResponse]
-    let status: Bool
+    let pageInfo: PlaylistPageInfo?
+    let response: [PlaylistResponse]?
+    let status: Bool?
 
     enum CodingKeys: String, CodingKey {
         case pageInfo = "PageInfo"
@@ -35,8 +35,8 @@ struct PlaylistDetail: Codable {
 
 // MARK: - PageInfo
 struct PlaylistPageInfo: Codable {
-    let siteTitle: String
-    let siteURL: String
+    let siteTitle: String?
+    let siteURL: String?
 
     enum CodingKeys: String, CodingKey {
         case siteTitle = "SiteTitle"
@@ -46,18 +46,20 @@ struct PlaylistPageInfo: Codable {
 
 // MARK: - Response
 struct PlaylistResponse: Codable {
-    let description: String
-    let durationTimeInt: Int
-    let followed: Bool
-    let id: Int
-    let image: String
-    let imageAlternateText, listType, name: String
-    let songCount: Int
-    let songs: [PlaylistSongs]
-    let url: String
+    let description: String?
+    let durationTime: String?
+    let durationTimeInt: Int?
+    let followed: Bool?
+    let id: Int?
+    let image: String?
+    let imageAlternateText, listType, name: String?
+    let songCount: Int?
+    let songs: [PlaylistSongs]?
+    let url: String?
 
     enum CodingKeys: String, CodingKey {
         case description = "Description"
+        case durationTime = "DurationTime"
         case durationTimeInt = "DurationTimeInt"
         case followed = "Followed"
         case id = "Id"
@@ -72,22 +74,22 @@ struct PlaylistResponse: Codable {
 
 // MARK: - Song
 struct PlaylistSongs: Codable {
-    let album: Album
-    let albumID: Int
-    let durationTime: String
-    let durationTimeInt: Int
-    let favorited: Bool
-    let id: Int
-    let listType: ListType
-    let lyrics: Lyrics
-    let mp3URL: String
-    let name: String
-    let pageInfo: PageInfo
-    let playerType: Int
-    let playlists: [Playlist]
-    let singers: [Playlist]
-    let source: PlaylistSource
-    let url: String
+    let album: String?
+    let albumID: Int?
+    let durationTime: String?
+    let durationTimeInt: Int?
+    let favorited: Bool?
+    let id: Int?
+    let listType: String?
+    let lyrics: Lyrics?
+    let mp3URL: String?
+    let name: String?
+    let pageInfo: PageInfo?
+    let playerType: Int?
+    let playlists: [Playlist]?
+    let singers: [Playlist]?
+    let source: PlaylistSource?
+    let url: String?
 
     enum CodingKeys: String, CodingKey {
         case album = "Album"
@@ -109,14 +111,6 @@ struct PlaylistSongs: Codable {
     }
 }
 
-enum Album: String, Codable {
-    case album0 = "album://0"
-}
-
-enum ListType: String, Codable {
-    case playlists = "Playlists"
-}
-
 // MARK: - Playlist
 struct Playlist: Codable {
     let external: String?
@@ -136,8 +130,8 @@ struct Playlist: Codable {
 
 // MARK: - Source
 struct PlaylistSource: Codable {
-    let external: String
-    let text: Text
+    let external: String?
+    let text: String?
 
     enum CodingKeys: String, CodingKey {
         case external = "External"
@@ -145,12 +139,8 @@ struct PlaylistSource: Codable {
     }
 }
 
-enum Text: String, Codable {
-    case kaynağaGit = "Kaynağa Git"
-}
-
 // MARK: - Meta
-struct Meta: Codable {
+struct PlaylistMeta: Codable {
     let statusCode: Int
     let message, description, brand: String
 
