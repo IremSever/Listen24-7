@@ -11,8 +11,7 @@ class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
     @IBOutlet weak var collectionViewHeadline: UICollectionView!
     static let identifier = "HeadlineTableViewCell"
     var dataArray: [News] = []
-    var selectedIndexPath: IndexPath?
-    
+    var selectedIndex = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -40,15 +39,19 @@ class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
     func updateDataArray(with dataArray: [News]) {
         self.dataArray = dataArray
         collectionViewHeadline.reloadData()
+        if dataArray.first?.response?.count ?? 0 > 0 {
+            let selectedIndexIndexPath = IndexPath(row: selectedIndex + ((dataArray.first?.response?.count ?? 0) * 500), section: 0)
+            collectionViewHeadline.scrollToItem(at: selectedIndexIndexPath, at: .centeredHorizontally, animated: false)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return (dataArray.first?.response?.count ?? 0) * 1000 // Büyük bir sayıda hücre oluşturarak sonsuz döngü sağlanacak
+        return (dataArray.first?.response?.count ?? 0) * 1000
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HeadlineCollectionViewCell.identifier, for: indexPath) as! HeadlineCollectionViewCell
-        let dataIndex = indexPath.row % (dataArray.first?.response?.count ?? 1) // Veri dizisi döngüsü için indeks hesapla
+        let dataIndex = indexPath.row % (dataArray.first?.response?.count ?? 1)
         if let item = dataArray.first?.response?[dataIndex] {
             cell.configure(with: item)
         }
@@ -59,16 +62,7 @@ class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
         let screenWidth = UIScreen.main.bounds.width
         let itemWidth = screenWidth - 100
         let itemCount = dataArray.first?.response?.count ?? 1
-        
-        if scrollView.contentOffset.x <= 0 {
-            scrollView.contentOffset = CGPoint(x: CGFloat((dataArray.first?.response?.count ?? 0) * 999) * itemWidth, y: 0)
-        } else if scrollView.contentOffset.x >= CGFloat((dataArray.first?.response?.count ?? 0) * 1000 - 1) * itemWidth {
-            scrollView.contentOffset = CGPoint(x: 0, y: 0)
-        }
-        
-        let centerPoint = CGPoint(x: scrollView.contentOffset.x + (scrollView.bounds.width / 2), y: (scrollView.bounds.height / 2))
-        if let indexPath = collectionViewHeadline.indexPathForItem(at: centerPoint) {
-            selectedIndexPath = indexPath
-        }
+        let currentIndex = Int(collectionViewHeadline.contentOffset.x / itemWidth) % itemCount
+        selectedIndex = currentIndex
     }
 }
