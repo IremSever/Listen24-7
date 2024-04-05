@@ -18,13 +18,13 @@ class PlaylistTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    func configure(with playlistResponse: [PlaylistResponse]?) {
-        if let playlistResponse = playlistResponse?.first {
+    func configure(with playlistResponse: PlaylistResponse?) {
+        if let playlistResponse = playlistResponse {
             lblSong.text = playlistResponse.name
             lblSong.font = UIFont(name: "Futura-Bold", size: 10)
             lblSong.textColor = UIColor.systemPurple
             
-            lblArtist.text = playlistResponse.name
+            lblArtist.text = playlistResponse.durationTime
             lblArtist.font = UIFont(name: "Futura", size: 8)
             lblArtist.textColor = UIColor.gray
             

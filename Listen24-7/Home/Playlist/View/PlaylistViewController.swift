@@ -13,6 +13,7 @@ class PlaylistViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var tableViewPlaylist: UITableView!
     var viewModel = PlaylistViewModel()
     var selectedPlaylist: PlaylistDetail?
+    var selectedPlaylistId: Int? 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,7 @@ class PlaylistViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("**************************\( selectedPlaylist?.response?.count ?? 0)")
         return selectedPlaylist?.response?.count ?? 0
     }
     
@@ -45,9 +47,30 @@ class PlaylistViewController: UIViewController, UITableViewDelegate, UITableView
         let cell = tableViewPlaylist.dequeueReusableCell(withIdentifier: PlaylistTableViewCell.identifier, for: indexPath) as! PlaylistTableViewCell
         if let playlist = selectedPlaylist {
             if let playlistResponse = playlist.response?[indexPath.row] {
-                cell.configure(with: [playlistResponse])
+                cell.configure(with: playlistResponse)
             }
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedPlaylistId = selectedPlaylist?.response?[indexPath.row].id
+        postSelectedPlaylistId()
+    }
+    
+    func postSelectedPlaylistId() {
+        guard let selectedPlaylistId = selectedPlaylistId else {
+            return
+        }
+        
+        let playlistWebService = PlaylistWebservice()
+        playlistWebService.postPlaylistData(playlistId: String(selectedPlaylistId)) { result in
+            switch result {
+            case .success(let playlistModel):
+                print("Playlist post is success: \(playlistModel)")
+            case .failure(let error):
+                print("Playlist post is failed: \(error)")
+            }
+        }
     }
 }
