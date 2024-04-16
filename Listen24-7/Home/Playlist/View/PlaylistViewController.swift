@@ -22,7 +22,7 @@ class PlaylistViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     private func loadData() {
-        viewModel.fetchPlaylistData { [weak self] playlist in
+      viewModel.fetchPlaylistData(selectedPlaylistId: String(selectedPlaylistId ?? 0)) { [weak self] playlist in
             if let playlistResponses = playlist {
                 self?.selectedPlaylist = PlaylistDetail(pageInfo: nil, response: playlistResponses, status: nil)
             }

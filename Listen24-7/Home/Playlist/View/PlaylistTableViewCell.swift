@@ -20,7 +20,7 @@ class PlaylistTableViewCell: UITableViewCell {
     
     func configure(with playlistResponse: PlaylistResponse?) {
         if let playlistResponse = playlistResponse {
-            lblSong.text = playlistResponse.name
+            lblSong.text = playlistResponse.songs.album
             lblSong.font = UIFont(name: "Futura-Bold", size: 10)
             lblSong.textColor = UIColor.systemPurple
             
