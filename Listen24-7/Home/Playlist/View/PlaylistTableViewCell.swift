@@ -24,7 +24,7 @@ class PlaylistTableViewCell: UITableViewCell {
             lblSong.font = UIFont(name: "Futura-Bold", size: 10)
             lblSong.textColor = UIColor.systemPurple
             
-            lblArtist.text = firstSong.singers?.name
+            lblArtist.text = firstSong.name
             lblArtist.font = UIFont(name: "Futura", size: 8)
             lblArtist.textColor = UIColor.gray
             
