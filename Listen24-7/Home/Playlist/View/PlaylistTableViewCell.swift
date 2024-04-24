@@ -19,19 +19,20 @@ class PlaylistTableViewCell: UITableViewCell {
     }
     
     func configure(with playlistResponse: PlaylistResponse?) {
-        if let playlistResponse = playlistResponse {
-            lblSong.text = playlistResponse.songs.album
+        if let playlistResponse = playlistResponse, let firstSong = playlistResponse.songs?.first {
+            lblSong.text = firstSong.name
             lblSong.font = UIFont(name: "Futura-Bold", size: 10)
             lblSong.textColor = UIColor.systemPurple
             
-            lblArtist.text = playlistResponse.durationTime
+            lblArtist.text = firstSong.singers?.name
             lblArtist.font = UIFont(name: "Futura", size: 8)
             lblArtist.textColor = UIColor.gray
             
-            lblDuration.text = playlistResponse.durationTime
+            lblDuration.text = firstSong.durationTime
             lblDuration.font = UIFont(name: "Futura", size: 8)
             lblDuration.textColor = UIColor.gray
         }
     }
+
 }
 

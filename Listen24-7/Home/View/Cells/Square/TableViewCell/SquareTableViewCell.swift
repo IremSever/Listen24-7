@@ -84,7 +84,7 @@ class SquareTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollec
             playlistWebService.postPlaylistData(playlistId: String(selectedPlaylistId)) { result in
                 switch result {
                 case .success(let playlistModel):
-                    print("Playlist post is success: \(playlistModel)")
+                    print("Playlist post is success: ") //\(playlistModel)
                 case .failure(let error):
                     print("Playlist post is failed: \(error)")
                 }

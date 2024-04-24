@@ -116,7 +116,8 @@ struct Playlist: Codable {
     let external: String?
     let id: Int?
     let image: String?
-    let imageAlternateText, name: String?
+    let imageAlternateText: String?
+    let name: String?
     let gaType: String?
 
     enum CodingKeys: String, CodingKey {
