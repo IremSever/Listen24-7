@@ -8,9 +8,8 @@
 import Foundation
 import UIKit
 class PlayViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    @IBOutlet weak var tableViewTop: UITableView!
-    @IBOutlet weak var tableViewMid: UITableView!
-    @IBOutlet weak var tableViewBottom: UITableView!
+   
+    @IBOutlet weak var tableViewPlay: UITableView!
     
     static let identifier = "PlayViewController"
     
@@ -22,7 +21,7 @@ class PlayViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         
         loadData()
-        tableViewTop.separatorStyle = .none
+        tableViewPlay.separatorStyle = .none
     }
     
     private func loadData() {
@@ -30,8 +29,8 @@ class PlayViewController: UIViewController, UITableViewDelegate, UITableViewData
         viewModel.fetchPlaylistData(selectedPlaylistId: String(selectedPlaylistId)) { [weak self] playlist in
             if let playlistResponses = playlist {
                 self?.selectedPlaylist = PlaylistDetail(pageInfo: nil, response: playlistResponses, status: nil)
-                self?.tableViewTop.reloadData()
-                self?.tableViewTop.reloadData()
+                self?.tableViewPlay.reloadData()
+                self?.tableViewPlay.reloadData()
             }
         }
     }
@@ -43,14 +42,14 @@ class PlayViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if tableView == tableViewMid {
-            let cell = tableView.dequeueReusableCell(withIdentifier: PlaylistTableViewCell.identifier, for: indexPath) as! PlaylistTableViewCell
+        if tableView == tableViewPlay {
+            let cell = tableViewPlay.dequeueReusableCell(withIdentifier: PlaylistTableViewCell.identifier, for: indexPath) as! PlaylistTableViewCell
             
             if let song = selectedPlaylist?.response?[indexPath.row].songs?.first {
                 cell.configure(with: song)
             }
             return cell
-        } else if tableView == tableViewTop {
+        } else if tableView == tableViewPlay {
             let cell = tableView.dequeueReusableCell(withIdentifier: PlaylistTopTableViewCell.identifier, for: indexPath) as! PlaylistTopTableViewCell
             cell.configureCover(data: selectedPlaylist?.response?[indexPath.row])
             return cell

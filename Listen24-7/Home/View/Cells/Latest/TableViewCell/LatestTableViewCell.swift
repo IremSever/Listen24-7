@@ -9,9 +9,9 @@ import UIKit
 
 class LatestTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
     static let identifier = "LatestTableViewCell"
-    
     @IBOutlet weak var collectionViewLatest: UICollectionView!
     var dataArray: [Response] = []
+    var selectedPlaylistId: Int?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -47,5 +47,43 @@ class LatestTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollec
             return cell
         }
         return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let selectedPlaylistId = dataArray.first?.songs?[indexPath.row].id else {
+            return
+        }
+        self.selectedPlaylistId = selectedPlaylistId
+        postSelectedPlaylistId()
+        let viewController = UIStoryboard(name: "Play", bundle: nil).instantiateViewController(withIdentifier: "PlayViewController") as! PlayViewController
+        
+        viewController.selectedPlaylistId = selectedPlaylistId
+        
+        viewController.selectedPlaylistId = selectedPlaylistId
+        
+        if let tabBarController = self.window?.rootViewController as? UITabBarController {
+            if let selectedViewController = tabBarController.selectedViewController {
+                selectedViewController.present(viewController, animated: true, completion: nil)
+            }
+        } else if let navigationController = self.window?.rootViewController as? UINavigationController {
+            navigationController.pushViewController(viewController, animated: true)
+        } else {
+            print("Error: Did not find available view controller")
+        }
+    }
+    
+    func postSelectedPlaylistId() {
+        guard let selectedPlaylistId = selectedPlaylistId else {
+            return
+        }
+        
+        let playlistWebService = PlaylistWebservice()
+        playlistWebService.postPlaylistData(playlistId: String(selectedPlaylistId)) { result in
+            switch result {
+            case .success(let playlistModel):
+                print("Playlist post is success: ") //\(playlistModel)
+            case .failure(let error):
+                print("Playlist post is failed: \(error)")
+            }
+        }
     }
 }

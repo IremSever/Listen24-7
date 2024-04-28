@@ -58,13 +58,11 @@ class CircleTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollec
         
         viewController.selectedPlaylistId = selectedPlaylistId
         
+        viewController.selectedPlaylistId = selectedPlaylistId
+        
         if let tabBarController = self.window?.rootViewController as? UITabBarController {
             if let selectedViewController = tabBarController.selectedViewController {
-                if let navigationController = selectedViewController as? UINavigationController {
-                    navigationController.pushViewController(viewController, animated: true)
-                } else {
-                    selectedViewController.present(viewController, animated: true, completion: nil)
-                }
+                selectedViewController.present(viewController, animated: true, completion: nil)
             }
         } else if let navigationController = self.window?.rootViewController as? UINavigationController {
             navigationController.pushViewController(viewController, animated: true)
