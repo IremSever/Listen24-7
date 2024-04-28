@@ -13,7 +13,7 @@ class PlaylistViewModel {
     var playlist: [PlaylistResponse] = []
     
     func fetchPlaylistData(selectedPlaylistId: String, completion: @escaping ([PlaylistResponse]?) -> ()) {
-      playlistWebservice.postPlaylistData(playlistId: selectedPlaylistId) { [weak self] result in
+        playlistWebservice.postPlaylistData(playlistId: selectedPlaylistId) { [weak self] result in
             switch result {
             case .success(let playlistData):
                 self?.playlist = playlistData.data.list.response ?? []

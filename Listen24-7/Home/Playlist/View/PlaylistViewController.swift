@@ -9,28 +9,41 @@ import Foundation
 import UIKit
 
 class PlaylistViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+    @IBOutlet weak var tableViewPlaylistTop: UITableView!
     @IBOutlet weak var tableViewPlaylist: UITableView!
     var viewModel = PlaylistViewModel()
     var selectedPlaylist: PlaylistDetail?
-    var selectedPlaylistId: Int? 
+    var selectedPlaylistId: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         createPlaylistTableView()
         loadData()
+        tableViewPlaylist.separatorStyle = .none
     }
     
     private func loadData() {
-      viewModel.fetchPlaylistData(selectedPlaylistId: String(selectedPlaylistId ?? 0)) { [weak self] playlist in
+        guard let selectedPlaylistId = selectedPlaylistId else { return }
+        viewModel.fetchPlaylistData(selectedPlaylistId: String(selectedPlaylistId)) { [weak self] playlist in
             if let playlistResponses = playlist {
                 self?.selectedPlaylist = PlaylistDetail(pageInfo: nil, response: playlistResponses, status: nil)
+                self?.tableViewPlaylistTop.reloadData()
+                self?.tableViewPlaylist.reloadData()
             }
-            self?.tableViewPlaylist.reloadData()
         }
     }
     
     func createPlaylistTableView() {
+        // Top
+        tableViewPlaylistTop.register(UINib(nibName: "PlaylistTopTableViewCell", bundle: nil), forCellReuseIdentifier: PlaylistTopTableViewCell.identifier)
+        tableViewPlaylistTop.backgroundColor = .clear
+        tableViewPlaylistTop.isScrollEnabled = false
+        tableViewPlaylistTop.delegate = self
+        tableViewPlaylistTop.dataSource = self
+        tableViewPlaylistTop.showsHorizontalScrollIndicator = false
+        
+        // Bottom
         tableViewPlaylist.register(UINib(nibName: "PlaylistTableViewCell", bundle: nil), forCellReuseIdentifier: PlaylistTableViewCell.identifier)
         tableViewPlaylist.backgroundColor = .clear
         tableViewPlaylist.delegate = self
@@ -39,38 +52,43 @@ class PlaylistViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //print("**************************\( selectedPlaylist?.response?.count ?? 0)")
         return selectedPlaylist?.response?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableViewPlaylist.dequeueReusableCell(withIdentifier: PlaylistTableViewCell.identifier, for: indexPath) as! PlaylistTableViewCell
-        if let playlist = selectedPlaylist {
-            if let playlistResponse = playlist.response?[indexPath.row] {
-                cell.configure(with: playlistResponse)
+        if tableView == tableViewPlaylist {
+            let cell = tableView.dequeueReusableCell(withIdentifier: PlaylistTableViewCell.identifier, for: indexPath) as! PlaylistTableViewCell
+            
+            if let song = selectedPlaylist?.response?[indexPath.row].songs?.first {
+                cell.configure(with: song)
             }
+            return cell
+        } else if tableView == tableViewPlaylistTop {
+            let cell = tableView.dequeueReusableCell(withIdentifier: PlaylistTopTableViewCell.identifier, for: indexPath) as! PlaylistTopTableViewCell
+            cell.configureCover(data: selectedPlaylist?.response?[indexPath.row])
+            return cell
         }
-        return cell
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedPlaylistId = selectedPlaylist?.response?[indexPath.row].id
-        postSelectedPlaylistId()
+        guard let selectedSongId = selectedPlaylist?.response?[indexPath.row].id else { return }
+        postSelectedPlaylistId(selectedSongId)
     }
     
-    func postSelectedPlaylistId() {
-        guard let selectedPlaylistId = selectedPlaylistId else {
-            return
-        }
-        
+    func postSelectedPlaylistId(_ selectedSongId: Int) {
         let playlistWebService = PlaylistWebservice()
-        playlistWebService.postPlaylistData(playlistId: String(selectedPlaylistId)) { result in
+        playlistWebService.postPlaylistData(playlistId: String(selectedSongId)) { result in
             switch result {
             case .success(let playlistModel):
-                print("Playlist post is success: ") //\(playlistModel)
+                print("Playlist post is success: \(playlistModel)")
             case .failure(let error):
                 print("Playlist post is failed: \(error)")
             }
         }
+    }
+    
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return false
     }
 }

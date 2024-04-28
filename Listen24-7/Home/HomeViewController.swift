@@ -14,9 +14,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var viewModel = HomeViewModel()
     var viewModelHeader = HeaderViewModel()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.backgroundColor = .none
         tableViewHome.dataSource = self
         tableViewHome.delegate = self
         loadData()
@@ -126,6 +127,7 @@ extension HomeViewController {
             }
         }
     }
+    
     func addTitle(to contentView: UIView, title: String) {
         let titleLabel = UILabel()
         titleLabel.text = title
@@ -142,6 +144,6 @@ extension HomeViewController {
     
     // cell selected false
     func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-           return false
-       }
+        return false
+    }
 }
