@@ -19,7 +19,6 @@ class PlaylistTopTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        imgCover.contentMode = .scaleAspectFill
         
         lblPlaylistName.font = UIFont(name: "Futura-Bold", size: 17)
         lblPlaylistName.textColor = UIColor.black
@@ -42,7 +41,6 @@ class PlaylistTopTableViewCell: UITableViewCell {
             
             DispatchQueue.global().async {
                 guard let image = UIImage(data: data) else { return }
-                
                 /* //Blur effect
                  let ciImage = CIImage(image: image)
                  let blurFilter = CIFilter(name: "CIGaussianBlur")

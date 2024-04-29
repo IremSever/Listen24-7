@@ -17,7 +17,8 @@ class PlaylistViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableViewPlaylistTop.superview?.addSubview(tableViewPlaylistTop)
+        tableViewPlaylist.superview?.addSubview(tableViewPlaylist)
         createPlaylistTableView()
         loadData()
         tableViewPlaylist.separatorStyle = .none
@@ -59,9 +60,9 @@ class PlaylistViewController: UIViewController, UITableViewDelegate, UITableView
         if tableView == tableViewPlaylist {
             let cell = tableView.dequeueReusableCell(withIdentifier: PlaylistTableViewCell.identifier, for: indexPath) as! PlaylistTableViewCell
             
-            if let song = selectedPlaylist?.response?[indexPath.row].songs?.first {
-                cell.configure(with: song)
-            }
+            guard let song = selectedPlaylist?.response?[indexPath.row].songs?[indexPath.row] else { return cell }
+            
+            cell.configure(with: song)
             return cell
         } else if tableView == tableViewPlaylistTop {
             let cell = tableView.dequeueReusableCell(withIdentifier: PlaylistTopTableViewCell.identifier, for: indexPath) as! PlaylistTopTableViewCell

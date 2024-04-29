@@ -17,8 +17,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="304" height="61"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" spacing="11" id="eIE-1V-GNy">
-                        <rect key="frame" x="57" y="30" width="110" height="22"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" spacing="23" id="eIE-1V-GNy">
+                        <rect key="frame" x="57" y="30" width="134" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sLP-eG-wax">
@@ -28,7 +28,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oZ9-mK-Mom">
-                                <rect key="frame" x="54" y="0.0" width="5" height="22"/>
+                                <rect key="frame" x="66" y="0.0" width="5" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="5" id="zcs-go-G4d"/>
                                 </constraints>
@@ -37,7 +37,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01:21" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Wp-Kp-hhW">
-                                <rect key="frame" x="70" y="0.0" width="40" height="22"/>
+                                <rect key="frame" x="94" y="0.0" width="40" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="crJ-3G-Wlb"/>
                                 </constraints>
@@ -57,7 +57,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play (1)" translatesAutoresizingMaskIntoConstraints="NO" id="ulH-il-xSf">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play (1)" translatesAutoresizingMaskIntoConstraints="NO" id="ulH-il-xSf">
                         <rect key="frame" x="0.0" y="4" width="49" height="52"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="52" id="EV2-Cc-Whc"/>
