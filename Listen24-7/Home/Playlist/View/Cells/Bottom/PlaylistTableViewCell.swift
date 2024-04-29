@@ -20,10 +20,10 @@ class PlaylistTableViewCell: UITableViewCell {
         contentView.layer.cornerRadius = 20
         contentView.layer.masksToBounds = true
         
-        lblSong.font = UIFont(name: "Futura", size: 14)
+        lblSong.font = UIFont(name: "Futura", size: 15)
         lblSong.textColor = UIColor.black
         
-        lblArtist.font = UIFont(name: "Futura", size: 11)
+        lblArtist.font = UIFont(name: "Futura", size: 12)
         lblArtist.textColor = UIColor.gray
         
         lblDuration.font = UIFont(name: "Futura", size: 11)

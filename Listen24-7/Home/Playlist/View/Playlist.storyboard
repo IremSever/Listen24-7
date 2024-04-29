@@ -19,9 +19,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleAspectFit" bounces="NO" scrollEnabled="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Gpg-S4-a5f">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="450"/>
                                 <color key="backgroundColor" name="AppColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="450" id="Mwg-Hc-pCg"/>
-                                </constraints>
                             </tableView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="724" translatesAutoresizingMaskIntoConstraints="NO" id="t9f-AX-qpi">
                                 <rect key="frame" x="131.66666666666666" y="79" width="129.99999999999997" height="40"/>
@@ -52,7 +49,7 @@
                                 <rect key="frame" x="0.0" y="462" width="393" height="400"/>
                                 <color key="backgroundColor" name="AppColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="400" id="C6s-uo-gO8"/>
+                                    <constraint firstAttribute="height" constant="400" id="pWg-t7-PcU"/>
                                 </constraints>
                             </tableView>
                         </subviews>
