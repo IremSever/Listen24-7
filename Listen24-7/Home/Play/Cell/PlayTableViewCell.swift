@@ -19,13 +19,45 @@ class PlayTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+ 
+        lblName.font = UIFont(name: "Futura-Bold", size: 13)
+        lblName.textColor = UIColor.systemPurple
+        
+        lblArtist.font = UIFont(name: "Futura", size: 10)
+        lblArtist.textColor = UIColor.gray
+        
+        imgSong.contentMode = .scaleAspectFill
+        
+        
+        
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15))
+    }
+    
+    func configure(with data: Song?) {
+        guard let imageURLString = data?.image,
+              let imageURL = URL(string: imageURLString) else {
+            imgSong.image = nil
+            lblName.text = nil
+            lblArtist.text = nil
+            return
+        }
+        
+        URLSession.shared.dataTask(with: imageURL) { [weak self] (data, response, error) in
+            guard let self = self, let data = data, error == nil else {
+                return
+            }
+            
+            DispatchQueue.main.async {
+                let image = UIImage(data: data)
+                self.imgSong.image = image
+            }
+        }.resume()
+        
+        lblName?.text = data?.name
+        lblArtist.text = data?.durationTime
     }
     
 }

@@ -57,7 +57,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play.512x512" translatesAutoresizingMaskIntoConstraints="NO" id="ulH-il-xSf">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play (1)" translatesAutoresizingMaskIntoConstraints="NO" id="ulH-il-xSf">
                         <rect key="frame" x="0.0" y="4" width="49" height="52"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="52" id="EV2-Cc-Whc"/>
@@ -86,7 +86,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="play.512x512" width="512" height="512"/>
+        <image name="play (1)" width="50" height="50"/>
         <systemColor name="systemGray2Color">
             <color red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
