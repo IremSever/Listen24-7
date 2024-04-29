@@ -12,7 +12,7 @@ class PlaylistViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var tableViewPlaylistTop: UITableView!
     @IBOutlet weak var tableViewPlaylist: UITableView!
     var viewModel = PlaylistViewModel()
-    var selectedPlaylist: PlaylistDetail?
+    var selectedPlaylist: [PlaylistResponse] = []
     var selectedPlaylistId: Int?
     
     override func viewDidLoad() {
@@ -25,15 +25,17 @@ class PlaylistViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     private func loadData() {
-        guard let selectedPlaylistId = selectedPlaylistId else { return }
-        viewModel.fetchPlaylistData(selectedPlaylistId: String(selectedPlaylistId)) { [weak self] playlist in
-            if let playlistResponses = playlist {
-                self?.selectedPlaylist = PlaylistDetail(pageInfo: nil, response: playlistResponses, status: nil)
-                self?.tableViewPlaylistTop.reloadData()
-                self?.tableViewPlaylist.reloadData()
+            guard let selectedPlaylistId = selectedPlaylistId else { return }
+            viewModel.fetchPlaylistData(selectedPlaylistId: String(selectedPlaylistId)) { [weak self] playlist in
+                if let playlistResponses = playlist {
+                    self?.selectedPlaylist = playlistResponses
+                    self?.tableViewPlaylistTop.reloadData()
+                    self?.tableViewPlaylist.reloadData()
+                }
             }
         }
-    }
+        
+    
     
     func createPlaylistTableView() {
         // Top
@@ -53,27 +55,33 @@ class PlaylistViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return selectedPlaylist?.response?.count ?? 0
+      if tableView == tableViewPlaylistTop {
+        return 1
+      } else {
+        return selectedPlaylist.first?.songs?.count ?? 0
+      }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if tableView == tableViewPlaylist {
+      if tableView == tableViewPlaylistTop {
+        let cell = tableView.dequeueReusableCell(withIdentifier: PlaylistTopTableViewCell.identifier, for: indexPath) as! PlaylistTopTableViewCell
+        if let firstItem = selectedPlaylist.first {
+          cell.configureCover(data: firstItem) 
+        }
+        return cell
+      } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: PlaylistTableViewCell.identifier, for: indexPath) as! PlaylistTableViewCell
             
-            guard let song = selectedPlaylist?.response?[indexPath.row].songs?[indexPath.row] else { return cell }
-            
-            cell.configure(with: song)
-            return cell
-        } else if tableView == tableViewPlaylistTop {
-            let cell = tableView.dequeueReusableCell(withIdentifier: PlaylistTopTableViewCell.identifier, for: indexPath) as! PlaylistTopTableViewCell
-            cell.configureCover(data: selectedPlaylist?.response?[indexPath.row])
+            if let item  = selectedPlaylist.first?.songs?[indexPath.row] {
+                cell.configure(with: item)
+                return cell
+            }
             return cell
         }
-        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let selectedSongId = selectedPlaylist?.response?[indexPath.row].id else { return }
+        guard let selectedSongId = selectedPlaylist[indexPath.row].id else { return }
         postSelectedPlaylistId(selectedSongId)
     }
     
