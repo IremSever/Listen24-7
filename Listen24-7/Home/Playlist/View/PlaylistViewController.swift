@@ -22,6 +22,7 @@ class PlaylistViewController: UIViewController, UITableViewDelegate, UITableView
         createPlaylistTableView()
         loadData()
         tableViewPlaylist.separatorStyle = .none
+        tableViewPlaylist.showsVerticalScrollIndicator = false
     }
     
     private func loadData() {

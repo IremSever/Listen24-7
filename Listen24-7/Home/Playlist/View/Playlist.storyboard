@@ -46,10 +46,10 @@
                                 <buttonConfiguration key="configuration" style="gray" title=""/>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ZEZ-ho-RyN">
-                                <rect key="frame" x="0.0" y="462" width="393" height="400"/>
+                                <rect key="frame" x="16" y="450" width="361" height="368"/>
                                 <color key="backgroundColor" name="AppColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="400" id="pWg-t7-PcU"/>
+                                    <constraint firstAttribute="height" constant="368" id="wLA-bj-j3Y"/>
                                 </constraints>
                             </tableView>
                         </subviews>
@@ -58,18 +58,18 @@
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="VrP-lG-8vb" secondAttribute="trailing" constant="16" id="2eO-nr-Hvd"/>
                             <constraint firstItem="Gpg-S4-a5f" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="8FR-ji-gKE"/>
-                            <constraint firstItem="ZEZ-ho-RyN" firstAttribute="top" secondItem="Gpg-S4-a5f" secondAttribute="bottom" constant="12" id="CrC-Nq-Bhv"/>
+                            <constraint firstItem="ZEZ-ho-RyN" firstAttribute="top" secondItem="Gpg-S4-a5f" secondAttribute="bottom" id="CrC-Nq-Bhv"/>
                             <constraint firstItem="t9f-AX-qpi" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="Ibd-Up-MEh"/>
-                            <constraint firstItem="ZEZ-ho-RyN" firstAttribute="top" secondItem="Gpg-S4-a5f" secondAttribute="bottom" constant="12" id="M7o-Sg-ILe"/>
+                            <constraint firstItem="ZEZ-ho-RyN" firstAttribute="top" secondItem="Gpg-S4-a5f" secondAttribute="bottom" id="M7o-Sg-ILe"/>
                             <constraint firstItem="nA5-mw-VwD" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="WOU-Sg-ydJ"/>
                             <constraint firstItem="nA5-mw-VwD" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="XaU-1a-Jol"/>
                             <constraint firstItem="Gpg-S4-a5f" firstAttribute="trailing" secondItem="5EZ-qb-Rvc" secondAttribute="trailing" id="bD3-nG-VK1"/>
                             <constraint firstItem="Gpg-S4-a5f" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="brS-s5-Aue"/>
                             <constraint firstItem="t9f-AX-qpi" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="chs-FL-EFQ"/>
                             <constraint firstItem="VrP-lG-8vb" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="esR-tY-FgG"/>
-                            <constraint firstItem="ZEZ-ho-RyN" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="fNl-FQ-16i"/>
-                            <constraint firstAttribute="bottom" secondItem="ZEZ-ho-RyN" secondAttribute="bottom" constant="-10" id="hnk-Dm-Aq5"/>
-                            <constraint firstItem="ZEZ-ho-RyN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="t4O-ym-DdL"/>
+                            <constraint firstItem="ZEZ-ho-RyN" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="-16" id="fNl-FQ-16i" userLabel="Table View Playlist.trailing = Safe Area.trailing - 25"/>
+                            <constraint firstAttribute="bottom" secondItem="ZEZ-ho-RyN" secondAttribute="bottom" constant="34" id="hnk-Dm-Aq5"/>
+                            <constraint firstItem="ZEZ-ho-RyN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="t4O-ym-DdL"/>
                         </constraints>
                     </view>
                     <connections>

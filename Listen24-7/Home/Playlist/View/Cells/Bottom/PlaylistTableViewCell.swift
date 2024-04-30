@@ -23,10 +23,10 @@ class PlaylistTableViewCell: UITableViewCell {
         lblSong.font = UIFont(name: "Futura", size: 15)
         lblSong.textColor = UIColor.black
         
-        lblArtist.font = UIFont(name: "Futura", size: 12)
+        lblArtist.font = UIFont(name: "Futura", size: 10)
         lblArtist.textColor = UIColor.gray
         
-        lblDuration.font = UIFont(name: "Futura", size: 11)
+        lblDuration.font = UIFont(name: "Futura", size: 10)
         lblDuration.textColor = UIColor.gray
         
     }

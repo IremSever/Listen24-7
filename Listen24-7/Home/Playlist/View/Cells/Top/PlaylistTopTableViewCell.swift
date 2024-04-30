@@ -11,10 +11,10 @@ class PlaylistTopTableViewCell: UITableViewCell {
     static let identifier = "PlaylistTopTableViewCell"
     @IBOutlet weak var lblPlaylistName: UILabel!
     @IBOutlet weak var imgCover: UIImageView!
+    @IBOutlet weak var imgCoverBlack: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        //contentView.layer.cornerRadius = 50
-        //contentView.clipsToBounds = true
     }
     
     override func layoutSubviews() {
@@ -22,6 +22,9 @@ class PlaylistTopTableViewCell: UITableViewCell {
         
         lblPlaylistName.font = UIFont(name: "Futura-Bold", size: 17)
         lblPlaylistName.textColor = UIColor.black
+        
+        addBottomCornerRadius(to: imgCover, radius: 50)
+        addBottomCornerRadius(to: imgCoverBlack, radius: 50)
     }
     
     func configureCover(data: PlaylistResponse?) {
@@ -31,7 +34,7 @@ class PlaylistTopTableViewCell: UITableViewCell {
             lblPlaylistName.text = nil
             return
         }
-    
+        
         lblPlaylistName?.text = data?.name
         
         URLSession.shared.dataTask(with: imgURL) { [weak self] (data, response, error) in
@@ -64,5 +67,14 @@ class PlaylistTopTableViewCell: UITableViewCell {
             }
             
         }.resume()
+    }
+    
+    func addBottomCornerRadius(to view: UIView, radius: CGFloat) {
+        let maskPath = UIBezierPath(roundedRect: view.bounds,
+                                    byRoundingCorners: [.bottomLeft, .bottomRight],
+                                    cornerRadii: CGSize(width: radius, height: radius))
+        let shape = CAShapeLayer()
+        shape.path = maskPath.cgPath
+        view.layer.mask = shape
     }
 }
