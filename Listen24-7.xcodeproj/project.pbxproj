@@ -165,8 +165,8 @@
 			isa = PBXGroup;
 			children = (
 				617B801B2BDEE8E400D6EE14 /* Cell */,
-				616332F12BD8E892002FAA77 /* Play.storyboard */,
 				616332F42BD8E8BE002FAA77 /* PlayViewController.swift */,
+				616332F12BD8E892002FAA77 /* Play.storyboard */,
 			);
 			path = Play;
 			sourceTree = "<group>";

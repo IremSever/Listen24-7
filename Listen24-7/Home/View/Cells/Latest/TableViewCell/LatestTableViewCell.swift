@@ -57,8 +57,7 @@ class LatestTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollec
         let viewController = UIStoryboard(name: "Play", bundle: nil).instantiateViewController(withIdentifier: "PlayViewController") as! PlayViewController
         
         viewController.selectedPlaylistId = selectedPlaylistId
-        
-        viewController.selectedPlaylistId = selectedPlaylistId
+        viewController.modalPresentationStyle = .fullScreen
         
         if let tabBarController = self.window?.rootViewController as? UITabBarController {
             if let selectedViewController = tabBarController.selectedViewController {

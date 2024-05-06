@@ -16,20 +16,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ecj-jw-9G0">
+                            <tableView clipsSubviews="YES" contentMode="scaleAspectFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ecj-jw-9G0">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" role="primary" translatesAutoresizingMaskIntoConstraints="NO" id="gR0-SJ-ad1">
                                 <rect key="frame" x="16" y="79" width="40" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="174-2B-Jpc"/>
-                                    <constraint firstAttribute="width" constant="40" id="WDz-Yj-7r6"/>
+                                    <constraint firstAttribute="height" constant="40" id="hJy-oa-syI"/>
+                                    <constraint firstAttribute="width" constant="40" id="iUc-JU-a3i"/>
                                 </constraints>
                                 <color key="tintColor" red="0.92941176889999999" green="0.70899460339999998" blue="0.46747720599999998" alpha="0.79801324500000004" colorSpace="custom" customColorSpace="displayP3"/>
                                 <size key="titleShadowOffset" width="50" height="0.0"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" image="chevron.backward.circle.fill" catalog="system" title="">
+                                <buttonConfiguration key="configuration" style="gray" image="chevron.down.circle.fill" catalog="system" title="">
                                     <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                             </button>
@@ -37,13 +37,12 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="ecj-jw-9G0" secondAttribute="bottom" id="2H1-cT-A5b"/>
-                            <constraint firstItem="gR0-SJ-ad1" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leadingMargin" id="IfC-oa-Au5"/>
-                            <constraint firstItem="ecj-jw-9G0" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="KG5-U6-3Dm"/>
-                            <constraint firstItem="ecj-jw-9G0" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="bJg-wP-icc"/>
-                            <constraint firstItem="ecj-jw-9G0" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="eho-BV-8Wd"/>
-                            <constraint firstItem="ecj-jw-9G0" firstAttribute="trailing" secondItem="5EZ-qb-Rvc" secondAttribute="trailing" id="uVm-uH-otb"/>
-                            <constraint firstItem="gR0-SJ-ad1" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="usa-eG-BlI"/>
+                            <constraint firstItem="ecj-jw-9G0" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="2hC-Kb-XIX"/>
+                            <constraint firstItem="ecj-jw-9G0" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="4qc-3q-j9u"/>
+                            <constraint firstItem="gR0-SJ-ad1" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="DgB-mj-fkQ"/>
+                            <constraint firstAttribute="bottom" secondItem="ecj-jw-9G0" secondAttribute="bottom" id="Ez7-xI-KCj"/>
+                            <constraint firstItem="ecj-jw-9G0" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="jZ8-3e-QsI"/>
+                            <constraint firstItem="gR0-SJ-ad1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="u8K-ax-5dw"/>
                         </constraints>
                     </view>
                     <connections>
@@ -57,7 +56,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chevron.backward.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="chevron.down.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

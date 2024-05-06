@@ -28,8 +28,9 @@ class PlayViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @objc func backButtonTapped() {
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
+
     
     private func loadData() {
         guard let selectedPlaylistId = selectedPlaylistId else { return }
@@ -57,9 +58,9 @@ class PlayViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableViewPlay.dequeueReusableCell(withIdentifier: PlayTableViewCell.identifier, for: indexPath) as! PlayTableViewCell
         
-        if let item = selectedPlaylist?[indexPath.row] {
+        /*if let item = selectedPlaylist?[indexPath.row] {
             cell.configure(with: item)
-        }
+        }*/
         
         return cell
     }

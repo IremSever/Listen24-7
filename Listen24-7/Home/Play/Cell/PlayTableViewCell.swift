@@ -28,11 +28,16 @@ class PlayTableViewCell: UITableViewCell {
         lblArtist.font = UIFont(name: "Futura", size: 10)
         lblArtist.textColor = UIColor.gray
         
-
+        
     }
     override func layoutSubviews() {
         super.layoutSubviews()
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15))
+        let screenSize = UIScreen.main.bounds.size
+        let topMargin: CGFloat = 0.08 * screenSize.height
+        let sideMargin: CGFloat = 0.05 * screenSize.width
+        
+        let margins = UIEdgeInsets(top: topMargin, left: sideMargin, bottom: topMargin, right: sideMargin)
+        contentView.frame = bounds.inset(by: margins)
     }
     
     func configure(with data: PlaylistResponse?) {

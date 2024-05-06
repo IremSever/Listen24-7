@@ -28,8 +28,8 @@
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="filled" title="">
                             <backgroundConfiguration key="background" cornerRadius="13" strokeWidth="0.0" strokeOutset="0.0">
-                                <color key="backgroundColor" red="0.85490196939999996" green="0.87843137979999997" blue="0.92941176889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <color key="strokeColor" white="0.33333333329999998" alpha="0.30111754966887416" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.89803922179999995" green="0.92549020049999997" blue="0.8156862855" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="strokeColor" red="0.8392156959" green="0.91764706370000004" blue="0.75294119120000003" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
                             </backgroundConfiguration>
                             <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </buttonConfiguration>
@@ -45,8 +45,8 @@
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="filled" title="">
                             <backgroundConfiguration key="background" cornerRadius="60" strokeWidth="2" strokeOutset="2">
-                                <color key="backgroundColor" red="0.85490196939999996" green="0.87843137979999997" blue="0.92941176889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <color key="strokeColor" red="0.33914900229614892" green="0.35004494980539358" blue="0.37285005804141413" alpha="0.3005742963576159" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.89803922179999995" green="0.92549020049999997" blue="0.8156862855" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="strokeColor" red="0.8392156959" green="0.91764706370000004" blue="0.75294119120000003" alpha="0.80370447019867552" colorSpace="custom" customColorSpace="displayP3"/>
                             </backgroundConfiguration>
                             <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </buttonConfiguration>

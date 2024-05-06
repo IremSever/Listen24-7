@@ -20,9 +20,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="450"/>
                                 <color key="backgroundColor" name="AppColor"/>
                             </tableView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="724" translatesAutoresizingMaskIntoConstraints="NO" id="t9f-AX-qpi">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="724" translatesAutoresizingMaskIntoConstraints="NO" id="t9f-AX-qpi">
                                 <rect key="frame" x="131.66666666666666" y="79" width="129.99999999999997" height="40"/>
-                                <color key="tintColor" white="1" alpha="0.79917735927152322" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Fg7-tB-dVy"/>
                                     <constraint firstAttribute="width" constant="130" id="sj8-Fa-QZh"/>
@@ -34,7 +33,7 @@
                                     <constraint firstAttribute="height" constant="40" id="Qhb-m2-pUS"/>
                                     <constraint firstAttribute="width" constant="40" id="awn-fA-CNx"/>
                                 </constraints>
-                                <color key="tintColor" red="0.92941176889999999" green="0.70899460339999998" blue="0.46747720599999998" alpha="0.79801324503311255" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="0.92941176889999999" green="0.70899460339999998" blue="0.46747720599999998" alpha="0.90156767384105962" colorSpace="custom" customColorSpace="displayP3"/>
                                 <size key="titleShadowOffset" width="50" height="0.0"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" image="chevron.backward.circle.fill" catalog="system" title="">
@@ -47,7 +46,7 @@
                                     <constraint firstAttribute="height" constant="40" id="4Cg-Hd-09u"/>
                                     <constraint firstAttribute="width" constant="40" id="ey4-Ux-T8i"/>
                                 </constraints>
-                                <color key="tintColor" red="0.92941176889999999" green="0.70899460339999998" blue="0.46747720599999998" alpha="0.79801324503311255" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="0.92941176889999999" green="0.70899460339999998" blue="0.46747720599999998" alpha="0.90156767384105962" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" image="square.and.arrow.up.fill" catalog="system" title="">
                                     <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

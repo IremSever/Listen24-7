@@ -34,8 +34,8 @@
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="filled" title="">
                             <backgroundConfiguration key="background" cornerRadius="13" strokeWidth="3" strokeOutset="0.0">
-                                <color key="backgroundColor" red="0.85490196939999996" green="0.87843137979999997" blue="0.92941176889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <color key="strokeColor" white="0.33333333333333331" alpha="0.29690086920529801" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.90131868458494113" green="0.92941176889999999" blue="0.8144037071839576" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="strokeColor" red="0.80205090324015127" green="0.90662484217171713" blue="0.75453964239976956" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
                             </backgroundConfiguration>
                             <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </buttonConfiguration>
