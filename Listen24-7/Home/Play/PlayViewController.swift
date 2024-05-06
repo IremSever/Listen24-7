@@ -36,7 +36,6 @@ class PlayViewController: UIViewController, UITableViewDelegate, UITableViewData
             guard let selectedPlaylistId = selectedPlaylistId else { return }
             viewModel.fetchPlaylistData(selectedPlaylistId: String(selectedPlaylistId)) { [weak self] playlist in
                 if let playlistResponses = playlist {
-                    // Seçilen çalma listesi şarkılarını seçilenPlaylistSongs özelliğine atayın.
                     self?.selectedPlaylistSongs = playlistResponses.first?.songs
                     self?.tableViewPlay.reloadData()
                 }
@@ -60,10 +59,8 @@ class PlayViewController: UIViewController, UITableViewDelegate, UITableViewData
             let cell = tableViewPlay.dequeueReusableCell(withIdentifier: PlayTableViewCell.identifier, for: indexPath) as! PlayTableViewCell
             
             if let songs = selectedPlaylistSongs {
-                // Düzgün şarkıları gönderin.
                 cell.configure(with: songs[indexPath.row])
             }
-            
             return cell
         }
     
