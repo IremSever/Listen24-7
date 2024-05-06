@@ -20,21 +20,26 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="450"/>
                                 <color key="backgroundColor" name="AppColor"/>
                             </tableView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="724" translatesAutoresizingMaskIntoConstraints="NO" id="t9f-AX-qpi">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="724" translatesAutoresizingMaskIntoConstraints="NO" id="t9f-AX-qpi">
                                 <rect key="frame" x="131.66666666666666" y="79" width="129.99999999999997" height="40"/>
+                                <color key="tintColor" white="1" alpha="0.79917735927152322" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Fg7-tB-dVy"/>
                                     <constraint firstAttribute="width" constant="130" id="sj8-Fa-QZh"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nA5-mw-VwD">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" role="primary" translatesAutoresizingMaskIntoConstraints="NO" id="nA5-mw-VwD">
                                 <rect key="frame" x="16" y="79" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Qhb-m2-pUS"/>
                                     <constraint firstAttribute="width" constant="40" id="awn-fA-CNx"/>
                                 </constraints>
+                                <color key="tintColor" red="0.92941176889999999" green="0.70899460339999998" blue="0.46747720599999998" alpha="0.79801324503311255" colorSpace="custom" customColorSpace="displayP3"/>
+                                <size key="titleShadowOffset" width="50" height="0.0"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title=""/>
+                                <buttonConfiguration key="configuration" style="gray" image="chevron.backward.circle.fill" catalog="system" title="">
+                                    <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VrP-lG-8vb">
                                 <rect key="frame" x="337" y="79" width="40" height="40"/>
@@ -42,8 +47,11 @@
                                     <constraint firstAttribute="height" constant="40" id="4Cg-Hd-09u"/>
                                     <constraint firstAttribute="width" constant="40" id="ey4-Ux-T8i"/>
                                 </constraints>
+                                <color key="tintColor" red="0.92941176889999999" green="0.70899460339999998" blue="0.46747720599999998" alpha="0.79801324503311255" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title=""/>
+                                <buttonConfiguration key="configuration" style="gray" image="square.and.arrow.up.fill" catalog="system" title="">
+                                    <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ZEZ-ho-RyN">
                                 <rect key="frame" x="16" y="450" width="361" height="368"/>
@@ -59,7 +67,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="VrP-lG-8vb" secondAttribute="trailing" constant="16" id="2eO-nr-Hvd"/>
                             <constraint firstItem="Gpg-S4-a5f" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="8FR-ji-gKE"/>
                             <constraint firstItem="ZEZ-ho-RyN" firstAttribute="top" secondItem="Gpg-S4-a5f" secondAttribute="bottom" id="CrC-Nq-Bhv"/>
-                            <constraint firstItem="t9f-AX-qpi" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="Ibd-Up-MEh"/>
+                            <constraint firstItem="t9f-AX-qpi" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="79" id="Ibd-Up-MEh"/>
                             <constraint firstItem="ZEZ-ho-RyN" firstAttribute="top" secondItem="Gpg-S4-a5f" secondAttribute="bottom" id="M7o-Sg-ILe"/>
                             <constraint firstItem="nA5-mw-VwD" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="WOU-Sg-ydJ"/>
                             <constraint firstItem="nA5-mw-VwD" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="XaU-1a-Jol"/>
@@ -73,6 +81,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="buttonBack" destination="nA5-mw-VwD" id="1Cc-cO-4S1"/>
+                        <outlet property="buttonShare" destination="VrP-lG-8vb" id="xPL-SV-aRc"/>
+                        <outlet property="imgAppIcon" destination="t9f-AX-qpi" id="ph4-yR-bst"/>
                         <outlet property="tableViewPlaylist" destination="ZEZ-ho-RyN" id="Ocm-1i-gRq"/>
                         <outlet property="tableViewPlaylistTop" destination="Gpg-S4-a5f" id="Ehz-aa-XtU"/>
                     </connections>
@@ -84,6 +95,8 @@
     </scenes>
     <resources>
         <image name="724" width="130" height="111"/>
+        <image name="chevron.backward.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="square.and.arrow.up.fill" catalog="system" width="115" height="128"/>
         <namedColor name="AppColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

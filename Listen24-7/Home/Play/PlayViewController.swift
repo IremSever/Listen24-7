@@ -11,7 +11,7 @@ class PlayViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     @IBOutlet weak var tableViewPlay: UITableView!
-    
+    @IBOutlet weak var buttonBack: UIButton!
     static let identifier = "PlayViewController"
     
     var viewModel = PlaylistViewModel()
@@ -24,6 +24,11 @@ class PlayViewController: UIViewController, UITableViewDelegate, UITableViewData
         loadData()
         tableViewPlay.separatorStyle = .none
         tableViewPlay.showsVerticalScrollIndicator = false
+        buttonBack.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc func backButtonTapped() {
+        navigationController?.popViewController(animated: true)
     }
     
     private func loadData() {

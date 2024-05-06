@@ -9,6 +9,10 @@ import Foundation
 import UIKit
 
 class PlaylistViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var imgAppIcon: UIImageView!
+    @IBOutlet weak var buttonBack: UIButton!
+    @IBOutlet weak var buttonShare: UIButton!
     @IBOutlet weak var tableViewPlaylistTop: UITableView!
     @IBOutlet weak var tableViewPlaylist: UITableView!
     var viewModel = PlaylistViewModel()
@@ -18,24 +22,30 @@ class PlaylistViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         tableViewPlaylistTop.superview?.addSubview(tableViewPlaylistTop)
-        tableViewPlaylist.superview?.addSubview(tableViewPlaylist)
         createPlaylistTableView()
         loadData()
         tableViewPlaylist.separatorStyle = .none
         tableViewPlaylist.showsVerticalScrollIndicator = false
+        buttonBack.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        view.bringSubviewToFront(buttonBack)
+        view.bringSubviewToFront(buttonShare)
+        view.bringSubviewToFront(imgAppIcon)
     }
     
+    @objc func backButtonTapped() {
+        navigationController?.popViewController(animated: true)
+    }
     private func loadData() {
-            guard let selectedPlaylistId = selectedPlaylistId else { return }
-            viewModel.fetchPlaylistData(selectedPlaylistId: String(selectedPlaylistId)) { [weak self] playlist in
-                if let playlistResponses = playlist {
-                    self?.selectedPlaylist = playlistResponses
-                    self?.tableViewPlaylistTop.reloadData()
-                    self?.tableViewPlaylist.reloadData()
-                }
+        guard let selectedPlaylistId = selectedPlaylistId else { return }
+        viewModel.fetchPlaylistData(selectedPlaylistId: String(selectedPlaylistId)) { [weak self] playlist in
+            if let playlistResponses = playlist {
+                self?.selectedPlaylist = playlistResponses
+                self?.tableViewPlaylistTop.reloadData()
+                self?.tableViewPlaylist.reloadData()
             }
         }
-        
+    }
+    
     
     
     func createPlaylistTableView() {
@@ -56,21 +66,21 @@ class PlaylistViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      if tableView == tableViewPlaylistTop {
-        return 1
-      } else {
-        return selectedPlaylist.first?.songs?.count ?? 0
-      }
+        if tableView == tableViewPlaylistTop {
+            return 1
+        } else {
+            return selectedPlaylist.first?.songs?.count ?? 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      if tableView == tableViewPlaylistTop {
-        let cell = tableView.dequeueReusableCell(withIdentifier: PlaylistTopTableViewCell.identifier, for: indexPath) as! PlaylistTopTableViewCell
-        if let firstItem = selectedPlaylist.first {
-          cell.configureCover(data: firstItem) 
-        }
-        return cell
-      } else {
+        if tableView == tableViewPlaylistTop {
+            let cell = tableView.dequeueReusableCell(withIdentifier: PlaylistTopTableViewCell.identifier, for: indexPath) as! PlaylistTopTableViewCell
+            if let firstItem = selectedPlaylist.first {
+                cell.configureCover(data: firstItem)
+            }
+            return cell
+        } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: PlaylistTableViewCell.identifier, for: indexPath) as! PlaylistTableViewCell
             
             if let item  = selectedPlaylist.first?.songs?[indexPath.row] {
