@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleAspectFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ecj-jw-9G0">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <rect key="frame" x="16" y="59" width="361" height="759"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" role="primary" translatesAutoresizingMaskIntoConstraints="NO" id="gR0-SJ-ad1">
@@ -37,11 +37,11 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ecj-jw-9G0" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="2hC-Kb-XIX"/>
-                            <constraint firstItem="ecj-jw-9G0" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="4qc-3q-j9u"/>
+                            <constraint firstItem="ecj-jw-9G0" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="-16" id="2hC-Kb-XIX"/>
+                            <constraint firstItem="ecj-jw-9G0" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="59" id="4qc-3q-j9u"/>
                             <constraint firstItem="gR0-SJ-ad1" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="DgB-mj-fkQ"/>
-                            <constraint firstAttribute="bottom" secondItem="ecj-jw-9G0" secondAttribute="bottom" id="Ez7-xI-KCj"/>
-                            <constraint firstItem="ecj-jw-9G0" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="jZ8-3e-QsI"/>
+                            <constraint firstAttribute="bottom" secondItem="ecj-jw-9G0" secondAttribute="bottom" constant="34" id="Ez7-xI-KCj"/>
+                            <constraint firstItem="ecj-jw-9G0" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="jZ8-3e-QsI"/>
                             <constraint firstItem="gR0-SJ-ad1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="u8K-ax-5dw"/>
                         </constraints>
                     </view>

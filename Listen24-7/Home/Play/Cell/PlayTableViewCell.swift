@@ -34,14 +34,15 @@ class PlayTableViewCell: UITableViewCell {
         super.layoutSubviews()
         let screenSize = UIScreen.main.bounds.size
         let topMargin: CGFloat = 0.08 * screenSize.height
-        let sideMargin: CGFloat = 0.05 * screenSize.width
+        let sideMargin: CGFloat = 0.02 * screenSize.width
         
         let margins = UIEdgeInsets(top: topMargin, left: sideMargin, bottom: topMargin, right: sideMargin)
         contentView.frame = bounds.inset(by: margins)
     }
     
-    func configure(with data: PlaylistResponse?) {
-        guard let imageURLString = data?.image,
+    func configure(with data: PlaylistSongs?) {
+        guard let playlist = data?.playlists?.first,
+              let imageURLString = playlist.image,
               let imageURL = URL(string: imageURLString) else {
             imgSong.image = nil
             lblName.text = nil
@@ -51,7 +52,7 @@ class PlayTableViewCell: UITableViewCell {
             return
         }
         
-        lblTimeTotal.text = data?.songs?.first?.durationTime
+        lblTimeTotal.text = data?.durationTime
         lblTimeElapsed.text = "00:00"
         
         URLSession.shared.dataTask(with: imageURL) { [weak self] (data, response, error) in
@@ -65,4 +66,5 @@ class PlayTableViewCell: UITableViewCell {
             }
         }.resume()
     }
+
 }

@@ -15,7 +15,7 @@ class PlayViewController: UIViewController, UITableViewDelegate, UITableViewData
     static let identifier = "PlayViewController"
     
     var viewModel = PlaylistViewModel()
-    var selectedPlaylist: [PlaylistResponse]?
+    var selectedPlaylistSongs: [PlaylistSongs]?
     var selectedPlaylistId: Int?
     
     override func viewDidLoad() {
@@ -33,14 +33,15 @@ class PlayViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     
     private func loadData() {
-        guard let selectedPlaylistId = selectedPlaylistId else { return }
-        viewModel.fetchPlaylistData(selectedPlaylistId: String(selectedPlaylistId)) { [weak self] playlist in
-            if let playlistResponses = playlist {
-                self?.selectedPlaylist = playlistResponses
-                self?.tableViewPlay.reloadData()
+            guard let selectedPlaylistId = selectedPlaylistId else { return }
+            viewModel.fetchPlaylistData(selectedPlaylistId: String(selectedPlaylistId)) { [weak self] playlist in
+                if let playlistResponses = playlist {
+                    // Seçilen çalma listesi şarkılarını seçilenPlaylistSongs özelliğine atayın.
+                    self?.selectedPlaylistSongs = playlistResponses.first?.songs
+                    self?.tableViewPlay.reloadData()
+                }
             }
         }
-    }
     
     func createPlayTableView() {
         tableViewPlay.register(UINib(nibName: "PlayTableViewCell", bundle: nil), forCellReuseIdentifier: PlayTableViewCell.identifier)
@@ -56,20 +57,23 @@ class PlayViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableViewPlay.dequeueReusableCell(withIdentifier: PlayTableViewCell.identifier, for: indexPath) as! PlayTableViewCell
-        
-        /*if let item = selectedPlaylist?[indexPath.row] {
-            cell.configure(with: item)
-        }*/
-        
-        return cell
-    }
+            let cell = tableViewPlay.dequeueReusableCell(withIdentifier: PlayTableViewCell.identifier, for: indexPath) as! PlayTableViewCell
+            
+            if let songs = selectedPlaylistSongs {
+                // Düzgün şarkıları gönderin.
+                cell.configure(with: songs[indexPath.row])
+            }
+            
+            return cell
+        }
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let selectedSongId = selectedPlaylist?[indexPath.row].songs?.first?.id {
+        if let selectedSongId = selectedPlaylistSongs?[indexPath.row].id {
             postSelectedPlaylistId(selectedSongId)
         }
     }
+
     
     func postSelectedPlaylistId(_ selectedSongId: Int) {
         let playlistWebService = PlaylistWebservice()
