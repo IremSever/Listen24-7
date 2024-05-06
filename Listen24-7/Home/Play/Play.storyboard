@@ -11,27 +11,28 @@
         <!--Play View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="PlayViewController" id="Y6W-OH-hqX" customClass="PlayViewController" customModule="Listen24_7" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlayViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="PlayViewController" customModule="Listen24_7" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ecj-jw-9G0">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ecj-jw-9G0" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="23p-1h-fvH"/>
-                            <constraint firstItem="ecj-jw-9G0" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="UBf-bR-dx7"/>
-                            <constraint firstAttribute="bottom" secondItem="ecj-jw-9G0" secondAttribute="bottom" id="d4b-tW-KMp"/>
-                            <constraint firstItem="ecj-jw-9G0" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="qgy-vj-ne4"/>
+                            <constraint firstAttribute="bottom" secondItem="ecj-jw-9G0" secondAttribute="bottom" id="2H1-cT-A5b"/>
+                            <constraint firstItem="ecj-jw-9G0" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="KG5-U6-3Dm"/>
+                            <constraint firstItem="ecj-jw-9G0" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="bJg-wP-icc"/>
+                            <constraint firstItem="ecj-jw-9G0" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="eho-BV-8Wd"/>
+                            <constraint firstItem="ecj-jw-9G0" firstAttribute="trailing" secondItem="5EZ-qb-Rvc" secondAttribute="trailing" id="uVm-uH-otb"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="tableViewPlay" destination="ecj-jw-9G0" id="DkY-jH-vnL"/>
+                        <outlet property="tableViewPlay" destination="ecj-jw-9G0" id="QjI-UZ-z9F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -16,12 +16,6 @@
 		611D05082B9889B000C81150 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611D05072B9889B000C81150 /* HomeViewController.swift */; };
 		616332F22BD8E892002FAA77 /* Play.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 616332F12BD8E892002FAA77 /* Play.storyboard */; };
 		616332F52BD8E8BE002FAA77 /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616332F42BD8E8BE002FAA77 /* PlayViewController.swift */; };
-		616333052BD8EBA8002FAA77 /* MidTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616333032BD8EBA8002FAA77 /* MidTableViewCell.swift */; };
-		616333062BD8EBA8002FAA77 /* MidTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 616333042BD8EBA8002FAA77 /* MidTableViewCell.xib */; };
-		616333092BD8EBBE002FAA77 /* TopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616333072BD8EBBE002FAA77 /* TopTableViewCell.swift */; };
-		6163330A2BD8EBBE002FAA77 /* TopTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 616333082BD8EBBE002FAA77 /* TopTableViewCell.xib */; };
-		6163330F2BD8EBDE002FAA77 /* BottomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6163330D2BD8EBDE002FAA77 /* BottomTableViewCell.swift */; };
-		616333102BD8EBDE002FAA77 /* BottomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6163330E2BD8EBDE002FAA77 /* BottomTableViewCell.xib */; };
 		6163331B2BDA7693002FAA77 /* PlaylistTopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616333192BDA7693002FAA77 /* PlaylistTopTableViewCell.swift */; };
 		6163331C2BDA7693002FAA77 /* PlaylistTopTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6163331A2BDA7693002FAA77 /* PlaylistTopTableViewCell.xib */; };
 		6177A8C82BB2EE66000E6366 /* HeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6177A8C72BB2EE66000E6366 /* HeaderViewModel.swift */; };
@@ -78,12 +72,6 @@
 		611D05072B9889B000C81150 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		616332F12BD8E892002FAA77 /* Play.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Play.storyboard; sourceTree = "<group>"; };
 		616332F42BD8E8BE002FAA77 /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
-		616333032BD8EBA8002FAA77 /* MidTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidTableViewCell.swift; sourceTree = "<group>"; };
-		616333042BD8EBA8002FAA77 /* MidTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MidTableViewCell.xib; sourceTree = "<group>"; };
-		616333072BD8EBBE002FAA77 /* TopTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTableViewCell.swift; sourceTree = "<group>"; };
-		616333082BD8EBBE002FAA77 /* TopTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopTableViewCell.xib; sourceTree = "<group>"; };
-		6163330D2BD8EBDE002FAA77 /* BottomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTableViewCell.swift; sourceTree = "<group>"; };
-		6163330E2BD8EBDE002FAA77 /* BottomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomTableViewCell.xib; sourceTree = "<group>"; };
 		616333192BDA7693002FAA77 /* PlaylistTopTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistTopTableViewCell.swift; sourceTree = "<group>"; };
 		6163331A2BDA7693002FAA77 /* PlaylistTopTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaylistTopTableViewCell.xib; sourceTree = "<group>"; };
 		6177A8C72BB2EE66000E6366 /* HeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewModel.swift; sourceTree = "<group>"; };
@@ -179,46 +167,8 @@
 				617B801B2BDEE8E400D6EE14 /* Cell */,
 				616332F12BD8E892002FAA77 /* Play.storyboard */,
 				616332F42BD8E8BE002FAA77 /* PlayViewController.swift */,
-				616332FE2BD8EB43002FAA77 /* View */,
 			);
 			path = Play;
-			sourceTree = "<group>";
-		};
-		616332FE2BD8EB43002FAA77 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				616333112BD8EBE2002FAA77 /* Top */,
-				616333122BD8EBE9002FAA77 /* Mid */,
-				616333132BD8EBF1002FAA77 /* Bottom */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		616333112BD8EBE2002FAA77 /* Top */ = {
-			isa = PBXGroup;
-			children = (
-				616333072BD8EBBE002FAA77 /* TopTableViewCell.swift */,
-				616333082BD8EBBE002FAA77 /* TopTableViewCell.xib */,
-			);
-			path = Top;
-			sourceTree = "<group>";
-		};
-		616333122BD8EBE9002FAA77 /* Mid */ = {
-			isa = PBXGroup;
-			children = (
-				616333032BD8EBA8002FAA77 /* MidTableViewCell.swift */,
-				616333042BD8EBA8002FAA77 /* MidTableViewCell.xib */,
-			);
-			path = Mid;
-			sourceTree = "<group>";
-		};
-		616333132BD8EBF1002FAA77 /* Bottom */ = {
-			isa = PBXGroup;
-			children = (
-				6163330D2BD8EBDE002FAA77 /* BottomTableViewCell.swift */,
-				6163330E2BD8EBDE002FAA77 /* BottomTableViewCell.xib */,
-			);
-			path = Bottom;
 			sourceTree = "<group>";
 		};
 		616333142BDA761A002FAA77 /* Cells */ = {
@@ -617,14 +567,11 @@
 				668545A72B99EA8400399571 /* SuggestionTableViewCell.xib in Resources */,
 				6163331C2BDA7693002FAA77 /* PlaylistTopTableViewCell.xib in Resources */,
 				6623EACF2BAACA9E00644624 /* Playlist.storyboard in Resources */,
-				616333102BD8EBDE002FAA77 /* BottomTableViewCell.xib in Resources */,
 				61112BDF2B979AE500FA0008 /* Assets.xcassets in Resources */,
 				6685457F2B99A99000399571 /* HeadlineTableViewCell.xib in Resources */,
 				6685458B2B99A9CE00399571 /* SquareCollectionViewCell.xib in Resources */,
 				617B801A2BDEE8DC00D6EE14 /* PlayTableViewCell.xib in Resources */,
 				61112BDD2B979AE400FA0008 /* Main.storyboard in Resources */,
-				6163330A2BD8EBBE002FAA77 /* TopTableViewCell.xib in Resources */,
-				616333062BD8EBA8002FAA77 /* MidTableViewCell.xib in Resources */,
 				6623EAD62BAACAD700644624 /* PlaylistTableViewCell.xib in Resources */,
 				668545832B99A9A800399571 /* CircleCollectionViewCell.xib in Resources */,
 				668545A32B99EA6E00399571 /* LatestTableViewCell.xib in Resources */,
@@ -653,14 +600,11 @@
 				6685459A2B99EA3400399571 /* Top10CollectionViewCell.swift in Sources */,
 				6685459E2B99EA5400399571 /* Top10TableViewCell.swift in Sources */,
 				668545822B99A9A800399571 /* CircleCollectionViewCell.swift in Sources */,
-				6163330F2BD8EBDE002FAA77 /* BottomTableViewCell.swift in Sources */,
-				616333092BD8EBBE002FAA77 /* TopTableViewCell.swift in Sources */,
 				6623EAE32BAC699000644624 /* HeaderWebservice.swift in Sources */,
 				616332F52BD8E8BE002FAA77 /* PlayViewController.swift in Sources */,
 				6623EADE2BAC46B500644624 /* HeaderModel.swift in Sources */,
 				668545A22B99EA6E00399571 /* LatestTableViewCell.swift in Sources */,
 				61FF8A382BBD8A21003A0531 /* PlaylistViewModel.swift in Sources */,
-				616333052BD8EBA8002FAA77 /* MidTableViewCell.swift in Sources */,
 				611D05062B98844800C81150 /* AppModel.swift in Sources */,
 				6685457A2B99A97C00399571 /* CircleTableViewCell.swift in Sources */,
 				6685458A2B99A9CE00399571 /* SquareCollectionViewCell.swift in Sources */,

@@ -8,58 +8,61 @@
 import Foundation
 import UIKit
 class PlayViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-   
+    
+    
     @IBOutlet weak var tableViewPlay: UITableView!
     
     static let identifier = "PlayViewController"
     
     var viewModel = PlaylistViewModel()
-    var selectedPlaylist: PlaylistDetail?
+    var selectedPlaylist: [PlaylistResponse]?
     var selectedPlaylistId: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        createPlayTableView()
         loadData()
         tableViewPlay.separatorStyle = .none
+        tableViewPlay.showsVerticalScrollIndicator = false
     }
     
     private func loadData() {
         guard let selectedPlaylistId = selectedPlaylistId else { return }
         viewModel.fetchPlaylistData(selectedPlaylistId: String(selectedPlaylistId)) { [weak self] playlist in
             if let playlistResponses = playlist {
-                self?.selectedPlaylist = PlaylistDetail(pageInfo: nil, response: playlistResponses, status: nil)
-                self?.tableViewPlay.reloadData()
+                self?.selectedPlaylist = playlistResponses
                 self?.tableViewPlay.reloadData()
             }
         }
     }
     
-    
+    func createPlayTableView() {
+        tableViewPlay.register(UINib(nibName: "PlayTableViewCell", bundle: nil), forCellReuseIdentifier: PlayTableViewCell.identifier)
+        tableViewPlay.backgroundColor = .clear
+        tableViewPlay.isScrollEnabled = false
+        tableViewPlay.delegate = self
+        tableViewPlay.dataSource = self
+        tableViewPlay.showsHorizontalScrollIndicator = false
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return selectedPlaylist?.response?.count ?? 0
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if tableView == tableViewPlay {
-            let cell = tableViewPlay.dequeueReusableCell(withIdentifier: PlaylistTableViewCell.identifier, for: indexPath) as! PlaylistTableViewCell
-            
-            if let song = selectedPlaylist?.response?[indexPath.row].songs?.first {
-                cell.configure(with: song)
-            }
-            return cell
-        } else if tableView == tableViewPlay {
-            let cell = tableView.dequeueReusableCell(withIdentifier: PlaylistTopTableViewCell.identifier, for: indexPath) as! PlaylistTopTableViewCell
-            cell.configureCover(data: selectedPlaylist?.response?[indexPath.row])
-            return cell
+        let cell = tableViewPlay.dequeueReusableCell(withIdentifier: PlayTableViewCell.identifier, for: indexPath) as! PlayTableViewCell
+        
+        if let item = selectedPlaylist?[indexPath.row] {
+            cell.configure(with: item)
         }
-        return UITableViewCell()
+        
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let selectedSongId = selectedPlaylist?.response?[indexPath.row].id else { return }
-        postSelectedPlaylistId(selectedSongId)
+        if let selectedSongId = selectedPlaylist?[indexPath.row].songs?.first?.id {
+            postSelectedPlaylistId(selectedSongId)
+        }
     }
     
     func postSelectedPlaylistId(_ selectedSongId: Int) {
