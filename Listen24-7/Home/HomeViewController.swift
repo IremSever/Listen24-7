@@ -52,8 +52,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 }
 
-extension HomeViewController: squareCellProtocol {
-  
+extension HomeViewController: squareCellProtocol, headlineCellProtocol {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -156,6 +155,16 @@ extension HomeViewController: squareCellProtocol {
             vc.selectedPlaylistId = id
             self.navigationController?.pushViewController(vc, animated: true)
         }
+    }
+    
+    func didSelectedHeadline(with id: String) {
+        
+        let storyboard = UIStoryboard(name: "Playlist", bundle: nil)
+        if let vc = storyboard.instantiateViewController(withIdentifier: "PlaylistViewController") as? PlaylistViewController {
+            vc.selectedPlaylistId = Int(id)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+  
     }
     
 }

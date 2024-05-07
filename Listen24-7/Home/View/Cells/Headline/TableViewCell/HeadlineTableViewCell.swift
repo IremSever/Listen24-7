@@ -7,12 +7,18 @@
 
 import UIKit
 
+protocol headlineCellProtocol {
+    func didSelectedHeadline(with id: String)
+}
+
 class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate  {
     @IBOutlet weak var collectionViewHeadline: UICollectionView!
     static let identifier = "HeadlineTableViewCell"
     var dataArray: [News] = []
     var selectedIndex = 0
     var selectedPlaylistId: Int?
+    
+    var delegate: headlineCellProtocol?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -69,26 +75,10 @@ class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
         guard let selectedPlaylistId = dataArray.first?.response?[indexPath.row].id else {
             return
         }
-        self.selectedPlaylistId = Int(selectedPlaylistId)
-        postSelectedPlaylistId()
-        let viewController = UIStoryboard(name: "Playlist", bundle: nil).instantiateViewController(withIdentifier: "PlaylistViewController") as! PlaylistViewController
-        viewController.selectedPlaylistId = Int(selectedPlaylistId)
-        
-        if let tabBarController = self.window?.rootViewController as? UITabBarController {
-            if let selectedViewController = tabBarController.selectedViewController {
-                if let navigationController = selectedViewController as? UINavigationController {
-                    navigationController.pushViewController(viewController, animated: true)
-                } else {
-                    selectedViewController.present(viewController, animated: true, completion: nil)
-                }
-            }
-        } else if let navigationController = self.window?.rootViewController as? UINavigationController {
-            navigationController.pushViewController(viewController, animated: true)
-        } else {
-            print("Error: Did not find available view controller")
-        }
+        self.delegate?.didSelectedHeadline(with: selectedPlaylistId)
+        return
     }
-    
+
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let screenWidth = UIScreen.main.bounds.width
         let itemWidth = screenWidth - 100
@@ -97,19 +87,4 @@ class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
         selectedIndex = currentIndex
     }
     
-    func postSelectedPlaylistId() {
-        guard let selectedPlaylistId = selectedPlaylistId else {
-            return
-        }
-        
-        let playlistWebService = PlaylistWebservice()
-        playlistWebService.postPlaylistData(playlistId: String(selectedPlaylistId)) { result in
-            switch result {
-            case .success(let playlistModel):
-                print("Playlist post is success: \(playlistModel)") //\(playlistModel)
-            case .failure(let error):
-                print("Playlist post is failed: \(error)")
-            }
-        }
-    }
 }

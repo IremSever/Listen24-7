@@ -26,16 +26,19 @@ class PlayViewController: UIViewController, UITableViewDelegate, UITableViewData
         createPlayTableView()
         tableViewPlay.separatorStyle = .none
         tableViewPlay.showsVerticalScrollIndicator = false
+        
         buttonBack.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         
         print("items:: ", selectedIndex , listForPlayer)
     }
     
+    
+    
     @objc func backButtonTapped() {
-        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
-
-     
+    
+    
     
     func createPlayTableView() {
         tableViewPlay.register(UINib(nibName: "PlayTableViewCell", bundle: nil), forCellReuseIdentifier: PlayTableViewCell.identifier)
@@ -51,13 +54,13 @@ class PlayViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableViewPlay.dequeueReusableCell(withIdentifier: PlayTableViewCell.identifier, for: indexPath) as! PlayTableViewCell
-            
-            if let songs = selectedPlaylistSongs {
-               // cell.configure(with: songs[indexPath.row])
-            }
-            return cell
+        let cell = tableViewPlay.dequeueReusableCell(withIdentifier: PlayTableViewCell.identifier, for: indexPath) as! PlayTableViewCell
+        
+        if let songs = selectedPlaylistSongs {
+            // cell.configure(with: songs[indexPath.row])
         }
+        return cell
+    }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -65,7 +68,7 @@ class PlayViewController: UIViewController, UITableViewDelegate, UITableViewData
             postSelectedPlaylistId(selectedSongId)
         }
     }
-
+    
     
     func postSelectedPlaylistId(_ selectedSongId: Int) {
         let playlistWebService = PlaylistWebservice()

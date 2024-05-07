@@ -35,6 +35,7 @@ class PlaylistViewController: UIViewController, UITableViewDelegate, UITableView
     @objc func backButtonTapped() {
         navigationController?.popViewController(animated: true)
     }
+    
     private func loadData() {
         guard let selectedPlaylistId = selectedPlaylistId else { return }
         viewModel.fetchPlaylistData(selectedPlaylistId: String(selectedPlaylistId)) { [weak self] playlist in
@@ -45,8 +46,6 @@ class PlaylistViewController: UIViewController, UITableViewDelegate, UITableView
             }
         }
     }
-    
-    
     
     func createPlaylistTableView() {
         // Top

@@ -54,50 +54,12 @@ class SquareTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollec
         return cell
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let selectedPlaylistId = dataArray.first?.playlists?[indexPath.row].id else {
             return
         }
         self.delegate?.didSelectedSquare(with: selectedPlaylistId)
-        
         return
-        
-        self.selectedPlaylistId = selectedPlaylistId
-        postSelectedPlaylistId()
-        let viewController = UIStoryboard(name: "Playlist", bundle: nil).instantiateViewController(withIdentifier: "PlaylistViewController") as! PlaylistViewController
-        viewController.selectedPlaylistId = selectedPlaylistId
-        
-        if let tabBarController = self.window?.rootViewController as? UITabBarController {
-            if let selectedViewController = tabBarController.selectedViewController {
-                if let navigationController = selectedViewController as? UINavigationController {
-                    navigationController.pushViewController(viewController, animated: true)
-                } else {
-                    selectedViewController.present(viewController, animated: true, completion: nil)
-                }
-            }
-        } else if let navigationController = self.window?.rootViewController as? UINavigationController {
-            navigationController.pushViewController(viewController, animated: true)
-        } else {
-            print("Error: Did not find available view controller")
-        }
-    }
-    
-    
-    func postSelectedPlaylistId() {
-        guard let selectedPlaylistId = selectedPlaylistId else {
-            return
-        }
-        
-        let playlistWebService = PlaylistWebservice()
-        playlistWebService.postPlaylistData(playlistId: String(selectedPlaylistId)) { result in
-            switch result {
-            case .success(let playlistModel):
-                print("Playlist post is success: ") //\(playlistModel)
-            case .failure(let error):
-                print("Playlist post is failed: \(error)")
-            }
-        }
     }
 }
 
