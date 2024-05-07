@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,19 +19,10 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coldplay.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ONl-EH-r2U">
                                 <rect key="frame" x="8" y="59" width="377" height="475"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" role="primary" translatesAutoresizingMaskIntoConstraints="NO" id="gR0-SJ-ad1">
-                                <rect key="frame" x="16" y="79" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="hJy-oa-syI"/>
-                                    <constraint firstAttribute="width" constant="40" id="iUc-JU-a3i"/>
-                                </constraints>
-                                <color key="tintColor" red="0.92941176889999999" green="0.70899460339999998" blue="0.46747720599999998" alpha="0.79801324500000004" colorSpace="custom" customColorSpace="displayP3"/>
-                                <size key="titleShadowOffset" width="50" height="0.0"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" image="chevron.down.circle.fill" catalog="system" title="">
-                                    <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
-                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rsv-lb-RBx">
+                                <rect key="frame" x="8" y="59" width="377" height="475"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.29822019867549671" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hg4-ob-h3g" userLabel="LblStackView">
                                 <rect key="frame" x="16" y="542" width="361" height="40.666666666666629"/>
                                 <subviews>
@@ -99,6 +90,19 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" role="primary" translatesAutoresizingMaskIntoConstraints="NO" id="gR0-SJ-ad1">
+                                <rect key="frame" x="16" y="79" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="hJy-oa-syI"/>
+                                    <constraint firstAttribute="width" constant="40" id="iUc-JU-a3i"/>
+                                </constraints>
+                                <color key="tintColor" red="0.92941176889999999" green="0.70899460339999998" blue="0.46747720599999998" alpha="0.89872206122516551" colorSpace="custom" customColorSpace="displayP3"/>
+                                <size key="titleShadowOffset" width="50" height="0.0"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" image="chevron.down.circle.fill" catalog="system" title="">
+                                    <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -112,15 +116,19 @@
                             <constraint firstItem="wga-6O-GeK" firstAttribute="top" secondItem="7l6-qJ-2la" secondAttribute="bottom" constant="8" id="Iez-L5-9UJ"/>
                             <constraint firstItem="7l6-qJ-2la" firstAttribute="top" secondItem="hg4-ob-h3g" secondAttribute="bottom" constant="24" id="MHK-Le-XJw"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="7l6-qJ-2la" secondAttribute="trailing" constant="16" id="Ocn-bO-dAC"/>
+                            <constraint firstItem="rsv-lb-RBx" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="PIA-ph-EOE"/>
                             <constraint firstAttribute="bottom" secondItem="ONl-EH-r2U" secondAttribute="bottom" constant="318" id="PYw-n4-B4r"/>
+                            <constraint firstItem="rsv-lb-RBx" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="Pih-I7-mmm"/>
                             <constraint firstItem="wga-6O-GeK" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="SPa-EK-Rcm"/>
                             <constraint firstItem="7hz-e3-5gC" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Si4-9Q-zQ4"/>
+                            <constraint firstAttribute="bottom" secondItem="rsv-lb-RBx" secondAttribute="bottom" constant="318" id="Vuk-wi-92I"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ONl-EH-r2U" secondAttribute="trailing" constant="8" id="YDD-Y7-sIZ"/>
                             <constraint firstItem="ONl-EH-r2U" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="aXz-na-f0H"/>
                             <constraint firstItem="hg4-ob-h3g" firstAttribute="top" secondItem="ONl-EH-r2U" secondAttribute="bottom" constant="8" id="b1X-yc-lcr"/>
                             <constraint firstItem="7l6-qJ-2la" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="egv-Yv-hQc"/>
                             <constraint firstItem="wga-6O-GeK" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="hnV-Xn-M9T"/>
                             <constraint firstItem="7l6-qJ-2la" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="iPb-qZ-a5K"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="rsv-lb-RBx" secondAttribute="trailing" constant="8" id="pdc-A4-TCG"/>
                             <constraint firstItem="ONl-EH-r2U" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="sab-EB-ruA"/>
                             <constraint firstItem="hg4-ob-h3g" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="sxY-Zi-yLK"/>
                             <constraint firstItem="gR0-SJ-ad1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="u8K-ax-5dw"/>
@@ -129,9 +137,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="buttonBack" destination="gR0-SJ-ad1" id="pel-b7-0tm"/>
                         <outlet property="buttonBackward" destination="GyO-Uz-6pR" id="urJ-gn-QdW"/>
                         <outlet property="buttonForward" destination="tba-8i-4cz" id="SwR-Ey-pev"/>
                         <outlet property="buttonPlay" destination="ryW-MY-zlf" id="hfp-SZ-TCO"/>
+                        <outlet property="imgBlack" destination="rsv-lb-RBx" id="9HM-M9-BTS"/>
                         <outlet property="imgSong" destination="ONl-EH-r2U" id="Wsv-lw-iIs"/>
                         <outlet property="lblArtist" destination="m35-Nb-sUK" id="0Id-hP-hIP"/>
                         <outlet property="lblName" destination="tma-Pz-Hs3" id="yBQ-tp-ZgZ"/>
