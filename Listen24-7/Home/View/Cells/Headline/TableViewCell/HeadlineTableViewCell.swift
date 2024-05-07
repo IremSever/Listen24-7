@@ -14,7 +14,11 @@ protocol headlineCellProtocol {
 class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate  {
     @IBOutlet weak var collectionViewHeadline: UICollectionView!
     static let identifier = "HeadlineTableViewCell"
-    var dataArray: [News] = []
+    var dataArray: [News] = [] {
+        didSet {
+            collectionViewHeadline.reloadData()
+        }
+    }
     var selectedIndex = 0
     var selectedPlaylistId: Int?
     
@@ -58,7 +62,7 @@ class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HeadlineCollectionViewCell.identifier, for: indexPath) as! HeadlineCollectionViewCell
-        let dataIndex = indexPath.row % (dataArray.first?.response?.count ?? 1)
+        let dataIndex = indexPath.item % (dataArray.first?.response?.count ?? 1)
         if let item = dataArray.first?.response?[dataIndex] {
             cell.configure(with: item)
             
@@ -71,14 +75,6 @@ class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let selectedPlaylistId = dataArray.first?.response?[indexPath.row].id else {
-            return
-        }
-        self.delegate?.didSelectedHeadline(with: selectedPlaylistId)
-        return
-    }
-
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let screenWidth = UIScreen.main.bounds.width
         let itemWidth = screenWidth - 100
@@ -86,5 +82,4 @@ class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
         let currentIndex = Int(collectionViewHeadline.contentOffset.x / itemWidth) % itemCount
         selectedIndex = currentIndex
     }
-    
 }
