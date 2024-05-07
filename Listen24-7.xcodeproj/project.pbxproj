@@ -167,6 +167,7 @@
 				617B801B2BDEE8E400D6EE14 /* Cell */,
 				616332F42BD8E8BE002FAA77 /* PlayViewController.swift */,
 				616332F12BD8E892002FAA77 /* Play.storyboard */,
+				6623EACD2BAACA7700644624 /* Playlist */,
 			);
 			path = Play;
 			sourceTree = "<group>";
@@ -216,7 +217,6 @@
 				6623EAD92BAC442F00644624 /* View */,
 				611D05072B9889B000C81150 /* HomeViewController.swift */,
 				616332F02BD8E84B002FAA77 /* Play */,
-				6623EACD2BAACA7700644624 /* Playlist */,
 			);
 			path = Home;
 			sourceTree = "<group>";
