@@ -30,6 +30,7 @@ class PlayViewController: UIViewController, UITableViewDelegate, UITableViewData
         buttonBack.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         
         print("items:: ", selectedIndex , listForPlayer)
+        print("mp3 url: ", listForPlayer.first?.songs?[selectedIndex ?? 0].mp3URL)
     }
     
     
