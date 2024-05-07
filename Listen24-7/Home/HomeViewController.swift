@@ -52,7 +52,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 }
 
-extension HomeViewController: squareCellProtocol, headlineCellProtocol {
+extension HomeViewController: squareCellProtocol, headlineCellProtocol, circleCellProtocol {
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -69,6 +70,7 @@ extension HomeViewController: squareCellProtocol, headlineCellProtocol {
         if indexPath.section == 0 {
             let dataHeader = viewModelHeader.header
             let cell = tableViewHome.dequeueReusableCell(withIdentifier: "HeadlineTableViewCell", for: indexPath) as! HeadlineTableViewCell
+            cell.delegate = self
             cell.updateDataArray(with: [News(response: dataHeader, status: true)])
             return cell
         } else {
@@ -83,6 +85,7 @@ extension HomeViewController: squareCellProtocol, headlineCellProtocol {
             case "RADIO":
                 let cell = tableView.dequeueReusableCell(withIdentifier: CircleTableViewCell.identifier, for: indexPath) as! CircleTableViewCell
                 cell.updateDataArray(with: dataHome)
+                cell.delegate = self
                 addTitle(to: cell, title: viewModel.home[indexPath.row].name ?? "Default Title")
                 return cell
             case "LASTSONGS":
@@ -158,13 +161,19 @@ extension HomeViewController: squareCellProtocol, headlineCellProtocol {
     }
     
     func didSelectedHeadline(with id: String) {
-        
         let storyboard = UIStoryboard(name: "Playlist", bundle: nil)
         if let vc = storyboard.instantiateViewController(withIdentifier: "PlaylistViewController") as? PlaylistViewController {
             vc.selectedPlaylistId = Int(id)
             self.navigationController?.pushViewController(vc, animated: true)
         }
-  
+        
     }
     
+    func didSelectedCircle(with id: Int) {
+        let storyboard = UIStoryboard(name: "Play", bundle: nil)
+        if let vc = storyboard.instantiateViewController(withIdentifier: "PlayViewController") as? PlayViewController {
+            vc.selectedPlaylistId = id
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 }

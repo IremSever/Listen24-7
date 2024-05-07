@@ -75,6 +75,13 @@ class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let selectedPlaylistId = dataArray.first?.response?[indexPath.row].id else {
+            return
+        }
+        delegate?.didSelectedHeadline(with: selectedPlaylistId)
+    }
+    
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let screenWidth = UIScreen.main.bounds.width
         let itemWidth = screenWidth - 100
@@ -83,3 +90,4 @@ class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
         selectedIndex = currentIndex
     }
 }
+
