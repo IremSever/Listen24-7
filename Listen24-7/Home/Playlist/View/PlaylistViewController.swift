@@ -92,23 +92,15 @@ class PlaylistViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let selectedSongId = selectedPlaylist[indexPath.row].id else { return }
-        postSelectedPlaylistId(selectedSongId)
-    }
-    
-    func postSelectedPlaylistId(_ selectedSongId: Int) {
-        let playlistWebService = PlaylistWebservice()
-        playlistWebService.postPlaylistData(playlistId: String(selectedSongId)) { result in
-            switch result {
-            case .success(let playlistModel):
-                print("Playlist post is success: \(playlistModel)")
-            case .failure(let error):
-                print("Playlist post is failed: \(error)")
+        if tableView == tableViewPlaylist {
+            let indexRow =  indexPath.row
+            
+            let storyboard = UIStoryboard(name: "Play", bundle: nil)
+            if let vc = storyboard.instantiateViewController(withIdentifier: "PlayViewController") as? PlayViewController {
+                vc.selectedIndex = indexRow
+                vc.listForPlayer = selectedPlaylist
+                self.navigationController?.pushViewController(vc, animated: true)
             }
         }
-    }
-    
-    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-        return false
     }
 }

@@ -18,29 +18,24 @@ class PlayViewController: UIViewController, UITableViewDelegate, UITableViewData
     var selectedPlaylistSongs: [PlaylistSongs]?
     var selectedPlaylistId: Int?
     
+    var listForPlayer: [PlaylistResponse] = []
+    var selectedIndex: Int? = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         createPlayTableView()
-        loadData()
         tableViewPlay.separatorStyle = .none
         tableViewPlay.showsVerticalScrollIndicator = false
         buttonBack.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        
+        print("items:: ", selectedIndex , listForPlayer)
     }
     
     @objc func backButtonTapped() {
         dismiss(animated: true, completion: nil)
     }
 
-    
-    private func loadData() {
-            guard let selectedPlaylistId = selectedPlaylistId else { return }
-            viewModel.fetchPlaylistData(selectedPlaylistId: String(selectedPlaylistId)) { [weak self] playlist in
-                if let playlistResponses = playlist {
-                    self?.selectedPlaylistSongs = playlistResponses.first?.songs
-                    self?.tableViewPlay.reloadData()
-                }
-            }
-        }
+     
     
     func createPlayTableView() {
         tableViewPlay.register(UINib(nibName: "PlayTableViewCell", bundle: nil), forCellReuseIdentifier: PlayTableViewCell.identifier)
@@ -59,7 +54,7 @@ class PlayViewController: UIViewController, UITableViewDelegate, UITableViewData
             let cell = tableViewPlay.dequeueReusableCell(withIdentifier: PlayTableViewCell.identifier, for: indexPath) as! PlayTableViewCell
             
             if let songs = selectedPlaylistSongs {
-                cell.configure(with: songs[indexPath.row])
+               // cell.configure(with: songs[indexPath.row])
             }
             return cell
         }

@@ -52,7 +52,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 }
 
-extension HomeViewController {
+extension HomeViewController: squareCellProtocol {
+  
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -77,6 +78,7 @@ extension HomeViewController {
             case "SLIDER", "STANDARD":
                 let cell = tableView.dequeueReusableCell(withIdentifier: SquareTableViewCell.identifier, for: indexPath) as! SquareTableViewCell
                 cell.updateDataArray(with: dataHome)
+                cell.delegate = self
                 addTitle(to: cell, title: viewModel.home[indexPath.row].name ?? "Default Title")
                 return cell
             case "RADIO":
@@ -146,4 +148,14 @@ extension HomeViewController {
     func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
         return false
     }
+    
+    
+    func didSelectedSquare(with id: Int) {
+        let storyboard = UIStoryboard(name: "Playlist", bundle: nil)
+        if let vc = storyboard.instantiateViewController(withIdentifier: "PlaylistViewController") as? PlaylistViewController {
+            vc.selectedPlaylistId = id
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
 }

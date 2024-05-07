@@ -6,12 +6,18 @@
 //
 
 import UIKit
+protocol squareCellProtocol {
+    func didSelectedSquare(with id: Int)
+}
 
 class SquareTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
     static let identifier = "SquareTableViewCell"
     @IBOutlet weak var collectionViewSquare: UICollectionView!
     var dataArray: [Response] = []
     var selectedPlaylistId: Int?
+    
+    var delegate: squareCellProtocol?
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -53,6 +59,10 @@ class SquareTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollec
         guard let selectedPlaylistId = dataArray.first?.playlists?[indexPath.row].id else {
             return
         }
+        self.delegate?.didSelectedSquare(with: selectedPlaylistId)
+        
+        return
+        
         self.selectedPlaylistId = selectedPlaylistId
         postSelectedPlaylistId()
         let viewController = UIStoryboard(name: "Playlist", bundle: nil).instantiateViewController(withIdentifier: "PlaylistViewController") as! PlaylistViewController

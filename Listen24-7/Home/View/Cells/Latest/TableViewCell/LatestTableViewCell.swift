@@ -49,6 +49,11 @@ class LatestTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollec
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let ID = selectedPlaylistId
+        
+        //
+        
+        
         guard let selectedPlaylistId = dataArray.first?.songs?[indexPath.row].id else {
             return
         }
