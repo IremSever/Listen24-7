@@ -7,6 +7,8 @@
 
 import Foundation
 import UIKit
+import AVFoundation
+
 class PlayViewController: UIViewController {
     
     static let identifier = "PlayViewController"
@@ -30,23 +32,79 @@ class PlayViewController: UIViewController {
     var listForPlayer: [PlaylistResponse] = []
     var selectedIndex: Int? = 0
     
+    var player: AVPlayer?
+    var isMusicPaused = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         buttonBack?.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         if let selectedIndex = selectedIndex, let selectedSong = listForPlayer.first?.songs?[selectedIndex] {
             configure(with: selectedSong)
-            
+            styleController()
+            prepareSong()
             
         }
         print("items: ", selectedIndex , listForPlayer)
         print("mp3 url: ", listForPlayer.first?.songs?[selectedIndex ?? 0].mp3URL)
         
-        styleController()
+        
     }
     
     @objc func backButtonTapped() {
         navigationController?.popViewController(animated: true)
     }
+    
+    //music buttons
+    @IBAction func buttonBackwardTapped(_ sender: UIButton) {
+        if selectedIndex == nil {
+            selectedIndex = 0
+        }
+        
+        var newIndex = selectedIndex! - 1
+        
+        if newIndex < 0 {
+            newIndex = (listForPlayer.first?.songs?.count ?? 1) - 1
+        }
+        
+        if let selectedSong = listForPlayer.first?.songs?[newIndex] {
+            selectedIndex = newIndex
+            configure(with: selectedSong)
+            prepareSong()
+            player?.play()
+        }
+    }
+    
+    @IBAction func buttonPlayTapped(_ sender: UIButton) {
+        guard let player = player else {
+            return
+        }
+        
+        sender.setImage(UIImage(named: "play"), for: .normal)
+        player.play()
+        isMusicPaused = false
+        
+    }
+    
+    @IBAction func buttonForwardTapped(_ sender: UIButton) {
+        if selectedIndex == nil {
+            selectedIndex = 0
+        }
+        
+        var newIndex = selectedIndex! + 1
+        
+        if newIndex >= (listForPlayer.first?.songs?.count ?? 1) {
+            newIndex = 0
+        }
+        
+        if let selectedSong = listForPlayer.first?.songs?[newIndex] {
+            selectedIndex = newIndex
+            configure(with: selectedSong)
+            prepareSong()
+            player?.play()
+        }
+    }
+    
     
     func configure(with data: PlaylistSongs) {
         guard let imageURLString = data.playlists?.first?.image,
@@ -92,8 +150,19 @@ class PlayViewController: UIViewController {
         imgSong.layer.cornerRadius = 20
         imgBlack.layer.cornerRadius = 20
     }
+    
+    func prepareSong() {
+        guard let selectedIndex = selectedIndex,
+              let selectedSong = listForPlayer.first?.songs?[selectedIndex],
+              let mp3URLString = selectedSong.mp3URL,
+              let mp3URL = URL(string: mp3URLString) else {
+            
+            print("Error preparing song")
+            return
+        }
+        
+        player = AVPlayer(url: mp3URL)
+    }
 }
-
-
 
 

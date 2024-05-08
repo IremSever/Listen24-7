@@ -66,27 +66,36 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="7hz-e3-5gC">
                                 <rect key="frame" x="85" y="691.66666666666663" width="223" height="64"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GyO-Uz-6pR">
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GyO-Uz-6pR" userLabel="ButtonBackward">
                                         <rect key="frame" x="0.0" y="0.0" width="74.333333333333329" height="64"/>
                                         <color key="tintColor" red="0.51548957819999996" green="0.27515798809999997" blue="0.67848694320000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="gray" image="previous (1)" title="">
                                             <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="buttonBackwardTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Ywj-C3-eeN"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ryW-MY-zlf">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ryW-MY-zlf" userLabel="ButtonPlay">
                                         <rect key="frame" x="74.333333333333343" y="0.0" width="74.333333333333343" height="64"/>
                                         <color key="tintColor" red="0.51548957819999996" green="0.27515798809999997" blue="0.67848694320000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="gray" image="play (1)" title="">
                                             <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="buttonPlayTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="nYG-5v-H4V"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tba-8i-4cz">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tba-8i-4cz" userLabel="ButtonForward">
                                         <rect key="frame" x="148.66666666666666" y="0.0" width="74.333333333333343" height="64"/>
                                         <color key="tintColor" red="0.51548957819999996" green="0.27515798809999997" blue="0.67848694320000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="next (1)" title=""/>
+                                        <connections>
+                                            <action selector="buttonForwardTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="y6v-p6-jxv"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -138,9 +147,6 @@
                     </view>
                     <connections>
                         <outlet property="buttonBack" destination="gR0-SJ-ad1" id="pel-b7-0tm"/>
-                        <outlet property="buttonBackward" destination="GyO-Uz-6pR" id="urJ-gn-QdW"/>
-                        <outlet property="buttonForward" destination="tba-8i-4cz" id="SwR-Ey-pev"/>
-                        <outlet property="buttonPlay" destination="ryW-MY-zlf" id="hfp-SZ-TCO"/>
                         <outlet property="imgBlack" destination="rsv-lb-RBx" id="9HM-M9-BTS"/>
                         <outlet property="imgSong" destination="ONl-EH-r2U" id="Wsv-lw-iIs"/>
                         <outlet property="lblArtist" destination="m35-Nb-sUK" id="0Id-hP-hIP"/>
