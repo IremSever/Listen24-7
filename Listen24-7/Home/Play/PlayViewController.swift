@@ -45,10 +45,10 @@ class PlayViewController: UIViewController {
             prepareSong()
             
         }
-        print("items: ", selectedIndex , listForPlayer)
-        print("mp3 url: ", listForPlayer.first?.songs?[selectedIndex ?? 0].mp3URL)
         
-        
+        player?.play()
+        //print("items: ", selectedIndex , listForPlayer)
+        //print("mp3 url: ", listForPlayer.first?.songs?[selectedIndex ?? 0].mp3URL)
     }
     
     @objc func backButtonTapped() {
@@ -77,14 +77,19 @@ class PlayViewController: UIViewController {
     
     @IBAction func buttonPlayTapped(_ sender: UIButton) {
         guard let player = player else {
-            return
+                return
+            }
+            
+            if player.timeControlStatus == .playing {
+                sender.setImage(UIImage(named: "play"), for: .normal)
+                player.pause()
+                isMusicPaused = true
+            } else {
+                sender.setImage(UIImage(named: "pause"), for: .normal)
+                player.play()
+                isMusicPaused = false
+            }
         }
-        
-        sender.setImage(UIImage(named: "play"), for: .normal)
-        player.play()
-        isMusicPaused = false
-        
-    }
     
     @IBAction func buttonForwardTapped(_ sender: UIButton) {
         if selectedIndex == nil {
