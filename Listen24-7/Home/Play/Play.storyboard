@@ -40,10 +40,13 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" toolTip="z" minValue="0.0" maxValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="7l6-qJ-2la">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" toolTip="z" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="7l6-qJ-2la">
                                 <rect key="frame" x="14" y="606.66666666666663" width="365" height="31"/>
                                 <color key="minimumTrackTintColor" systemColor="systemPurpleColor"/>
                                 <color key="thumbTintColor" red="0.63921570780000003" green="0.34117650989999998" blue="0.84313726430000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="Y6W-OH-hqX" eventType="valueChanged" id="3kl-eG-GRT"/>
+                                </connections>
                             </slider>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="wga-6O-GeK">
                                 <rect key="frame" x="16" y="644.66666666666663" width="361" height="12"/>

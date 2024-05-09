@@ -12,6 +12,7 @@ protocol headlineCellProtocol {
 }
 
 class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate  {
+    @IBOutlet weak var pageControlHeadline: UIPageControl!
     @IBOutlet weak var collectionViewHeadline: UICollectionView!
     static let identifier = "HeadlineTableViewCell"
     var dataArray: [News] = [] {

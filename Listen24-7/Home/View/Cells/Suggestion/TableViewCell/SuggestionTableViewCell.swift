@@ -6,13 +6,19 @@
 //
 
 import UIKit
+protocol suggestionCellProtocol {
+    func didSelectedSuggestion(with id: Int)
+}
+
 
 class SuggestionTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
+   
     static let identifier = "SuggestionTableViewCell"
     
     @IBOutlet weak var collectionViewSuggestion: UICollectionView!
     
     var dataArray: [Response] = []
+    var delegate: suggestionCellProtocol?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -48,5 +54,15 @@ class SuggestionTableViewCell: UITableViewCell, UICollectionViewDataSource, UICo
         }
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let selectedPlaylistId = dataArray.first?.playlists?[indexPath.row].id else {
+            return
+        }
+        self.delegate?.didSelectedSuggestion(with: selectedPlaylistId)
+        return
+    }
+
+    
 }
 

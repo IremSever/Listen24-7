@@ -45,6 +45,9 @@ class PlayViewController: UIViewController {
             prepareSong()
             
         }
+        
+        sliderSong.addTarget(self, action: #selector(sliderValueChanged), for: .valueChanged)
+        
         sliderSong?.isContinuous = true
         player?.play()
         //print("items: ", selectedIndex , listForPlayer)
@@ -52,6 +55,7 @@ class PlayViewController: UIViewController {
         
         addTimeObserver()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying), name: .AVPlayerItemDidPlayToEndTime, object: nil)
     }
     
     
@@ -116,6 +120,18 @@ class PlayViewController: UIViewController {
         }
     }
     
+    @IBAction func sliderValueChanged(_ sender: UISlider) {
+        guard let player = player else { return }
+        
+        if player.status == .readyToPlay {
+            let newValue = sender.value
+            let duration = player.currentItem?.duration.seconds ?? 0
+            let newTime = CMTime(seconds: duration * Double(newValue), preferredTimescale: 1)
+            
+            player.seek(to: newTime)
+            player.play()
+        }
+    }
     
     func configure(with data: PlaylistSongs) {
         guard let imageURLString = data.playlists?.first?.image,
@@ -202,4 +218,24 @@ class PlayViewController: UIViewController {
         sliderSong.value = 0
         addTimeObserver()
     }
+    
+    @objc func playerDidFinishPlaying(note: NSNotification) {
+        var selectedIndex: Int? = 0
+        
+        var newIndex = (selectedIndex ?? 0) + 1
+        
+        if newIndex >= (listForPlayer.first?.songs?.count ?? 1) {
+            newIndex = 0
+        }
+        
+        if let selectedSong = listForPlayer.first?.songs?[newIndex] {
+            selectedIndex = newIndex
+            configure(with: selectedSong)
+            prepareSong()
+            player?.play()
+            resetElapsedTimeAndSlider()
+        }
+    }
 }
+
+

@@ -52,8 +52,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 }
 
-extension HomeViewController: squareCellProtocol, headlineCellProtocol, circleCellProtocol {
-    
+extension HomeViewController: squareCellProtocol, headlineCellProtocol, circleCellProtocol, suggestionCellProtocol, latestCellProtocol, top10CellProtocol {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -92,6 +91,7 @@ extension HomeViewController: squareCellProtocol, headlineCellProtocol, circleCe
                 let cell = tableView.dequeueReusableCell(withIdentifier: LatestTableViewCell.identifier, for: indexPath) as! LatestTableViewCell
                 cell.updateDataArray(with: dataHome)
                 addTitle(to: cell, title: viewModel.home[indexPath.row].name ?? "Default Title")
+                cell.delegate = self
                 return cell
             case "TOPFRAMEPLAYLISTS":
                 let cell = tableView.dequeueReusableCell(withIdentifier: SuggestionTableViewCell.identifier, for: indexPath) as! SuggestionTableViewCell
@@ -100,6 +100,7 @@ extension HomeViewController: squareCellProtocol, headlineCellProtocol, circleCe
             case "TOPFRAMESONGS":
                 let cell = tableView.dequeueReusableCell(withIdentifier: Top10TableViewCell.identifier, for: indexPath) as! Top10TableViewCell
                 cell.updateDataArray(with: dataHome)
+                cell.delegate = self
                 addTitle(to: cell, title: viewModel.home[indexPath.row].name ?? "Default Title")
                 return cell
             default:
@@ -170,6 +171,31 @@ extension HomeViewController: squareCellProtocol, headlineCellProtocol, circleCe
     }
     
     func didSelectedCircle(with id: Int) {
+        let storyboard = UIStoryboard(name: "Play", bundle: nil)
+        if let vc = storyboard.instantiateViewController(withIdentifier: "PlayViewController") as? PlayViewController {
+            vc.selectedPlaylistId = id
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    func didSelectedSuggestion(with id: Int) {
+        let storyboard = UIStoryboard(name: "Play", bundle: nil)
+        if let vc = storyboard.instantiateViewController(withIdentifier: "PlayViewController") as? PlayViewController {
+            vc.selectedPlaylistId = id
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    func didSelectedLatest(with id: Int) {
+        let storyboard = UIStoryboard(name: "Play", bundle: nil)
+        if let vc = storyboard.instantiateViewController(withIdentifier: "PlayViewController") as? PlayViewController {
+            vc.selectedPlaylistId = id
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+    }
+    
+    func didSelectedTop10(with id: Int) {
         let storyboard = UIStoryboard(name: "Play", bundle: nil)
         if let vc = storyboard.instantiateViewController(withIdentifier: "PlayViewController") as? PlayViewController {
             vc.selectedPlaylistId = id

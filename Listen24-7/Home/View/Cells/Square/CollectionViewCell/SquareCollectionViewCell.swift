@@ -41,6 +41,5 @@ class SquareCollectionViewCell: UICollectionViewCell {
                 self.imgSquare.image = image
             }
         }.resume()
-        
     }
 }
