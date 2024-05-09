@@ -97,6 +97,7 @@
                     </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="LWy-7X-zsF" secondAttribute="trailing" constant="15" id="1sQ-fL-30O"/>
                     <constraint firstItem="eIE-1V-GNy" firstAttribute="leading" secondItem="ulH-il-xSf" secondAttribute="trailing" constant="5" id="4PO-Nr-HjL"/>
@@ -133,7 +134,7 @@
     <resources>
         <image name="play" width="50" height="50"/>
         <systemColor name="systemGray2Color">
-            <color red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

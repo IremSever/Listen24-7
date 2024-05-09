@@ -82,8 +82,10 @@ class PlaylistViewController: UIViewController, UITableViewDelegate, UITableView
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: PlaylistTableViewCell.identifier, for: indexPath) as! PlaylistTableViewCell
             
+            
             if let item  = selectedPlaylist.first?.songs?[indexPath.row] {
                 cell.configure(with: item)
+                
                 return cell
             }
             return cell
@@ -92,6 +94,7 @@ class PlaylistViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == tableViewPlaylist {
+            
             let indexRow =  indexPath.row
             
             let storyboard = UIStoryboard(name: "Play", bundle: nil)
@@ -100,6 +103,7 @@ class PlaylistViewController: UIViewController, UITableViewDelegate, UITableView
                 vc.listForPlayer = selectedPlaylist
                 self.navigationController?.pushViewController(vc, animated: true)
             }
+            tableView.cellForRow(at: indexPath)?.selectionStyle = .none
         }
     }
 }

@@ -11,15 +11,16 @@ class PlaylistTopTableViewCell: UITableViewCell {
     static let identifier = "PlaylistTopTableViewCell"
     @IBOutlet weak var lblPlaylistName: UILabel!
     @IBOutlet weak var imgCover: UIImageView!
+    @IBOutlet weak var buttonTittle: UIButton!
     @IBOutlet weak var imgCoverBlack: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        buttonTittle.isEnabled = false
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
         lblPlaylistName.font = UIFont(name: "Futura-Bold", size: 17)
         lblPlaylistName.textColor = UIColor.black
         

@@ -69,6 +69,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="buttonTittle" destination="bfS-nh-BW6" id="gPW-AI-GxM"/>
                 <outlet property="imgCover" destination="w2F-zi-c1Q" id="QIf-J9-eKw"/>
                 <outlet property="imgCoverBlack" destination="fyL-CI-875" id="gSQ-0o-zXK"/>
                 <outlet property="lblPlaylistName" destination="2dS-Nz-Yxe" id="EMU-Zn-oPR"/>
