@@ -13,14 +13,12 @@ class PlayViewController: UIViewController {
     
     static let identifier = "PlayViewController"
     
+    
+    @IBOutlet weak var sliderSong: UISlider!
     @IBOutlet weak var buttonBack: UIButton!
     @IBOutlet weak var imgBlack: UIImageView!
     @IBOutlet weak var lblTimeElapsed: UILabel!
     @IBOutlet weak var lblTimeTotal: UILabel!
-    @IBOutlet weak var buttonBackward: UIButton!
-    @IBOutlet weak var buttonPlay: UIButton!
-    @IBOutlet weak var buttonForward: UIButton!
-    @IBOutlet weak var sliderSong: UISlider!
     @IBOutlet weak var lblArtist: UILabel!
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var imgSong: UIImageView!
@@ -35,6 +33,8 @@ class PlayViewController: UIViewController {
     var player: AVPlayer?
     var isMusicPaused = false
     
+    var timeObserverToken: Any?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,11 +45,15 @@ class PlayViewController: UIViewController {
             prepareSong()
             
         }
-        
+        sliderSong?.isContinuous = true
         player?.play()
         //print("items: ", selectedIndex , listForPlayer)
         //print("mp3 url: ", listForPlayer.first?.songs?[selectedIndex ?? 0].mp3URL)
+        
+        addTimeObserver()
+        
     }
+    
     
     @objc func backButtonTapped() {
         navigationController?.popViewController(animated: true)
@@ -72,24 +76,25 @@ class PlayViewController: UIViewController {
             configure(with: selectedSong)
             prepareSong()
             player?.play()
+            resetElapsedTimeAndSlider()
         }
     }
     
     @IBAction func buttonPlayTapped(_ sender: UIButton) {
         guard let player = player else {
-                return
-            }
-            
-            if player.timeControlStatus == .playing {
-                sender.setImage(UIImage(named: "play"), for: .normal)
-                player.pause()
-                isMusicPaused = true
-            } else {
-                sender.setImage(UIImage(named: "pause"), for: .normal)
-                player.play()
-                isMusicPaused = false
-            }
+            return
         }
+        
+        if player.timeControlStatus == .playing {
+            sender.setImage(UIImage(named: "play"), for: .normal)
+            player.pause()
+            isMusicPaused = true
+        } else {
+            sender.setImage(UIImage(named: "pause"), for: .normal)
+            player.play()
+            isMusicPaused = false
+        }
+    }
     
     @IBAction func buttonForwardTapped(_ sender: UIButton) {
         if selectedIndex == nil {
@@ -107,6 +112,7 @@ class PlayViewController: UIViewController {
             configure(with: selectedSong)
             prepareSong()
             player?.play()
+            resetElapsedTimeAndSlider()
         }
     }
     
@@ -154,6 +160,10 @@ class PlayViewController: UIViewController {
         
         imgSong.layer.cornerRadius = 20
         imgBlack.layer.cornerRadius = 20
+        
+        //let thumbImage = UIImage(named: "sliderThumbTint")
+        //sliderSong.setThumbImage(thumbImage, for: .normal)
+        sliderSong.thumbTintColor = UIColor.systemPurple
     }
     
     func prepareSong() {
@@ -168,6 +178,28 @@ class PlayViewController: UIViewController {
         
         player = AVPlayer(url: mp3URL)
     }
+    
+    func addTimeObserver() {
+        guard let player = player else { return }
+        
+        let interval = CMTime(seconds: 1, preferredTimescale: 1)
+        
+        timeObserverToken = player.addPeriodicTimeObserver(forInterval: interval, queue: DispatchQueue.main) { [weak self] time in
+            guard let self = self else { return }
+            let currentTime = Int(CMTimeGetSeconds(time))
+            let minutes = currentTime / 60
+            let seconds = currentTime % 60
+            self.lblTimeElapsed.text = String(format: "%02d:%02d", minutes, seconds)
+            
+            guard let duration = self.player?.currentItem?.duration else { return }
+            let durationSeconds = CMTimeGetSeconds(duration)
+            self.sliderSong.value = Float(currentTime) / Float(durationSeconds)
+        }
+    }
+    
+    func resetElapsedTimeAndSlider() {
+        lblTimeElapsed.text = "00:00"
+        sliderSong.value = 0
+        addTimeObserver()
+    }
 }
-
-

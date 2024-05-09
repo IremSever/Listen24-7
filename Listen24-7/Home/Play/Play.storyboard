@@ -40,9 +40,10 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-0.5" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="7l6-qJ-2la">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" toolTip="z" minValue="0.0" maxValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="7l6-qJ-2la">
                                 <rect key="frame" x="14" y="606.66666666666663" width="365" height="31"/>
                                 <color key="minimumTrackTintColor" systemColor="systemPurpleColor"/>
+                                <color key="thumbTintColor" red="0.63921570780000003" green="0.34117650989999998" blue="0.84313726430000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </slider>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="wga-6O-GeK">
                                 <rect key="frame" x="16" y="644.66666666666663" width="361" height="12"/>
@@ -153,7 +154,7 @@
                         <outlet property="lblName" destination="tma-Pz-Hs3" id="yBQ-tp-ZgZ"/>
                         <outlet property="lblTimeElapsed" destination="Fcm-HR-uEM" id="gdH-Jm-KkH"/>
                         <outlet property="lblTimeTotal" destination="L5E-wZ-IGi" id="sPg-gh-Lv9"/>
-                        <outlet property="sliderSong" destination="7l6-qJ-2la" id="5pA-MM-ZQ5"/>
+                        <outlet property="sliderSong" destination="7l6-qJ-2la" id="hUm-oS-A0k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
