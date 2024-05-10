@@ -13,7 +13,7 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlaylistTableViewCell" rowHeight="61" id="KGk-i7-Jjw" customClass="PlaylistTableViewCell" customModule="Listen24_7" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="304" height="61"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="304" height="61"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -22,7 +22,6 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="53" id="fjA-C9-1NM"/>
-                            <constraint firstAttribute="width" constant="288" id="v1p-dk-fbZ"/>
                         </constraints>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <state key="normal" title="Button"/>
@@ -35,11 +34,10 @@
                         </buttonConfiguration>
                     </button>
                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EJt-FN-xrr">
-                        <rect key="frame" x="2" y="11" width="41" height="40"/>
+                        <rect key="frame" x="2" y="11" width="39" height="40"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="QrH-G5-kbz"/>
-                            <constraint firstAttribute="width" constant="41" id="bpJ-sj-Evr"/>
                         </constraints>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <state key="normal" title="Button"/>
@@ -80,10 +78,7 @@
                         </constraints>
                     </stackView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWy-7X-zsF">
-                        <rect key="frame" x="50" y="8.9999999999999982" width="241" height="20.333333333333329"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="241" id="6yP-hj-Dwf"/>
-                        </constraints>
+                        <rect key="frame" x="48" y="8.9999999999999982" width="241" height="20.333333333333329"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -92,19 +87,18 @@
                         <rect key="frame" x="2" y="7" width="43" height="44"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="44" id="Mp5-ac-gVo"/>
-                            <constraint firstAttribute="width" constant="43" id="hBx-l3-pB3"/>
                         </constraints>
                     </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
+                    <constraint firstItem="LWy-7X-zsF" firstAttribute="leading" secondItem="ulH-il-xSf" secondAttribute="trailing" constant="3" id="1Q7-SY-1qK"/>
                     <constraint firstAttribute="trailing" secondItem="LWy-7X-zsF" secondAttribute="trailing" constant="15" id="1sQ-fL-30O"/>
-                    <constraint firstItem="eIE-1V-GNy" firstAttribute="leading" secondItem="ulH-il-xSf" secondAttribute="trailing" constant="5" id="4PO-Nr-HjL"/>
+                    <constraint firstItem="eIE-1V-GNy" firstAttribute="leading" secondItem="ulH-il-xSf" secondAttribute="trailing" constant="3" id="4PO-Nr-HjL"/>
                     <constraint firstItem="eIE-1V-GNy" firstAttribute="leading" secondItem="EJt-FN-xrr" secondAttribute="trailing" constant="7" id="4ZH-ya-Zd0"/>
                     <constraint firstAttribute="bottom" secondItem="D2l-l7-36z" secondAttribute="bottom" constant="4" id="6Uw-yZ-rJw"/>
                     <constraint firstItem="ulH-il-xSf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="2" id="8RP-4l-6y1"/>
-                    <constraint firstItem="LWy-7X-zsF" firstAttribute="leading" secondItem="ulH-il-xSf" secondAttribute="trailing" constant="5" id="8Tm-CR-lSy"/>
                     <constraint firstItem="eIE-1V-GNy" firstAttribute="top" secondItem="LWy-7X-zsF" secondAttribute="bottom" constant="0.67000000000000004" id="DWj-iH-LZz"/>
                     <constraint firstAttribute="bottom" secondItem="EJt-FN-xrr" secondAttribute="bottom" constant="10" id="NEO-YE-vLZ"/>
                     <constraint firstItem="LWy-7X-zsF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="Td6-R1-ne9"/>
@@ -113,7 +107,7 @@
                     <constraint firstAttribute="bottom" secondItem="EJt-FN-xrr" secondAttribute="bottom" constant="10" id="axw-j4-xzL"/>
                     <constraint firstItem="EJt-FN-xrr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="2" id="bu9-qu-lcH"/>
                     <constraint firstItem="eIE-1V-GNy" firstAttribute="top" secondItem="LWy-7X-zsF" secondAttribute="bottom" constant="0.67000000000000004" id="dG2-I4-ZkD"/>
-                    <constraint firstItem="eIE-1V-GNy" firstAttribute="leading" secondItem="ulH-il-xSf" secondAttribute="trailing" constant="5" id="exV-mw-WUC"/>
+                    <constraint firstItem="eIE-1V-GNy" firstAttribute="leading" secondItem="ulH-il-xSf" secondAttribute="trailing" constant="3" id="exV-mw-WUC"/>
                     <constraint firstAttribute="bottom" secondItem="ulH-il-xSf" secondAttribute="bottom" constant="10" id="few-cC-Hf3"/>
                     <constraint firstItem="EJt-FN-xrr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="gGY-KS-dNW"/>
                     <constraint firstItem="D2l-l7-36z" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="hNs-Oi-9Ot"/>

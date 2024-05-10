@@ -34,7 +34,7 @@
                         </connections>
                     </collectionView>
                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="oka-rU-P64">
-                        <rect key="frame" x="32" y="376" width="206" height="26"/>
+                        <rect key="frame" x="32" y="374" width="206" height="26"/>
                         <color key="pageIndicatorTintColor" red="0.89411771299999998" green="0.92156863209999995" blue="0.8156862855" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="currentPageIndicatorTintColor" systemColor="systemOrangeColor"/>
                     </pageControl>
@@ -42,7 +42,7 @@
                 <color key="backgroundColor" name="AppColor"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="deR-0P-Icz" secondAttribute="bottom" constant="22" id="1K6-Se-IYp"/>
-                    <constraint firstItem="oka-rU-P64" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="365" id="25L-Kx-toh"/>
+                    <constraint firstAttribute="bottom" secondItem="oka-rU-P64" secondAttribute="bottom" id="5CH-KR-D06"/>
                     <constraint firstItem="deR-0P-Icz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Afm-CF-6fG"/>
                     <constraint firstItem="oka-rU-P64" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="16" id="NSa-X6-Yx9"/>
                     <constraint firstItem="deR-0P-Icz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="a9d-f1-OnL"/>

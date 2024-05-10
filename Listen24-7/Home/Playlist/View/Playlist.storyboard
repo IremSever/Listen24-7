@@ -56,7 +56,7 @@
                                 <rect key="frame" x="16" y="450" width="361" height="368"/>
                                 <color key="backgroundColor" name="AppColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="368" id="wLA-bj-j3Y"/>
+                                    <constraint firstAttribute="height" constant="368" id="Ha5-bJ-FTO"/>
                                 </constraints>
                             </tableView>
                         </subviews>
