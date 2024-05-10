@@ -88,7 +88,6 @@ class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
             previousCell.configure(with: item)
         }
         
-        // Sonraki hücre
         let nextIndex = (currentIndex + 1) % totalItems
         let nextCell = collectionView.dequeueReusableCell(withReuseIdentifier: HeadlineCollectionViewCell.identifier, for: IndexPath(item: nextIndex, section: 0)) as! HeadlineCollectionViewCell
         if let item = dataArray.first?.response?[nextIndex] {
@@ -106,22 +105,40 @@ class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: UIScreen.main.bounds.width, height: 490)
+        CGSize(width: UIScreen.main.bounds.width - 80, height: 470)
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let pageNumber = scrollView.contentOffset.x / scrollView.frame.size.width
-        pageControlHeadline.currentPage = Int(pageNumber)
-        if pageControlHeadline.currentPage == 1 {
-            frameValue = pageNumber
-        }
+        let pageWidth = scrollView.frame.size.width
+        let currentPage = Int(scrollView.contentOffset.x / pageWidth)
+        pageControlHeadline.currentPage = currentPage
     }
+
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if pageControlHeadline.currentPage == dataArray.first?.response?.count ?? 0 - 1{
+        let pageWidth = scrollView.frame.size.width
+        let currentPage = Int((scrollView.contentOffset.x + pageWidth / 2) / pageWidth)
+        let pageCount = dataArray.first?.response?.count ?? 0
+        
+        if currentPage == 0 {
+            // If swiped from the first page to the left, go to the last page
+            let lastPageIndex = pageCount - 1
+            pageControlHeadline.currentPage = lastPageIndex
+            let lastItemIndex = IndexPath(item: lastPageIndex, section: 0)
+            collectionViewHeadline.scrollToItem(at: lastItemIndex, at: .centeredHorizontally, animated: true)
+        } else if currentPage == pageCount {
+            // If swiped from the last page to the right, go to the first page
             pageControlHeadline.currentPage = 0
             collectionViewHeadline.contentOffset = CGPoint(x: 0, y: 0)
+        } else {
+            // Update the current page
+            pageControlHeadline.currentPage = currentPage
         }
     }
+
+
+
+
+
 }
 
 

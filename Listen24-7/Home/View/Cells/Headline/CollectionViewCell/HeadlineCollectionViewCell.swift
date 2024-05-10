@@ -18,7 +18,7 @@ class HeadlineCollectionViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        lblHeadlineTitle?.font = UIFont(name: "Futura-Bold", size: 20)
+        lblHeadlineTitle?.font = UIFont(name: "Futura-Bold", size: 17)
         lblHeadlineTitle?.textColor = UIColor.white
         lblHeadlineTitle?.layer.shadowColor = UIColor.black.cgColor
         lblHeadlineTitle?.layer.shadowOpacity = 0.5

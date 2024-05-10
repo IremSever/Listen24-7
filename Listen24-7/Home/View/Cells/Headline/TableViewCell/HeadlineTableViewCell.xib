@@ -3,7 +3,6 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,8 +18,8 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="HeadlineTableViewCell" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="deR-0P-Icz">
-                        <rect key="frame" x="0.0" y="0.0" width="270" height="378"/>
-                        <color key="backgroundColor" name="AppColor"/>
+                        <rect key="frame" x="0.0" y="48" width="270" height="330"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8Qx-br-hHb">
                             <size key="itemSize" width="320" height="400"/>
@@ -35,23 +34,24 @@
                     </collectionView>
                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="oka-rU-P64">
                         <rect key="frame" x="32" y="374" width="206" height="26"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="pageIndicatorTintColor" red="0.89411771299999998" green="0.92156863209999995" blue="0.8156862855" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="currentPageIndicatorTintColor" systemColor="systemOrangeColor"/>
                     </pageControl>
                 </subviews>
-                <color key="backgroundColor" name="AppColor"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="deR-0P-Icz" secondAttribute="bottom" constant="22" id="1K6-Se-IYp"/>
                     <constraint firstAttribute="bottom" secondItem="oka-rU-P64" secondAttribute="bottom" id="5CH-KR-D06"/>
                     <constraint firstItem="deR-0P-Icz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Afm-CF-6fG"/>
                     <constraint firstItem="oka-rU-P64" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="16" id="NSa-X6-Yx9"/>
-                    <constraint firstItem="deR-0P-Icz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="a9d-f1-OnL"/>
+                    <constraint firstItem="deR-0P-Icz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="48" id="a9d-f1-OnL"/>
                     <constraint firstAttribute="trailing" secondItem="deR-0P-Icz" secondAttribute="trailing" id="ieK-RA-fXD"/>
                     <constraint firstAttribute="trailingMargin" secondItem="oka-rU-P64" secondAttribute="trailing" constant="16" id="tfw-nl-I5x"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <color key="backgroundColor" name="AppColor"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="collectionViewHeadline" destination="deR-0P-Icz" id="V8y-yQ-6MY"/>
                 <outlet property="pageControlHeadline" destination="oka-rU-P64" id="oky-rS-EUh"/>
@@ -60,9 +60,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <namedColor name="AppColor">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

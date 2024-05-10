@@ -194,13 +194,13 @@ extension HomeViewController: squareCellProtocol, headlineCellProtocol, circleCe
         }
         
     }
-
-
-func didSelectedTop10(with id: Int) {
-    let storyboard = UIStoryboard(name: "Play", bundle: nil)
-    if let vc = storyboard.instantiateViewController(withIdentifier: "PlayViewController") as? PlayViewController {
-        vc.selectedPlaylistId = id
-        self.navigationController?.pushViewController(vc, animated: true)
+    
+    
+    func didSelectedTop10(with id: Int) {
+        let storyboard = UIStoryboard(name: "Play", bundle: nil)
+        if let vc = storyboard.instantiateViewController(withIdentifier: "PlayViewController") as? PlayViewController {
+            vc.selectedPlaylistId = id
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
-}
 }
