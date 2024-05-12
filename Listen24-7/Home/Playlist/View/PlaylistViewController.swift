@@ -106,4 +106,12 @@ class PlaylistViewController: UIViewController, UITableViewDelegate, UITableView
             tableView.cellForRow(at: indexPath)?.selectionStyle = .none
         }
     }
+    
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        if tableView == tableViewPlaylistTop {
+            return false
+        } else {
+            return true
+        }
+    }
 }

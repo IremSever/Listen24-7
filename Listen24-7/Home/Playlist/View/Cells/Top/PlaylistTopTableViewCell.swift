@@ -12,6 +12,7 @@ class PlaylistTopTableViewCell: UITableViewCell {
     @IBOutlet weak var lblPlaylistName: UILabel!
     @IBOutlet weak var imgCover: UIImageView!
     @IBOutlet weak var buttonTittle: UIButton!
+    @IBOutlet weak var lblPlaylistInfo: UILabel!
     @IBOutlet weak var imgCoverBlack: UIImageView!
     
     override func awakeFromNib() {
@@ -24,6 +25,9 @@ class PlaylistTopTableViewCell: UITableViewCell {
         lblPlaylistName.font = UIFont(name: "Futura-Bold", size: 17)
         lblPlaylistName.textColor = UIColor.black
         
+        lblPlaylistInfo.font = UIFont(name: "Futura", size: 15)
+        lblPlaylistInfo.textColor = UIColor.white
+        
         addBottomCornerRadius(to: imgCover, radius: 50)
         addBottomCornerRadius(to: imgCoverBlack, radius: 50)
     }
@@ -31,12 +35,14 @@ class PlaylistTopTableViewCell: UITableViewCell {
     func configureCover(data: PlaylistResponse?) {
         guard let imgURLString = data?.image, let imgURL = URL(string: imgURLString) else {
             imgCover.image = nil
+            imgCoverBlack.image = nil
             lblPlaylistName.text = nil
-            lblPlaylistName.text = nil
+            lblPlaylistInfo.text = nil
             return
         }
         
         lblPlaylistName?.text = data?.name
+        lblPlaylistInfo?.text = data?.description
         
         URLSession.shared.dataTask(with: imgURL) { [weak self] (data, response, error) in
             guard let self = self, let data = data, error == nil else {
