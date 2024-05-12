@@ -55,7 +55,7 @@ class LatestTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let selectedPlaylistId = dataArray.first?.playlists?[indexPath.row].id else {
+        guard let selectedPlaylistId = dataArray.first?.songs?[indexPath.row].id else {
             return
         }
         self.delegate?.didSelectedLatest(with: selectedPlaylistId)
