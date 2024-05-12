@@ -53,6 +53,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 }
 
 extension HomeViewController: squareCellProtocol, headlineCellProtocol, circleCellProtocol, suggestionCellProtocol, latestCellProtocol, top10CellProtocol {
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -67,46 +68,46 @@ extension HomeViewController: squareCellProtocol, headlineCellProtocol, circleCe
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let dataHeader = viewModelHeader.header
-            let cell = tableViewHome.dequeueReusableCell(withIdentifier: "HeadlineTableViewCell", for: indexPath) as! HeadlineTableViewCell
-            cell.delegate = self
-            cell.updateDataArray(with: [News(response: dataHeader, status: true)])
-            return cell
-        } else {
-            let dataHome = viewModel.home[indexPath.row]
-            switch dataHome.template {
-            case "SLIDER", "STANDARD":
-                let cell = tableView.dequeueReusableCell(withIdentifier: SquareTableViewCell.identifier, for: indexPath) as! SquareTableViewCell
-                cell.updateDataArray(with: dataHome)
+                let dataHeader = viewModelHeader.header
+                let cell = tableViewHome.dequeueReusableCell(withIdentifier: "HeadlineTableViewCell", for: indexPath) as! HeadlineTableViewCell
                 cell.delegate = self
-                addTitle(to: cell, title: viewModel.home[indexPath.row].name ?? "Default Title")
+                cell.updateDataArray(with: [News(response: dataHeader, status: true)])
                 return cell
-            case "RADIO":
-                let cell = tableView.dequeueReusableCell(withIdentifier: CircleTableViewCell.identifier, for: indexPath) as! CircleTableViewCell
-                cell.updateDataArray(with: dataHome)
-                cell.delegate = self
-                addTitle(to: cell, title: viewModel.home[indexPath.row].name ?? "Default Title")
-                return cell
-            case "LASTSONGS":
-                let cell = tableView.dequeueReusableCell(withIdentifier: LatestTableViewCell.identifier, for: indexPath) as! LatestTableViewCell
-                cell.updateDataArray(with: dataHome)
-                addTitle(to: cell, title: viewModel.home[indexPath.row].name ?? "Default Title")
-                cell.delegate = self
-                return cell
-            case "TOPFRAMEPLAYLISTS":
-                let cell = tableView.dequeueReusableCell(withIdentifier: SuggestionTableViewCell.identifier, for: indexPath) as! SuggestionTableViewCell
-                cell.updateDataArray(with: dataHome)
-                return cell
-            case "TOPFRAMESONGS":
-                let cell = tableView.dequeueReusableCell(withIdentifier: Top10TableViewCell.identifier, for: indexPath) as! Top10TableViewCell
-                cell.updateDataArray(with: dataHome)
-                cell.delegate = self
-                addTitle(to: cell, title: viewModel.home[indexPath.row].name ?? "Default Title")
-                return cell
-            default:
-                return UITableViewCell()
+            } else {
+                let dataHome = viewModel.home[indexPath.row]
+                switch dataHome.template {
+                case "SLIDER", "STANDARD":
+                    let cell = tableView.dequeueReusableCell(withIdentifier: SquareTableViewCell.identifier, for: indexPath) as! SquareTableViewCell
+                    cell.updateDataArray(with: dataHome)
+                    cell.delegate = self
+                    addTitle(to: cell, title: viewModel.home[indexPath.row].name ?? "Default Title")
+                    return cell
+                case "RADIO":
+                    let cell = tableView.dequeueReusableCell(withIdentifier: CircleTableViewCell.identifier, for: indexPath) as! CircleTableViewCell
+                    cell.updateDataArray(with: dataHome)
+                    cell.delegate = self
+                    addTitle(to: cell, title: viewModel.home[indexPath.row].name ?? "Default Title")
+                    return cell
+                case "LASTSONGS":
+                    let cell = tableView.dequeueReusableCell(withIdentifier: LatestTableViewCell.identifier, for: indexPath) as! LatestTableViewCell
+                    cell.updateDataArray(with: dataHome)
+                    addTitle(to: cell, title: viewModel.home[indexPath.row].name ?? "Default Title")
+                    cell.delegate = self
+                    return cell
+                case "TOPFRAMEPLAYLISTS":
+                    let cell = tableView.dequeueReusableCell(withIdentifier: SuggestionTableViewCell.identifier, for: indexPath) as! SuggestionTableViewCell
+                    cell.updateDataArray(with: dataHome)
+                    return cell
+                case "TOPFRAMESONGS":
+                    let cell = tableView.dequeueReusableCell(withIdentifier: Top10TableViewCell.identifier, for: indexPath) as! Top10TableViewCell
+                    cell.updateDataArray(with: dataHome)
+                    cell.delegate = self
+                    addTitle(to: cell, title: viewModel.home[indexPath.row].name ?? "Default Title")
+                    return cell
+                default:
+                    return UITableViewCell()
+                }
             }
-        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -134,17 +135,22 @@ extension HomeViewController: squareCellProtocol, headlineCellProtocol, circleCe
     }
     
     func addTitle(to contentView: UIView, title: String) {
-        let titleLabel = UILabel()
-        titleLabel.text = title
-        titleLabel.font = UIFont.systemFont(ofSize: 16, weight: .bold)
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(titleLabel)
-        NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            titleLabel.heightAnchor.constraint(equalToConstant: 40)
-        ])
+        var titleLabel = contentView.viewWithTag(1000) as? UILabel
+            if titleLabel == nil {
+                titleLabel = UILabel()
+                titleLabel?.tag = 1000
+                titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+                titleLabel?.translatesAutoresizingMaskIntoConstraints = false
+                contentView.addSubview(titleLabel!)
+                
+                NSLayoutConstraint.activate([
+                    titleLabel!.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
+                    titleLabel!.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+                    titleLabel!.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+                    titleLabel!.heightAnchor.constraint(equalToConstant: 40)
+                ])
+            }
+            titleLabel?.text = title
     }
     
     // cell selected false
@@ -161,13 +167,12 @@ extension HomeViewController: squareCellProtocol, headlineCellProtocol, circleCe
         }
     }
     
-    func didSelectedHeadline(with id: String) {
+    func didSelectedHeadline(with id: Int) {
         let storyboard = UIStoryboard(name: "Playlist", bundle: nil)
         if let vc = storyboard.instantiateViewController(withIdentifier: "PlaylistViewController") as? PlaylistViewController {
-            vc.selectedPlaylistId = Int(id)
+            vc.selectedPlaylistId = id
             self.navigationController?.pushViewController(vc, animated: true)
         }
-        
     }
     
     func didSelectedCircle(with id: Int) {
@@ -195,12 +200,11 @@ extension HomeViewController: squareCellProtocol, headlineCellProtocol, circleCe
         
     }
     
-    
     func didSelectedTop10(with id: Int) {
-        let storyboard = UIStoryboard(name: "Play", bundle: nil)
-        if let vc = storyboard.instantiateViewController(withIdentifier: "PlayViewController") as? PlayViewController {
-            vc.selectedPlaylistId = id
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+        let storyboard = UIStoryboard(name: "Playlist", bundle: nil)
+            if let vc = storyboard.instantiateViewController(withIdentifier: "PlaylistViewController") as? PlaylistViewController {
+                vc.selectedPlaylistId = id
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
     }
 }

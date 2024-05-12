@@ -8,7 +8,7 @@
 import UIKit
 
 protocol headlineCellProtocol {
-    func didSelectedHeadline(with id: String)
+    func didSelectedHeadline(with id: Int)
 }
 
 class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
@@ -32,7 +32,6 @@ class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
         pageControlHeadline.numberOfPages = dataArray.first?.response?.count ?? 0
     }
     
-    
     func createHeadlineCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -55,14 +54,6 @@ class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
             collectionViewHeadline.scrollToItem(at: selectedIndexPath, at: .centeredHorizontally, animated: false)
         }
     }
-    
-    /*func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-     let itemWidth = collectionViewHeadline.frame.width
-     let currentIndex = Int(collectionViewHeadline.contentOffset.x / itemWidth)
-     pageControlHeadline.currentPage = currentIndex
-     selectedIndex = currentIndex
-     
-     }*/
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataArray.first?.response?.count ?? 0
@@ -97,11 +88,26 @@ class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
         return cell
     }
     
+    func extractId(from external: String?) -> Int? {
+        guard let external = external else {
+            return nil
+        }
+        
+        let prefix = "playlist://"
+        guard external.hasPrefix(prefix) else {
+            return nil
+        }
+        
+        let idString = String(external.dropFirst(prefix.count))
+        return Int(idString)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let selectedPlaylistId = dataArray.first?.response?[indexPath.row].id else {
+        guard let selectedPlaylistId = dataArray.first?.response?[indexPath.row].external,
+              let id = extractId(from: selectedPlaylistId) else {
             return
         }
-        delegate?.didSelectedHeadline(with: selectedPlaylistId)
+        delegate?.didSelectedHeadline(with: id)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -113,32 +119,23 @@ class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
         let currentPage = Int(scrollView.contentOffset.x / pageWidth)
         pageControlHeadline.currentPage = currentPage
     }
-
+    
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         let pageWidth = scrollView.frame.size.width
         let currentPage = Int((scrollView.contentOffset.x + pageWidth / 2) / pageWidth)
         let pageCount = dataArray.first?.response?.count ?? 0
         
         if currentPage == 0 {
-            // If swiped from the first page to the left, go to the last page
             let lastPageIndex = pageCount - 1
             pageControlHeadline.currentPage = lastPageIndex
             let lastItemIndex = IndexPath(item: lastPageIndex, section: 0)
             collectionViewHeadline.scrollToItem(at: lastItemIndex, at: .centeredHorizontally, animated: true)
         } else if currentPage == pageCount {
-            // If swiped from the last page to the right, go to the first page
             pageControlHeadline.currentPage = 0
             collectionViewHeadline.contentOffset = CGPoint(x: 0, y: 0)
         } else {
-            // Update the current page
             pageControlHeadline.currentPage = currentPage
         }
     }
-
-
-
-
-
 }
-
 
