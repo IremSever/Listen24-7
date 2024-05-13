@@ -25,6 +25,8 @@ class PlayViewController: UIViewController {
     
     var viewModel = PlaylistViewModel()
     var selectedPlaylistSongs: [PlaylistSongs]?
+    var selectedSong: Song?
+    var selectedRadioChannel: RadioChannel?
     var selectedPlaylistId: Int?
     
     var listForPlayer: [PlaylistResponse] = []
@@ -39,11 +41,21 @@ class PlayViewController: UIViewController {
         super.viewDidLoad()
         
         buttonBack?.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
-        if let selectedIndex = selectedIndex, let selectedSong = listForPlayer.first?.songs?[selectedIndex] {
-            configure(with: selectedSong)
+        
+        
+        if let selectedIndex = selectedIndex, let selectedPlaylistSong = listForPlayer.first?.songs?[selectedIndex] {
+            configure(with: selectedPlaylistSong)
             styleController()
             prepareSong()
-            
+        }
+        else if let selectedSong = selectedSong {
+            configureSelectedSong(with: selectedSong)
+            styleController()
+            prepareSong()
+        } else if let selectedRadioChannel = selectedRadioChannel {
+            configureSelectedRadioChannel(with: selectedRadioChannel)
+            styleController()
+            prepareSong()
         }
         
         sliderSong.addTarget(self, action: #selector(sliderValueChanged), for: .valueChanged)
@@ -75,9 +87,9 @@ class PlayViewController: UIViewController {
             newIndex = (listForPlayer.first?.songs?.count ?? 1) - 1
         }
         
-        if let selectedSong = listForPlayer.first?.songs?[newIndex] {
+        if let selectedPlaylistSong = listForPlayer.first?.songs?[newIndex] {
             selectedIndex = newIndex
-            configure(with: selectedSong)
+            configure(with: selectedPlaylistSong)
             prepareSong()
             player?.play()
             resetElapsedTimeAndSlider()
@@ -111,9 +123,9 @@ class PlayViewController: UIViewController {
             newIndex = 0
         }
         
-        if let selectedSong = listForPlayer.first?.songs?[newIndex] {
+        if let selectedPlaylistSong = listForPlayer.first?.songs?[newIndex] {
             selectedIndex = newIndex
-            configure(with: selectedSong)
+            configure(with: selectedPlaylistSong)
             prepareSong()
             player?.play()
             resetElapsedTimeAndSlider()
@@ -161,6 +173,72 @@ class PlayViewController: UIViewController {
         }.resume()
     }
     
+    func configureSelectedSong(with selectedSong: Song) {
+        guard let imageURLString = selectedSong.image,
+              let imageURL = URL(string: imageURLString) else {
+            imgSong?.image = nil
+            lblName.text = nil
+            lblArtist.text = nil
+            lblTimeTotal.text = nil
+            lblTimeElapsed.text = nil
+            return
+        }
+        
+        lblName.text = selectedSong.name
+        lblArtist.text = selectedSong.singers?.first?.name
+        lblTimeTotal.text = selectedSong.durationTime
+        lblTimeElapsed.text = "00:00"
+        
+        URLSession.shared.dataTask(with: imageURL) { [weak self] (data, response, error) in
+            guard let self = self, let data = data, error == nil else {
+                return
+            }
+            
+            DispatchQueue.main.async {
+                let image = UIImage(data: data)
+                self.imgSong.image = image
+            }
+        }.resume()
+        
+        if let mp3URLString = selectedSong.mp3URL,
+           let mp3URL = URL(string: mp3URLString) {
+            player = AVPlayer(url: mp3URL)
+            player?.play()
+        }
+    }
+    
+    func configureSelectedRadioChannel(with selectedRadioChannel: RadioChannel) {
+        guard let imageURLString = selectedRadioChannel.image,
+              let imageURL = URL(string: imageURLString) else {
+            imgSong?.image = nil
+            lblName.text = nil
+            lblArtist.text = nil
+            lblTimeTotal.text = nil
+            lblTimeElapsed.text = nil
+            return
+        }
+        
+        lblName.text = selectedRadioChannel.name
+        lblTimeElapsed.text = "-:-"
+        lblTimeTotal.text = "-:-"
+        
+        URLSession.shared.dataTask(with: imageURL) { [weak self] (data, response, error) in
+            guard let self = self, let data = data, error == nil else {
+                return
+            }
+            
+            DispatchQueue.main.async {
+                let image = UIImage(data: data)
+                self.imgSong.image = image
+            }
+        }.resume()
+        
+        if let mp3URLString = selectedRadioChannel.mp3URL,
+           let mp3URL = URL(string: mp3URLString) {
+            player = AVPlayer(url: mp3URL)
+            player?.play()
+        }
+    }
     func styleController() {
         lblName?.font = UIFont(name: "Futura-Bold", size: 15)
         lblName?.textColor = UIColor.systemPurple
@@ -184,8 +262,8 @@ class PlayViewController: UIViewController {
     
     func prepareSong() {
         guard let selectedIndex = selectedIndex,
-              let selectedSong = listForPlayer.first?.songs?[selectedIndex],
-              let mp3URLString = selectedSong.mp3URL,
+              let selectedPlaylistSong = listForPlayer.first?.songs?[selectedIndex],
+              let mp3URLString = selectedPlaylistSong.mp3URL,
               let mp3URL = URL(string: mp3URLString) else {
             
             print("Error preparing song")
@@ -228,9 +306,9 @@ class PlayViewController: UIViewController {
             newIndex = 0
         }
         
-        if let selectedSong = listForPlayer.first?.songs?[newIndex] {
+        if let selectedPlaylistSong = listForPlayer.first?.songs?[newIndex] {
             selectedIndex = newIndex
-            configure(with: selectedSong)
+            configure(with: selectedPlaylistSong)
             prepareSong()
             player?.play()
             resetElapsedTimeAndSlider()
