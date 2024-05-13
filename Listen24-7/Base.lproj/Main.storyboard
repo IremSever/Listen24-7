@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4JP-3A-xwH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4JP-3A-xwH">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -43,22 +42,10 @@
                                     <constraint firstAttribute="height" constant="420" id="2cK-af-fCY"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="62H-rr-1A5">
-                                <rect key="frame" x="311.33333333333331" y="62" width="65.666666666666686" height="33"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="33" id="fCQ-Ue-Jgs"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="" buttonSize="large">
-                                    <imageReference key="image" image="person.crop.circle.fill" catalog="system" symbolScale="large"/>
-                                    <color key="baseForegroundColor" red="0.39215683940000001" green="0.37647059560000001" blue="0.88235294819999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Merhabalar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="97k-jt-AOU">
-                                <rect key="frame" x="29" y="62" width="100" height="33"/>
+                                <rect key="frame" x="29" y="62" width="234" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="18"/>
                                 <color key="textColor" red="0.39246747949999999" green="0.3751737228" blue="0.88150376080000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -75,14 +62,10 @@
                         <viewLayoutGuide key="safeArea" id="kLL-Hy-fcM"/>
                         <color key="backgroundColor" name="AppColor"/>
                         <constraints>
-                            <constraint firstItem="62H-rr-1A5" firstAttribute="top" secondItem="97k-jt-AOU" secondAttribute="top" id="89d-nW-wfG"/>
                             <constraint firstItem="gon-4l-r2x" firstAttribute="top" secondItem="97k-jt-AOU" secondAttribute="bottom" constant="-95" id="Ahh-jv-PZW"/>
-                            <constraint firstItem="62H-rr-1A5" firstAttribute="trailing" secondItem="kgS-Ai-HL4" secondAttribute="trailingMargin" id="ECf-iK-VN7"/>
                             <constraint firstItem="twh-Gb-Dk8" firstAttribute="centerX" secondItem="kgS-Ai-HL4" secondAttribute="centerX" id="LdN-6K-Fkr"/>
-                            <constraint firstItem="kLL-Hy-fcM" firstAttribute="top" secondItem="62H-rr-1A5" secondAttribute="bottom" constant="8" symbolic="YES" id="QEU-7y-EhV"/>
                             <constraint firstItem="gon-4l-r2x" firstAttribute="trailing" secondItem="kLL-Hy-fcM" secondAttribute="trailing" id="TQP-8e-Y6e"/>
                             <constraint firstItem="twh-Gb-Dk8" firstAttribute="trailing" secondItem="kgS-Ai-HL4" secondAttribute="trailing" id="Thp-FI-ns7"/>
-                            <constraint firstItem="62H-rr-1A5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="97k-jt-AOU" secondAttribute="trailing" constant="8" symbolic="YES" id="WbB-OO-Qao"/>
                             <constraint firstItem="gon-4l-r2x" firstAttribute="leading" secondItem="kLL-Hy-fcM" secondAttribute="leading" id="XyF-hb-XK8"/>
                             <constraint firstItem="twh-Gb-Dk8" firstAttribute="leading" secondItem="kgS-Ai-HL4" secondAttribute="leading" id="ZDh-sh-Zqf"/>
                             <constraint firstAttribute="bottom" secondItem="gon-4l-r2x" secondAttribute="bottom" id="ebe-gk-T1w"/>
@@ -119,7 +102,6 @@
     <resources>
         <image name="background" width="3675" height="4868"/>
         <image name="house" catalog="system" width="128" height="104"/>
-        <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>
         <namedColor name="AppColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

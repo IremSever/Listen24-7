@@ -19,7 +19,7 @@ class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
     var dataArray: [News] = [] {
         didSet {
             collectionViewHeadline.reloadData()
-            pageControlHeadline.numberOfPages = dataArray.first?.response?.count ?? 0
+            //pageControlHeadline.numberOfPages = dataArray.first?.response?.count ?? 0
         }
     }
     var selectedPlaylistId: Int?
@@ -29,26 +29,26 @@ class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
     override func awakeFromNib() {
         super.awakeFromNib()
         createHeadlineCollectionView()
-        pageControlHeadline.numberOfPages = dataArray.first?.response?.count ?? 0
+       // pageControlHeadline.numberOfPages = dataArray.first?.response?.count ?? 0
     }
     
     func createHeadlineCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: 350, height: 500)
+        layout.itemSize = CGSize(width: 700, height: 500)
         collectionViewHeadline.collectionViewLayout = layout
         collectionViewHeadline.register(UINib(nibName: "HeadlineCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: HeadlineCollectionViewCell.identifier)
         collectionViewHeadline.backgroundColor = .clear
         collectionViewHeadline.delegate = self
         collectionViewHeadline.dataSource = self
         collectionViewHeadline.showsHorizontalScrollIndicator = false
-        collectionViewHeadline.isPagingEnabled = true
+        collectionViewHeadline.isPagingEnabled = false
     }
     
     func updateDataArray(with dataArray: [News]) {
         self.dataArray = dataArray
         collectionViewHeadline.reloadData()
-        pageControlHeadline.numberOfPages = dataArray.first?.response?.count ?? 0
+       // pageControlHeadline.numberOfPages = dataArray.first?.response?.count ?? 0
         if dataArray.first?.response?.count ?? 0 > 0 {
             let selectedIndexPath = IndexPath(row: selectedPlaylistId ?? 0, section: 0)
             collectionViewHeadline.scrollToItem(at: selectedIndexPath, at: .centeredHorizontally, animated: false)
@@ -114,10 +114,10 @@ class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
         CGSize(width: UIScreen.main.bounds.width - 80, height: 470)
     }
     
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+  /*  func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let pageWidth = scrollView.frame.size.width
         let currentPage = Int(scrollView.contentOffset.x / pageWidth)
-        pageControlHeadline.currentPage = currentPage
+        //  pageControlHeadline.currentPage = currentPage
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
@@ -136,6 +136,6 @@ class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
         } else {
             pageControlHeadline.currentPage = currentPage
         }
-    }
+    }*/
 }
 

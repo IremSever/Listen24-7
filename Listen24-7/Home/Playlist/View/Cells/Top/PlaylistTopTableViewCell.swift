@@ -48,10 +48,10 @@ class PlaylistTopTableViewCell: UITableViewCell {
             guard let self = self, let data = data, error == nil else {
                 return
             }
-            
+            imgCover.isHidden = true
             DispatchQueue.global().async {
                 guard let image = UIImage(data: data) else { return }
-                /* //Blur effect
+                  //Blur effect
                  let ciImage = CIImage(image: image)
                  let blurFilter = CIFilter(name: "CIGaussianBlur")
                  blurFilter?.setValue(ciImage, forKey: kCIInputImageKey)
@@ -60,19 +60,20 @@ class PlaylistTopTableViewCell: UITableViewCell {
                  
                  let context = CIContext()
                  if let cgImage = context.createCGImage(blurredImage, from: blurredImage.extent) {
-                 let blurredUIImage = UIImage(cgImage: cgImage)*/
+                 let blurredUIImage = UIImage(cgImage: cgImage)
                 
                 DispatchQueue.main.async {
-                    /* let imageView = UIImageView(frame: self.imgCover.bounds)
+                     let imageView = UIImageView(frame: self.imgCover.bounds)
                      imageView.contentMode = .scaleAspectFill
                      imageView.image = blurredUIImage
                      self.imgCover.addSubview(imageView)
-                     self.imgCover.sendSubviewToBack(imageView)*/
-                    self.imgCover.image = image
+                     self.imgCover.sendSubviewToBack(imageView)
+                    //self.imgCover.image = image
+                    self.imgCover.isHidden = false 
                 }
                 
             }
-            
+            }
         }.resume()
     }
     

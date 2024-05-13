@@ -21,6 +21,8 @@ class PlaylistViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableViewPlaylistTop.isHidden = true
+        tableViewPlaylist.isHidden = true
         tableViewPlaylistTop.superview?.addSubview(tableViewPlaylistTop)
         createPlaylistTableView()
         loadData()
@@ -43,6 +45,8 @@ class PlaylistViewController: UIViewController, UITableViewDelegate, UITableView
                 self?.selectedPlaylist = playlistResponses
                 self?.tableViewPlaylistTop.reloadData()
                 self?.tableViewPlaylist.reloadData()
+                self?.tableViewPlaylistTop.isHidden = false
+                self?.tableViewPlaylist.isHidden = false
             }
         }
     }
