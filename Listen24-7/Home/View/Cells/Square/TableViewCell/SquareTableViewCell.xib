@@ -3,7 +3,6 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,7 +18,7 @@
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="cvc-aH-aER">
                         <rect key="frame" x="0.0" y="30" width="300" height="99"/>
-                        <color key="backgroundColor" name="AppColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yy6-6u-36a">
                             <size key="itemSize" width="120" height="120"/>
                             <size key="estimatedItemSize" width="120" height="150"/>
@@ -29,7 +28,7 @@
                         </collectionViewFlowLayout>
                     </collectionView>
                 </subviews>
-                <color key="backgroundColor" name="AppColor"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="cvc-aH-aER" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="AyO-jF-zrJ"/>
                     <constraint firstItem="cvc-aH-aER" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="IoZ-L1-2mW"/>
@@ -38,16 +37,11 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <color key="backgroundColor" name="AppColor"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="collectionViewSquare" destination="cvc-aH-aER" id="Huo-rn-xDS"/>
             </connections>
             <point key="canvasLocation" x="-4.5801526717557248" y="22.887323943661972"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <namedColor name="AppColor">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
-    </resources>
 </document>
