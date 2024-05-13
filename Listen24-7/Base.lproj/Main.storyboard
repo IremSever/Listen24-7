@@ -17,7 +17,7 @@
                     <tabBarItem key="tabBarItem" title="" id="5By-Om-qgd">
                         <imageReference key="image" image="house" catalog="system" renderingMode="hierarchical-single">
                             <hierarchicalColors>
-                                <color red="0.51548957819999996" green="0.27515798809999997" blue="0.67848694320000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color red="0.39372140169999997" green="0.37541374560000002" blue="0.88243311639999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color systemColor="secondaryLabelColor"/>
                                 <color systemColor="tertiaryLabelColor"/>
                             </hierarchicalColors>
@@ -50,19 +50,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background1" translatesAutoresizingMaskIntoConstraints="NO" id="twh-Gb-Dk8">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background2" translatesAutoresizingMaskIntoConstraints="NO" id="twh-Gb-Dk8">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="505"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="852" id="2cK-af-fCY"/>
+                                    <constraint firstAttribute="height" constant="505" id="2cK-af-fCY"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Merhabalar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="97k-jt-AOU">
-                                <rect key="frame" x="29" y="62" width="234" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="18"/>
-                                <color key="textColor" red="0.39246747949999999" green="0.3751737228" blue="0.88150376080000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="gon-4l-r2x">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -76,8 +69,7 @@
                         <viewLayoutGuide key="safeArea" id="kLL-Hy-fcM"/>
                         <color key="backgroundColor" name="AppColor"/>
                         <constraints>
-                            <constraint firstItem="gon-4l-r2x" firstAttribute="top" secondItem="97k-jt-AOU" secondAttribute="bottom" constant="-95" id="Ahh-jv-PZW"/>
-                            <constraint firstAttribute="bottom" secondItem="twh-Gb-Dk8" secondAttribute="bottom" id="KGR-mH-UoM"/>
+                            <constraint firstAttribute="bottom" secondItem="twh-Gb-Dk8" secondAttribute="bottom" constant="347" id="KGR-mH-UoM"/>
                             <constraint firstItem="twh-Gb-Dk8" firstAttribute="centerX" secondItem="kgS-Ai-HL4" secondAttribute="centerX" id="LdN-6K-Fkr"/>
                             <constraint firstItem="gon-4l-r2x" firstAttribute="trailing" secondItem="kLL-Hy-fcM" secondAttribute="trailing" id="TQP-8e-Y6e"/>
                             <constraint firstItem="twh-Gb-Dk8" firstAttribute="trailing" secondItem="kgS-Ai-HL4" secondAttribute="trailing" id="Thp-FI-ns7"/>
@@ -85,6 +77,7 @@
                             <constraint firstItem="twh-Gb-Dk8" firstAttribute="leading" secondItem="kgS-Ai-HL4" secondAttribute="leading" id="ZDh-sh-Zqf"/>
                             <constraint firstAttribute="bottom" secondItem="gon-4l-r2x" secondAttribute="bottom" id="ebe-gk-T1w"/>
                             <constraint firstItem="twh-Gb-Dk8" firstAttribute="top" secondItem="kgS-Ai-HL4" secondAttribute="top" id="uIQ-Ci-PDf"/>
+                            <constraint firstItem="gon-4l-r2x" firstAttribute="top" secondItem="twh-Gb-Dk8" secondAttribute="top" id="vVU-Xg-BZY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" style="editor" id="s3D-Q8-J7C"/>
@@ -115,7 +108,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="background1" width="814" height="1444"/>
+        <image name="background2" width="810" height="1440"/>
         <image name="house" catalog="system" width="128" height="104"/>
         <namedColor name="AppColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

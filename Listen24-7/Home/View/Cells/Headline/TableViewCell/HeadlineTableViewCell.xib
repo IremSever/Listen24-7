@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="HeadlineTableViewCell" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="deR-0P-Icz">
-                        <rect key="frame" x="0.0" y="48" width="270" height="330"/>
+                        <rect key="frame" x="0.0" y="34" width="270" height="366"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8Qx-br-hHb">
@@ -31,12 +31,19 @@
                             <outlet property="delegate" destination="-1" id="JG0-1w-1vM"/>
                         </connections>
                     </collectionView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Merhabalar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zts-BS-raa">
+                        <rect key="frame" x="30" y="0.0" width="209" height="33"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="18"/>
+                        <color key="textColor" red="0.51548957819999996" green="0.27515798809999997" blue="0.67848694320000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="deR-0P-Icz" secondAttribute="bottom" constant="22" id="1K6-Se-IYp"/>
+                    <constraint firstAttribute="bottom" secondItem="deR-0P-Icz" secondAttribute="bottom" id="1K6-Se-IYp"/>
                     <constraint firstItem="deR-0P-Icz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Afm-CF-6fG"/>
-                    <constraint firstItem="deR-0P-Icz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="48" id="a9d-f1-OnL"/>
+                    <constraint firstItem="deR-0P-Icz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="34" id="a9d-f1-OnL"/>
                     <constraint firstAttribute="trailing" secondItem="deR-0P-Icz" secondAttribute="trailing" id="ieK-RA-fXD"/>
                 </constraints>
             </tableViewCellContentView>

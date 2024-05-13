@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,6 +17,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background1" translatesAutoresizingMaskIntoConstraints="NO" id="JOI-91-ZoS">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="851"/>
+                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coldplay.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ONl-EH-r2U">
                                 <rect key="frame" x="8" y="59" width="377" height="475"/>
                             </imageView>
@@ -40,7 +44,7 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" toolTip="z" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="7l6-qJ-2la">
+                            <slider toolTip="z" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="7l6-qJ-2la">
                                 <rect key="frame" x="14" y="606.66666666666663" width="365" height="31"/>
                                 <color key="minimumTrackTintColor" systemColor="systemPurpleColor"/>
                                 <color key="thumbTintColor" red="0.63921570780000003" green="0.34117650989999998" blue="0.84313726430000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -118,12 +122,14 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="AppColor"/>
                         <constraints>
                             <constraint firstItem="ONl-EH-r2U" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="11j-iC-yN6"/>
+                            <constraint firstItem="JOI-91-ZoS" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="1q4-0h-Uyy"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="7hz-e3-5gC" secondAttribute="trailing" constant="85" id="48n-Zu-HwZ"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="wga-6O-GeK" secondAttribute="trailing" constant="16" id="5Ac-Qx-aLa"/>
                             <constraint firstItem="7hz-e3-5gC" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="85" id="5FS-wu-p6n"/>
+                            <constraint firstItem="JOI-91-ZoS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="6gC-GD-MSz"/>
                             <constraint firstItem="7hz-e3-5gC" firstAttribute="top" secondItem="wga-6O-GeK" secondAttribute="bottom" constant="35" id="D3o-xv-xLk"/>
                             <constraint firstItem="gR0-SJ-ad1" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="DgB-mj-fkQ"/>
                             <constraint firstItem="wga-6O-GeK" firstAttribute="top" secondItem="7l6-qJ-2la" secondAttribute="bottom" constant="8" id="Iez-L5-9UJ"/>
@@ -142,6 +148,8 @@
                             <constraint firstItem="wga-6O-GeK" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="hnV-Xn-M9T"/>
                             <constraint firstItem="7l6-qJ-2la" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="iPb-qZ-a5K"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="rsv-lb-RBx" secondAttribute="trailing" constant="8" id="pdc-A4-TCG"/>
+                            <constraint firstAttribute="bottom" secondItem="JOI-91-ZoS" secondAttribute="bottom" constant="1" id="qVy-un-9aj"/>
+                            <constraint firstItem="JOI-91-ZoS" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="qvi-bt-CGP"/>
                             <constraint firstItem="ONl-EH-r2U" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="sab-EB-ruA"/>
                             <constraint firstItem="hg4-ob-h3g" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="sxY-Zi-yLK"/>
                             <constraint firstItem="gR0-SJ-ad1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="u8K-ax-5dw"/>
@@ -166,16 +174,17 @@
         </scene>
     </scenes>
     <resources>
+        <image name="background1" width="814" height="1444"/>
         <image name="backward" width="40" height="40"/>
         <image name="chevron.down.circle.fill" catalog="system" width="128" height="123"/>
         <image name="coldplay.jpg" width="500" height="500"/>
         <image name="forward" width="40" height="40"/>
         <image name="pause" width="50" height="50"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="AppColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <systemColor name="systemPurpleColor">
-            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
