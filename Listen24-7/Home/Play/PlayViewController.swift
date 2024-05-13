@@ -275,20 +275,24 @@ class PlayViewController: UIViewController {
     
     func addTimeObserver() {
         guard let player = player else { return }
-        
-        let interval = CMTime(seconds: 1, preferredTimescale: 1)
-        
-        timeObserverToken = player.addPeriodicTimeObserver(forInterval: interval, queue: DispatchQueue.main) { [weak self] time in
-            guard let self = self else { return }
-            let currentTime = Int(CMTimeGetSeconds(time))
-            let minutes = currentTime / 60
-            let seconds = currentTime % 60
-            self.lblTimeElapsed.text = String(format: "%02d:%02d", minutes, seconds)
-            
-            guard let duration = self.player?.currentItem?.duration else { return }
-            let durationSeconds = CMTimeGetSeconds(duration)
-            self.sliderSong.value = Float(currentTime) / Float(durationSeconds)
-        }
+                
+                let interval = CMTime(seconds: 1, preferredTimescale: 1)
+                
+                timeObserverToken = player.addPeriodicTimeObserver(forInterval: interval, queue: DispatchQueue.main) { [weak self] time in
+                    guard let self = self else { return }
+                    let currentTime = Int(CMTimeGetSeconds(time))
+                    let minutes = currentTime / 60
+                    let seconds = currentTime % 60
+                    if selectedRadioChannel != nil {
+                        lblTimeElapsed.text = "-:-"
+                    } else {
+                        self.lblTimeElapsed.text = String(format: "%02d:%02d", minutes, seconds)
+                    }
+                    
+                    guard let duration = self.player?.currentItem?.duration else { return }
+                    let durationSeconds = CMTimeGetSeconds(duration)
+                    self.sliderSong.value = Float(currentTime) / Float(durationSeconds)
+                }
     }
     
     func resetElapsedTimeAndSlider() {
