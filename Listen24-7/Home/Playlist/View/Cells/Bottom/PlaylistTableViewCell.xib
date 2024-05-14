@@ -73,6 +73,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="IQW-Io-qVd"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="oZ9-mK-Mom" firstAttribute="centerX" secondItem="eIE-1V-GNy" secondAttribute="centerX" id="Aif-lo-MnM"/>
                         </constraints>
@@ -117,6 +118,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="lblArtist" destination="sLP-eG-wax" id="M3b-AF-YvG"/>
                 <outlet property="lblDuration" destination="0Wp-Kp-hhW" id="hF3-ye-CdW"/>
@@ -128,7 +130,7 @@
     <resources>
         <image name="play" width="50" height="50"/>
         <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

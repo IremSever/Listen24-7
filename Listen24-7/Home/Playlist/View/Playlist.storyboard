@@ -16,9 +16,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background3" translatesAutoresizingMaskIntoConstraints="NO" id="cjZ-Xh-SW3">
+                                <rect key="frame" x="0.0" y="203" width="393" height="649"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="649" id="N0N-It-IYt"/>
+                                </constraints>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleAspectFit" bounces="NO" scrollEnabled="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Gpg-S4-a5f">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="450"/>
-                                <color key="backgroundColor" name="AppColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="724" translatesAutoresizingMaskIntoConstraints="NO" id="t9f-AX-qpi">
@@ -54,12 +61,16 @@
                                 </buttonConfiguration>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ZEZ-ho-RyN">
-                                <rect key="frame" x="16" y="450" width="361" height="368"/>
-                                <color key="backgroundColor" name="AppColor"/>
+                                <rect key="frame" x="16" y="450" width="361" height="341"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="368" id="Ha5-bJ-FTO"/>
+                                    <constraint firstAttribute="height" constant="341" id="Ha5-bJ-FTO"/>
                                 </constraints>
+                                <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -68,6 +79,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="VrP-lG-8vb" secondAttribute="trailing" constant="16" id="2eO-nr-Hvd"/>
                             <constraint firstItem="Gpg-S4-a5f" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="8FR-ji-gKE"/>
                             <constraint firstItem="ZEZ-ho-RyN" firstAttribute="top" secondItem="Gpg-S4-a5f" secondAttribute="bottom" id="CrC-Nq-Bhv"/>
+                            <constraint firstItem="cjZ-Xh-SW3" firstAttribute="top" secondItem="Gpg-S4-a5f" secondAttribute="top" constant="203" id="F2b-c0-3wP"/>
                             <constraint firstItem="t9f-AX-qpi" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="79" id="Ibd-Up-MEh"/>
                             <constraint firstItem="ZEZ-ho-RyN" firstAttribute="top" secondItem="Gpg-S4-a5f" secondAttribute="bottom" id="M7o-Sg-ILe"/>
                             <constraint firstItem="nA5-mw-VwD" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="WOU-Sg-ydJ"/>
@@ -77,10 +89,16 @@
                             <constraint firstItem="t9f-AX-qpi" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="chs-FL-EFQ"/>
                             <constraint firstItem="VrP-lG-8vb" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="esR-tY-FgG"/>
                             <constraint firstItem="ZEZ-ho-RyN" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="-16" id="fNl-FQ-16i" userLabel="Table View Playlist.trailing = Safe Area.trailing - 25"/>
-                            <constraint firstAttribute="bottom" secondItem="ZEZ-ho-RyN" secondAttribute="bottom" constant="34" id="hnk-Dm-Aq5"/>
+                            <constraint firstAttribute="bottom" secondItem="ZEZ-ho-RyN" secondAttribute="bottom" constant="61" id="hnk-Dm-Aq5"/>
+                            <constraint firstItem="cjZ-Xh-SW3" firstAttribute="leading" secondItem="Gpg-S4-a5f" secondAttribute="leading" id="llQ-gV-BoO"/>
+                            <constraint firstAttribute="bottom" secondItem="cjZ-Xh-SW3" secondAttribute="bottom" id="lnU-d9-xZp"/>
+                            <constraint firstAttribute="bottom" secondItem="cjZ-Xh-SW3" secondAttribute="bottom" id="pNY-Vo-rSj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cjZ-Xh-SW3" secondAttribute="trailing" constant="-16" id="qyN-sR-D95"/>
                             <constraint firstItem="ZEZ-ho-RyN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="t4O-ym-DdL"/>
+                            <constraint firstItem="cjZ-Xh-SW3" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="tnJ-O6-LNr"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="buttonBack" destination="nA5-mw-VwD" id="1Cc-cO-4S1"/>
                         <outlet property="buttonShare" destination="VrP-lG-8vb" id="xPL-SV-aRc"/>
@@ -96,6 +114,7 @@
     </scenes>
     <resources>
         <image name="724" width="130" height="111"/>
+        <image name="background3" width="806" height="1442"/>
         <image name="chevron.backward.circle.fill" catalog="system" width="128" height="123"/>
         <image name="square.and.arrow.up.fill" catalog="system" width="115" height="128"/>
         <namedColor name="AppColor">
