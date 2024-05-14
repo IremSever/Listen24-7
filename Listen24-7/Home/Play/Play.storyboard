@@ -21,23 +21,23 @@
                                 <rect key="frame" x="-17" y="0.0" width="410" height="851"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ONl-EH-r2U">
-                                <rect key="frame" x="8" y="59" width="377" height="475"/>
+                                <rect key="frame" x="16" y="79" width="361" height="455"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rsv-lb-RBx">
-                                <rect key="frame" x="8" y="59" width="377" height="475"/>
+                                <rect key="frame" x="16" y="79" width="361" height="455"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.29822019867549671" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hg4-ob-h3g" userLabel="LblStackView">
-                                <rect key="frame" x="16" y="542" width="361" height="40.666666666666629"/>
+                                <rect key="frame" x="16" y="542" width="361" height="100"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tma-Pz-Hs3">
-                                        <rect key="frame" x="0.0" y="0.0" width="361" height="20.333333333333332"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tma-Pz-Hs3">
+                                        <rect key="frame" x="0.0" y="0.0" width="361" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m35-Nb-sUK">
-                                        <rect key="frame" x="0.0" y="20.333333333333371" width="361" height="20.333333333333329"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m35-Nb-sUK">
+                                        <rect key="frame" x="0.0" y="50" width="361" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -45,7 +45,7 @@
                                 </subviews>
                             </stackView>
                             <slider toolTip="z" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="7l6-qJ-2la">
-                                <rect key="frame" x="14" y="606.66666666666663" width="365" height="31"/>
+                                <rect key="frame" x="14" y="666" width="365" height="31"/>
                                 <color key="minimumTrackTintColor" systemColor="systemPurpleColor"/>
                                 <color key="thumbTintColor" red="0.63921570780000003" green="0.34117650989999998" blue="0.84313726430000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
@@ -53,59 +53,22 @@
                                 </connections>
                             </slider>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="wga-6O-GeK">
-                                <rect key="frame" x="16" y="644.66666666666663" width="361" height="12"/>
+                                <rect key="frame" x="16" y="704" width="361" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fcm-HR-uEM">
-                                        <rect key="frame" x="0.0" y="0.0" width="234.66666666666666" height="12"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fcm-HR-uEM">
+                                        <rect key="frame" x="0.0" y="0.0" width="211" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                         <size key="shadowOffset" width="0.0" height="0.0"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5E-wZ-IGi">
-                                        <rect key="frame" x="334.66666666666669" y="0.0" width="26.333333333333314" height="12"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5E-wZ-IGi">
+                                        <rect key="frame" x="311" y="0.0" width="50" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                         <size key="shadowOffset" width="0.0" height="0.0"/>
                                     </label>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="7hz-e3-5gC">
-                                <rect key="frame" x="85" y="691.66666666666663" width="223" height="64"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GyO-Uz-6pR" userLabel="ButtonBackward">
-                                        <rect key="frame" x="0.0" y="0.0" width="74.333333333333329" height="64"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="tintColor" red="0.51548957819999996" green="0.27515798809999997" blue="0.67848694320000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="gray" image="backward 1" title="">
-                                            <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="buttonBackwardTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Ywj-C3-eeN"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ryW-MY-zlf" userLabel="ButtonPlay">
-                                        <rect key="frame" x="74.333333333333343" y="0.0" width="74.333333333333343" height="64"/>
-                                        <color key="tintColor" red="0.51548957819999996" green="0.27515798809999997" blue="0.67848694320000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="gray" image="pause" title="">
-                                            <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="buttonPlayTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="nYG-5v-H4V"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tba-8i-4cz" userLabel="ButtonForward">
-                                        <rect key="frame" x="148.66666666666666" y="0.0" width="74.333333333333343" height="64"/>
-                                        <color key="tintColor" red="0.51548957819999996" green="0.27515798809999997" blue="0.67848694320000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="forward" title=""/>
-                                        <connections>
-                                            <action selector="buttonForwardTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="y6v-p6-jxv"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" role="primary" translatesAutoresizingMaskIntoConstraints="NO" id="gR0-SJ-ad1">
@@ -121,37 +84,74 @@
                                     <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="7hz-e3-5gC">
+                                <rect key="frame" x="85" y="774.33333333333337" width="223" height="84"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GyO-Uz-6pR" userLabel="ButtonBackward">
+                                        <rect key="frame" x="0.0" y="0.0" width="74.333333333333329" height="84"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" red="0.51548957819999996" green="0.27515798809999997" blue="0.67848694320000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" image="backward" title="">
+                                            <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="buttonBackwardTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Ywj-C3-eeN"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ryW-MY-zlf" userLabel="ButtonPlay">
+                                        <rect key="frame" x="74.333333333333343" y="0.0" width="74.333333333333343" height="84"/>
+                                        <color key="tintColor" red="0.51548957819999996" green="0.27515798809999997" blue="0.67848694320000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" image="pause" title="">
+                                            <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="buttonPlayTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="nYG-5v-H4V"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tba-8i-4cz" userLabel="ButtonForward">
+                                        <rect key="frame" x="148.66666666666666" y="0.0" width="74.333333333333343" height="84"/>
+                                        <color key="tintColor" red="0.51548957819999996" green="0.27515798809999997" blue="0.67848694320000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="forward" title=""/>
+                                        <connections>
+                                            <action selector="buttonForwardTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="y6v-p6-jxv"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="AppColor"/>
                         <constraints>
-                            <constraint firstItem="ONl-EH-r2U" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="11j-iC-yN6"/>
+                            <constraint firstItem="ONl-EH-r2U" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="11j-iC-yN6"/>
                             <constraint firstItem="JOI-91-ZoS" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="1q4-0h-Uyy"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="7hz-e3-5gC" secondAttribute="trailing" constant="85" id="48n-Zu-HwZ"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="wga-6O-GeK" secondAttribute="trailing" constant="16" id="5Ac-Qx-aLa"/>
                             <constraint firstItem="7hz-e3-5gC" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="85" id="5FS-wu-p6n"/>
                             <constraint firstItem="JOI-91-ZoS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="-17" id="6gC-GD-MSz"/>
-                            <constraint firstItem="7hz-e3-5gC" firstAttribute="top" secondItem="wga-6O-GeK" secondAttribute="bottom" constant="35" id="D3o-xv-xLk"/>
+                            <constraint firstItem="7hz-e3-5gC" firstAttribute="top" secondItem="wga-6O-GeK" secondAttribute="bottom" constant="20.333333333333371" id="D3o-xv-xLk"/>
                             <constraint firstItem="gR0-SJ-ad1" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="DgB-mj-fkQ"/>
                             <constraint firstItem="wga-6O-GeK" firstAttribute="top" secondItem="7l6-qJ-2la" secondAttribute="bottom" constant="8" id="Iez-L5-9UJ"/>
                             <constraint firstItem="7l6-qJ-2la" firstAttribute="top" secondItem="hg4-ob-h3g" secondAttribute="bottom" constant="24" id="MHK-Le-XJw"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="7l6-qJ-2la" secondAttribute="trailing" constant="16" id="Ocn-bO-dAC"/>
-                            <constraint firstItem="rsv-lb-RBx" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="PIA-ph-EOE"/>
+                            <constraint firstItem="rsv-lb-RBx" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="PIA-ph-EOE"/>
                             <constraint firstAttribute="bottom" secondItem="ONl-EH-r2U" secondAttribute="bottom" constant="318" id="PYw-n4-B4r"/>
-                            <constraint firstItem="rsv-lb-RBx" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="Pih-I7-mmm"/>
+                            <constraint firstItem="rsv-lb-RBx" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="Pih-I7-mmm"/>
                             <constraint firstItem="wga-6O-GeK" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="SPa-EK-Rcm"/>
                             <constraint firstItem="7hz-e3-5gC" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Si4-9Q-zQ4"/>
                             <constraint firstAttribute="bottom" secondItem="rsv-lb-RBx" secondAttribute="bottom" constant="318" id="Vuk-wi-92I"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ONl-EH-r2U" secondAttribute="trailing" constant="8" id="YDD-Y7-sIZ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ONl-EH-r2U" secondAttribute="trailing" constant="16" id="YDD-Y7-sIZ"/>
                             <constraint firstItem="ONl-EH-r2U" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="aXz-na-f0H"/>
                             <constraint firstItem="hg4-ob-h3g" firstAttribute="top" secondItem="ONl-EH-r2U" secondAttribute="bottom" constant="8" id="b1X-yc-lcr"/>
                             <constraint firstItem="7l6-qJ-2la" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="egv-Yv-hQc"/>
                             <constraint firstItem="wga-6O-GeK" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="hnV-Xn-M9T"/>
                             <constraint firstItem="7l6-qJ-2la" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="iPb-qZ-a5K"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="rsv-lb-RBx" secondAttribute="trailing" constant="8" id="pdc-A4-TCG"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="rsv-lb-RBx" secondAttribute="trailing" constant="16" id="pdc-A4-TCG"/>
                             <constraint firstAttribute="bottom" secondItem="JOI-91-ZoS" secondAttribute="bottom" constant="1" id="qVy-un-9aj"/>
                             <constraint firstItem="JOI-91-ZoS" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="qvi-bt-CGP"/>
-                            <constraint firstItem="ONl-EH-r2U" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="sab-EB-ruA"/>
+                            <constraint firstItem="ONl-EH-r2U" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="sab-EB-ruA"/>
                             <constraint firstItem="hg4-ob-h3g" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="sxY-Zi-yLK"/>
                             <constraint firstItem="gR0-SJ-ad1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="u8K-ax-5dw"/>
                             <constraint firstItem="hg4-ob-h3g" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="ukO-ob-Jac"/>
@@ -177,10 +177,10 @@
     </scenes>
     <resources>
         <image name="background1" width="814" height="1444"/>
-        <image name="backward 1" width="50" height="50"/>
+        <image name="backward" width="70" height="70"/>
         <image name="chevron.down.circle.fill" catalog="system" width="128" height="123"/>
-        <image name="forward" width="50" height="50"/>
-        <image name="pause" width="50" height="50"/>
+        <image name="forward" width="70" height="70"/>
+        <image name="pause" width="70" height="70"/>
         <namedColor name="AppColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
