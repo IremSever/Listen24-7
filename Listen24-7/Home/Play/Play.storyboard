@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -18,9 +18,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background1" translatesAutoresizingMaskIntoConstraints="NO" id="JOI-91-ZoS">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="851"/>
+                                <rect key="frame" x="-17" y="0.0" width="410" height="851"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coldplay.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ONl-EH-r2U">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ONl-EH-r2U">
                                 <rect key="frame" x="8" y="59" width="377" height="475"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rsv-lb-RBx">
@@ -74,11 +74,12 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="7hz-e3-5gC">
                                 <rect key="frame" x="85" y="691.66666666666663" width="223" height="64"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GyO-Uz-6pR" userLabel="ButtonBackward">
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GyO-Uz-6pR" userLabel="ButtonBackward">
                                         <rect key="frame" x="0.0" y="0.0" width="74.333333333333329" height="64"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" red="0.51548957819999996" green="0.27515798809999997" blue="0.67848694320000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="gray" image="backward" title="">
+                                        <buttonConfiguration key="configuration" style="gray" image="backward 1" title="">
                                             <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -96,7 +97,7 @@
                                             <action selector="buttonPlayTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="nYG-5v-H4V"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tba-8i-4cz" userLabel="ButtonForward">
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tba-8i-4cz" userLabel="ButtonForward">
                                         <rect key="frame" x="148.66666666666666" y="0.0" width="74.333333333333343" height="64"/>
                                         <color key="tintColor" red="0.51548957819999996" green="0.27515798809999997" blue="0.67848694320000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
@@ -129,7 +130,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="7hz-e3-5gC" secondAttribute="trailing" constant="85" id="48n-Zu-HwZ"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="wga-6O-GeK" secondAttribute="trailing" constant="16" id="5Ac-Qx-aLa"/>
                             <constraint firstItem="7hz-e3-5gC" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="85" id="5FS-wu-p6n"/>
-                            <constraint firstItem="JOI-91-ZoS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="6gC-GD-MSz"/>
+                            <constraint firstItem="JOI-91-ZoS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="-17" id="6gC-GD-MSz"/>
                             <constraint firstItem="7hz-e3-5gC" firstAttribute="top" secondItem="wga-6O-GeK" secondAttribute="bottom" constant="35" id="D3o-xv-xLk"/>
                             <constraint firstItem="gR0-SJ-ad1" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="DgB-mj-fkQ"/>
                             <constraint firstItem="wga-6O-GeK" firstAttribute="top" secondItem="7l6-qJ-2la" secondAttribute="bottom" constant="8" id="Iez-L5-9UJ"/>
@@ -176,10 +177,9 @@
     </scenes>
     <resources>
         <image name="background1" width="814" height="1444"/>
-        <image name="backward" width="40" height="40"/>
+        <image name="backward 1" width="50" height="50"/>
         <image name="chevron.down.circle.fill" catalog="system" width="128" height="123"/>
-        <image name="coldplay.jpg" width="500" height="500"/>
-        <image name="forward" width="40" height="40"/>
+        <image name="forward" width="50" height="50"/>
         <image name="pause" width="50" height="50"/>
         <namedColor name="AppColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
