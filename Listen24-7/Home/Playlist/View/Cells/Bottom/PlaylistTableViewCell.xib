@@ -73,7 +73,6 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="IQW-Io-qVd"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="oZ9-mK-Mom" firstAttribute="centerX" secondItem="eIE-1V-GNy" secondAttribute="centerX" id="Aif-lo-MnM"/>
                         </constraints>

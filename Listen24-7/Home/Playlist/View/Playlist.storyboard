@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background3" translatesAutoresizingMaskIntoConstraints="NO" id="cjZ-Xh-SW3">
-                                <rect key="frame" x="0.0" y="203" width="393" height="649"/>
+                                <rect key="frame" x="0.0" y="203" width="402" height="649"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="649" id="N0N-It-IYt"/>
@@ -61,11 +61,11 @@
                                 </buttonConfiguration>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ZEZ-ho-RyN">
-                                <rect key="frame" x="16" y="450" width="361" height="341"/>
+                                <rect key="frame" x="28" y="450" width="339" height="308"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="341" id="Ha5-bJ-FTO"/>
+                                    <constraint firstAttribute="height" constant="308" id="Ha5-bJ-FTO"/>
                                 </constraints>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -88,14 +88,14 @@
                             <constraint firstItem="Gpg-S4-a5f" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="brS-s5-Aue"/>
                             <constraint firstItem="t9f-AX-qpi" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="chs-FL-EFQ"/>
                             <constraint firstItem="VrP-lG-8vb" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="esR-tY-FgG"/>
-                            <constraint firstItem="ZEZ-ho-RyN" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="-16" id="fNl-FQ-16i" userLabel="Table View Playlist.trailing = Safe Area.trailing - 25"/>
-                            <constraint firstAttribute="bottom" secondItem="ZEZ-ho-RyN" secondAttribute="bottom" constant="61" id="hnk-Dm-Aq5"/>
+                            <constraint firstItem="ZEZ-ho-RyN" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="-26" id="fNl-FQ-16i" userLabel="Table View Playlist.trailing = Safe Area.trailing - 25"/>
+                            <constraint firstAttribute="bottom" secondItem="ZEZ-ho-RyN" secondAttribute="bottom" constant="94" id="hnk-Dm-Aq5"/>
                             <constraint firstItem="cjZ-Xh-SW3" firstAttribute="leading" secondItem="Gpg-S4-a5f" secondAttribute="leading" id="llQ-gV-BoO"/>
                             <constraint firstAttribute="bottom" secondItem="cjZ-Xh-SW3" secondAttribute="bottom" id="lnU-d9-xZp"/>
                             <constraint firstAttribute="bottom" secondItem="cjZ-Xh-SW3" secondAttribute="bottom" id="pNY-Vo-rSj"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="cjZ-Xh-SW3" secondAttribute="trailing" constant="-16" id="qyN-sR-D95"/>
-                            <constraint firstItem="ZEZ-ho-RyN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="t4O-ym-DdL"/>
-                            <constraint firstItem="cjZ-Xh-SW3" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="tnJ-O6-LNr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cjZ-Xh-SW3" secondAttribute="trailing" constant="-25" id="qyN-sR-D95"/>
+                            <constraint firstItem="ZEZ-ho-RyN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="28" id="t4O-ym-DdL"/>
+                            <constraint firstItem="cjZ-Xh-SW3" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="9" id="tnJ-O6-LNr"/>
                         </constraints>
                     </view>
                     <nil key="simulatedBottomBarMetrics"/>
