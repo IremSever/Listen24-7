@@ -230,19 +230,21 @@ extension HomeViewController: squareCellProtocol, headlineCellProtocol, circleCe
         }
     }
     
-    func didSelectedLatest(with song: Song) {
+    func didSelectedLatest(with song: [Song], songIndex: Int) {
         let storyboard = UIStoryboard(name: "Play", bundle: nil)
         if let vc = storyboard.instantiateViewController(withIdentifier: "PlayViewController") as? PlayViewController {
             vc.selectedSong = song
-            self.navigationController?.pushViewController(vc, animated: true)
+            vc.songIndex = songIndex
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
-    
-    func didSelectedTop10(with song: Song) {
+    func didSelectedTop10(with song: [Song], songIndex: Int) {
+        print("Selected song index: \(songIndex)")
         let storyboard = UIStoryboard(name: "Play", bundle: nil)
         if let vc = storyboard.instantiateViewController(withIdentifier: "PlayViewController") as? PlayViewController {
             vc.selectedSong = song
-            self.navigationController?.pushViewController(vc, animated: true)
+            vc.songIndex = songIndex
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

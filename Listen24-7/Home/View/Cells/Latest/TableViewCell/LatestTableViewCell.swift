@@ -8,7 +8,8 @@
 import UIKit
 
 protocol latestCellProtocol {
-    func didSelectedLatest(with song: Song)
+    func didSelectedLatest(with songList: [Song], songIndex: Int)
+
 }
 
 class LatestTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
@@ -55,8 +56,8 @@ class LatestTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let selectedSong = dataArray.first?.songs?[indexPath.row] {
-            self.delegate?.didSelectedLatest(with: selectedSong)
+        if let songList = dataArray.first?.songs, let delegate = delegate {
+            delegate.didSelectedLatest(with: songList, songIndex: indexPath.item)
         }
     }
 }

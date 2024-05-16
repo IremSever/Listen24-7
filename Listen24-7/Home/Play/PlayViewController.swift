@@ -25,12 +25,14 @@ class PlayViewController: UIViewController {
     
     var viewModel = PlaylistViewModel()
     var selectedPlaylistSongs: [PlaylistSongs]?
-    var selectedSong: Song?
+    var selectedSong: [Song]?
     var selectedRadioChannel: RadioChannel?
     var selectedPlaylistId: Int?
     
+    
     var listForPlayer: [PlaylistResponse] = []
     var selectedIndex: Int? = 0
+    var songIndex: Int? = 0
     
     var player: AVPlayer?
     var isMusicPaused = false
@@ -50,7 +52,7 @@ class PlayViewController: UIViewController {
             prepareSong()
         }
         else if let selectedSong = selectedSong {
-            configureSelectedSong(with: selectedSong)
+            configureSelectedSong(with: selectedSong[songIndex ?? 0])
             styleController()
             prepareSong()
         } else if let selectedRadioChannel = selectedRadioChannel {
@@ -81,16 +83,29 @@ class PlayViewController: UIViewController {
         if selectedIndex == nil {
             selectedIndex = 0
         }
+        if songIndex == nil {
+            songIndex = 0
+        }
         
         var newIndex = selectedIndex! - 1
+        var newSongIndex = songIndex! - 1
         
         if newIndex < 0 {
             newIndex = (listForPlayer.first?.songs?.count ?? 1) - 1
+        }
+        if newSongIndex < 0 {
+            newSongIndex = (selectedSong?.count ?? 1) - 1
         }
         
         if let selectedPlaylistSong = listForPlayer.first?.songs?[newIndex] {
             selectedIndex = newIndex
             configure(with: selectedPlaylistSong)
+            prepareSong()
+            player?.play()
+            resetElapsedTimeAndSlider()
+        } else if let selectedSong = selectedSong?[newSongIndex] {
+            songIndex = newSongIndex
+            configureSelectedSong(with: selectedSong)
             prepareSong()
             player?.play()
             resetElapsedTimeAndSlider()
@@ -117,16 +132,30 @@ class PlayViewController: UIViewController {
         if selectedIndex == nil {
             selectedIndex = 0
         }
+        if songIndex == nil {
+            songIndex = 0
+        }
         
+        var newSongIndex = songIndex! + 1
         var newIndex = selectedIndex! + 1
         
         if newIndex >= (listForPlayer.first?.songs?.count ?? 1) {
             newIndex = 0
         }
+        if newSongIndex >= (selectedSong?.count ?? 1) {
+            newSongIndex = 0
+        }
+        
         
         if let selectedPlaylistSong = listForPlayer.first?.songs?[newIndex] {
             selectedIndex = newIndex
             configure(with: selectedPlaylistSong)
+            prepareSong()
+            player?.play()
+            resetElapsedTimeAndSlider()
+        } else if let selectedSong = selectedSong?[newSongIndex]{
+            songIndex = newSongIndex
+            configureSelectedSong(with: selectedSong)
             prepareSong()
             player?.play()
             resetElapsedTimeAndSlider()
@@ -304,17 +333,25 @@ class PlayViewController: UIViewController {
     }
     
     @objc func playerDidFinishPlaying(note: NSNotification) {
-        var selectedIndex: Int? = 0
         
         var newIndex = (selectedIndex ?? 0) + 1
-        
+        var newSongIndex = (songIndex ?? 0) + 1
         if newIndex >= (listForPlayer.first?.songs?.count ?? 1) {
+            newIndex = 0
+        }
+        if newSongIndex >= (selectedSong?.count ?? 0) {
             newIndex = 0
         }
         
         if let selectedPlaylistSong = listForPlayer.first?.songs?[newIndex] {
             selectedIndex = newIndex
             configure(with: selectedPlaylistSong)
+            prepareSong()
+            player?.play()
+            resetElapsedTimeAndSlider()
+        } else if let selectedSong = selectedSong?[newSongIndex]{
+            songIndex = newSongIndex
+            configureSelectedSong(with: selectedSong)
             prepareSong()
             player?.play()
             resetElapsedTimeAndSlider()

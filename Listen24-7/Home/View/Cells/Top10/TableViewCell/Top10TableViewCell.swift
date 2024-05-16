@@ -8,7 +8,7 @@
 import UIKit
 
 protocol top10CellProtocol {
-    func didSelectedTop10(with song: Song)
+    func didSelectedTop10(with songList: [Song], songIndex: Int)
 }
 
 
@@ -56,8 +56,8 @@ class Top10TableViewCell: UITableViewCell, UICollectionViewDataSource, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let selectedSong = dataArray.first?.songs?[indexPath.row] {
-            self.delegate?.didSelectedTop10(with: selectedSong)
+        if let songList = dataArray.first?.songs, let delegate = delegate {
+            delegate.didSelectedTop10(with: songList, songIndex: indexPath.item)
         }
     }
 }
