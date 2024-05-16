@@ -214,10 +214,11 @@ extension HomeViewController: squareCellProtocol, headlineCellProtocol, circleCe
         }
     }
     
-    func didSelectedCircle(with radioChannel: RadioChannel) {
+    func didSelectedCircle(with radioChannel: [RadioChannel], radioIndex: Int) {
         let storyboard = UIStoryboard(name: "Play", bundle: nil)
         if let vc = storyboard.instantiateViewController(withIdentifier: "PlayViewController") as? PlayViewController {
             vc.selectedRadioChannel = radioChannel
+            vc.radioIndex = radioIndex
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -239,7 +240,6 @@ extension HomeViewController: squareCellProtocol, headlineCellProtocol, circleCe
         }
     }
     func didSelectedTop10(with song: [Song], songIndex: Int) {
-        print("Selected song index: \(songIndex)")
         let storyboard = UIStoryboard(name: "Play", bundle: nil)
         if let vc = storyboard.instantiateViewController(withIdentifier: "PlayViewController") as? PlayViewController {
             vc.selectedSong = song

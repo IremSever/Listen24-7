@@ -11,7 +11,6 @@ protocol top10CellProtocol {
     func didSelectedTop10(with songList: [Song], songIndex: Int)
 }
 
-
 class Top10TableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
     static let identifier = "Top10TableViewCell"
     @IBOutlet weak var collectionViewTop10: UICollectionView!

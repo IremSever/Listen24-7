@@ -24,21 +24,23 @@ class PlayViewController: UIViewController {
     @IBOutlet weak var imgSong: UIImageView!
     
     var viewModel = PlaylistViewModel()
+    
     var selectedPlaylistSongs: [PlaylistSongs]?
     var selectedSong: [Song]?
-    var selectedRadioChannel: RadioChannel?
+    var selectedRadioChannel: [RadioChannel]?
+    
     var selectedPlaylistId: Int?
-    
-    
+
     var listForPlayer: [PlaylistResponse] = []
+    
     var selectedIndex: Int? = 0
     var songIndex: Int? = 0
+    var radioIndex: Int? = 0
     
     var player: AVPlayer?
     var isMusicPaused = false
     
     var timeObserverToken: Any?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +58,7 @@ class PlayViewController: UIViewController {
             styleController()
             prepareSong()
         } else if let selectedRadioChannel = selectedRadioChannel {
-            configureSelectedRadioChannel(with: selectedRadioChannel)
+            configureSelectedRadioChannel(with: selectedRadioChannel[radioIndex ?? 0])
             styleController()
             prepareSong()
         }
@@ -86,15 +88,22 @@ class PlayViewController: UIViewController {
         if songIndex == nil {
             songIndex = 0
         }
+        if radioIndex == nil {
+            radioIndex = 0
+        }
         
         var newIndex = selectedIndex! - 1
         var newSongIndex = songIndex! - 1
+        var newRadioIndex = radioIndex! - 1
         
         if newIndex < 0 {
             newIndex = (listForPlayer.first?.songs?.count ?? 1) - 1
         }
         if newSongIndex < 0 {
             newSongIndex = (selectedSong?.count ?? 1) - 1
+        }
+        if newRadioIndex < 0 {
+            newRadioIndex = (selectedRadioChannel?.count ?? 1) - 1
         }
         
         if let selectedPlaylistSong = listForPlayer.first?.songs?[newIndex] {
@@ -109,6 +118,11 @@ class PlayViewController: UIViewController {
             prepareSong()
             player?.play()
             resetElapsedTimeAndSlider()
+        } else if let selectedRadioChannel = selectedRadioChannel?[newRadioIndex] {
+            radioIndex = newRadioIndex
+            configureSelectedRadioChannel(with: selectedRadioChannel)
+            prepareSong()
+            player?.play()
         }
     }
     
@@ -135,15 +149,22 @@ class PlayViewController: UIViewController {
         if songIndex == nil {
             songIndex = 0
         }
+        if radioIndex == nil {
+            radioIndex = 0
+        }
         
         var newSongIndex = songIndex! + 1
         var newIndex = selectedIndex! + 1
+        var newRadioIndex = radioIndex! + 1
         
         if newIndex >= (listForPlayer.first?.songs?.count ?? 1) {
             newIndex = 0
         }
         if newSongIndex >= (selectedSong?.count ?? 1) {
             newSongIndex = 0
+        }
+        if newRadioIndex >= (selectedRadioChannel?.count ?? 1) {
+            newRadioIndex = 0
         }
         
         
@@ -159,6 +180,11 @@ class PlayViewController: UIViewController {
             prepareSong()
             player?.play()
             resetElapsedTimeAndSlider()
+        } else if let selectedRadioChannel = selectedRadioChannel?[newRadioIndex] {
+            radioIndex = newRadioIndex
+            configureSelectedRadioChannel(with: selectedRadioChannel)
+            prepareSong()
+            player?.play()
         }
     }
     
@@ -336,6 +362,7 @@ class PlayViewController: UIViewController {
         
         var newIndex = (selectedIndex ?? 0) + 1
         var newSongIndex = (songIndex ?? 0) + 1
+        
         if newIndex >= (listForPlayer.first?.songs?.count ?? 1) {
             newIndex = 0
         }

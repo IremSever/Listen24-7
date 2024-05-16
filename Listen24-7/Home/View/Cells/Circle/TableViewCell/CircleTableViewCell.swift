@@ -8,7 +8,7 @@
 import UIKit
 
 protocol circleCellProtocol {
-    func didSelectedCircle(with radioChannel: RadioChannel)
+    func didSelectedCircle(with radioChannel: [RadioChannel], radioIndex: Int)
 }
 
 class CircleTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
@@ -56,8 +56,8 @@ class CircleTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let selectedRadioChannel = dataArray.first?.radioChannels?[indexPath.row] {
-            self.delegate?.didSelectedCircle(with: selectedRadioChannel)
+        if let selectedRadioChannel = dataArray.first?.radioChannels, let delegate = delegate {
+            self.delegate?.didSelectedCircle(with: selectedRadioChannel, radioIndex: indexPath.item)
         }
     }
 }
