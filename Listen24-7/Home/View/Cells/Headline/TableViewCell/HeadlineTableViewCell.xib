@@ -32,7 +32,7 @@
                         </connections>
                     </collectionView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Merhabalar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zts-BS-raa">
-                        <rect key="frame" x="16" y="0.0" width="223" height="33"/>
+                        <rect key="frame" x="18" y="0.0" width="221" height="33"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="18"/>
                         <color key="textColor" red="0.15294116739999999" green="0.231372565" blue="0.38431376220000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
