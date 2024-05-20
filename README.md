@@ -2,7 +2,9 @@
 
 With Listen24-7, you can stay updated on a wide range of music, podcasts, news, and live radio all in one app. Discover your favorite songs, trending podcasts, breaking news, and live radio streams from various genres and sources. Whether you prefer rock, pop, jazz, or classical music, Listen24-7 offers something for every music lover. Additionally, you can access news updates and listen to your favorite talk shows and radio stations seamlessly.
 
-Built using the MVVM architecture and developed as a UIKit project, Listen24-7 ensures a smooth and responsive user experience with a modern, clean interface
+Built using the MVVM architecture and developed as a UIKit project, Listen24-7 ensures a smooth and responsive user experience with a modern, clean interface.
+
+The app features seamless API integration, allowing for real-time updates and access to a vast library of music, podcasts, and news content from trusted sources.
 
 ### Music
 Listen to an extensive library of songs from different genres. Stay up to date with the latest hits, curated playlists, and new releases from your favorite artists.
