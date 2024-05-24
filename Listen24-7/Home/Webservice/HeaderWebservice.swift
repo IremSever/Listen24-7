@@ -9,7 +9,7 @@ import Foundation
 
 class HeaderWebservice {
     func getHeaderData(completion: @escaping (Result<HeaderModel, Error>) -> Void) {
-        let headerURL = "https://api.tmgrup.com.tr/v1/link/1073"
+        let headerURL = "https://....."
         guard let url = URL(string: headerURL) else {return}
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in
