@@ -35,7 +35,7 @@ class HeadlineTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
     func createHeadlineCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: 700, height: 500)
+        //layout.itemSize = CGSize(width: 700, height: 500)
         collectionViewHeadline.collectionViewLayout = layout
         collectionViewHeadline.register(UINib(nibName: "HeadlineCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: HeadlineCollectionViewCell.identifier)
         collectionViewHeadline.backgroundColor = .clear

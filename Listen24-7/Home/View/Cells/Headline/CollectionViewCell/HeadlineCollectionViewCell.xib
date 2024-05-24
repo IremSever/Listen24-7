@@ -23,11 +23,11 @@
                         <color key="backgroundColor" name="AppColor"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgC-qO-K2o">
-                        <rect key="frame" x="20" y="288" width="240" height="62"/>
+                        <rect key="frame" x="20" y="329.66666666666669" width="240" height="20.333333333333314"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="62" id="QeH-lB-ErV"/>
+                            <constraint firstAttribute="width" constant="240" id="rCF-Qa-iNl"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" systemColor="tintColor"/>
@@ -39,7 +39,6 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="O2w-nq-jCo" secondAttribute="bottom" constant="8" id="9pS-Vw-lrk"/>
-                <constraint firstItem="jgC-qO-K2o" firstAttribute="centerX" secondItem="O2w-nq-jCo" secondAttribute="centerX" id="A1u-kV-AEg"/>
                 <constraint firstAttribute="bottom" secondItem="jgC-qO-K2o" secondAttribute="bottom" constant="20" id="Hgy-Cw-3eF"/>
                 <constraint firstAttribute="trailing" secondItem="O2w-nq-jCo" secondAttribute="trailing" constant="8" id="OwO-nG-MNv"/>
                 <constraint firstItem="jgC-qO-K2o" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="RZi-LS-BKO"/>

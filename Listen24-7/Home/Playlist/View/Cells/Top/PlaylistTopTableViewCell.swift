@@ -48,7 +48,10 @@ class PlaylistTopTableViewCell: UITableViewCell {
             guard let self = self, let data = data, error == nil else {
                 return
             }
-            imgCover.isHidden = true
+            DispatchQueue.main.async {
+                self.imgCover.isHidden = true
+            }
+            
             DispatchQueue.global().async {
                 guard let image = UIImage(data: data) else { return }
                   //Blur effect

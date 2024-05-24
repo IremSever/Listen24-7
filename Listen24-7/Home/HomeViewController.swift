@@ -74,8 +74,8 @@ extension HomeViewController: squareCellProtocol, headlineCellProtocol, circleCe
             return cell
         } else {
             let dataHome = viewModel.home[indexPath.row]
-            switch dataHome.template {
-            case "SLIDER", "STANDARD":
+            switch dataHome.listType {
+            case "Playlists":
                 let cell = tableView.dequeueReusableCell(withIdentifier: SquareTableViewCell.identifier, for: indexPath) as! SquareTableViewCell
                 if let playlists = dataHome.playlists, !playlists.isEmpty {
                     cell.updateDataArray(with: dataHome)
@@ -85,7 +85,7 @@ extension HomeViewController: squareCellProtocol, headlineCellProtocol, circleCe
                 } else {
                     return UITableViewCell()
                 }
-            case "RADIO":
+            case "RadioChannels":
                 let cell = tableView.dequeueReusableCell(withIdentifier: CircleTableViewCell.identifier, for: indexPath) as! CircleTableViewCell
                 if let radioChannels = dataHome.radioChannels, !radioChannels.isEmpty {
                     cell.updateDataArray(with: dataHome)
@@ -95,28 +95,8 @@ extension HomeViewController: squareCellProtocol, headlineCellProtocol, circleCe
                 } else {
                     return UITableViewCell()
                 }
-            case "LASTSONGS":
+            case "Songs":
                 let cell = tableView.dequeueReusableCell(withIdentifier: LatestTableViewCell.identifier, for: indexPath) as! LatestTableViewCell
-                if let songs = dataHome.songs, !songs.isEmpty {
-                    cell.updateDataArray(with: dataHome)
-                    addTitle(to: cell, title: viewModel.home[indexPath.row].name ?? "Default Title")
-                    cell.delegate = self
-                    return cell
-                } else {
-                    return UITableViewCell()
-                }
-            case "TOPFRAMEPLAYLISTS":
-                let cell = tableView.dequeueReusableCell(withIdentifier: SuggestionTableViewCell.identifier, for: indexPath) as! SuggestionTableViewCell
-                if let songs = dataHome.songs, !songs.isEmpty {
-                    cell.updateDataArray(with: dataHome)
-                    addTitle(to: cell, title: viewModel.home[indexPath.row].name ?? "Default Title")
-                    cell.delegate = self
-                    return cell
-                } else {
-                    return UITableViewCell()
-                }
-            case "TOPFRAMESONGS":
-                let cell = tableView.dequeueReusableCell(withIdentifier: Top10TableViewCell.identifier, for: indexPath) as! Top10TableViewCell
                 if let songs = dataHome.songs, !songs.isEmpty {
                     cell.updateDataArray(with: dataHome)
                     addTitle(to: cell, title: viewModel.home[indexPath.row].name ?? "Default Title")
